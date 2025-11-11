@@ -1,0 +1,43 @@
+/* ============================================
+   TABS COMPONENT VARIABLES
+   Design tokens for <nuke-tabs>
+   ============================================ */
+
+:root {
+  /* Base tabs properties */
+  --tabs-gap: var(--space-1);                   /* Gap between tabs */
+  --tabs-padding: var(--space-2);               /* Padding around tab list */
+
+  /* Tab button */
+  --tab-padding-x: var(--space-2);
+  --tab-padding-y: var(--space-1);
+  --tab-font-size: 1rem;
+  --tab-font-weight: 500;
+  --tab-color: var(--on-background-light);
+  --tab-color-active: var(--on-background);
+  --tab-transition: all 0.2s ease;
+
+  /* Tab panel */
+  --tab-panel-padding: var(--space-2);
+
+  /* Style 1: Underline tabs */
+  --tabs-style-1-border-bottom: 2px solid var(--border-1);
+  --tab-style-1-border-active: 2px solid var(--color-1);
+  --tab-style-1-background: transparent;
+  --tab-style-1-background-hover: var(--background-3);
+
+  /* Style 2: Pill tabs */
+  --tabs-style-2-background: transparent;
+  --tab-style-2-background: transparent;
+  --tab-style-2-background-active: var(--color-1);
+  --tab-style-2-background-hover: var(--background-3);
+  --tab-style-2-color-active: var(--on-color);
+  --tab-style-2-radius: var(--border-radius);
+
+  /* Style 3: Boxed tabs */
+  --tabs-style-3-border: 1px solid var(--border-1);
+  --tab-style-3-background: var(--background-3);
+  --tab-style-3-background-active: var(--background-2);
+  --tab-style-3-border-active: 1px solid var(--border-1);
+  --tab-style-3-radius: var(--border-radius);
+}

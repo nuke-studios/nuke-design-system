@@ -1,0 +1,39 @@
+/* ============================================
+   TOAST COMPONENT VARIABLES
+   Design tokens for <nuke-toast>
+   ============================================ */
+
+:root {
+  /* Base toast properties */
+  --toast-min-width: 300px;
+  --toast-max-width: 500px;
+  --toast-padding: var(--space-2);
+  --toast-radius: var(--border-radius);
+  --toast-shadow: var(--shadow-2);
+  --toast-font-size: 0.875rem;
+  --toast-z-index: 1000;
+
+  /* Toast container positioning */
+  --toast-container-position-top: var(--space-2);
+  --toast-container-position-right: var(--space-2);
+  --toast-container-gap: var(--space-1);
+
+  /* Close button */
+  --toast-close-size: 24px;
+  --toast-close-color: currentColor;
+
+  /* Style 1: Info toast (neutral/blue) */
+  --toast-style-1-background: var(--color-1);
+  --toast-style-1-color: var(--on-color);
+  --toast-style-1-border: none;
+
+  /* Style 2: Success toast (green) */
+  --toast-style-2-background: hsl(160, 70%, 45%);
+  --toast-style-2-color: var(--on-color);
+  --toast-style-2-border: none;
+
+  /* Style 3: Error toast (red/warning) */
+  --toast-style-3-background: hsl(0, 70%, 55%);
+  --toast-style-3-color: var(--on-color);
+  --toast-style-3-border: none;
+}

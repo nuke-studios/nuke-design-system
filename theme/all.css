@@ -52,3 +52,11 @@
 @import 'elements/header.css';
 @import 'elements/footer.css';
 @import 'elements/section.css';
+
+/* Component variables - Web components */
+@import 'components/card.css';
+@import 'components/toolbar.css';
+@import 'components/badge.css';
+@import 'components/tabs.css';
+@import 'components/toast.css';
+@import 'components/sidebar.css';

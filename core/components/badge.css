@@ -1,0 +1,41 @@
+/* ============================================
+   BADGE COMPONENT
+   Inline labels/tags/counters
+   ============================================ */
+
+/* Base badge styles */
+nuke-badge {
+  display: inline-block;
+  padding: var(--badge-padding-y) var(--badge-padding-x);
+  font-size: var(--badge-font-size);
+  font-weight: var(--badge-font-weight);
+  line-height: var(--badge-line-height);
+  border-radius: var(--badge-radius);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* ============================================
+   BADGE VARIANTS - style="1|2|3"
+   ============================================ */
+
+/* Style 1: Solid badge */
+nuke-badge[style="1"] {
+  background: var(--badge-style-1-background);
+  color: var(--badge-style-1-color);
+  border: var(--badge-style-1-border);
+}
+
+/* Style 2: Subtle badge */
+nuke-badge[style="2"] {
+  background: var(--badge-style-2-background);
+  color: var(--badge-style-2-color);
+  border: var(--badge-style-2-border);
+}
+
+/* Style 3: Outlined badge */
+nuke-badge[style="3"] {
+  background: var(--badge-style-3-background);
+  color: var(--badge-style-3-color);
+  border: var(--badge-style-3-border);
+}

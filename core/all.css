@@ -54,3 +54,11 @@
 @import 'elements/header.css';
 @import 'elements/footer.css';
 @import 'elements/section.css';
+
+/* Components - Web components with style="1|2|3" variants */
+@import 'components/card.css';
+@import 'components/toolbar.css';
+@import 'components/badge.css';
+@import 'components/tabs.css';
+@import 'components/toast.css';
+@import 'components/sidebar.css';

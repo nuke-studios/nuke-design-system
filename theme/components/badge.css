@@ -1,0 +1,29 @@
+/* ============================================
+   BADGE COMPONENT VARIABLES
+   Design tokens for <nuke-badge>
+   ============================================ */
+
+:root {
+  /* Base badge properties */
+  --badge-padding-x: var(--space-1);            /* Horizontal padding */
+  --badge-padding-y: calc(var(--space-1) / 2);  /* Vertical padding (smaller) */
+  --badge-font-size: 0.75rem;                   /* 12px - small text */
+  --badge-font-weight: 600;                     /* Semi-bold */
+  --badge-radius: var(--border-radius-small);   /* Rounded corners */
+  --badge-line-height: 1;                       /* Tight line height */
+
+  /* Style 1: Solid badge (colored background) */
+  --badge-style-1-background: var(--color-1);
+  --badge-style-1-color: var(--on-color);
+  --badge-style-1-border: none;
+
+  /* Style 2: Subtle badge (light background) */
+  --badge-style-2-background: var(--background-3);
+  --badge-style-2-color: var(--on-background);
+  --badge-style-2-border: none;
+
+  /* Style 3: Outlined badge (border only) */
+  --badge-style-3-background: transparent;
+  --badge-style-3-color: var(--color-1);
+  --badge-style-3-border: 1px solid var(--color-1);
+}

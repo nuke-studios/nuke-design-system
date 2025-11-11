@@ -1,0 +1,42 @@
+/* ============================================
+   CARD COMPONENT VARIABLES
+   Design tokens for <nuke-card>
+   ============================================ */
+
+:root {
+  /* Base card properties */
+  --card-padding: var(--space-2);               /* Inner spacing */
+  --card-radius: var(--border-radius);          /* Corner radius */
+  --card-background: var(--background-2);       /* Card background */
+  --card-color: var(--on-background);           /* Text color */
+
+  /* Card header */
+  --card-header-padding: var(--space-2);
+  --card-header-font-size: 1.25rem;             /* ~20px */
+  --card-header-font-weight: 600;
+  --card-header-color: var(--on-background);
+  --card-header-border-color: var(--border-1);
+
+  /* Card content */
+  --card-content-padding: var(--space-2);
+
+  /* Card actions */
+  --card-actions-padding: var(--space-2);
+  --card-actions-gap: var(--space-1);           /* Gap between buttons */
+  --card-actions-border-color: var(--border-1);
+
+  /* Style 1: Standard card */
+  --card-style-1-background: var(--background-2);
+  --card-style-1-border: 1px solid var(--border-1);
+  --card-style-1-shadow: none;
+
+  /* Style 2: Elevated card (with shadow) */
+  --card-style-2-background: var(--background-2);
+  --card-style-2-border: none;
+  --card-style-2-shadow: var(--shadow-2);
+
+  /* Style 3: Bordered card (stronger border) */
+  --card-style-3-background: var(--background-2);
+  --card-style-3-border: 2px solid var(--border-2);
+  --card-style-3-shadow: none;
+}

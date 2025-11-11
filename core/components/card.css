@@ -1,0 +1,85 @@
+/* ============================================
+   CARD COMPONENT
+   Content container with enforced structure
+   ============================================ */
+
+/* Base card styles */
+nuke-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border-radius: var(--card-radius);
+  background: var(--card-background);
+  color: var(--card-color);
+  overflow: hidden;
+}
+
+/* Card header */
+nuke-card-header {
+  display: block;
+  padding: var(--card-header-padding);
+  font-size: var(--card-header-font-size);
+  font-weight: var(--card-header-font-weight);
+  color: var(--card-header-color);
+  border-bottom: 1px solid var(--card-header-border-color);
+}
+
+/* Card content */
+nuke-card-content {
+  display: block;
+  flex: 1;
+  padding: var(--card-content-padding);
+}
+
+/* Card actions */
+nuke-card-actions {
+  display: flex;
+  gap: var(--card-actions-gap);
+  padding: var(--card-actions-padding);
+  border-top: 1px solid var(--card-actions-border-color);
+  justify-content: flex-end;
+}
+
+/* ============================================
+   CARD VARIANTS - style="1|2|3"
+   ============================================ */
+
+/* Style 1: Standard card */
+nuke-card[style="1"] {
+  background: var(--card-style-1-background);
+  border: var(--card-style-1-border);
+  box-shadow: var(--card-style-1-shadow);
+}
+
+/* Style 2: Elevated card */
+nuke-card[style="2"] {
+  background: var(--card-style-2-background);
+  border: var(--card-style-2-border);
+  box-shadow: var(--card-style-2-shadow);
+}
+
+/* Style 3: Bordered card */
+nuke-card[style="3"] {
+  background: var(--card-style-3-background);
+  border: var(--card-style-3-border);
+  box-shadow: var(--card-style-3-shadow);
+}
+
+/* ============================================
+   OPTIONAL FEATURES
+   ============================================ */
+
+/* Card without header (no top border on content) */
+nuke-card:not(:has(nuke-card-header)) nuke-card-content {
+  border-top: none;
+}
+
+/* Card without actions (no bottom border on content) */
+nuke-card:not(:has(nuke-card-actions)) nuke-card-content {
+  border-bottom: none;
+}
+
+/* If card only has content (no header/actions) */
+nuke-card:not(:has(nuke-card-header)):not(:has(nuke-card-actions)) nuke-card-content {
+  padding: var(--card-padding);
+}

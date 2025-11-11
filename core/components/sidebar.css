@@ -1,0 +1,114 @@
+/* ============================================
+   SIDEBAR COMPONENT
+   Collapsible side navigation panel
+   ============================================ */
+
+/* Base sidebar styles */
+nuke-sidebar {
+  position: fixed;
+  top: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  padding: var(--sidebar-padding);
+  background: var(--sidebar-background);
+  color: var(--sidebar-color);
+  overflow-y: auto;
+  transition: var(--sidebar-transition);
+  z-index: var(--sidebar-z-index);
+}
+
+/* Position: left (default) */
+nuke-sidebar[position="left"] {
+  left: 0;
+  transform: translateX(-100%);
+}
+
+nuke-sidebar[position="left"][open] {
+  transform: translateX(0);
+}
+
+/* Position: right */
+nuke-sidebar[position="right"] {
+  right: 0;
+  transform: translateX(100%);
+}
+
+nuke-sidebar[position="right"][open] {
+  transform: translateX(0);
+}
+
+/* Overlay backdrop */
+.nuke-sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--sidebar-overlay-background);
+  z-index: var(--sidebar-overlay-z-index);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.nuke-sidebar-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ============================================
+   SIDEBAR VARIANTS - style="1|2|3"
+   ============================================ */
+
+/* Style 1: Overlay sidebar (slides over content) */
+nuke-sidebar[style="1"] {
+  background: var(--sidebar-style-1-background);
+  border: var(--sidebar-style-1-border);
+  box-shadow: var(--sidebar-style-1-shadow);
+}
+
+/* Style 2: Push sidebar (pushes content aside) */
+nuke-sidebar[style="2"] {
+  background: var(--sidebar-style-2-background);
+  border: var(--sidebar-style-2-border);
+  box-shadow: var(--sidebar-style-2-shadow);
+  position: relative;
+  transform: none;
+}
+
+nuke-sidebar[style="2"]:not([open]) {
+  display: none;
+}
+
+/* Style 3: Persistent sidebar (always visible) */
+nuke-sidebar[style="3"] {
+  background: var(--sidebar-style-3-background);
+  border: var(--sidebar-style-3-border);
+  box-shadow: var(--sidebar-style-3-shadow);
+  position: relative;
+  transform: none;
+}
+
+/* ============================================
+   RESPONSIVE BEHAVIOR
+   ============================================ */
+
+/* On mobile, style 3 becomes overlay */
+@media (max-width: 768px) {
+  nuke-sidebar[style="3"] {
+    position: fixed;
+    transform: translateX(-100%);
+  }
+
+  nuke-sidebar[style="3"][open] {
+    transform: translateX(0);
+  }
+
+  nuke-sidebar[style="3"][position="right"] {
+    transform: translateX(100%);
+  }
+
+  nuke-sidebar[style="3"][position="right"][open] {
+    transform: translateX(0);
+  }
+}

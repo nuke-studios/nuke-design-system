@@ -1,0 +1,34 @@
+/* ============================================
+   SIDEBAR COMPONENT VARIABLES
+   Design tokens for <nuke-sidebar>
+   ============================================ */
+
+:root {
+  /* Base sidebar properties */
+  --sidebar-width: 280px;
+  --sidebar-background: var(--background-2);
+  --sidebar-color: var(--on-background);
+  --sidebar-padding: var(--space-2);
+  --sidebar-shadow: var(--shadow-2);
+  --sidebar-transition: transform 0.3s ease;
+  --sidebar-z-index: 900;
+
+  /* Overlay */
+  --sidebar-overlay-background: rgba(0, 0, 0, 0.5);
+  --sidebar-overlay-z-index: 899;
+
+  /* Style 1: Overlay sidebar (slides over content) */
+  --sidebar-style-1-background: var(--background-2);
+  --sidebar-style-1-border: none;
+  --sidebar-style-1-shadow: var(--shadow-3);
+
+  /* Style 2: Push sidebar (pushes content) */
+  --sidebar-style-2-background: var(--background-2);
+  --sidebar-style-2-border: 1px solid var(--border-1);
+  --sidebar-style-2-shadow: none;
+
+  /* Style 3: Persistent sidebar (always visible) */
+  --sidebar-style-3-background: var(--background-2);
+  --sidebar-style-3-border: 1px solid var(--border-1);
+  --sidebar-style-3-shadow: none;
+}

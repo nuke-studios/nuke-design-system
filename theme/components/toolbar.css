@@ -1,0 +1,29 @@
+/* ============================================
+   TOOLBAR COMPONENT VARIABLES
+   Design tokens for <nuke-toolbar>
+   ============================================ */
+
+:root {
+  /* Base toolbar properties */
+  --toolbar-gap: var(--space-1);                /* Gap between buttons */
+  --toolbar-padding: var(--space-1);            /* Inner padding */
+  --toolbar-radius: var(--border-radius);       /* Corner radius */
+  --toolbar-background: transparent;            /* Default background */
+
+  /* Style 1: Standard toolbar (minimal) */
+  --toolbar-style-1-background: transparent;
+  --toolbar-style-1-border: none;
+  --toolbar-style-1-padding: 0;
+
+  /* Style 2: Bordered toolbar */
+  --toolbar-style-2-background: var(--background-2);
+  --toolbar-style-2-border: 1px solid var(--border-1);
+  --toolbar-style-2-padding: var(--space-1);
+
+  /* Style 3: Sticky toolbar (sticks to top) */
+  --toolbar-style-3-background: var(--background-2);
+  --toolbar-style-3-border-bottom: 1px solid var(--border-1);
+  --toolbar-style-3-shadow: var(--shadow-1);
+  --toolbar-style-3-padding: var(--space-2);
+  --toolbar-style-3-z-index: 100;
+}

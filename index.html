@@ -1212,6 +1212,438 @@ document.body.classList.add(theme);</code></pre>
 
     <hr>
 
+    <!-- ==================== WEB COMPONENTS ==================== -->
+
+    <section class="section-spacing">
+      <h2>Web Components: Card</h2>
+      <blockquote>
+        <p><strong>Custom elements with enforced structure</strong></p>
+        <p>Use style="1|2|3" attribute for variants (same universal pattern)</p>
+      </blockquote>
+
+      <p><strong>Style 1: Standard Card</strong></p>
+      <nuke-card style="1">
+        <nuke-card-header>Product Overview</nuke-card-header>
+        <nuke-card-content>
+          <p>This is a standard card with a border. Perfect for content containers, information panels, and data display.</p>
+          <p>Cards enforce proper structure with header, content, and actions sections.</p>
+        </nuke-card-content>
+        <nuke-card-actions>
+          <button class="style-2">Cancel</button>
+          <button class="style-1">Save</button>
+        </nuke-card-actions>
+      </nuke-card>
+
+      <p><strong>Style 2: Elevated Card (with shadow)</strong></p>
+      <nuke-card style="2">
+        <nuke-card-header>User Profile</nuke-card-header>
+        <nuke-card-content>
+          <p>This is an elevated card with a shadow for visual depth. Great for important content or floating panels.</p>
+          <p><strong>Name:</strong> John Doe</p>
+          <p><strong>Email:</strong> john@example.com</p>
+        </nuke-card-content>
+        <nuke-card-actions>
+          <button class="style-3">Edit Profile</button>
+        </nuke-card-actions>
+      </nuke-card>
+
+      <p><strong>Style 3: Bordered Card (stronger border)</strong></p>
+      <nuke-card style="3">
+        <nuke-card-header>Settings</nuke-card-header>
+        <nuke-card-content>
+          <p>This is a bordered card with a stronger border for emphasis. Useful for highlighted content or focused sections.</p>
+          <label>
+            <input type="checkbox" checked> Enable notifications
+          </label>
+          <br>
+          <label>
+            <input type="checkbox"> Dark mode
+          </label>
+        </nuke-card-content>
+        <nuke-card-actions>
+          <button class="style-1">Apply</button>
+        </nuke-card-actions>
+      </nuke-card>
+
+      <p><strong>Card without actions</strong></p>
+      <nuke-card style="1">
+        <nuke-card-header>Simple Card</nuke-card-header>
+        <nuke-card-content>
+          <p>Cards don't need actions. Just header and content works perfectly.</p>
+        </nuke-card-content>
+      </nuke-card>
+
+      <p><strong>Card with content only</strong></p>
+      <nuke-card style="2">
+        <nuke-card-content>
+          <p>Or skip the header entirely. Just content in a card container.</p>
+          <p>Perfect for simple content blocks.</p>
+        </nuke-card-content>
+      </nuke-card>
+
+      <pre><code>&lt;nuke-card style="1"&gt;
+  &lt;nuke-card-header&gt;Title&lt;/nuke-card-header&gt;
+  &lt;nuke-card-content&gt;Content&lt;/nuke-card-content&gt;
+  &lt;nuke-card-actions&gt;
+    &lt;button&gt;Action&lt;/button&gt;
+  &lt;/nuke-card-actions&gt;
+&lt;/nuke-card&gt;
+
+&lt;!-- Don't forget to import the JavaScript --&gt;
+&lt;script type="module" src="components/all.js"&gt;&lt;/script&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <section class="section-spacing">
+      <h2>Web Components: Toolbar</h2>
+      <blockquote>
+        <p><strong>Action button groups for layouts</strong></p>
+        <p>Horizontal button containers with style="1|2|3" variants</p>
+      </blockquote>
+
+      <p><strong>Style 1: Standard Toolbar (minimal styling)</strong></p>
+      <nuke-toolbar style="1">
+        <button class="style-1">New</button>
+        <button class="style-2">Edit</button>
+        <button class="style-2">Delete</button>
+      </nuke-toolbar>
+
+      <p><strong>Style 2: Bordered Toolbar</strong></p>
+      <nuke-toolbar style="2">
+        <button class="style-3">Save</button>
+        <button class="style-3">Cancel</button>
+        <button class="style-3">Reset</button>
+      </nuke-toolbar>
+
+      <p><strong>Style 3: Sticky Toolbar (scroll down to see it stick)</strong></p>
+      <nuke-toolbar style="3">
+        <button class="style-1">Home</button>
+        <button class="style-2">Products</button>
+        <button class="style-2">About</button>
+        <button class="style-2">Contact</button>
+      </nuke-toolbar>
+
+      <p><strong>Multiple button groups</strong></p>
+      <nuke-toolbar style="2">
+        <button class="style-1">Bold</button>
+        <button class="style-2">Italic</button>
+        <button class="style-2">Underline</button>
+      </nuke-toolbar>
+      <nuke-toolbar style="2">
+        <button class="style-2">Align Left</button>
+        <button class="style-2">Align Center</button>
+        <button class="style-2">Align Right</button>
+      </nuke-toolbar>
+
+      <p><strong>Mixed button styles in toolbar</strong></p>
+      <nuke-toolbar style="1">
+        <button class="style-1">Primary Action</button>
+        <button class="style-2">Secondary</button>
+        <button class="style-3">Tertiary</button>
+      </nuke-toolbar>
+
+      <pre><code>&lt;nuke-toolbar style="1"&gt;
+  &lt;button&gt;Action 1&lt;/button&gt;
+  &lt;button&gt;Action 2&lt;/button&gt;
+  &lt;button&gt;Action 3&lt;/button&gt;
+&lt;/nuke-toolbar&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <section class="section-spacing">
+      <h2>Web Components: Badge</h2>
+      <blockquote>
+        <p><strong>Inline labels, tags, and counters</strong></p>
+        <p>Compact indicators with style="1|2|3" variants</p>
+      </blockquote>
+
+      <p><strong>Style 1: Solid Badge (colored background)</strong></p>
+      <p>
+        Status: <nuke-badge style="1">Active</nuke-badge>
+        <nuke-badge style="1">New</nuke-badge>
+        <nuke-badge style="1">Featured</nuke-badge>
+      </p>
+
+      <p><strong>Style 2: Subtle Badge (light background)</strong></p>
+      <p>
+        Tags: <nuke-badge style="2">JavaScript</nuke-badge>
+        <nuke-badge style="2">CSS</nuke-badge>
+        <nuke-badge style="2">HTML</nuke-badge>
+      </p>
+
+      <p><strong>Style 3: Outlined Badge (border only)</strong></p>
+      <p>
+        Labels: <nuke-badge style="3">v1.0</nuke-badge>
+        <nuke-badge style="3">Beta</nuke-badge>
+        <nuke-badge style="3">Draft</nuke-badge>
+      </p>
+
+      <p><strong>With Counts</strong></p>
+      <p>
+        Notifications <nuke-badge style="1">12</nuke-badge> |
+        Messages <nuke-badge style="1">5</nuke-badge> |
+        Updates <nuke-badge style="1">99+</nuke-badge>
+      </p>
+
+      <p><strong>Inline with Text</strong></p>
+      <p>
+        Check out our <nuke-badge style="1">New</nuke-badge> feature!
+        This is <nuke-badge style="2">Important</nuke-badge> information.
+        Version <nuke-badge style="3">2.0</nuke-badge> is here.
+      </p>
+
+      <p><strong>In Headings</strong></p>
+      <h3>Product Dashboard <nuke-badge style="1">Pro</nuke-badge></h3>
+      <h4>User Settings <nuke-badge style="2">Admin</nuke-badge></h4>
+
+      <p><strong>Status Indicators</strong></p>
+      <p>
+        <nuke-badge style="1">Online</nuke-badge>
+        <nuke-badge style="2">Away</nuke-badge>
+        <nuke-badge style="3">Offline</nuke-badge>
+      </p>
+
+      <pre><code>&lt;nuke-badge style="1"&gt;New&lt;/nuke-badge&gt;
+&lt;nuke-badge style="2"&gt;Tag&lt;/nuke-badge&gt;
+&lt;nuke-badge style="3"&gt;Label&lt;/nuke-badge&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <section class="section-spacing">
+      <h2>Web Components: Tabs</h2>
+      <blockquote>
+        <p><strong>Tab interface with keyboard navigation</strong></p>
+        <p>Use Arrow keys, Home/End to navigate. Click or Enter to activate.</p>
+      </blockquote>
+
+      <p><strong>Style 1: Underline Tabs</strong></p>
+      <nuke-tabs style="1">
+        <nuke-tab>Overview</nuke-tab>
+        <nuke-tab>Details</nuke-tab>
+        <nuke-tab>Settings</nuke-tab>
+        <nuke-tab-panel>
+          <h4>Overview Content</h4>
+          <p>This is the overview panel. The active tab has an underline indicator.</p>
+          <p>Click tabs or use arrow keys to navigate between panels.</p>
+        </nuke-tab-panel>
+        <nuke-tab-panel>
+          <h4>Details Content</h4>
+          <p>This panel shows detailed information.</p>
+          <ul>
+            <li>Feature 1</li>
+            <li>Feature 2</li>
+            <li>Feature 3</li>
+          </ul>
+        </nuke-tab-panel>
+        <nuke-tab-panel>
+          <h4>Settings Content</h4>
+          <p>Configure your preferences here.</p>
+          <label>
+            <input type="checkbox" checked> Enable notifications
+          </label>
+        </nuke-tab-panel>
+      </nuke-tabs>
+
+      <p><strong>Style 2: Pill Tabs</strong></p>
+      <nuke-tabs style="2">
+        <nuke-tab>Profile</nuke-tab>
+        <nuke-tab>Account</nuke-tab>
+        <nuke-tab>Security</nuke-tab>
+        <nuke-tab-panel>
+          <h4>Profile Information</h4>
+          <p>Active tab has a colored pill background.</p>
+          <p><strong>Name:</strong> John Doe</p>
+          <p><strong>Email:</strong> john@example.com</p>
+        </nuke-tab-panel>
+        <nuke-tab-panel>
+          <h4>Account Settings</h4>
+          <p>Manage your account preferences.</p>
+          <button class="style-1">Update Account</button>
+        </nuke-tab-panel>
+        <nuke-tab-panel>
+          <h4>Security Options</h4>
+          <p>Two-factor authentication and password settings.</p>
+          <button class="style-2">Change Password</button>
+        </nuke-tab-panel>
+      </nuke-tabs>
+
+      <p><strong>Style 3: Boxed Tabs</strong></p>
+      <nuke-tabs style="3">
+        <nuke-tab>Dashboard</nuke-tab>
+        <nuke-tab>Analytics</nuke-tab>
+        <nuke-tab>Reports</nuke-tab>
+        <nuke-tab-panel>
+          <h4>Dashboard View</h4>
+          <p>Active tab has a box style with integrated border.</p>
+          <p>Quick overview of your metrics and activities.</p>
+        </nuke-tab-panel>
+        <nuke-tab-panel>
+          <h4>Analytics Data</h4>
+          <p>Detailed analytics and insights.</p>
+          <p>View trends, patterns, and performance metrics.</p>
+        </nuke-tab-panel>
+        <nuke-tab-panel>
+          <h4>Generated Reports</h4>
+          <p>Access all your generated reports here.</p>
+          <button class="style-1">Download Report</button>
+        </nuke-tab-panel>
+      </nuke-tabs>
+
+      <pre><code>&lt;nuke-tabs style="1"&gt;
+  &lt;nuke-tab&gt;Tab 1&lt;/nuke-tab&gt;
+  &lt;nuke-tab&gt;Tab 2&lt;/nuke-tab&gt;
+  &lt;nuke-tab-panel&gt;Content 1&lt;/nuke-tab-panel&gt;
+  &lt;nuke-tab-panel&gt;Content 2&lt;/nuke-tab-panel&gt;
+&lt;/nuke-tabs&gt;
+
+&lt;!-- Keyboard navigation: Arrow Left/Right, Home, End --&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <section class="section-spacing">
+      <h2>Web Components: Toast</h2>
+      <blockquote>
+        <p><strong>Notification messages with auto-dismiss</strong></p>
+        <p>Click buttons to trigger toasts. They auto-dismiss after 3 seconds.</p>
+      </blockquote>
+
+      <p><strong>Trigger Toasts Programmatically</strong></p>
+      <nuke-toolbar style="2">
+        <button class="style-1" onclick="NukeToast.show('This is an info message', {style: '1'})">
+          Info Toast
+        </button>
+        <button class="style-1" onclick="NukeToast.show('Operation completed successfully!', {style: '2'})">
+          Success Toast
+        </button>
+        <button class="style-1" onclick="NukeToast.show('Something went wrong!', {style: '3'})">
+          Error Toast
+        </button>
+      </nuke-toolbar>
+
+      <p><strong>Custom Duration</strong></p>
+      <nuke-toolbar style="2">
+        <button class="style-2" onclick="NukeToast.show('Quick message (1s)', {style: '1', duration: 1000})">
+          1 Second
+        </button>
+        <button class="style-2" onclick="NukeToast.show('Normal message (3s)', {style: '1', duration: 3000})">
+          3 Seconds
+        </button>
+        <button class="style-2" onclick="NukeToast.show('Longer message (5s)', {style: '1', duration: 5000})">
+          5 Seconds
+        </button>
+        <button class="style-2" onclick="NukeToast.show('Permanent (click × to close)', {style: '1', duration: 0})">
+          No Auto-Dismiss
+        </button>
+      </nuke-toolbar>
+
+      <p><strong>Stack Multiple Toasts</strong></p>
+      <button class="style-1" onclick="
+        NukeToast.show('First notification', {style: '1'});
+        setTimeout(() => NukeToast.show('Second notification', {style: '2'}), 500);
+        setTimeout(() => NukeToast.show('Third notification', {style: '3'}), 1000);
+      ">
+        Show Multiple Toasts
+      </button>
+
+      <p><strong>Features:</strong></p>
+      <ul>
+        <li>Auto-dismiss with customizable duration</li>
+        <li>Manual close button (×)</li>
+        <li>Slide-in/out animations</li>
+        <li>Stack multiple toasts</li>
+        <li>Fixed positioning (top-right by default)</li>
+        <li>Three variants: info (blue), success (green), error (red)</li>
+      </ul>
+
+      <pre><code>// Programmatic usage
+NukeToast.show('Your message', {
+  style: '1',      // 1=info, 2=success, 3=error
+  duration: 3000   // milliseconds, 0=no auto-dismiss
+});
+
+// Or use HTML directly
+&lt;nuke-toast style="1" duration="3000"&gt;
+  Your message here
+&lt;/nuke-toast&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <section class="section-spacing">
+      <h2>Web Components: Sidebar</h2>
+      <blockquote>
+        <p><strong>Collapsible side navigation panel</strong></p>
+        <p>Click buttons to toggle sidebars. Press Escape or click overlay to close.</p>
+      </blockquote>
+
+      <p><strong>Style 1: Overlay Sidebar (slides over content with backdrop)</strong></p>
+      <nuke-toolbar style="2">
+        <button class="style-1" onclick="document.querySelector('#sidebar-overlay-left').toggle()">
+          Toggle Left Sidebar
+        </button>
+        <button class="style-1" onclick="document.querySelector('#sidebar-overlay-right').toggle()">
+          Toggle Right Sidebar
+        </button>
+      </nuke-toolbar>
+
+      <nuke-sidebar id="sidebar-overlay-left" style="1" position="left">
+        <h3>Left Sidebar</h3>
+        <p>This is an overlay sidebar that slides in from the left.</p>
+        <nav>
+          <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Users</a></li>
+            <li><a href="#">Settings</a></li>
+          </ul>
+        </nav>
+        <button class="style-2" onclick="document.querySelector('#sidebar-overlay-left').close()">
+          Close Sidebar
+        </button>
+      </nuke-sidebar>
+
+      <nuke-sidebar id="sidebar-overlay-right" style="1" position="right">
+        <h3>Right Sidebar</h3>
+        <p>This sidebar slides in from the right side.</p>
+        <p>Great for filters, settings, or additional info.</p>
+        <button class="style-2" onclick="document.querySelector('#sidebar-overlay-right').close()">
+          Close Sidebar
+        </button>
+      </nuke-sidebar>
+
+      <p><strong>Features:</strong></p>
+      <ul>
+        <li>Toggle open/close with .toggle(), .open(), .close() methods</li>
+        <li>Close on overlay click (style 1)</li>
+        <li>Close on Escape key</li>
+        <li>Slide animation from left or right</li>
+        <li>Fixed positioning with backdrop overlay</li>
+        <li>Custom events: 'sidebar-open', 'sidebar-close'</li>
+      </ul>
+
+      <pre><code>&lt;!-- HTML --&gt;
+&lt;button onclick="document.querySelector('#my-sidebar').toggle()"&gt;
+  Toggle Sidebar
+&lt;/button&gt;
+
+&lt;nuke-sidebar id="my-sidebar" style="1" position="left"&gt;
+  &lt;h3&gt;Navigation&lt;/h3&gt;
+  &lt;nav&gt;...&lt;/nav&gt;
+&lt;/nuke-sidebar&gt;
+
+&lt;!-- JavaScript --&gt;
+const sidebar = document.querySelector('#my-sidebar');
+sidebar.open();   // Open sidebar
+sidebar.close();  // Close sidebar
+sidebar.toggle(); // Toggle open/close</code></pre>
+    </section>
+
+    <hr>
+
     <!-- Architecture -->
     <section class="section-spacing">
       <h2>Architecture: Core + Theme Separation</h2>
@@ -1281,5 +1713,8 @@ body {
     </footer>
 
   </div>
+
+  <!-- Import web components -->
+  <script type="module" src="components/all.js"></script>
 </body>
 </html>
