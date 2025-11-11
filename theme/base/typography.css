@@ -1,0 +1,92 @@
+/* ============================================
+   TYPOGRAPHY
+   Font sizes, line heights, weights, and text element styling
+   ============================================ */
+
+:root {
+  /* ============================================
+     BASE TYPOGRAPHY TOKENS
+     ============================================ */
+
+  /* Font sizes */
+  --font-size-1: 0.875rem;   /* 14px - Small text */
+  --font-size-2: 1rem;       /* 16px - Base text */
+  --font-size-3: 1.25rem;    /* 20px - Large text */
+  --font-size-4: 1.5rem;     /* 24px - Heading 3 */
+  --font-size-5: 2rem;       /* 32px - Heading 2 */
+  --font-size-6: 2.5rem;     /* 40px - Heading 1 */
+
+  /* Line heights */
+  --line-height-1: 1.2;      /* Tight - headings */
+  --line-height-2: 1.6;      /* Normal - body text */
+  --line-height-3: 1.8;      /* Loose - long-form content */
+
+  /* Font weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* ============================================
+     TEXT ELEMENT VARIABLES
+     ============================================ */
+
+  /* Headings */
+  --heading-font-weight: var(--font-weight-bold);
+  --heading-line-height: var(--line-height-1);
+  --heading-color: var(--on-background);
+  --heading-margin-bottom: var(--space-2);
+
+  --h1-font-size: var(--font-size-6);
+  --h2-font-size: var(--font-size-5);
+  --h3-font-size: var(--font-size-4);
+  --h4-font-size: var(--font-size-3);
+  --h5-font-size: var(--font-size-2);
+  --h6-font-size: var(--font-size-1);
+
+  /* Paragraph */
+  --p-margin-bottom: var(--space-2);
+  --p-line-height: var(--line-height-2);
+  --p-color: var(--on-background);
+
+  /* Blockquote */
+  --blockquote-margin: var(--space-3) 0;
+  --blockquote-padding: var(--space-2) var(--space-3);
+  --blockquote-border-width: 4px;
+  --blockquote-border-color: var(--color-1);
+  --blockquote-bg: var(--background-3);
+  --blockquote-color: var(--on-background-light);
+  --blockquote-font-style: italic;
+
+  /* Code (inline) */
+  --code-padding: 0.125rem 0.375rem;
+  --code-bg: var(--background-3);
+  --code-color: var(--on-background);
+  --code-font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+  --code-font-size: 0.875em;
+  --code-radius: 3px;
+
+  /* Pre (code block) */
+  --pre-margin-bottom: var(--space-2);
+  --pre-padding: var(--space-2);
+  --pre-bg: var(--background-3);
+  --pre-color: var(--on-background);
+  --pre-radius: var(--border-radius);
+  --pre-border: var(--border-1);
+
+  /* Lists */
+  --list-margin-bottom: var(--space-2);
+  --list-padding-left: var(--space-3);
+  --list-item-margin-bottom: var(--space-1);
+
+  /* Horizontal rule */
+  --hr-margin: var(--space-3);
+  --hr-border-width: 1px;
+  --hr-border-color: var(--border-1);
+
+  /* Small text */
+  --small-font-size: 0.875em;
+
+  /* Mark (highlight) */
+  --mark-bg: hsl(60, 100%, 80%);
+  --mark-color: var(--on-background);
+}

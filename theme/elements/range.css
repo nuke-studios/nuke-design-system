@@ -1,0 +1,16 @@
+/* ============================================
+   RANGE VARIABLES
+   Customize slider input appearance
+   ============================================ */
+
+:root {
+  /* Base range properties */
+  --range-height: 48px;
+  --range-track-height: 6px;
+  --range-track-bg: var(--background-3);
+  --range-track-radius: var(--border-radius);
+  --range-thumb-size: 20px;
+  --range-thumb-bg: var(--color-1);
+  --range-thumb-border: var(--color-1);
+  --range-transition: var(--transition-fast);
+}

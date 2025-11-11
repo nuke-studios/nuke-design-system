@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuke Design System - Comprehensive Demo</title>
+
+  <!-- Import Nuke -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ONLY layout helpers - everything else comes from Nuke */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-3) var(--space-2);
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--space-2);
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-2);
+    }
+    .flex-row {
+      display: flex;
+      gap: var(--space-1);
+      flex-wrap: wrap;
+    }
+    .section-spacing {
+      margin-bottom: var(--space-3);
+    }
+    .text-center {
+      text-align: center;
+    }
+    .swatch {
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      border: 1px solid var(--border-1);
+      border-radius: var(--border-radius-small);
+    }
+    .spacer {
+      display: inline-block;
+      height: 24px;
+      background: var(--color-1);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header class="text-center section-spacing">
+      <h1>Nuke</h1>
+      <p>Element-first CSS framework with universal .style-1/2/3 pattern</p>
+      <p>Learn by example - See all elements and design tokens in action</p>
+    </header>
+
+    <!-- ==================== DESIGN TOKENS ==================== -->
+
+    <section class="section-spacing">
+      <h2>Design Tokens: Colors</h2>
+      <blockquote>
+        <p><strong>All colors defined in theme/colors.css</strong></p>
+        <p>Customize these values to match your brand</p>
+      </blockquote>
+
+      <h3>Primary Colors</h3>
+      <dl class="style-2">
+        <dt><span class="swatch" style="background: var(--color-1);"></span> --color-1</dt>
+        <dd>Primary blue</dd>
+
+        <dt><span class="swatch" style="background: var(--color-2);"></span> --color-2</dt>
+        <dd>Secondary purple</dd>
+
+        <dt><span class="swatch" style="background: var(--color-3);"></span> --color-3</dt>
+        <dd>Accent green</dd>
+      </dl>
+
+      <h3>Backgrounds</h3>
+      <dl class="style-2">
+        <dt><span class="swatch" style="background: var(--background-1);"></span> --background-1</dt>
+        <dd>Page background</dd>
+
+        <dt><span class="swatch" style="background: var(--background-2);"></span> --background-2</dt>
+        <dd>Card/section background</dd>
+
+        <dt><span class="swatch" style="background: var(--background-3);"></span> --background-3</dt>
+        <dd>Input/code background</dd>
+      </dl>
+
+      <h3>Text & Borders</h3>
+      <dl class="style-2">
+        <dt><span class="swatch" style="background: var(--on-background);"></span> --on-background</dt>
+        <dd>Primary text</dd>
+
+        <dt><span class="swatch" style="background: var(--on-background-light);"></span> --on-background-light</dt>
+        <dd>Secondary text</dd>
+
+        <dt><span class="swatch" style="background: var(--border-1);"></span> --border-1</dt>
+        <dd>Light borders</dd>
+
+        <dt><span class="swatch" style="background: var(--border-2);"></span> --border-2</dt>
+        <dd>Medium borders</dd>
+      </dl>
+    </section>
+
+    <hr>
+
+    <!-- Spacing -->
+    <section class="section-spacing">
+      <h2>Design Tokens: Spacing</h2>
+      <blockquote>
+        <p><strong>All spacing defined in theme/spacing.css</strong></p>
+        <p>Used for margin, padding, gaps throughout the framework</p>
+      </blockquote>
+
+      <dl class="style-2">
+        <dt><span class="spacer" style="width: var(--space-1);"></span> --space-1</dt>
+        <dd>0.5rem (8px)</dd>
+
+        <dt><span class="spacer" style="width: var(--space-2);"></span> --space-2</dt>
+        <dd>1rem (16px)</dd>
+
+        <dt><span class="spacer" style="width: var(--space-3);"></span> --space-3</dt>
+        <dd>2rem (32px)</dd>
+
+        <dt><span class="spacer" style="width: var(--space-4);"></span> --space-4</dt>
+        <dd>3rem (48px)</dd>
+      </dl>
+    </section>
+
+    <hr>
+
+    <!-- Typography Tokens -->
+    <section class="section-spacing">
+      <h2>Design Tokens: Typography</h2>
+      <blockquote>
+        <p><strong>All typography defined in theme/typography.css</strong></p>
+        <p>Font sizes, weights, and line heights</p>
+      </blockquote>
+
+      <h3>Font Sizes</h3>
+      <dl class="style-2">
+        <dt><span style="font-size: var(--font-size-1);">Sample Text</span></dt>
+        <dd>--font-size-1: Base (1rem)</dd>
+
+        <dt><span style="font-size: var(--font-size-2);">Sample Text</span></dt>
+        <dd>--font-size-2: Large (1.125rem)</dd>
+
+        <dt><span style="font-size: var(--font-size-3);">Sample Text</span></dt>
+        <dd>--font-size-3: XLarge (1.25rem)</dd>
+      </dl>
+
+      <h3>Font Weights</h3>
+      <dl class="style-2">
+        <dt><span style="font-weight: var(--font-weight-normal);">Normal Weight</span></dt>
+        <dd>--font-weight-normal: 400</dd>
+
+        <dt><span style="font-weight: var(--font-weight-medium);">Medium Weight</span></dt>
+        <dd>--font-weight-medium: 500</dd>
+
+        <dt><span style="font-weight: var(--font-weight-bold);">Bold Weight</span></dt>
+        <dd>--font-weight-bold: 700</dd>
+      </dl>
+    </section>
+
+    <hr>
+
+    <!-- ==================== TYPOGRAPHY ELEMENTS ==================== -->
+
+    <section class="section-spacing">
+      <h2>Typography: Headings & Text</h2>
+      <blockquote>
+        <p><strong>All native HTML text elements work out of the box</strong></p>
+        <p>Defined in core/typography.css with variables from theme/typography.css</p>
+      </blockquote>
+
+      <h1>Heading 1 - Main page title</h1>
+      <h2>Heading 2 - Section title</h2>
+      <h3>Heading 3 - Subsection title</h3>
+      <h4>Heading 4 - Minor heading</h4>
+      <h5>Heading 5 - Small heading</h5>
+      <h6>Heading 6 - Tiny heading</h6>
+
+      <p>This is a paragraph of text. It demonstrates the default paragraph styling with proper line height and spacing. Paragraphs are the foundation of readable content on the web.</p>
+
+      <p><strong>Bold text</strong> and <em>italic text</em> work as expected. You can also use <mark>highlighted text</mark> to draw attention.</p>
+
+      <blockquote>
+        "This is a blockquote. Perfect for testimonials, quotes, or callouts that need emphasis."
+      </blockquote>
+
+      <p>Here's some <code>inline code</code> within a paragraph.</p>
+
+      <pre><code>// This is a code block
+function hello() {
+  console.log('Hello, Nuke!');
+}</code></pre>
+
+      <ul>
+        <li>Unordered list item 1</li>
+        <li>Unordered list item 2
+          <ul>
+            <li>Nested item 2.1</li>
+            <li>Nested item 2.2</li>
+          </ul>
+        </li>
+        <li>Unordered list item 3</li>
+      </ul>
+
+      <ol>
+        <li>Ordered list item 1</li>
+        <li>Ordered list item 2</li>
+        <li>Ordered list item 3</li>
+      </ol>
+
+      <hr>
+
+      <p>The horizontal rule above creates a visual separator between content sections.</p>
+
+      <pre><code>&lt;h1&gt;, &lt;p&gt;, &lt;blockquote&gt;, &lt;code&gt;, &lt;ul&gt;, &lt;ol&gt;, &lt;hr&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <!-- Unordered Lists -->
+    <section class="section-spacing">
+      <h2>Lists: Unordered Lists (ul)</h2>
+      <blockquote>
+        <p><strong>Use &lt;ul&gt; for unordered bullet lists</strong></p>
+        <p>Perfect for features, navigation, product lists, etc.</p>
+      </blockquote>
+
+      <p><strong>Base: Disc bullets (default)</strong></p>
+      <ul>
+        <li>Element-first architecture</li>
+        <li>Universal .style-1/2/3 pattern</li>
+        <li>Core/theme separation</li>
+        <li>No build tools required</li>
+      </ul>
+
+      <p><strong>Style 1: Standard disc bullets</strong></p>
+      <ul class="style-1">
+        <li>Clean, semantic HTML</li>
+        <li>Design tokens for customization</li>
+        <li>Works with any framework</li>
+      </ul>
+
+      <p><strong>Style 2: Custom styled bullets (colored)</strong></p>
+      <ul class="style-2">
+        <li>Colored accent bullets</li>
+        <li>Bold bullet styling</li>
+        <li>Modern visual emphasis</li>
+      </ul>
+
+      <p><strong>Style 3: Minimal (no bullets)</strong></p>
+      <ul class="style-3">
+        <li>Navigation menus</li>
+        <li>Feature cards</li>
+        <li>Clean listing</li>
+      </ul>
+
+      <pre><code>&lt;ul class="style-2"&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ul&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <!-- Ordered Lists -->
+    <section class="section-spacing">
+      <h2>Lists: Ordered Lists (ol)</h2>
+      <blockquote>
+        <p><strong>Use &lt;ol&gt; for numbered sequential lists</strong></p>
+        <p>Perfect for steps, rankings, instructions, etc.</p>
+      </blockquote>
+
+      <p><strong>Base: Decimal numbers (default)</strong></p>
+      <ol>
+        <li>Import theme variables first</li>
+        <li>Then import core CSS</li>
+        <li>Add your custom styles</li>
+        <li>Build your project</li>
+      </ol>
+
+      <p><strong>Style 1: Standard decimal numbers</strong></p>
+      <ol class="style-1">
+        <li>Read PROJECT.md documentation</li>
+        <li>Install dependencies</li>
+        <li>Configure theme variables</li>
+      </ol>
+
+      <p><strong>Style 2: Custom styled numbers (colored/bold)</strong></p>
+      <ol class="style-2">
+        <li>Design your components</li>
+        <li>Write semantic HTML</li>
+        <li>Apply Nuke classes</li>
+      </ol>
+
+      <p><strong>Style 3: Lowercase letters</strong></p>
+      <ol class="style-3">
+        <li>Define color palette</li>
+        <li>Set spacing scale</li>
+        <li>Configure typography</li>
+      </ol>
+
+      <pre><code>&lt;ol class="style-2"&gt;&lt;li&gt;Step 1&lt;/li&gt;&lt;/ol&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <!-- ==================== FORM CONTROLS ==================== -->
+
+    <section class="section-spacing">
+      <h2>Form Controls: Buttons</h2>
+      <blockquote>
+        <p><strong>Three button styles with universal .style-1/2/3 pattern</strong></p>
+        <p>Works on &lt;button&gt;, input[type="button"], input[type="submit"]</p>
+      </blockquote>
+
+      <div class="flex-row">
+        <button>Base Button</button>
+        <button class="style-1">Solid Button</button>
+        <button class="style-2">Outlined Button</button>
+        <button class="style-3">Ghost Button</button>
+        <button disabled>Disabled</button>
+      </div>
+
+      <pre><code>&lt;button class="style-1"&gt;Solid Button&lt;/button&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <!-- Text Inputs -->
+    <section class="section-spacing">
+      <h2>Form Controls: Text Inputs</h2>
+
+      <fieldset>
+        <legend>Input Variants</legend>
+
+        <label>Base Input (no class)</label>
+        <input type="text" placeholder="Enter text...">
+
+        <label>Style 1: Border</label>
+        <input type="text" class="style-1" placeholder="Standard border input">
+
+        <label>Style 2: Filled</label>
+        <input type="text" class="style-2" placeholder="Filled background">
+
+        <label>Style 3: Underline</label>
+        <input type="text" class="style-3" placeholder="Underline only">
+      </fieldset>
+
+      <pre><code>&lt;input type="text" class="style-1" placeholder="..."&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <!-- Select Dropdowns -->
+    <section class="section-spacing">
+      <h2>Form Controls: Select Dropdowns</h2>
+
+      <fieldset>
+        <legend>Select Variants</legend>
+
+        <label>Base Select (no class)</label>
+        <select>
+          <option>Choose an option...</option>
+          <option>Option 1</option>
+          <option>Option 2</option>
+          <option>Option 3</option>
+        </select>
+
+        <label>Style 1: Border</label>
+        <select class="style-1">
+          <option>Choose an option...</option>
+          <option>Option 1</option>
+          <option>Option 2</option>
+        </select>
+
+        <label>Style 2: Filled</label>
+        <select class="style-2">
+          <option>Choose an option...</option>
+          <option>Option 1</option>
+          <option>Option 2</option>
+        </select>
+
+        <label>Style 3: Minimal</label>
+        <select class="style-3">
+          <option>Choose an option...</option>
+          <option>Option 1</option>
+          <option>Option 2</option>
+        </select>
+      </fieldset>
+
+      <pre><code>&lt;select class="style-1"&gt;...&lt;/select&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <!-- Textarea -->
+    <section class="section-spacing">
+      <h2>Form Controls: Textarea</h2>
+
+      <fieldset>
+        <legend>Textarea Variants</legend>
+
+        <label>Base Textarea (no class)</label>
+        <textarea placeholder="Enter your message..."></textarea>
+
+        <label>Style 1: Border</label>
+        <textarea class="style-1" placeholder="Standard border textarea"></textarea>
+
+        <label>Style 2: Filled</label>
+        <textarea class="style-2" placeholder="Filled background"></textarea>
+
+        <label>Style 3: Minimal</label>
+        <textarea class="style-3" placeholder="Minimal border"></textarea>
+      </fieldset>
+
+      <pre><code>&lt;textarea class="style-1" placeholder="..."&gt;&lt;/textarea&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <!-- Checkboxes & Radio -->
+    <section class="section-spacing">
+      <h2>Form Controls: Checkboxes</h2>
+
+      <fieldset>
+        <legend>Checkbox Variants</legend>
+
+        <label>
+          <input type="checkbox">
+          Base Checkbox (no class)
+        </label>
+
+        <label>
+          <input type="checkbox" class="style-1" checked>
+          Style 1: Square
+        </label>
+
+        <label>
+          <input type="checkbox" class="style-2" checked>
+          Style 2: Rounded
+        </label>
+
+        <label>
+          <input type="checkbox" class="style-3" checked>
+          Style 3: Circle
+        </label>
+
+        <label>
+          <input type="checkbox" disabled>
+          Disabled
+        </label>
+      </fieldset>
+
+      <pre><code>&lt;input type="checkbox" class="style-1"&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <!-- Radio Buttons -->
+    <section class="section-spacing">
+      <h2>Form Controls: Radio Buttons</h2>
+
+      <fieldset>
+        <legend>Radio Variants</legend>
+
+        <label>
+          <input type="radio" name="base" checked>
+          Base Radio (no class)
+        </label>
+
+        <label>
+          <input type="radio" name="style1" class="style-1" checked>
+          Style 1: Standard dot
+        </label>
+
+        <label>
+          <input type="radio" name="style2" class="style-2" checked>
+          Style 2: Filled circle
+        </label>
+
+        <label>
+          <input type="radio" name="style3" class="style-3" checked>
+          Style 3: Small dot
+        </label>
+
+        <label>
+          <input type="radio" disabled>
+          Disabled
+        </label>
+      </fieldset>
+
+      <pre><code>&lt;input type="radio" class="style-1"&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <!-- Labels -->
+    <section class="section-spacing">
+      <h2>Form Controls: Labels</h2>
+      <blockquote>
+        <p><strong>Labels enhance form accessibility</strong></p>
+        <p>Three visual styles for different use cases</p>
+      </blockquote>
+
+      <fieldset>
+        <legend>Label Variants</legend>
+
+        <label>Base Label (no class)</label>
+        <input type="text" placeholder="Associated input">
+
+        <label class="style-1">Style 1: Bold label</label>
+        <input type="text" class="style-1" placeholder="Matching input">
+
+        <label class="style-2">Style 2: Uppercase label</label>
+        <input type="text" class="style-2" placeholder="Matching input">
+
+        <label class="style-3">Style 3: Colored label</label>
+        <input type="text" class="style-3" placeholder="Matching input">
+      </fieldset>
+
+      <pre><code>&lt;label class="style-1"&gt;Label&lt;/label&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <!-- Fieldset -->
+    <section class="section-spacing">
+      <h2>Form Controls: Fieldset</h2>
+      <blockquote>
+        <p><strong>Group related form controls together</strong></p>
+        <p>Semantic HTML for better accessibility</p>
+      </blockquote>
+
+      <fieldset>
+        <legend>Base Fieldset (no class)</legend>
+        <label>
+          <input type="radio" name="base-group" checked>
+          Option 1
+        </label>
+        <label>
+          <input type="radio" name="base-group">
+          Option 2
+        </label>
+      </fieldset>
+
+      <fieldset class="style-1">
+        <legend>Style 1: Bordered fieldset</legend>
+        <label>
+          <input type="checkbox" class="style-1">
+          Feature A
+        </label>
+        <label>
+          <input type="checkbox" class="style-1">
+          Feature B
+        </label>
+      </fieldset>
+
+      <fieldset class="style-2">
+        <legend>Style 2: Filled fieldset</legend>
+        <input type="text" class="style-2" placeholder="First Name">
+        <input type="text" class="style-2" placeholder="Last Name">
+      </fieldset>
+
+      <pre><code>&lt;fieldset class="style-1"&gt;&lt;legend&gt;...&lt;/legend&gt;...&lt;/fieldset&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <!-- Progress -->
+    <section class="section-spacing">
+      <h2>Form Controls: Progress Bar</h2>
+      <blockquote>
+        <p><strong>Show task completion or loading states</strong></p>
+        <p>Native &lt;progress&gt; element with custom styles</p>
+      </blockquote>
+
+      <p>Base Progress (no class)</p>
+      <progress value="70" max="100"></progress>
+
+      <p>Style 1: Solid progress</p>
+      <progress class="style-1" value="50" max="100"></progress>
+
+      <p>Style 2: Striped progress</p>
+      <progress class="style-2" value="75" max="100"></progress>
+
+      <p>Style 3: Rounded progress</p>
+      <progress class="style-3" value="90" max="100"></progress>
+
+      <pre><code>&lt;progress class="style-1" value="50" max="100"&gt;&lt;/progress&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <!-- Meter -->
+    <section class="section-spacing">
+      <h2>Form Controls: Meter</h2>
+      <blockquote>
+        <p><strong>Show measurements within a known range</strong></p>
+        <p>Native &lt;meter&gt; element with semantic coloring</p>
+      </blockquote>
+
+      <p>Base Meter - Low (red)</p>
+      <meter min="0" max="100" low="30" high="70" optimum="80" value="20"></meter>
+
+      <p>Base Meter - Medium (yellow)</p>
+      <meter min="0" max="100" low="30" high="70" optimum="80" value="50"></meter>
+
+      <p>Base Meter - High (green)</p>
+      <meter min="0" max="100" low="30" high="70" optimum="80" value="90"></meter>
+
+      <p>Style 1: Solid meter</p>
+      <meter class="style-1" min="0" max="100" value="65"></meter>
+
+      <p>Style 2: Rounded meter</p>
+      <meter class="style-2" min="0" max="100" value="75"></meter>
+
+      <pre><code>&lt;meter min="0" max="100" value="65"&gt;&lt;/meter&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <!-- Range -->
+    <section class="section-spacing">
+      <h2>Form Controls: Range Slider</h2>
+      <blockquote>
+        <p><strong>Let users select from a range of values</strong></p>
+        <p>Native &lt;input type="range"&gt; with custom styling</p>
+      </blockquote>
+
+      <label>Base Range (no class)</label>
+      <input type="range" min="0" max="100" value="50">
+
+      <label>Style 1: Solid track</label>
+      <input type="range" class="style-1" min="0" max="100" value="60">
+
+      <label>Style 2: Thin track</label>
+      <input type="range" class="style-2" min="0" max="100" value="70">
+
+      <label>Style 3: Square thumb</label>
+      <input type="range" class="style-3" min="0" max="100" value="80">
+
+      <pre><code>&lt;input type="range" class="style-1" min="0" max="100" value="50"&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <!-- ==================== INTERACTIVE ELEMENTS ==================== -->
+
+    <!-- Links -->
+    <section class="section-spacing">
+      <h2>Interactive: Links</h2>
+      <blockquote>
+        <p><strong>Native &lt;a&gt; links with different visual treatments</strong></p>
+        <p>Hover to see interaction states</p>
+      </blockquote>
+
+      <p>This is a paragraph with a <a href="#">base link (no class)</a> inside it.</p>
+
+      <p>Style 1: <a href="#" class="style-1">Underline on hover</a></p>
+      <p>Style 2: <a href="#" class="style-2">Bold link with arrow →</a></p>
+      <p>Style 3: <a href="#" class="style-3">Minimal subtle link</a></p>
+
+      <pre><code>&lt;a href="#" class="style-1"&gt;Link&lt;/a&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <!-- Details/Summary -->
+    <section class="section-spacing">
+      <h2>Interactive: Details/Summary (Accordion)</h2>
+      <blockquote>
+        <p><strong>Native HTML accordion/disclosure widget</strong></p>
+        <p>No JavaScript needed - built into HTML</p>
+      </blockquote>
+
+      <details>
+        <summary>Base Details (no class)</summary>
+        <p>This is the expanded content. Native HTML &lt;details&gt; element provides accordion functionality without any JavaScript.</p>
+      </details>
+
+      <details class="style-1">
+        <summary>Style 1: Bordered details</summary>
+        <p>This style has a border and padding, making it stand out more from the surrounding content.</p>
+      </details>
+
+      <details class="style-2">
+        <summary>Style 2: Filled details</summary>
+        <p>This style uses a background color to create visual separation and hierarchy.</p>
+      </details>
+
+      <details class="style-3">
+        <summary>Style 3: Minimal details</summary>
+        <p>This style is more subtle, with minimal visual decoration.</p>
+      </details>
+
+      <pre><code>&lt;details class="style-1"&gt;&lt;summary&gt;Title&lt;/summary&gt;Content&lt;/details&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <!-- Dialog -->
+    <section class="section-spacing">
+      <h2>Interactive: Dialog (Modal)</h2>
+      <blockquote>
+        <p><strong>Native HTML dialog element for modals</strong></p>
+        <p>Click buttons below to see different dialog styles</p>
+      </blockquote>
+
+      <div class="flex-row">
+        <button onclick="document.getElementById('dialog-base').showModal()">Open Base Dialog</button>
+        <button onclick="document.getElementById('dialog-1').showModal()" class="style-1">Open Style 1</button>
+        <button onclick="document.getElementById('dialog-2').showModal()" class="style-2">Open Style 2</button>
+        <button onclick="document.getElementById('dialog-3').showModal()" class="style-3">Open Style 3</button>
+      </div>
+
+      <!-- Dialog Elements -->
+      <dialog id="dialog-base">
+        <h3>Base Dialog (no class)</h3>
+        <p>This is a native HTML dialog element. It creates a modal overlay automatically.</p>
+        <button onclick="this.closest('dialog').close()">Close</button>
+      </dialog>
+
+      <dialog id="dialog-1" class="style-1">
+        <h3>Style 1: Standard Dialog</h3>
+        <p>This dialog has a border and shadow for emphasis.</p>
+        <form method="dialog">
+          <button class="style-1">Close</button>
+        </form>
+      </dialog>
+
+      <dialog id="dialog-2" class="style-2">
+        <h3>Style 2: Centered Dialog</h3>
+        <p>This dialog is centered with a larger max-width for important content.</p>
+        <form method="dialog">
+          <button class="style-2">Close</button>
+        </form>
+      </dialog>
+
+      <dialog id="dialog-3" class="style-3">
+        <h3>Style 3: Minimal Dialog</h3>
+        <p>This dialog has minimal decoration, focusing on the content.</p>
+        <form method="dialog">
+          <button class="style-3">Close</button>
+        </form>
+      </dialog>
+
+      <pre><code>&lt;dialog class="style-1"&gt;...&lt;/dialog&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <!-- ==================== CONTENT ELEMENTS ==================== -->
+
+    <!-- Table -->
+    <section class="section-spacing">
+      <h2>Content: Table</h2>
+      <blockquote>
+        <p><strong>Native HTML tables with clean styling</strong></p>
+        <p>Three visual styles for different use cases</p>
+      </blockquote>
+
+      <p><strong>Base Table (no class)</strong></p>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Alice Johnson</td>
+            <td>Developer</td>
+            <td>Active</td>
+          </tr>
+          <tr>
+            <td>Bob Smith</td>
+            <td>Designer</td>
+            <td>Active</td>
+          </tr>
+          <tr>
+            <td>Carol White</td>
+            <td>Manager</td>
+            <td>Away</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>Style 1: Striped rows</strong></p>
+      <table class="style-1">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Stock</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Widget A</td>
+            <td>$19.99</td>
+            <td>In Stock</td>
+          </tr>
+          <tr>
+            <td>Widget B</td>
+            <td>$29.99</td>
+            <td>Low Stock</td>
+          </tr>
+          <tr>
+            <td>Widget C</td>
+            <td>$39.99</td>
+            <td>Out of Stock</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>Style 2: Bordered cells</strong></p>
+      <table class="style-2">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Free</th>
+            <th>Pro</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Users</td>
+            <td>5</td>
+            <td>Unlimited</td>
+          </tr>
+          <tr>
+            <td>Storage</td>
+            <td>10 GB</td>
+            <td>1 TB</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <pre><code>&lt;table class="style-1"&gt;...&lt;/table&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <!-- HR -->
+    <section class="section-spacing">
+      <h2>Content: HR (Horizontal Rule)</h2>
+      <blockquote>
+        <p><strong>Semantic dividers between content sections</strong></p>
+        <p>Use &lt;hr&gt; to separate content with visual breaks</p>
+      </blockquote>
+
+      <p>Base HR (no class):</p>
+      <hr>
+
+      <p>Style 1: Thin rule</p>
+      <hr class="style-1">
+
+      <p>Style 2: Thick rule</p>
+      <hr class="style-2">
+
+      <p>Style 3: Decorative gradient</p>
+      <hr class="style-3">
+
+      <pre><code>&lt;hr class="style-3"&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <!-- Code -->
+    <section class="section-spacing">
+      <h2>Content: Code (Inline Code)</h2>
+      <blockquote>
+        <p><strong>Inline code with variant styles</strong></p>
+        <p>Use &lt;code&gt; for inline code snippets</p>
+      </blockquote>
+
+      <p>Default: Use the <code>console.log()</code> function to debug.</p>
+
+      <p>Style 1 (subtle): Install with <code class="style-1">npm install stark-ui</code> command.</p>
+
+      <p>Style 2 (highlighted): The <code class="style-2">const</code> keyword declares constants.</p>
+
+      <p>Style 3 (outlined): Import using <code class="style-3">@import 'stark-ui'</code> in your CSS.</p>
+
+      <pre><code>&lt;code class="style-2"&gt;const value = 42;&lt;/code&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <!-- Pre -->
+    <section class="section-spacing">
+      <h2>Content: Pre (Code Blocks)</h2>
+      <blockquote>
+        <p><strong>Preformatted code blocks with syntax highlighting</strong></p>
+        <p>Use &lt;pre&gt;&lt;code&gt; for multi-line code</p>
+      </blockquote>
+
+      <p><strong>Base Pre (no class)</strong></p>
+      <pre><code>function hello() {
+  console.log('Hello, World!');
+  return true;
+}</code></pre>
+
+      <p><strong>Style 1: Standard</strong></p>
+      <pre class="style-1"><code>const colors = {
+  primary: 'hsl(210, 100%, 50%)',
+  secondary: 'hsl(280, 70%, 55%)'
+};</code></pre>
+
+      <p><strong>Style 2: Dark theme</strong></p>
+      <pre class="style-2"><code>// Dark mode code block
+const theme = 'dark';
+document.body.classList.add(theme);</code></pre>
+
+      <p><strong>Style 3: Minimal (shadow)</strong></p>
+      <pre class="style-3"><code>&lt;button class="style-1"&gt;
+  Click me
+&lt;/button&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <!-- Form -->
+    <section class="section-spacing">
+      <h2>Forms: Form Wrapper</h2>
+      <blockquote>
+        <p><strong>Form element with built-in layout utilities</strong></p>
+        <p>Use &lt;form&gt; with .style-1/2/3 for different layouts</p>
+      </blockquote>
+
+      <p><strong>Style 1: Standard (simple gap)</strong></p>
+      <form class="style-1" onsubmit="event.preventDefault();">
+        <label>Name:
+          <input type="text" placeholder="Enter your name">
+        </label>
+        <label>Email:
+          <input type="email" placeholder="Enter your email">
+        </label>
+        <button type="submit" class="style-1">Submit</button>
+      </form>
+
+      <p><strong>Style 2: Card (padded with background)</strong></p>
+      <form class="style-2" onsubmit="event.preventDefault();">
+        <label>Username:
+          <input type="text" placeholder="Choose username">
+        </label>
+        <label>Password:
+          <input type="password" placeholder="Enter password">
+        </label>
+        <button type="submit" class="style-1">Register</button>
+      </form>
+
+      <p><strong>Style 3: Compact (tight spacing)</strong></p>
+      <form class="style-3" onsubmit="event.preventDefault();">
+        <input type="search" placeholder="Search...">
+        <button type="submit" class="style-1">Search</button>
+      </form>
+
+      <pre><code>&lt;form class="style-2"&gt;...&lt;/form&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <!-- Nav -->
+    <section class="section-spacing">
+      <h2>Navigation: Nav</h2>
+      <blockquote>
+        <p><strong>Navigation elements with flexible layouts</strong></p>
+        <p>Use &lt;nav&gt; for site navigation</p>
+      </blockquote>
+
+      <p><strong>Style 1: Horizontal (default)</strong></p>
+      <nav class="style-1">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+      </nav>
+
+      <p><strong>Style 2: Bar (with background)</strong></p>
+      <nav class="style-2">
+        <a href="#">Dashboard</a>
+        <a href="#">Projects</a>
+        <a href="#">Team</a>
+        <a href="#">Settings</a>
+      </nav>
+
+      <p><strong>Style 3: Vertical (stacked)</strong></p>
+      <nav class="style-3">
+        <a href="#">Profile</a>
+        <a href="#">Messages</a>
+        <a href="#">Notifications</a>
+        <a href="#">Logout</a>
+      </nav>
+
+      <pre><code>&lt;nav class="style-2"&gt;&lt;a href="#"&gt;Link&lt;/a&gt;...&lt;/nav&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <!-- Img -->
+    <section class="section-spacing">
+      <h2>Media: Img (Images)</h2>
+      <blockquote>
+        <p><strong>Image styling helpers for different use cases</strong></p>
+        <p>Use &lt;img&gt; with .style-1/2/3 for variants</p>
+      </blockquote>
+
+      <div class="grid-2">
+        <div>
+          <p><strong>Style 1: Rounded corners</strong></p>
+          <div style="background: linear-gradient(135deg, var(--color-1), var(--color-2)); height: 200px; border-radius: var(--border-radius);"></div>
+          <small>Standard image with rounded corners</small>
+        </div>
+
+        <div>
+          <p><strong>Style 2: Circle (avatars)</strong></p>
+          <div style="background: linear-gradient(135deg, var(--color-2), var(--color-3)); width: 150px; height: 150px; border-radius: 50%;"></div>
+          <small>Perfect for user avatars</small>
+        </div>
+
+        <div>
+          <p><strong>Style 3: Bordered</strong></p>
+          <div style="background: linear-gradient(135deg, var(--color-3), var(--color-1)); height: 200px; border: 2px solid var(--border-2); padding: var(--space-1); background-clip: content-box; border-radius: var(--border-radius-small);"></div>
+          <small>Image with decorative border</small>
+        </div>
+      </div>
+
+      <pre><code>&lt;img src="avatar.jpg" class="style-2" alt="User avatar"&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <!-- ==================== THE HOLY GRAIL ==================== -->
+
+    <!-- Universal Pattern -->
+    <section class="section-spacing">
+      <h2>The Holy Grail: Universal .style-1/2/3 Pattern</h2>
+      <blockquote>
+        <p><strong>Same classes, different meanings per element</strong></p>
+        <p>This is what makes Nuke special - no naming fatigue!</p>
+      </blockquote>
+
+      <dl class="style-2">
+        <dt>button.style-1</dt>
+        <dd>Solid button</dd>
+
+        <dt>button.style-2</dt>
+        <dd>Outlined button</dd>
+
+        <dt>button.style-3</dt>
+        <dd>Ghost button</dd>
+
+        <dt>input.style-1</dt>
+        <dd>Border input</dd>
+
+        <dt>input.style-2</dt>
+        <dd>Filled input</dd>
+
+        <dt>input.style-3</dt>
+        <dd>Underline input</dd>
+
+        <dt>checkbox.style-1</dt>
+        <dd>Square checkbox</dd>
+
+        <dt>checkbox.style-2</dt>
+        <dd>Rounded checkbox</dd>
+
+        <dt>checkbox.style-3</dt>
+        <dd>Circle checkbox</dd>
+
+        <dt>table.style-1</dt>
+        <dd>Striped table</dd>
+
+        <dt>table.style-2</dt>
+        <dd>Bordered table</dd>
+
+        <dt>table.style-3</dt>
+        <dd>Minimal table</dd>
+      </dl>
+
+      <blockquote>
+        <p><strong>Why this is brilliant:</strong></p>
+        <ul>
+          <li>No mental overhead - just numbers</li>
+          <li>Consistent naming across all elements</li>
+          <li>Easy to remember and teach</li>
+          <li>No BEM, no utility classes, no complexity</li>
+          <li>Native HTML elements work without classes</li>
+          <li>Add .style-1/2/3 for variants</li>
+        </ul>
+      </blockquote>
+    </section>
+
+    <hr>
+
+    <!-- ==================== STRUCTURAL ELEMENTS ==================== -->
+
+    <!-- Main -->
+    <section class="section-spacing">
+      <h2>Structure: Main (Main Content Wrapper)</h2>
+      <blockquote>
+        <p><strong>Semantic main content area</strong></p>
+        <p>Use &lt;main&gt; for your primary content (SEO + accessibility)</p>
+      </blockquote>
+
+      <p><strong>Style 1: Full width (default)</strong></p>
+      <p>No max-width constraint - content fills available space</p>
+
+      <p><strong>Style 2: Centered with max-width</strong></p>
+      <p>Max-width of 1200px, centered - perfect for most apps</p>
+
+      <p><strong>Style 3: Narrow (for articles/reading)</strong></p>
+      <p>Max-width of 800px, centered - optimal for text readability</p>
+
+      <pre><code>&lt;main class="style-2"&gt;...content...&lt;/main&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <!-- Header -->
+    <section class="section-spacing">
+      <h2>Structure: Header (Top Section / Toolbar)</h2>
+      <blockquote>
+        <p><strong>Page header or toolbar</strong></p>
+        <p>Use &lt;header&gt; for navigation, branding, and actions</p>
+      </blockquote>
+
+      <p><strong>Style 1: Standard header</strong></p>
+      <div style="background: var(--background-2); padding: var(--space-2); border-radius: var(--border-radius);">
+        Standard Header (with padding and background)
+      </div>
+
+      <p><strong>Style 2: Toolbar (with border and shadow)</strong></p>
+      <div style="background: var(--background-2); padding: var(--space-2); border-bottom: 1px solid var(--border-1); box-shadow: var(--shadow-1); border-radius: var(--border-radius);">
+        Toolbar Header (border + shadow)
+      </div>
+
+      <p><strong>Style 3: Sticky header</strong></p>
+      <div style="background: var(--background-2); padding: var(--space-2); box-shadow: var(--shadow-2); border-radius: var(--border-radius);">
+        Sticky Header (stays at top on scroll)
+      </div>
+
+      <pre><code>&lt;header class="style-2"&gt;...toolbar...&lt;/header&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <!-- Footer -->
+    <section class="section-spacing">
+      <h2>Structure: Footer (Bottom Section)</h2>
+      <blockquote>
+        <p><strong>Page footer</strong></p>
+        <p>Use &lt;footer&gt; for copyright, links, metadata</p>
+      </blockquote>
+
+      <p><strong>Style 1: Standard footer</strong></p>
+      <div style="background: var(--background-2); padding: var(--space-3); border-radius: var(--border-radius);">
+        Standard Footer
+      </div>
+
+      <p><strong>Style 2: Minimal (subdued)</strong></p>
+      <div style="background: var(--background-3); padding: var(--space-2); border-top: 1px solid var(--border-1); color: var(--on-background-light); border-radius: var(--border-radius);">
+        Minimal Footer (subdued styling)
+      </div>
+
+      <p><strong>Style 3: Sticky (stays at bottom)</strong></p>
+      <div style="background: var(--background-2); padding: var(--space-2); border-top: 1px solid var(--border-1); border-radius: var(--border-radius);">
+        Sticky Footer
+      </div>
+
+      <pre><code>&lt;footer class="style-2"&gt;...links...&lt;/footer&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <!-- Section -->
+    <section class="section-spacing">
+      <h2>Structure: Section (Content Grouping)</h2>
+      <blockquote>
+        <p><strong>Semantic content sections</strong></p>
+        <p>Use &lt;section&gt; to group related content</p>
+      </blockquote>
+
+      <p><strong>Style 1: Standard (simple padding)</strong></p>
+      <div style="padding: var(--space-3); border: 1px dashed var(--border-1); border-radius: var(--border-radius);">
+        Standard Section Content
+      </div>
+
+      <p><strong>Style 2: Card (with background and shadow)</strong></p>
+      <div style="padding: var(--space-3); background: var(--background-2); border-radius: var(--border-radius); box-shadow: var(--shadow-1);">
+        Card-style Section Content
+      </div>
+
+      <p><strong>Style 3: Bordered</strong></p>
+      <div style="padding: var(--space-3); border: 1px solid var(--border-1); border-radius: var(--border-radius);">
+        Bordered Section Content
+      </div>
+
+      <pre><code>&lt;section class="style-2"&gt;...content...&lt;/section&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <!-- Architecture -->
+    <section class="section-spacing">
+      <h2>Architecture: Core + Theme Separation</h2>
+      <blockquote>
+        <p><strong>Clean separation of logic and design</strong></p>
+        <p>Customize the theme without touching core files</p>
+      </blockquote>
+
+      <div class="grid-2">
+        <div>
+          <h3>Core (Logic)</h3>
+          <p>Pure CSS that uses variables but never defines them:</p>
+          <ul>
+            <li>core/reset.css</li>
+            <li>core/animations.css</li>
+            <li>core/typography.css</li>
+            <li>core/ui/button.css</li>
+            <li>core/ui/input.css</li>
+            <li>...all UI elements</li>
+          </ul>
+          <p><small>→ Installed in node_modules<br>→ Never modified by users<br>→ Can be safely updated</small></p>
+        </div>
+
+        <div>
+          <h3>Theme (Variables)</h3>
+          <p>All design tokens and customization:</p>
+          <ul>
+            <li>theme/colors.css</li>
+            <li>theme/spacing.css</li>
+            <li>theme/typography.css</li>
+            <li>theme/button.css</li>
+            <li>theme/input.css</li>
+            <li>...all element variables</li>
+          </ul>
+          <p><small>→ Copied to project root<br>→ Fully customizable<br>→ Never overwritten on updates</small></p>
+        </div>
+      </div>
+
+      <blockquote>
+        <p><strong>Your project setup (style.css):</strong></p>
+      </blockquote>
+
+      <pre><code>/* Import theme FIRST (variables) */
+@import 'theme/all.css';
+
+/* Then import core (logic) */
+@import 'core/all.css';
+
+/* Your custom styles */
+body {
+  font-family: your-font;
+}</code></pre>
+    </section>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer class="section-spacing text-center">
+      <h2>You've Seen Everything!</h2>
+      <p>This demo showcases all 28 UI elements with all their .style-1/2/3 variants</p>
+      <p>Plus all design tokens (colors, spacing, typography)</p>
+      <p><strong>Start building with Nuke!</strong></p>
+      <div class="flex-row" style="justify-content: center; margin-top: var(--space-2);">
+        <button class="style-1">Get Started</button>
+        <button class="style-2">Documentation</button>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>

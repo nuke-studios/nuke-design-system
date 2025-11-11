@@ -1,0 +1,24 @@
+/* Main - Main content wrapper */
+
+main {
+  padding: var(--main-padding);
+  min-height: var(--main-min-height);
+}
+
+/* Style 1: Full width (default) */
+main.style-1 {
+  max-width: var(--main-style-1-max-width);
+  margin: var(--main-style-1-margin);
+}
+
+/* Style 2: Centered with max-width */
+main.style-2 {
+  max-width: var(--main-style-2-max-width);
+  margin: var(--main-style-2-margin);
+}
+
+/* Style 3: Narrow (for articles/reading) */
+main.style-3 {
+  max-width: var(--main-style-3-max-width);
+  margin: var(--main-style-3-margin);
+}

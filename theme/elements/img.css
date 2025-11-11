@@ -1,0 +1,19 @@
+:root {
+  /* Base img properties */
+  --img-max-width: 100%;
+  --img-height: auto;
+  --img-display: block;
+
+  /* Style 1: Rounded corners */
+  --img-style-1-radius: var(--border-radius);
+
+  /* Style 2: Circle (for avatars) */
+  --img-style-2-radius: 50%;
+  --img-style-2-object-fit: cover;
+
+  /* Style 3: Bordered */
+  --img-style-3-border: var(--border-2);
+  --img-style-3-border-width: 2px;
+  --img-style-3-padding: var(--space-1);
+  --img-style-3-bg: var(--background-2);
+}

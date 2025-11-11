@@ -1,0 +1,36 @@
+/* ============================================
+   DIALOG VARIABLES
+   Customize modal dialog appearance
+   ============================================ */
+
+:root {
+  /* Base dialog properties */
+  --dialog-max-width: 500px;
+  --dialog-max-height: 80vh;
+  --dialog-padding: var(--space-3);
+  --dialog-bg: var(--background-2);
+  --dialog-border: var(--border-1);
+  --dialog-radius: var(--border-radius);
+  --dialog-shadow: var(--shadow-3);
+  --dialog-color: var(--on-background);
+
+  /* Backdrop (overlay) */
+  --dialog-backdrop-bg: rgba(0, 0, 0, 0.5);
+  --dialog-backdrop-filter: blur(4px);
+
+  /* Animation */
+  --dialog-animation-duration: 0.2s;
+
+  /* Style 1: Standard modal */
+  --dialog-style-1-max-width: 500px;
+  --dialog-style-1-padding: var(--space-3);
+  --dialog-style-1-radius: var(--border-radius);
+
+  /* Style 2: Large dialog */
+  --dialog-style-2-max-width: 800px;
+  --dialog-style-2-padding: var(--space-4);
+
+  /* Style 3: Full-screen */
+  --dialog-style-3-max-width: 100vw;
+  --dialog-style-3-max-height: 100vh;
+}

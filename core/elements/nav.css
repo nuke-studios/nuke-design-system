@@ -1,0 +1,39 @@
+/* Nav - Navigation elements */
+
+nav {
+  padding: var(--nav-padding);
+  display: flex;
+  gap: var(--nav-gap);
+}
+
+nav a {
+  color: var(--nav-link-color);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+nav a:hover {
+  color: var(--nav-link-hover-color);
+}
+
+/* Style 1: Horizontal (default) */
+nav.style-1 {
+  flex-direction: row;
+  background: var(--nav-style-1-bg);
+  gap: var(--nav-style-1-gap);
+}
+
+/* Style 2: Bar (background with border) */
+nav.style-2 {
+  flex-direction: row;
+  background: var(--nav-style-2-bg);
+  border-bottom: 1px solid var(--nav-style-2-border);
+  padding: var(--nav-style-2-padding);
+  gap: var(--nav-style-2-gap);
+}
+
+/* Style 3: Vertical (stacked) */
+nav.style-3 {
+  flex-direction: column;
+  gap: var(--nav-style-3-gap);
+}

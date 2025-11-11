@@ -1,0 +1,21 @@
+:root {
+  /* Base footer properties */
+  --footer-padding: var(--space-3);
+  --footer-bg: var(--background-2);
+  --footer-color: var(--on-background);
+
+  /* Style 1: Standard footer */
+  --footer-style-1-padding: var(--space-3);
+  --footer-style-1-bg: var(--background-2);
+
+  /* Style 2: Minimal (subdued) */
+  --footer-style-2-padding: var(--space-2);
+  --footer-style-2-bg: var(--background-3);
+  --footer-style-2-color: var(--on-background-light);
+  --footer-style-2-border: var(--border-1);
+
+  /* Style 3: Sticky (stays at bottom) */
+  --footer-style-3-padding: var(--space-2);
+  --footer-style-3-bg: var(--background-2);
+  --footer-style-3-border: var(--border-1);
+}

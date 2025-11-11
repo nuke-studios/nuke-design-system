@@ -1,0 +1,51 @@
+/* ============================================
+   METER - Measurement gauge element
+   Pure logic, NO variables defined here
+   Variables come from theme/meter.css
+   ============================================ */
+
+/* Base meter styling */
+meter {
+  appearance: none;
+  width: 100%;
+  height: var(--meter-height);
+  border: none;
+  border-radius: var(--meter-radius);
+  background: var(--meter-bg);
+  overflow: hidden;
+}
+
+/* Meter bar - Chrome/Safari */
+meter::-webkit-meter-bar {
+  background: var(--meter-bg);
+  border-radius: var(--meter-radius);
+}
+
+meter::-webkit-meter-optimum-value {
+  background: var(--meter-optimum);
+  border-radius: var(--meter-radius);
+}
+
+meter::-webkit-meter-suboptimum-value {
+  background: var(--meter-suboptimum);
+  border-radius: var(--meter-radius);
+}
+
+meter::-webkit-meter-even-less-good-value {
+  background: var(--meter-critical);
+  border-radius: var(--meter-radius);
+}
+
+/* Meter bar - Firefox */
+meter::-moz-meter-bar {
+  background: var(--meter-optimum);
+  border-radius: var(--meter-radius);
+}
+
+meter:-moz-meter-sub-optimum::-moz-meter-bar {
+  background: var(--meter-suboptimum);
+}
+
+meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+  background: var(--meter-critical);
+}

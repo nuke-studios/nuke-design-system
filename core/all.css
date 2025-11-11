@@ -1,0 +1,56 @@
+/* ============================================
+   NUKE DESIGN SYSTEM - Core
+   Pure logic, NO variables defined
+   Variables come from theme/all.css
+   ============================================
+
+   Import this file AFTER importing theme:
+
+   @import '@nuke-ds/theme/all.css';
+   @import '@nuke-ds/core/all.css';
+
+   Or import individual modules:
+   @import '@nuke-ds/core/base/reset.css';
+   @import '@nuke-ds/core/elements/button.css';
+
+   ============================================ */
+
+/* Base - Browser resets & animations */
+@import 'base/reset.css';
+@import 'base/scrollbars.css';
+@import 'base/animations.css';
+
+/* Text - Core text elements (no variants) */
+@import 'text/typography.css';
+
+/* Helpers - Utilities */
+@import 'helpers/scroll-lock.css';
+
+/* Elements - Native HTML elements with .style-1/2/3 variants */
+@import 'elements/button.css';
+@import 'elements/input.css';
+@import 'elements/select.css';
+@import 'elements/textarea.css';
+@import 'elements/checkbox.css';
+@import 'elements/radio.css';
+@import 'elements/label.css';
+@import 'elements/fieldset.css';
+@import 'elements/progress.css';
+@import 'elements/meter.css';
+@import 'elements/range.css';
+@import 'elements/form.css';
+@import 'elements/a.css';
+@import 'elements/dialog.css';
+@import 'elements/details.css';
+@import 'elements/nav.css';
+@import 'elements/table.css';
+@import 'elements/ul.css';
+@import 'elements/ol.css';
+@import 'elements/hr.css';
+@import 'elements/code.css';
+@import 'elements/pre.css';
+@import 'elements/img.css';
+@import 'elements/main.css';
+@import 'elements/header.css';
+@import 'elements/footer.css';
+@import 'elements/section.css';

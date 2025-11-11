@@ -1,0 +1,36 @@
+/* ============================================
+   INPUT VARIABLES
+   Customize text input appearance
+   ============================================ */
+
+:root {
+  /* Base input properties */
+  --input-height: var(--height-2);
+  --input-padding-x: var(--space-2);
+  --input-font-size: var(--font-size-2);
+  --input-radius: var(--border-radius);
+  --input-transition: var(--transition-fast);
+
+  /* Base colors */
+  --input-bg: var(--background-2);
+  --input-color: var(--on-background);
+  --input-border: var(--border-1);
+  --input-placeholder: var(--on-background-light);
+
+  /* Focus state */
+  --input-focus-border: var(--color-1);
+  --input-focus-ring: var(--color-1);
+
+  /* Style 1: Standard input with border */
+  --input-style-1-bg: var(--input-bg);
+  --input-style-1-border: var(--input-border);
+
+  /* Style 2: Filled background */
+  --input-style-2-bg: var(--background-3);
+  --input-style-2-border: transparent;
+
+  /* Style 3: Underline only */
+  --input-style-3-bg: transparent;
+  --input-style-3-border: transparent;
+  --input-style-3-border-bottom: var(--input-border);
+}

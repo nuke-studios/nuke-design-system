@@ -1,0 +1,79 @@
+/* ============================================
+   SELECT - Native dropdown element
+   Pure logic, NO variables defined here
+   Variables come from theme/select.css
+   ============================================ */
+
+/* Select reset */
+select {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* Base select styling (works without classes!) */
+select {
+  display: block;
+  width: 100%;
+  height: var(--select-height);
+  padding: 0 calc(var(--select-padding-x) * 2.5) 0 var(--select-padding-x);
+  font-size: var(--select-font-size);
+  color: var(--select-color);
+  background: var(--select-bg);
+  border: 1px solid var(--select-border);
+  border-radius: var(--select-radius);
+  transition:
+    border-color var(--select-transition),
+    box-shadow var(--select-transition);
+
+  /* Custom dropdown arrow using background */
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--select-padding-x) center;
+}
+
+/* Focus state */
+select:focus {
+  outline: none;
+  border-color: var(--select-focus-border);
+  box-shadow: 0 0 0 3px hsla(210, 100%, 50%, 0.1);
+}
+
+/* Style 1: Standard select with border */
+select.style-1 {
+  background-color: var(--select-style-1-bg);
+  border: 1px solid var(--select-style-1-border);
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--select-padding-x) center;
+}
+
+/* Style 2: Filled background */
+select.style-2 {
+  background-color: var(--select-style-2-bg);
+  border: 1px solid var(--select-style-2-border);
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--select-padding-x) center;
+}
+
+/* Style 3: Minimal style */
+select.style-3 {
+  background-color: var(--select-style-3-bg);
+  border: 1px solid var(--select-style-3-border);
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--select-padding-x) center;
+}
+
+/* Disabled state */
+select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

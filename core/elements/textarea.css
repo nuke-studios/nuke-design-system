@@ -1,0 +1,71 @@
+/* ============================================
+   TEXTAREA - Multi-line text input
+   Pure logic, NO variables defined here
+   Variables come from theme/textarea.css
+   ============================================ */
+
+/* Textarea reset */
+textarea {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  width: 100%;
+  resize: vertical;
+}
+
+/* Base textarea styling (works without classes!) */
+textarea {
+  display: block;
+  width: 100%;
+  min-height: var(--textarea-min-height);
+  padding: var(--textarea-padding);
+  font-size: var(--textarea-font-size);
+  line-height: var(--textarea-line-height);
+  color: var(--textarea-color);
+  background: var(--textarea-bg);
+  border: 1px solid var(--textarea-border);
+  border-radius: var(--textarea-radius);
+  transition:
+    border-color var(--textarea-transition),
+    box-shadow var(--textarea-transition);
+}
+
+textarea::placeholder {
+  color: var(--textarea-placeholder);
+}
+
+/* Focus state */
+textarea:focus {
+  outline: none;
+  border-color: var(--textarea-focus-border);
+  box-shadow: 0 0 0 3px hsla(210, 100%, 50%, 0.1);
+}
+
+/* Style 1: Standard textarea with border */
+textarea.style-1 {
+  background: var(--textarea-style-1-bg);
+  border: 1px solid var(--textarea-style-1-border);
+}
+
+/* Style 2: Filled background */
+textarea.style-2 {
+  background: var(--textarea-style-2-bg);
+  border: 1px solid var(--textarea-style-2-border);
+}
+
+/* Style 3: Minimal border */
+textarea.style-3 {
+  background: var(--textarea-style-3-bg);
+  border: 1px solid var(--textarea-style-3-border);
+}
+
+/* Disabled state */
+textarea:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  resize: none;
+}

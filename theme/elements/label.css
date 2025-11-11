@@ -1,0 +1,26 @@
+/* ============================================
+   LABEL VARIABLES
+   Customize form label appearance
+   ============================================ */
+
+:root {
+  /* Base label properties */
+  --label-display: block;
+  --label-font-size: var(--font-size-1);
+  --label-font-weight: var(--font-weight-medium);
+  --label-color: var(--on-background);
+  --label-margin-bottom: var(--space-1);
+
+  /* Style 1: Standard label */
+  --label-style-1-font-weight: var(--font-weight-medium);
+  --label-style-1-color: var(--on-background);
+
+  /* Style 2: Bold label */
+  --label-style-2-font-weight: var(--font-weight-bold);
+  --label-style-2-color: var(--on-background);
+  --label-style-2-transform: uppercase;
+
+  /* Style 3: Inline label */
+  --label-style-3-gap: var(--space-1);
+  --label-style-3-font-weight: var(--font-weight-normal);
+}

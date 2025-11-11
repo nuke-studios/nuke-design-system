@@ -1,0 +1,27 @@
+/* Header - Top section / toolbar */
+
+header {
+  padding: var(--header-padding);
+  background: var(--header-bg);
+}
+
+/* Style 1: Standard header */
+header.style-1 {
+  background: var(--header-style-1-bg);
+}
+
+/* Style 2: Toolbar (with border and shadow) */
+header.style-2 {
+  background: var(--header-style-2-bg);
+  border-bottom: 1px solid var(--header-style-2-border);
+  box-shadow: var(--header-style-2-shadow);
+}
+
+/* Style 3: Sticky header */
+header.style-3 {
+  position: sticky;
+  top: 0;
+  background: var(--header-style-3-bg);
+  box-shadow: var(--header-style-3-shadow);
+  z-index: var(--header-style-3-z-index);
+}

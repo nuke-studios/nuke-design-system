@@ -1,0 +1,73 @@
+/* ============================================
+   CHECKBOX - Native checkbox input
+   Pure logic, NO variables defined here
+   Variables come from theme/checkbox.css
+   ============================================ */
+
+/* Checkbox reset */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Base checkbox styling (works without classes!) */
+input[type="checkbox"] {
+  display: inline-block;
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
+  min-width: var(--checkbox-size);
+  min-height: var(--checkbox-size);
+  background: var(--checkbox-bg);
+  border: 2px solid var(--checkbox-border);
+  border-radius: var(--checkbox-radius);
+  transition:
+    background-color var(--checkbox-transition),
+    border-color var(--checkbox-transition);
+  position: relative;
+  vertical-align: middle;
+}
+
+/* Checkmark (using background SVG) */
+input[type="checkbox"]:checked {
+  background-color: var(--checkbox-checked-bg);
+  border-color: var(--checkbox-checked-border);
+  background-image: url("data:image/svg+xml,%3Csvg width='14' height='11' viewBox='0 0 14 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 5L5 9L13 1' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Focus state */
+input[type="checkbox"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px hsla(210, 100%, 50%, 0.1);
+}
+
+/* Hover state */
+input[type="checkbox"]:hover:not(:disabled) {
+  border-color: var(--checkbox-checked-border);
+}
+
+/* Style 1: Square checkbox */
+input[type="checkbox"].style-1 {
+  border-radius: var(--checkbox-style-1-radius);
+}
+
+/* Style 2: Rounded checkbox */
+input[type="checkbox"].style-2 {
+  border-radius: var(--checkbox-style-2-radius);
+}
+
+/* Style 3: Circle checkbox */
+input[type="checkbox"].style-3 {
+  border-radius: var(--checkbox-style-3-radius);
+}
+
+/* Disabled state */
+input[type="checkbox"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

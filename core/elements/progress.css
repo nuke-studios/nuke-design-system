@@ -1,0 +1,74 @@
+/* ============================================
+   PROGRESS - Progress bar element
+   Pure logic, NO variables defined here
+   Variables come from theme/progress.css
+   ============================================ */
+
+/* Base progress styling */
+progress {
+  appearance: none;
+  width: 100%;
+  height: var(--progress-height);
+  border: none;
+  border-radius: var(--progress-radius);
+  background: var(--progress-bg);
+  overflow: hidden;
+}
+
+/* Progress bar (filled portion) - Chrome/Safari */
+progress::-webkit-progress-bar {
+  background: var(--progress-bg);
+  border-radius: var(--progress-radius);
+}
+
+progress::-webkit-progress-value {
+  background: var(--progress-fill);
+  border-radius: var(--progress-radius);
+  transition: width var(--progress-transition);
+}
+
+/* Progress bar - Firefox */
+progress::-moz-progress-bar {
+  background: var(--progress-fill);
+  border-radius: var(--progress-radius);
+  transition: width var(--progress-transition);
+}
+
+/* Style 1: Standard progress bar */
+progress.style-1::-webkit-progress-value {
+  background: var(--progress-style-1-fill);
+}
+
+progress.style-1::-moz-progress-bar {
+  background: var(--progress-style-1-fill);
+}
+
+/* Style 2: Success/green progress */
+progress.style-2::-webkit-progress-value {
+  background: var(--progress-style-2-fill);
+}
+
+progress.style-2::-moz-progress-bar {
+  background: var(--progress-style-2-fill);
+}
+
+/* Style 3: Striped animated progress */
+progress.style-3::-webkit-progress-value {
+  background: linear-gradient(
+    45deg,
+    var(--progress-style-3-fill) 25%,
+    transparent 25%,
+    transparent 50%,
+    var(--progress-style-3-fill) 50%,
+    var(--progress-style-3-fill) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 20px 20px;
+  animation: progress-stripes 1s linear infinite;
+}
+
+@keyframes progress-stripes {
+  from { background-position: 0 0; }
+  to { background-position: 20px 0; }
+}

@@ -1,0 +1,27 @@
+:root {
+  /* Base pre properties (code blocks) */
+  --pre-margin-bottom: var(--space-2);
+  --pre-padding: var(--space-2);
+  --pre-bg: var(--background-3);
+  --pre-color: var(--on-background);
+  --pre-border: var(--border-1);
+  --pre-radius: var(--border-radius);
+  --pre-font-family: var(--code-font-family);
+  --pre-font-size: 0.875rem;
+  --pre-line-height: 1.6;
+
+  /* Style 1: Standard (default) */
+  --pre-style-1-bg: var(--background-3);
+  --pre-style-1-color: var(--on-background);
+  --pre-style-1-border: var(--border-1);
+
+  /* Style 2: Dark (dark background) */
+  --pre-style-2-bg: hsl(0, 0%, 15%);
+  --pre-style-2-color: hsl(0, 0%, 90%);
+  --pre-style-2-border: hsl(0, 0%, 25%);
+
+  /* Style 3: Minimal (no border) */
+  --pre-style-3-bg: var(--background-2);
+  --pre-style-3-color: var(--on-background);
+  --pre-style-3-shadow: var(--shadow-1);
+}

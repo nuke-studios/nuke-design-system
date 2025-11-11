@@ -1,0 +1,25 @@
+/* ============================================
+   COLORS
+   Theme color tokens - light/dark themes
+   ============================================ */
+
+:root {
+  /* Primary colors */
+  --color-1: hsl(210, 100%, 50%);     /* Primary brand color */
+  --color-2: hsl(280, 70%, 55%);      /* Secondary color */
+  --color-3: hsl(160, 70%, 45%);      /* Tertiary/accent color */
+  --on-color: hsl(0, 0%, 100%);       /* Text on colored backgrounds */
+
+  /* Backgrounds */
+  --background-1: hsl(0, 0%, 98%);    /* Page background */
+  --background-2: hsl(0, 0%, 100%);   /* Card/section background */
+  --background-3: hsl(0, 0%, 95%);    /* Subtle/filled backgrounds */
+
+  /* Text colors */
+  --on-background: hsl(0, 0%, 15%);         /* Primary text */
+  --on-background-light: hsl(0, 0%, 45%);   /* Secondary/muted text */
+
+  /* Borders */
+  --border-1: hsl(0, 0%, 88%);        /* Standard border */
+  --border-2: hsl(0, 0%, 75%);        /* Darker border */
+}

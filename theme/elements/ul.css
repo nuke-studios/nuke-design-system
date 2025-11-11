@@ -1,0 +1,21 @@
+:root {
+  /* Base ul properties (from base/typography.css variables) */
+  --ul-margin: 0 0 var(--list-margin-bottom) 0;
+  --ul-padding-left: var(--list-padding-left);
+  --ul-item-margin: var(--list-item-margin-bottom);
+
+  /* Style 1: Disc bullets (default) */
+  --ul-style-1-list-style: disc;
+  --ul-style-1-padding-left: var(--list-padding-left);
+
+  /* Style 2: Custom styled bullets (colored) */
+  --ul-style-2-list-style: none;
+  --ul-style-2-padding-left: 0;
+  --ul-style-2-item-padding-left: var(--space-3);
+  --ul-style-2-bullet-color: var(--color-1);
+
+  /* Style 3: Minimal (no bullets, tight spacing) */
+  --ul-style-3-list-style: none;
+  --ul-style-3-padding-left: 0;
+  --ul-style-3-item-margin: var(--space-1);
+}

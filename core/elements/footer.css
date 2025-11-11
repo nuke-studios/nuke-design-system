@@ -1,0 +1,30 @@
+/* Footer - Bottom section */
+
+footer {
+  padding: var(--footer-padding);
+  background: var(--footer-bg);
+  color: var(--footer-color);
+}
+
+/* Style 1: Standard footer */
+footer.style-1 {
+  padding: var(--footer-style-1-padding);
+  background: var(--footer-style-1-bg);
+}
+
+/* Style 2: Minimal (subdued) */
+footer.style-2 {
+  padding: var(--footer-style-2-padding);
+  background: var(--footer-style-2-bg);
+  color: var(--footer-style-2-color);
+  border-top: 1px solid var(--footer-style-2-border);
+}
+
+/* Style 3: Sticky (stays at bottom) */
+footer.style-3 {
+  position: sticky;
+  bottom: 0;
+  padding: var(--footer-style-3-padding);
+  background: var(--footer-style-3-bg);
+  border-top: 1px solid var(--footer-style-3-border);
+}

@@ -1,0 +1,28 @@
+/* HR - Horizontal rule */
+
+hr {
+  margin: var(--hr-margin);
+  border: none;
+  border-top: var(--hr-style-1-border-width) solid var(--hr-border-color);
+  opacity: var(--hr-style-1-opacity);
+}
+
+/* Style 1: Thin (default) */
+hr.style-1 {
+  border-top-width: var(--hr-style-1-border-width);
+  opacity: var(--hr-style-1-opacity);
+}
+
+/* Style 2: Thick (prominent) */
+hr.style-2 {
+  border-top-width: var(--hr-style-2-border-width);
+  opacity: var(--hr-style-2-opacity);
+}
+
+/* Style 3: Decorative (gradient) */
+hr.style-3 {
+  border: none;
+  height: var(--hr-style-3-height);
+  background: var(--hr-style-3-bg);
+  opacity: 1;
+}

@@ -1,0 +1,72 @@
+/* ============================================
+   TABLE - Data table elements
+   Pure logic, NO variables defined here
+   Variables come from theme/table.css
+   ============================================ */
+
+/* Base table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid var(--table-border);
+  border-radius: var(--table-radius);
+  background: var(--table-bg);
+}
+
+/* Table header */
+thead {
+  background: var(--table-head-bg);
+  border-bottom: 2px solid var(--table-border);
+}
+
+th {
+  padding: var(--table-cell-padding);
+  text-align: left;
+  font-weight: var(--table-head-font-weight);
+  color: var(--table-head-color);
+  font-size: var(--table-font-size);
+}
+
+/* Table body */
+tbody tr {
+  border-bottom: 1px solid var(--table-border);
+  transition: background-color var(--table-transition);
+}
+
+tbody tr:last-child {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background: var(--table-row-hover-bg);
+}
+
+td {
+  padding: var(--table-cell-padding);
+  color: var(--table-color);
+  font-size: var(--table-font-size);
+}
+
+/* Style 1: Standard table */
+table.style-1 {
+  border: 1px solid var(--table-style-1-border);
+}
+
+table.style-1 thead {
+  background: var(--table-style-1-head-bg);
+}
+
+/* Style 2: Striped rows */
+table.style-2 tbody tr:nth-child(even) {
+  background: var(--table-style-2-stripe-bg);
+}
+
+/* Style 3: Borderless */
+table.style-3 {
+  border: none;
+}
+
+table.style-3 tbody tr {
+  border-bottom: 1px solid var(--table-style-3-border);
+}

@@ -1,0 +1,30 @@
+/* ============================================
+   FIELDSET VARIABLES
+   Customize form grouping appearance
+   ============================================ */
+
+:root {
+  /* Base fieldset properties */
+  --fieldset-border: var(--border-1);
+  --fieldset-radius: var(--border-radius);
+  --fieldset-padding: var(--space-3);
+  --fieldset-margin-bottom: var(--space-2);
+  --fieldset-bg: transparent;
+
+  /* Legend */
+  --legend-padding-x: var(--space-1);
+  --legend-font-weight: var(--font-weight-bold);
+  --legend-color: var(--on-background);
+  --legend-font-size: var(--font-size-2);
+
+  /* Style 1: Standard */
+  --fieldset-style-1-border: var(--border-1);
+  --fieldset-style-1-bg: transparent;
+
+  /* Style 2: Left border accent */
+  --fieldset-style-2-border: var(--color-1);
+
+  /* Style 3: Card style */
+  --fieldset-style-3-border: var(--border-1);
+  --fieldset-style-3-bg: var(--background-2);
+}

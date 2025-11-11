@@ -1,0 +1,28 @@
+/* Form - Form wrapper with layout utilities */
+
+form {
+  margin: var(--form-margin);
+  padding: var(--form-padding);
+  display: flex;
+  flex-direction: column;
+  gap: var(--form-gap);
+}
+
+/* Style 1: Standard (simple gap) */
+form.style-1 {
+  gap: var(--form-style-1-gap);
+}
+
+/* Style 2: Card (padded with background) */
+form.style-2 {
+  padding: var(--form-style-2-padding);
+  background: var(--form-style-2-bg);
+  border: 1px solid var(--form-style-2-border);
+  border-radius: var(--form-style-2-radius);
+  gap: var(--form-style-2-gap);
+}
+
+/* Style 3: Compact (tight spacing) */
+form.style-3 {
+  gap: var(--form-style-3-gap);
+}

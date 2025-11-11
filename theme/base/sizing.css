@@ -1,0 +1,10 @@
+/* ============================================
+   SIZING
+   Size tokens for form elements
+   ============================================ */
+
+:root {
+  --height-1: 40px;      /* Small form elements */
+  --height-2: 48px;      /* Medium form elements (default) */
+  --height-3: 56px;      /* Large form elements */
+}

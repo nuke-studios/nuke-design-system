@@ -1,0 +1,89 @@
+/* ============================================
+   TYPOGRAPHY - Base text elements
+   Pure logic, NO variables defined here
+   Variables come from theme/foundation/typography.css
+   ============================================ */
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 var(--heading-margin-bottom) 0;
+  font-weight: var(--heading-font-weight);
+  line-height: var(--heading-line-height);
+  color: var(--heading-color);
+}
+
+h1 {
+  font-size: var(--h1-font-size);
+}
+
+h2 {
+  font-size: var(--h2-font-size);
+}
+
+h3 {
+  font-size: var(--h3-font-size);
+}
+
+h4 {
+  font-size: var(--h4-font-size);
+}
+
+h5 {
+  font-size: var(--h5-font-size);
+}
+
+h6 {
+  font-size: var(--h6-font-size);
+}
+
+/* Paragraph */
+p {
+  margin: 0 0 var(--p-margin-bottom) 0;
+  line-height: var(--p-line-height);
+  color: var(--p-color);
+}
+
+/* Blockquote */
+blockquote {
+  margin: var(--blockquote-margin);
+  padding: var(--blockquote-padding);
+  border-left: var(--blockquote-border-width) solid var(--blockquote-border-color);
+  background: var(--blockquote-bg);
+  color: var(--blockquote-color);
+  font-style: var(--blockquote-font-style);
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Lists */
+ul, ol {
+  margin: 0 0 var(--list-margin-bottom) 0;
+  padding-left: var(--list-padding-left);
+}
+
+li {
+  margin-bottom: var(--list-item-margin-bottom);
+  line-height: var(--p-line-height);
+}
+
+/* Nested lists */
+ul ul, ol ol, ul ol, ol ul {
+  margin-top: var(--list-item-margin-bottom);
+  margin-bottom: 0;
+}
+
+/* Strong and emphasis */
+strong, b {
+  font-weight: var(--font-weight-bold);
+}
+
+em, i {
+  font-style: italic;
+}
+
+/* Small text */
+small {
+  font-size: var(--small-font-size);
+}

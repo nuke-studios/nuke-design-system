@@ -1,0 +1,17 @@
+# IDEs and editors
+/.idea
+.vscode/
+*.swp
+*.swo
+*~
+
+# Deployment files
+hiro-equipment.tar.gz
+*.pem
+*.key
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db

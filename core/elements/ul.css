@@ -1,0 +1,38 @@
+/* UL - Unordered lists with variants */
+
+/* Base styling handled by base/typography.css */
+
+/* Style 1: Disc bullets (default) */
+ul.style-1 {
+  list-style-type: var(--ul-style-1-list-style);
+  padding-left: var(--ul-style-1-padding-left);
+}
+
+/* Style 2: Custom styled bullets (colored) */
+ul.style-2 {
+  list-style: var(--ul-style-2-list-style);
+  padding-left: var(--ul-style-2-padding-left);
+}
+
+ul.style-2 li {
+  padding-left: var(--ul-style-2-item-padding-left);
+  position: relative;
+}
+
+ul.style-2 li::before {
+  content: "•";
+  position: absolute;
+  left: var(--space-1);
+  color: var(--ul-style-2-bullet-color);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Style 3: Minimal (no bullets) */
+ul.style-3 {
+  list-style: var(--ul-style-3-list-style);
+  padding-left: var(--ul-style-3-padding-left);
+}
+
+ul.style-3 li {
+  margin-bottom: var(--ul-style-3-item-margin);
+}

@@ -1,0 +1,45 @@
+/* ============================================
+   LABEL - Form label element
+   Pure logic, NO variables defined here
+   Variables come from theme/label.css
+   ============================================ */
+
+/* Base label styling (works without classes!) */
+label {
+  display: var(--label-display);
+  font-size: var(--label-font-size);
+  font-weight: var(--label-font-weight);
+  color: var(--label-color);
+  margin-bottom: var(--label-margin-bottom);
+  cursor: pointer;
+}
+
+/* Style 1: Standard label */
+label.style-1 {
+  font-weight: var(--label-style-1-font-weight);
+  color: var(--label-style-1-color);
+}
+
+/* Style 2: Bold label */
+label.style-2 {
+  font-weight: var(--label-style-2-font-weight);
+  color: var(--label-style-2-color);
+  text-transform: var(--label-style-2-transform);
+}
+
+/* Style 3: Inline label (for checkboxes/radios) */
+label.style-3 {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--label-style-3-gap);
+  font-weight: var(--label-style-3-font-weight);
+  margin-bottom: 0;
+}
+
+/* Disabled state - when label wraps disabled input */
+label:has(input:disabled),
+label:has(select:disabled),
+label:has(textarea:disabled) {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

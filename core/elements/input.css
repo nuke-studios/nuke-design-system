@@ -1,0 +1,153 @@
+/* ============================================
+   INPUT - Text input elements
+   Pure logic, NO variables defined here
+   Variables come from theme/input.css
+   ============================================ */
+
+/* Input reset - works on all text input types */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="url"],
+input[type="tel"],
+input[type="search"],
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"] {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  width: 100%;
+}
+
+/* Base input styling (works without classes!) */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="url"],
+input[type="tel"],
+input[type="search"],
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"] {
+  display: block;
+  width: 100%;
+  height: var(--input-height);
+  padding: 0 var(--input-padding-x);
+  font-size: var(--input-font-size);
+  color: var(--input-color);
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: var(--input-radius);
+  transition:
+    border-color var(--input-transition),
+    box-shadow var(--input-transition);
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder,
+input[type="number"]::placeholder,
+input[type="url"]::placeholder,
+input[type="tel"]::placeholder,
+input[type="search"]::placeholder {
+  color: var(--input-placeholder);
+}
+
+/* Focus state */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="url"]:focus,
+input[type="tel"]:focus,
+input[type="search"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+input[type="datetime-local"]:focus {
+  outline: none;
+  border-color: var(--input-focus-border);
+  box-shadow: 0 0 0 3px hsla(210, 100%, 50%, 0.1);
+}
+
+/* Style 1: Standard input with border */
+input[type="text"].style-1,
+input[type="email"].style-1,
+input[type="password"].style-1,
+input[type="number"].style-1,
+input[type="url"].style-1,
+input[type="tel"].style-1,
+input[type="search"].style-1,
+input[type="date"].style-1,
+input[type="time"].style-1,
+input[type="datetime-local"].style-1 {
+  background: var(--input-style-1-bg);
+  border: 1px solid var(--input-style-1-border);
+}
+
+/* Style 2: Filled background */
+input[type="text"].style-2,
+input[type="email"].style-2,
+input[type="password"].style-2,
+input[type="number"].style-2,
+input[type="url"].style-2,
+input[type="tel"].style-2,
+input[type="search"].style-2,
+input[type="date"].style-2,
+input[type="time"].style-2,
+input[type="datetime-local"].style-2 {
+  background: var(--input-style-2-bg);
+  border: 1px solid var(--input-style-2-border);
+}
+
+/* Style 3: Underline only */
+input[type="text"].style-3,
+input[type="email"].style-3,
+input[type="password"].style-3,
+input[type="number"].style-3,
+input[type="url"].style-3,
+input[type="tel"].style-3,
+input[type="search"].style-3,
+input[type="date"].style-3,
+input[type="time"].style-3,
+input[type="datetime-local"].style-3 {
+  background: var(--input-style-3-bg);
+  border: 1px solid var(--input-style-3-border);
+  border-bottom: 2px solid var(--input-style-3-border-bottom);
+  border-radius: 0;
+}
+
+input[type="text"].style-3:focus,
+input[type="email"].style-3:focus,
+input[type="password"].style-3:focus,
+input[type="number"].style-3:focus,
+input[type="url"].style-3:focus,
+input[type="tel"].style-3:focus,
+input[type="search"].style-3:focus,
+input[type="date"].style-3:focus,
+input[type="time"].style-3:focus,
+input[type="datetime-local"].style-3:focus {
+  border-bottom-color: var(--input-focus-border);
+  box-shadow: none;
+}
+
+/* Disabled state */
+input[type="text"]:disabled,
+input[type="email"]:disabled,
+input[type="password"]:disabled,
+input[type="number"]:disabled,
+input[type="url"]:disabled,
+input[type="tel"]:disabled,
+input[type="search"]:disabled,
+input[type="date"]:disabled,
+input[type="time"]:disabled,
+input[type="datetime-local"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

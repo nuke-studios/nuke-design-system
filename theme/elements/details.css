@@ -1,0 +1,34 @@
+/* ============================================
+   DETAILS VARIABLES
+   Customize accordion/disclosure appearance
+   ============================================ */
+
+:root {
+  /* Base details properties */
+  --details-border: var(--border-1);
+  --details-radius: var(--border-radius);
+  --details-bg: var(--background-2);
+  --details-padding: var(--space-2);
+  --details-margin-bottom: var(--space-2);
+  --details-transition: var(--transition-fast);
+
+  /* Summary (header) */
+  --details-summary-font-weight: var(--font-weight-medium);
+  --details-summary-color: var(--on-background);
+  --details-summary-padding: var(--space-2);
+  --details-summary-hover-bg: var(--background-3);
+
+  /* Content */
+  --details-content-margin-top: var(--space-2);
+
+  /* Style 1: Standard accordion */
+  --details-style-1-border: var(--border-1);
+  --details-style-1-bg: var(--background-2);
+
+  /* Style 2: Minimal */
+  --details-style-2-border: var(--border-1);
+
+  /* Style 3: Card style */
+  --details-style-3-border: var(--border-1);
+  --details-style-3-bg: var(--background-2);
+}

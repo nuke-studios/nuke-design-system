@@ -1,0 +1,31 @@
+/* Code - Inline code with variants */
+
+code {
+  padding: var(--code-padding);
+  background: var(--code-bg);
+  color: var(--code-color);
+  font-family: var(--code-font-family);
+  font-size: var(--code-font-size);
+  border-radius: var(--code-radius);
+}
+
+/* Style 1: Subtle (default light background) */
+code.style-1 {
+  background: var(--code-style-1-bg);
+  color: var(--code-style-1-color);
+  border: 1px solid var(--code-style-1-border);
+}
+
+/* Style 2: Highlighted (accent background) */
+code.style-2 {
+  background: var(--code-style-2-bg);
+  color: var(--code-style-2-color);
+  border: 1px solid var(--code-style-2-border);
+}
+
+/* Style 3: Outlined (border only) */
+code.style-3 {
+  background: var(--code-style-3-bg);
+  color: var(--code-style-3-color);
+  border: 1px solid var(--code-style-3-border);
+}

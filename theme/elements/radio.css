@@ -1,0 +1,29 @@
+/* ============================================
+   RADIO VARIABLES
+   Customize radio button appearance
+   ============================================ */
+
+:root {
+  /* Base radio properties */
+  --radio-size: 20px;
+  --radio-transition: var(--transition-fast);
+
+  /* Base colors */
+  --radio-bg: var(--background-2);
+  --radio-border: var(--border-1);
+  --radio-checked-bg: var(--background-2);
+  --radio-checked-border: var(--color-1);
+  --radio-dot: var(--color-1);
+
+  /* Focus state */
+  --radio-focus-ring: var(--color-1);
+
+  /* Style 1: Standard radio (outer ring) */
+  --radio-style-1-dot-size: 10px;
+
+  /* Style 2: Filled radio (full circle) */
+  --radio-style-2-dot-size: 14px;
+
+  /* Style 3: Small dot radio */
+  --radio-style-3-dot-size: 6px;
+}

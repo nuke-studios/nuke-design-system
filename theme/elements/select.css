@@ -1,0 +1,33 @@
+/* ============================================
+   SELECT VARIABLES
+   Customize dropdown appearance
+   ============================================ */
+
+:root {
+  /* Base select properties */
+  --select-height: var(--height-2);
+  --select-padding-x: var(--space-2);
+  --select-font-size: var(--font-size-2);
+  --select-radius: var(--border-radius);
+  --select-transition: var(--transition-fast);
+
+  /* Base colors */
+  --select-bg: var(--background-2);
+  --select-color: var(--on-background);
+  --select-border: var(--border-1);
+
+  /* Focus state */
+  --select-focus-border: var(--color-1);
+
+  /* Style 1: Standard select with border */
+  --select-style-1-bg: var(--select-bg);
+  --select-style-1-border: var(--select-border);
+
+  /* Style 2: Filled background */
+  --select-style-2-bg: var(--background-3);
+  --select-style-2-border: transparent;
+
+  /* Style 3: Minimal style */
+  --select-style-3-bg: transparent;
+  --select-style-3-border: var(--select-border);
+}

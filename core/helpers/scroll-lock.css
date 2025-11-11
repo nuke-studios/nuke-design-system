@@ -1,0 +1,16 @@
+/* Prevent body scroll (useful for modals, mobile menus) */
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* iOS Safari fix */
+@media (max-width: 991px) {
+  body.no-scroll {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+  html.no-scroll {
+    overflow: hidden;
+  }
+}

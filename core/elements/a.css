@@ -1,0 +1,76 @@
+/* ============================================
+   A - Link element
+   Pure logic, NO variables defined here
+   Variables come from theme/a.css
+   ============================================ */
+
+/* Link reset */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Base link styling (works without classes!) */
+a {
+  color: var(--link-color);
+  text-decoration: var(--link-decoration);
+  cursor: pointer;
+  transition: color var(--link-transition);
+}
+
+a:hover {
+  color: var(--link-hover-color);
+  text-decoration: var(--link-hover-decoration);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--link-focus-color);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Style 1: Underlined link */
+a.style-1 {
+  color: var(--link-style-1-color);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+a.style-1:hover {
+  color: var(--link-style-1-hover-color);
+}
+
+/* Style 2: Plain link (no underline) */
+a.style-2 {
+  color: var(--link-style-2-color);
+  text-decoration: none;
+}
+
+a.style-2:hover {
+  color: var(--link-style-2-hover-color);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Style 3: Button-like link */
+a.style-3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  padding: 0 var(--button-padding-x);
+  height: var(--button-height);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  color: var(--link-style-3-color);
+  background: var(--link-style-3-bg);
+  border: 1px solid var(--link-style-3-border);
+  border-radius: var(--button-radius);
+  text-decoration: none;
+  transition: background-color var(--link-transition), color var(--link-transition);
+}
+
+a.style-3:hover {
+  background: var(--link-style-3-hover-bg);
+  color: var(--link-style-3-hover-color);
+}

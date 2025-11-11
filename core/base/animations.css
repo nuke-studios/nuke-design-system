@@ -1,0 +1,112 @@
+:root {
+  --transition-fast: .3s ease-in-out;
+  --transition-slow: .6s ease-in-out;
+  --animation-fast: .3s ease-in-out forwards;
+  --animation-slow: .9s ease-in-out forwards;
+  --animation-fast-infinite: .3s ease-in-out 0s infinite;
+  --animation-slow-infinite: .6s ease-in-out 0s infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  opacity: 0;
+  will-change: transform;
+  animation: fadeIn var(--animation-fast);
+}
+
+@keyframes dropInRight {
+  from {
+    opacity: 0;
+    transform: translateX(.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.dropInRight {
+  opacity: 0;
+  will-change: transform;
+  animation: dropInRight var(--animation-fast);
+}
+
+@keyframes dropInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.dropInLeft {
+  opacity: 0;
+  will-change: transform;
+  animation: dropInLeft var(--animation-fast);
+}
+
+@keyframes dropInTop {
+  from {
+    opacity: 0;
+    transform: translateY(-.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropInTop {
+  opacity: 0;
+  will-change: transform;
+  animation: dropInTop var(--animation-fast);
+}
+
+@keyframes dropInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropInBottom {
+  opacity: 0;
+  will-change: transform;
+  animation: dropInBottom var(--animation-fast);
+}
+
+.motion-off *,
+.motion-off *::before,
+.motion-off *::after {
+  animation: none !important;
+  transition: none !important;
+  opacity: 1 !important;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .fadeIn,
+  .dropInRight,
+  .dropInLeft,
+  .dropInTop,
+  .dropInBottom,
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+  }
+}

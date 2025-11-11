@@ -1,0 +1,44 @@
+/* Pre - Preformatted code blocks */
+
+pre {
+  margin: 0 0 var(--pre-margin-bottom) 0;
+  padding: var(--pre-padding);
+  background: var(--pre-bg);
+  color: var(--pre-color);
+  font-family: var(--pre-font-family);
+  font-size: var(--pre-font-size);
+  line-height: var(--pre-line-height);
+  border-radius: var(--pre-radius);
+  border: 1px solid var(--pre-border);
+  overflow-x: auto;
+}
+
+pre code {
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  color: inherit;
+}
+
+/* Style 1: Standard (default) */
+pre.style-1 {
+  background: var(--pre-style-1-bg);
+  color: var(--pre-style-1-color);
+  border: 1px solid var(--pre-style-1-border);
+}
+
+/* Style 2: Dark (dark background) */
+pre.style-2 {
+  background: var(--pre-style-2-bg);
+  color: var(--pre-style-2-color);
+  border: 1px solid var(--pre-style-2-border);
+}
+
+/* Style 3: Minimal (no border, shadow instead) */
+pre.style-3 {
+  background: var(--pre-style-3-bg);
+  color: var(--pre-style-3-color);
+  border: none;
+  box-shadow: var(--pre-style-3-shadow);
+}

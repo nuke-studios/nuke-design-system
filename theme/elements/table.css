@@ -1,0 +1,33 @@
+/* ============================================
+   TABLE VARIABLES
+   Customize data table appearance
+   ============================================ */
+
+:root {
+  /* Base table properties */
+  --table-bg: var(--background-2);
+  --table-border: var(--border-1);
+  --table-radius: var(--border-radius);
+  --table-color: var(--on-background);
+  --table-font-size: var(--font-size-2);
+  --table-cell-padding: var(--space-2);
+  --table-transition: var(--transition-fast);
+
+  /* Table header */
+  --table-head-bg: var(--background-3);
+  --table-head-color: var(--on-background);
+  --table-head-font-weight: var(--font-weight-bold);
+
+  /* Row hover */
+  --table-row-hover-bg: var(--background-3);
+
+  /* Style 1: Standard */
+  --table-style-1-border: var(--border-1);
+  --table-style-1-head-bg: var(--background-3);
+
+  /* Style 2: Striped */
+  --table-style-2-stripe-bg: var(--background-3);
+
+  /* Style 3: Borderless */
+  --table-style-3-border: var(--border-1);
+}

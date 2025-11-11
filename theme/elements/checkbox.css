@@ -1,0 +1,30 @@
+/* ============================================
+   CHECKBOX VARIABLES
+   Customize checkbox appearance
+   ============================================ */
+
+:root {
+  /* Base checkbox properties */
+  --checkbox-size: 20px;
+  --checkbox-radius: var(--border-radius-small);
+  --checkbox-transition: var(--transition-fast);
+
+  /* Base colors */
+  --checkbox-bg: var(--background-2);
+  --checkbox-border: var(--border-1);
+  --checkbox-checked-bg: var(--color-1);
+  --checkbox-checked-border: var(--color-1);
+  --checkbox-checkmark: var(--on-color);
+
+  /* Focus state */
+  --checkbox-focus-ring: var(--color-1);
+
+  /* Style 1: Square checkbox (default) */
+  --checkbox-style-1-radius: 4px;
+
+  /* Style 2: Rounded checkbox */
+  --checkbox-style-2-radius: 8px;
+
+  /* Style 3: Circle checkbox */
+  --checkbox-style-3-radius: 50%;
+}

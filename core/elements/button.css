@@ -1,0 +1,121 @@
+/* ============================================
+   BUTTON - Native HTML element styling
+   Pure logic, NO variables defined here
+   Variables come from theme/button.css
+   ============================================ */
+
+/* Button reset - works on all button elements */
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Base button styling (works without classes!) */
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--button-gap);
+  padding: 0 var(--button-padding-x);
+  height: var(--button-height);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  white-space: nowrap;
+  border-radius: var(--button-radius);
+  transition:
+    background-color var(--button-transition),
+    color var(--button-transition),
+    border-color var(--button-transition);
+  text-align: center;
+  text-decoration: none;
+  line-height: 1;
+}
+
+/* Style 1: Solid button */
+button.style-1,
+input[type="button"].style-1,
+input[type="submit"].style-1,
+input[type="reset"].style-1 {
+  background: var(--button-style-1-bg);
+  color: var(--button-style-1-color);
+  border: none;
+}
+
+button.style-1:hover,
+button.style-1:focus,
+input[type="button"].style-1:hover,
+input[type="submit"].style-1:hover,
+input[type="reset"].style-1:hover {
+  background: var(--button-style-1-hover-bg);
+}
+
+/* Style 2: Outlined button */
+button.style-2,
+input[type="button"].style-2,
+input[type="submit"].style-2,
+input[type="reset"].style-2 {
+  background: var(--button-style-2-bg);
+  color: var(--button-style-2-color);
+  border: 1px solid var(--button-style-2-border);
+}
+
+button.style-2:hover,
+button.style-2:focus,
+input[type="button"].style-2:hover,
+input[type="submit"].style-2:hover,
+input[type="reset"].style-2:hover {
+  background: var(--button-style-2-hover-bg);
+  color: var(--button-style-2-hover-color);
+}
+
+/* Style 3: Ghost button */
+button.style-3,
+input[type="button"].style-3,
+input[type="submit"].style-3,
+input[type="reset"].style-3 {
+  background: var(--button-style-3-bg);
+  color: var(--button-style-3-color);
+  border: none;
+}
+
+button.style-3:hover,
+button.style-3:focus,
+input[type="button"].style-3:hover,
+input[type="submit"].style-3:hover,
+input[type="reset"].style-3:hover {
+  background: var(--button-style-3-hover-bg);
+}
+
+/* Focus visible for keyboard navigation */
+button:focus-visible,
+input[type="button"]:focus-visible,
+input[type="submit"]:focus-visible,
+input[type="reset"]:focus-visible {
+  outline: 2px solid var(--color-1);
+  outline-offset: 2px;
+}
+
+/* Disabled state */
+button:disabled,
+button[disabled],
+input[type="button"]:disabled,
+input[type="submit"]:disabled,
+input[type="reset"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

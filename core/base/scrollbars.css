@@ -1,0 +1,24 @@
+/* Webkit Browsers */
+::-webkit-scrollbar {
+  width: 1rem;
+  height: 1rem;
+  padding: 2rem;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border: .45rem solid var(--scrollbar-track);
+}
+
+code::-webkit-scrollbar-track {
+  background: var(--background-1);
+}
+
+code::-webkit-scrollbar-thumb {
+  background-color: var(--border);
+  border: .45rem solid var(--background-1);
+}

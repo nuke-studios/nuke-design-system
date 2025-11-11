@@ -1,0 +1,21 @@
+:root {
+  /* Base ol properties (from base/typography.css variables) */
+  --ol-margin: 0 0 var(--list-margin-bottom) 0;
+  --ol-padding-left: var(--list-padding-left);
+  --ol-item-margin: var(--list-item-margin-bottom);
+
+  /* Style 1: Decimal numbers (default) */
+  --ol-style-1-list-style: decimal;
+  --ol-style-1-padding-left: var(--list-padding-left);
+
+  /* Style 2: Custom styled numbers (colored/bold) */
+  --ol-style-2-list-style: none;
+  --ol-style-2-padding-left: 0;
+  --ol-style-2-item-padding-left: var(--space-3);
+  --ol-style-2-number-color: var(--color-1);
+  --ol-style-2-number-weight: var(--font-weight-bold);
+
+  /* Style 3: Lowercase letters */
+  --ol-style-3-list-style: lower-alpha;
+  --ol-style-3-padding-left: var(--list-padding-left);
+}

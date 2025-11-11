@@ -1,0 +1,41 @@
+/* ============================================
+   FIELDSET - Form grouping element
+   Pure logic, NO variables defined here
+   Variables come from theme/fieldset.css
+   ============================================ */
+
+/* Base fieldset styling */
+fieldset {
+  border: 1px solid var(--fieldset-border);
+  border-radius: var(--fieldset-radius);
+  padding: var(--fieldset-padding);
+  margin: 0 0 var(--fieldset-margin-bottom) 0;
+  background: var(--fieldset-bg);
+}
+
+legend {
+  padding: 0 var(--legend-padding-x);
+  font-weight: var(--legend-font-weight);
+  color: var(--legend-color);
+  font-size: var(--legend-font-size);
+}
+
+/* Style 1: Standard fieldset */
+fieldset.style-1 {
+  border: 1px solid var(--fieldset-style-1-border);
+  background: var(--fieldset-style-1-bg);
+}
+
+/* Style 2: No border, just spacing */
+fieldset.style-2 {
+  border: none;
+  border-left: 3px solid var(--fieldset-style-2-border);
+  background: transparent;
+}
+
+/* Style 3: Card style */
+fieldset.style-3 {
+  border: 1px solid var(--fieldset-style-3-border);
+  background: var(--fieldset-style-3-bg);
+  box-shadow: var(--shadow-1);
+}

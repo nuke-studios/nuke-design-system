@@ -1,0 +1,33 @@
+/* ============================================
+   LINK (A) VARIABLES
+   Customize link appearance
+   ============================================ */
+
+:root {
+  /* Base link properties */
+  --link-color: var(--color-1);
+  --link-decoration: none;
+  --link-transition: var(--transition-fast);
+
+  /* Hover state */
+  --link-hover-color: hsl(210, 100%, 40%);
+  --link-hover-decoration: underline;
+
+  /* Focus state */
+  --link-focus-color: var(--color-1);
+
+  /* Style 1: Underlined link */
+  --link-style-1-color: var(--color-1);
+  --link-style-1-hover-color: hsl(210, 100%, 40%);
+
+  /* Style 2: Plain link */
+  --link-style-2-color: var(--color-1);
+  --link-style-2-hover-color: hsl(210, 100%, 40%);
+
+  /* Style 3: Button-like link */
+  --link-style-3-color: var(--color-1);
+  --link-style-3-bg: transparent;
+  --link-style-3-border: var(--color-1);
+  --link-style-3-hover-bg: var(--color-1);
+  --link-style-3-hover-color: var(--on-color);
+}

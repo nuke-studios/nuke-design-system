@@ -1,0 +1,85 @@
+/* ============================================
+   RADIO - Native radio button input
+   Pure logic, NO variables defined here
+   Variables come from theme/radio.css
+   ============================================ */
+
+/* Radio reset */
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Base radio styling (works without classes!) */
+input[type="radio"] {
+  display: inline-block;
+  width: var(--radio-size);
+  height: var(--radio-size);
+  min-width: var(--radio-size);
+  min-height: var(--radio-size);
+  background: var(--radio-bg);
+  border: 2px solid var(--radio-border);
+  border-radius: 50%;
+  transition:
+    background-color var(--radio-transition),
+    border-color var(--radio-transition);
+  position: relative;
+  vertical-align: middle;
+}
+
+/* Radio dot (using ::before pseudo-element) */
+input[type="radio"]:checked {
+  background-color: var(--radio-checked-bg);
+  border-color: var(--radio-checked-border);
+}
+
+input[type="radio"]:checked::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background: var(--radio-dot);
+  border-radius: 50%;
+}
+
+/* Focus state */
+input[type="radio"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px hsla(210, 100%, 50%, 0.1);
+}
+
+/* Hover state */
+input[type="radio"]:hover:not(:disabled) {
+  border-color: var(--radio-checked-border);
+}
+
+/* Style 1: Standard radio (outer ring) */
+input[type="radio"].style-1:checked::before {
+  width: var(--radio-style-1-dot-size);
+  height: var(--radio-style-1-dot-size);
+}
+
+/* Style 2: Filled radio (full circle) */
+input[type="radio"].style-2:checked::before {
+  width: var(--radio-style-2-dot-size);
+  height: var(--radio-style-2-dot-size);
+}
+
+/* Style 3: Small dot radio */
+input[type="radio"].style-3:checked::before {
+  width: var(--radio-style-3-dot-size);
+  height: var(--radio-style-3-dot-size);
+}
+
+/* Disabled state */
+input[type="radio"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

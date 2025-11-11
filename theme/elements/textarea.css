@@ -1,0 +1,35 @@
+/* ============================================
+   TEXTAREA VARIABLES
+   Customize multi-line text input appearance
+   ============================================ */
+
+:root {
+  /* Base textarea properties */
+  --textarea-min-height: 120px;
+  --textarea-padding: var(--space-2);
+  --textarea-font-size: var(--font-size-2);
+  --textarea-radius: var(--border-radius);
+  --textarea-transition: var(--transition-fast);
+  --textarea-line-height: var(--line-height-2);
+
+  /* Base colors */
+  --textarea-bg: var(--background-2);
+  --textarea-color: var(--on-background);
+  --textarea-border: var(--border-1);
+  --textarea-placeholder: var(--on-background-light);
+
+  /* Focus state */
+  --textarea-focus-border: var(--color-1);
+
+  /* Style 1: Standard textarea with border */
+  --textarea-style-1-bg: var(--textarea-bg);
+  --textarea-style-1-border: var(--textarea-border);
+
+  /* Style 2: Filled background */
+  --textarea-style-2-bg: var(--background-3);
+  --textarea-style-2-border: transparent;
+
+  /* Style 3: Minimal border */
+  --textarea-style-3-bg: transparent;
+  --textarea-style-3-border: var(--textarea-border);
+}

@@ -1,0 +1,16 @@
+/* ============================================
+   METER VARIABLES
+   Customize measurement gauge appearance
+   ============================================ */
+
+:root {
+  /* Base meter properties */
+  --meter-height: 12px;
+  --meter-radius: var(--border-radius);
+  --meter-bg: var(--background-3);
+
+  /* Meter states (auto-colored by browser based on value/optimum) */
+  --meter-optimum: hsl(120, 60%, 50%);      /* Good - green */
+  --meter-suboptimum: hsl(45, 100%, 50%);   /* OK - yellow */
+  --meter-critical: hsl(0, 80%, 50%);       /* Bad - red */
+}

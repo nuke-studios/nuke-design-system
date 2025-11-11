@@ -1,0 +1,90 @@
+/* ============================================
+   DETAILS - Accordion/disclosure element
+   Pure logic, NO variables defined here
+   Variables come from theme/details.css
+   ============================================ */
+
+/* Base details styling (works without classes!) */
+details {
+  border: 1px solid var(--details-border);
+  border-radius: var(--details-radius);
+  background: var(--details-bg);
+  padding: var(--details-padding);
+  margin-bottom: var(--details-margin-bottom);
+}
+
+/* Summary (the clickable header) */
+summary {
+  cursor: pointer;
+  font-weight: var(--details-summary-font-weight);
+  color: var(--details-summary-color);
+  list-style: none;
+  padding: var(--details-summary-padding);
+  margin: calc(var(--details-padding) * -1);
+  border-radius: var(--details-radius);
+  transition: background-color var(--details-transition);
+  user-select: none;
+}
+
+/* Hide default marker */
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Custom arrow using pseudo-element */
+summary::before {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid currentColor;
+  margin-right: var(--space-1);
+  transform: rotate(-90deg);
+  transition: transform var(--details-transition);
+}
+
+details[open] summary::before {
+  transform: rotate(0deg);
+}
+
+summary:hover {
+  background: var(--details-summary-hover-bg);
+}
+
+summary:focus-visible {
+  outline: 2px solid var(--color-1);
+  outline-offset: 2px;
+}
+
+/* Content area */
+details > *:not(summary) {
+  margin-top: var(--details-content-margin-top);
+}
+
+/* Style 1: Standard accordion */
+details.style-1 {
+  border: 1px solid var(--details-style-1-border);
+  background: var(--details-style-1-bg);
+}
+
+/* Style 2: Minimal (no border) */
+details.style-2 {
+  border: none;
+  border-bottom: 1px solid var(--details-style-2-border);
+  border-radius: 0;
+  padding: var(--space-2) 0;
+}
+
+details.style-2 summary {
+  padding: 0;
+  margin: 0;
+}
+
+/* Style 3: Card style */
+details.style-3 {
+  border: 1px solid var(--details-style-3-border);
+  background: var(--details-style-3-bg);
+  box-shadow: var(--shadow-1);
+}

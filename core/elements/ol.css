@@ -1,0 +1,36 @@
+/* OL - Ordered lists with variants */
+
+/* Base styling handled by base/typography.css */
+
+/* Style 1: Decimal numbers (default) */
+ol.style-1 {
+  list-style-type: var(--ol-style-1-list-style);
+  padding-left: var(--ol-style-1-padding-left);
+}
+
+/* Style 2: Custom styled numbers (colored/bold) */
+ol.style-2 {
+  list-style: var(--ol-style-2-list-style);
+  padding-left: var(--ol-style-2-padding-left);
+  counter-reset: custom-counter;
+}
+
+ol.style-2 li {
+  padding-left: var(--ol-style-2-item-padding-left);
+  position: relative;
+  counter-increment: custom-counter;
+}
+
+ol.style-2 li::before {
+  content: counter(custom-counter) ".";
+  position: absolute;
+  left: 0;
+  color: var(--ol-style-2-number-color);
+  font-weight: var(--ol-style-2-number-weight);
+}
+
+/* Style 3: Lowercase letters */
+ol.style-3 {
+  list-style-type: var(--ol-style-3-list-style);
+  padding-left: var(--ol-style-3-padding-left);
+}

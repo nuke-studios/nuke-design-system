@@ -1,0 +1,32 @@
+/* ============================================
+   BUTTON VARIABLES
+   Customize button appearance
+   ============================================ */
+
+:root {
+  /* Base button properties */
+  --button-height: var(--height-2);
+  --button-padding-x: var(--space-2);
+  --button-font-size: var(--font-size-1);
+  --button-font-weight: var(--font-weight-medium);
+  --button-radius: var(--border-radius);
+  --button-gap: var(--space-1);
+  --button-transition: var(--transition-fast);
+
+  /* Style 1: Solid button */
+  --button-style-1-bg: var(--color-1);
+  --button-style-1-color: var(--on-color);
+  --button-style-1-hover-bg: hsl(210, 100%, 45%);
+
+  /* Style 2: Outlined button */
+  --button-style-2-bg: transparent;
+  --button-style-2-color: var(--color-1);
+  --button-style-2-border: var(--color-1);
+  --button-style-2-hover-bg: var(--color-1);
+  --button-style-2-hover-color: var(--on-color);
+
+  /* Style 3: Ghost button */
+  --button-style-3-bg: transparent;
+  --button-style-3-color: var(--color-1);
+  --button-style-3-hover-bg: var(--background-3);
+}

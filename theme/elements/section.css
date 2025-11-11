@@ -1,0 +1,19 @@
+:root {
+  /* Base section properties */
+  --section-padding: var(--space-3);
+  --section-margin: 0 0 var(--space-3) 0;
+
+  /* Style 1: Standard (simple) */
+  --section-style-1-padding: var(--space-3);
+
+  /* Style 2: Card (with background and shadow) */
+  --section-style-2-padding: var(--space-3);
+  --section-style-2-bg: var(--background-2);
+  --section-style-2-radius: var(--border-radius);
+  --section-style-2-shadow: var(--shadow-1);
+
+  /* Style 3: Bordered */
+  --section-style-3-padding: var(--space-3);
+  --section-style-3-border: var(--border-1);
+  --section-style-3-radius: var(--border-radius);
+}

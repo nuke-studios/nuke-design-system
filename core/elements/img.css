@@ -1,0 +1,27 @@
+/* Img - Image styling helpers */
+
+img {
+  max-width: var(--img-max-width);
+  height: var(--img-height);
+  display: var(--img-display);
+}
+
+/* Style 1: Rounded corners */
+img.style-1 {
+  border-radius: var(--img-style-1-radius);
+}
+
+/* Style 2: Circle (for avatars) */
+img.style-2 {
+  border-radius: var(--img-style-2-radius);
+  object-fit: var(--img-style-2-object-fit);
+  aspect-ratio: 1 / 1;
+}
+
+/* Style 3: Bordered */
+img.style-3 {
+  border: var(--img-style-3-border-width) solid var(--img-style-3-border);
+  padding: var(--img-style-3-padding);
+  background: var(--img-style-3-bg);
+  border-radius: var(--border-radius-small);
+}

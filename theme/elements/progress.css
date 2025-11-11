@@ -1,0 +1,22 @@
+/* ============================================
+   PROGRESS VARIABLES
+   Customize progress bar appearance
+   ============================================ */
+
+:root {
+  /* Base progress properties */
+  --progress-height: 12px;
+  --progress-radius: var(--border-radius);
+  --progress-bg: var(--background-3);
+  --progress-fill: var(--color-1);
+  --progress-transition: var(--transition-fast);
+
+  /* Style 1: Primary color */
+  --progress-style-1-fill: var(--color-1);
+
+  /* Style 2: Success/green */
+  --progress-style-2-fill: hsl(120, 60%, 50%);
+
+  /* Style 3: Striped animated */
+  --progress-style-3-fill: var(--color-1);
+}

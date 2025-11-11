@@ -1,0 +1,10 @@
+/* ============================================
+   BORDERS
+   Border radius values (rounded corners)
+   ============================================ */
+
+:root {
+  --border-radius: 6px;           /* Standard radius */
+  --border-radius-small: 4px;     /* Small radius */
+  --border-radius-large: 12px;    /* Large radius */
+}

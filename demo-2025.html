@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuke 2025 - Native vs Custom Elements Demo</title>
+
+  <!-- Import Nuke theme + core -->
+  <link rel="stylesheet" href="theme/all.css">
+  <link rel="stylesheet" href="core/all.css">
+
+  <style>
+    /* Demo-specific layout */
+    body {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-3);
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3);
+      margin: var(--space-3) 0;
+    }
+
+    .demo-section {
+      padding: var(--space-3);
+      background: var(--background-2);
+      border: 1px solid var(--border-1);
+      border-radius: var(--border-radius);
+    }
+
+    .demo-section h3 {
+      margin-top: 0;
+      color: var(--color-1);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.75rem;
+      font-weight: var(--font-weight-medium);
+      border-radius: var(--border-radius-small);
+    }
+
+    .tag.native {
+      background: hsl(120, 60%, 90%);
+      color: hsl(120, 60%, 25%);
+    }
+
+    .tag.custom {
+      background: hsl(280, 60%, 90%);
+      color: hsl(280, 60%, 30%);
+    }
+
+    /* ============================================
+       NATIVE POPOVER STYLING (2025!)
+       ============================================ */
+
+    [popover] {
+      /* Reset browser styles */
+      border: none;
+      padding: 0;
+      margin: 0;
+
+      /* Popover transitions */
+      transition:
+        opacity var(--transition-medium),
+        transform var(--transition-medium),
+        overlay var(--transition-medium) allow-discrete,
+        display var(--transition-medium) allow-discrete;
+
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    [popover]:popover-open {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Starting state for entry animation */
+    @starting-style {
+      [popover]:popover-open {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+    }
+
+    /* ============================================
+       ANCHOR POSITIONING (2025!)
+       Position popovers relative to their trigger
+       ============================================ */
+
+    /* Support check - only apply if browser supports it */
+    @supports (anchor-name: --anchor) {
+      [popover][anchor] {
+        position: absolute;
+        position-anchor: attr(anchor);
+
+        /* Position below the anchor by default */
+        inset-area: bottom;
+        margin-top: 0.5rem;
+
+        /* Auto-flip if no space */
+        position-try-options: flip-block, flip-inline;
+      }
+
+      [popover][anchor][position="top"] {
+        inset-area: top;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    /* Tooltip style popover */
+    [popover].tooltip {
+      padding: var(--space-1);
+      background: var(--on-background);
+      color: var(--background-1);
+      border-radius: var(--border-radius-small);
+      font-size: 0.875rem;
+      max-width: 200px;
+      box-shadow: var(--shadow-2);
+    }
+
+    /* Dropdown menu style popover */
+    [popover].dropdown-menu {
+      padding: var(--space-1);
+      background: var(--background-2);
+      border: 1px solid var(--border-1);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-3);
+      min-width: 200px;
+    }
+
+    [popover].dropdown-menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    [popover].dropdown-menu li {
+      padding: var(--space-1) var(--space-2);
+      cursor: pointer;
+      border-radius: var(--border-radius-small);
+      transition: background var(--transition-fast);
+    }
+
+    [popover].dropdown-menu li:hover {
+      background: var(--background-3);
+    }
+
+    /* Anchor elements need anchor-name */
+    [popovertarget] {
+      anchor-name: --trigger;
+    }
+
+    /* ============================================
+       CUSTOM ELEMENTS STYLING
+       ============================================ */
+
+    /* Card component */
+    nuke-card {
+      display: block;
+      background: var(--background-2);
+      border: 1px solid var(--border-1);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      transition: all var(--transition-medium);
+    }
+
+    nuke-card[style="1"] {
+      /* Standard card */
+      box-shadow: var(--shadow-1);
+    }
+
+    nuke-card[style="2"] {
+      /* Elevated card with hover */
+      box-shadow: var(--shadow-2);
+    }
+
+    nuke-card[style="2"]:hover {
+      box-shadow: var(--shadow-3);
+      transform: translateY(-2px);
+    }
+
+    nuke-card[style="3"] {
+      /* Bordered card (no shadow) */
+      box-shadow: none;
+      border: 2px solid var(--border-2);
+    }
+
+    nuke-card-header {
+      display: block;
+      padding: var(--space-2);
+      border-bottom: 1px solid var(--border-1);
+      font-weight: var(--font-weight-medium);
+      font-size: var(--font-size-2);
+    }
+
+    nuke-card-content {
+      display: block;
+      padding: var(--space-2);
+    }
+
+    nuke-card-actions {
+      display: flex;
+      gap: var(--space-1);
+      padding: var(--space-2);
+      border-top: 1px solid var(--border-1);
+      justify-content: flex-end;
+    }
+
+    /* Toolbar component */
+    nuke-toolbar {
+      display: flex;
+      gap: var(--space-1);
+      padding: var(--space-2);
+      background: var(--background-2);
+      border: 1px solid var(--border-1);
+      border-radius: var(--border-radius);
+      align-items: center;
+    }
+
+    nuke-toolbar[style="1"] {
+      /* Standard */
+      box-shadow: var(--shadow-1);
+    }
+
+    nuke-toolbar[style="2"] {
+      /* With stronger border */
+      border: 2px solid var(--border-2);
+    }
+
+    nuke-toolbar[style="3"] {
+      /* Sticky */
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-2);
+    }
+
+    /* Badge component */
+    nuke-badge {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.75rem;
+      font-weight: var(--font-weight-medium);
+      border-radius: var(--border-radius-small);
+      line-height: 1;
+    }
+
+    nuke-badge[style="1"] {
+      /* Solid */
+      background: var(--color-1);
+      color: var(--on-color);
+    }
+
+    nuke-badge[style="2"] {
+      /* Subtle */
+      background: hsl(210, 100%, 95%);
+      color: var(--color-1);
+    }
+
+    nuke-badge[style="3"] {
+      /* Outlined */
+      background: transparent;
+      color: var(--color-1);
+      border: 1px solid var(--color-1);
+    }
+
+    .example-box {
+      padding: var(--space-2);
+      background: var(--background-3);
+      border-radius: var(--border-radius-small);
+      margin: var(--space-2) 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Nuke 2025 Demo</h1>
+    <p>Comparing Native Browser APIs vs Custom Elements</p>
+  </header>
+
+  <section>
+    <h2>1. Native Popover API (Tooltips & Dropdowns)</h2>
+    <p><span class="tag native">NATIVE</span> Browser handles show/hide and light dismiss natively!</p>
+    <p><strong>⚠️ Positioning:</strong> Check console - If your browser doesn't support Anchor Positioning API (Chrome 125+), we use a small JS fallback (~20 lines) to position popovers. When browsers catch up, pure CSS will handle everything.</p>
+
+    <div class="demo-grid">
+      <!-- Tooltip Example -->
+      <div class="demo-section">
+        <h3>Tooltip</h3>
+        <div class="example-box">
+          <button popovertarget="tooltip-1">Hover me (click actually)</button>
+          <div popover id="tooltip-1" class="tooltip">
+            I'm a native popover tooltip! Auto-positioning coming soon with anchor positioning API.
+          </div>
+        </div>
+        <details>
+          <summary>View HTML</summary>
+          <pre><code>&lt;button popovertarget="tooltip-1"&gt;Hover me&lt;/button&gt;
+&lt;div popover id="tooltip-1" class="tooltip"&gt;
+  I'm a native popover!
+&lt;/div&gt;</code></pre>
+        </details>
+        <p><strong>Feel:</strong> Just HTML attributes. No JS. Browser does the work.</p>
+      </div>
+
+      <!-- Dropdown Example -->
+      <div class="demo-section">
+        <h3>Dropdown Menu</h3>
+        <div class="example-box">
+          <button class="style-1" popovertarget="menu-1">Open Menu</button>
+          <div popover id="menu-1" class="dropdown-menu">
+            <ul>
+              <li>Edit</li>
+              <li>Duplicate</li>
+              <li>Archive</li>
+              <li>Delete</li>
+            </ul>
+          </div>
+        </div>
+        <details>
+          <summary>View HTML</summary>
+          <pre><code>&lt;button popovertarget="menu-1"&gt;Open Menu&lt;/button&gt;
+&lt;div popover id="menu-1" class="dropdown-menu"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Edit&lt;/li&gt;
+    &lt;li&gt;Duplicate&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+        </details>
+        <p><strong>Feel:</strong> Click outside to dismiss. ESC key works. All native!</p>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>2. Custom Elements (Card, Toolbar, Badge)</h2>
+    <p><span class="tag custom">CUSTOM</span> Minimal JavaScript for structure enforcement. Self-documenting HTML.</p>
+
+    <div class="demo-grid">
+      <!-- Card Example -->
+      <div class="demo-section">
+        <h3>Card Component</h3>
+        <div class="example-box">
+          <nuke-card style="1">
+            <nuke-card-header>Card Title</nuke-card-header>
+            <nuke-card-content>
+              This is card content. Notice the enforced structure: header, content, actions.
+            </nuke-card-content>
+            <nuke-card-actions>
+              <button class="style-2">Cancel</button>
+              <button class="style-1">Save</button>
+            </nuke-card-actions>
+          </nuke-card>
+        </div>
+        <details>
+          <summary>View HTML</summary>
+          <pre><code>&lt;nuke-card style="1"&gt;
+  &lt;nuke-card-header&gt;Card Title&lt;/nuke-card-header&gt;
+  &lt;nuke-card-content&gt;
+    This is card content.
+  &lt;/nuke-card-content&gt;
+  &lt;nuke-card-actions&gt;
+    &lt;button&gt;Cancel&lt;/button&gt;
+    &lt;button&gt;Save&lt;/button&gt;
+  &lt;/nuke-card-actions&gt;
+&lt;/nuke-card&gt;</code></pre>
+        </details>
+        <p><strong>Feel:</strong> Structure is clear. Can't misuse. Self-documenting.</p>
+      </div>
+
+      <!-- Card with hover -->
+      <div class="demo-section">
+        <h3>Card (Elevated with Hover)</h3>
+        <div class="example-box">
+          <nuke-card style="2">
+            <nuke-card-header>Hover me!</nuke-card-header>
+            <nuke-card-content>
+              This card has style="2" which adds elevation and hover effect.
+            </nuke-card-content>
+            <nuke-card-actions>
+              <button class="style-1">Action</button>
+            </nuke-card-actions>
+          </nuke-card>
+        </div>
+        <p><strong>Feel:</strong> Same structure, different style attribute. Consistent pattern.</p>
+      </div>
+    </div>
+
+    <!-- Toolbar Examples -->
+    <h3>Toolbar Component</h3>
+    <div class="demo-grid">
+      <div class="demo-section">
+        <h3>Standard Toolbar</h3>
+        <div class="example-box">
+          <nuke-toolbar style="1">
+            <button class="style-1">New</button>
+            <button class="style-2">Edit</button>
+            <button class="style-2">Delete</button>
+            <div style="flex: 1"></div>
+            <button class="style-3">Settings</button>
+          </nuke-toolbar>
+        </div>
+        <details>
+          <summary>View HTML</summary>
+          <pre><code>&lt;nuke-toolbar style="1"&gt;
+  &lt;button&gt;New&lt;/button&gt;
+  &lt;button&gt;Edit&lt;/button&gt;
+  &lt;button&gt;Delete&lt;/button&gt;
+  &lt;div style="flex: 1"&gt;&lt;/div&gt;
+  &lt;button&gt;Settings&lt;/button&gt;
+&lt;/nuke-toolbar&gt;</code></pre>
+        </details>
+        <p><strong>Feel:</strong> Flexbox wrapper with spacing. Just works.</p>
+      </div>
+
+      <!-- Badge Examples -->
+      <div class="demo-section">
+        <h3>Badge Component</h3>
+        <div class="example-box">
+          <p>Status: <nuke-badge style="1">Active</nuke-badge></p>
+          <p>Count: <nuke-badge style="2">12</nuke-badge></p>
+          <p>Tag: <nuke-badge style="3">Beta</nuke-badge></p>
+        </div>
+        <details>
+          <summary>View HTML</summary>
+          <pre><code>&lt;nuke-badge style="1"&gt;Active&lt;/nuke-badge&gt;
+&lt;nuke-badge style="2"&gt;12&lt;/nuke-badge&gt;
+&lt;nuke-badge style="3"&gt;Beta&lt;/nuke-badge&gt;</code></pre>
+        </details>
+        <p><strong>Feel:</strong> Inline component. Simple and clean.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>3. Comparison: How Does It Feel?</h2>
+
+    <table class="style-1">
+      <thead>
+        <tr>
+          <th>Aspect</th>
+          <th>Native (Popover)</th>
+          <th>Custom Elements</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>HTML Feel</strong></td>
+          <td>Attributes on native elements</td>
+          <td>New semantic tags</td>
+        </tr>
+        <tr>
+          <td><strong>JavaScript</strong></td>
+          <td>Zero! Browser built-in</td>
+          <td>Minimal (~5 lines per component)</td>
+        </tr>
+        <tr>
+          <td><strong>Structure</strong></td>
+          <td>No enforcement</td>
+          <td>Enforced child elements</td>
+        </tr>
+        <tr>
+          <td><strong>Framework Support</strong></td>
+          <td>Perfect (it's native)</td>
+          <td>Works everywhere (needs schema in Angular)</td>
+        </tr>
+        <tr>
+          <td><strong>Learning Curve</strong></td>
+          <td>Learn browser API</td>
+          <td>Learn custom tag names</td>
+        </tr>
+        <tr>
+          <td><strong>Future-Proof</strong></td>
+          <td>Browser standard forever</td>
+          <td>Web component standard forever</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>Decision Time</h2>
+    <p>Now that you've <strong>seen and felt</strong> both approaches, which direction appeals to you?</p>
+
+    <nuke-card style="2">
+      <nuke-card-header>Option A: Native-First</nuke-card-header>
+      <nuke-card-content>
+        <p>Focus on styling native APIs (popover, dialog, details). Build utility classes for things without native equivalents (.card, .toolbar).</p>
+        <p><strong>Pro:</strong> Less JavaScript, pure standards</p>
+        <p><strong>Con:</strong> No structure enforcement, just classes</p>
+      </nuke-card-content>
+    </nuke-card>
+
+    <br>
+
+    <nuke-card style="2">
+      <nuke-card-header>Option B: Custom Elements for Non-Native</nuke-card-header>
+      <nuke-card-content>
+        <p>Use native APIs where they exist (popover, dialog). Build custom elements for components that will never be native (card, toolbar, tabs).</p>
+        <p><strong>Pro:</strong> Structure enforcement, self-documenting, framework independent</p>
+        <p><strong>Con:</strong> Requires minimal JavaScript layer</p>
+      </nuke-card-content>
+    </nuke-card>
+
+    <br>
+
+    <nuke-card style="2">
+      <nuke-card-header>Option C: Hybrid Package Structure</nuke-card-header>
+      <nuke-card-content>
+        <p>Split into two packages: @nuke-ui/core (CSS only) + @nuke-ui/components (custom elements, optional).</p>
+        <p><strong>Pro:</strong> Users choose their level (CSS only or CSS + components)</p>
+        <p><strong>Con:</strong> More packages to maintain</p>
+      </nuke-card-content>
+    </nuke-card>
+  </section>
+
+  <!-- Minimal JavaScript for Custom Elements -->
+  <script type="module">
+    // ============================================
+    // POPOVER POSITIONING POLYFILL
+    // For browsers without Anchor Positioning API
+    // ============================================
+
+    const supportsAnchorPositioning = CSS.supports('anchor-name', '--test');
+    console.log('Anchor Positioning API support:', supportsAnchorPositioning);
+
+    if (!supportsAnchorPositioning) {
+      console.log('⚠️  Using JavaScript fallback for popover positioning');
+
+      // Position popover relative to its trigger button
+      function positionPopover(popover, trigger) {
+        const triggerRect = trigger.getBoundingClientRect();
+        const popoverRect = popover.getBoundingClientRect();
+
+        // Position below trigger by default
+        let top = triggerRect.bottom + 8;
+        let left = triggerRect.left;
+
+        // Check if it overflows viewport
+        if (top + popoverRect.height > window.innerHeight) {
+          // Position above instead
+          top = triggerRect.top - popoverRect.height - 8;
+        }
+
+        if (left + popoverRect.width > window.innerWidth) {
+          // Align to right edge
+          left = triggerRect.right - popoverRect.width;
+        }
+
+        popover.style.top = `${top}px`;
+        popover.style.left = `${left}px`;
+      }
+
+      // Listen for popover show events
+      document.addEventListener('toggle', (e) => {
+        if (e.target.matches('[popover]') && e.newState === 'open') {
+          const popover = e.target;
+          const triggerId = popover.id;
+          const trigger = document.querySelector(`[popovertarget="${triggerId}"]`);
+
+          if (trigger) {
+            positionPopover(popover, trigger);
+          }
+        }
+      });
+    } else {
+      console.log('✅ Native Anchor Positioning supported!');
+    }
+
+    // ============================================
+    // CUSTOM ELEMENTS REGISTRATION
+    // ============================================
+
+    // Card component
+    class NukeCard extends HTMLElement {
+      connectedCallback() {
+        this.setAttribute('role', 'article');
+      }
+    }
+
+    class NukeCardHeader extends HTMLElement {
+      connectedCallback() {
+        this.setAttribute('role', 'heading');
+      }
+    }
+
+    class NukeCardContent extends HTMLElement {}
+    class NukeCardActions extends HTMLElement {}
+
+    // Toolbar component
+    class NukeToolbar extends HTMLElement {
+      connectedCallback() {
+        this.setAttribute('role', 'toolbar');
+      }
+    }
+
+    // Badge component
+    class NukeBadge extends HTMLElement {}
+
+    // Register all custom elements
+    customElements.define('nuke-card', NukeCard);
+    customElements.define('nuke-card-header', NukeCardHeader);
+    customElements.define('nuke-card-content', NukeCardContent);
+    customElements.define('nuke-card-actions', NukeCardActions);
+    customElements.define('nuke-toolbar', NukeToolbar);
+    customElements.define('nuke-badge', NukeBadge);
+
+    console.log('✅ Nuke custom elements registered!');
+    console.log('   - nuke-card (+ header, content, actions)');
+    console.log('   - nuke-toolbar');
+    console.log('   - nuke-badge');
+  </script>
+</body>
+</html>
