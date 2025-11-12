@@ -10,54 +10,51 @@
 - Documentation updated
 
 ### Clean Architecture ✅ DONE
-**Final folder structure (paired file system):**
+**Final folder structure (component folders with paired files):**
 
 ```
 core/
-├── base/
+├── _base/                       (foundation - always first)
 │   ├── reset.core.css           (logic only)
-│   ├── scrollbars.core.css      (logic only)
 │   ├── animations.core.css      (logic only)
-│   ├── colors.theme.css         (variables)
-│   ├── spacing.theme.css        (variables)
-│   ├── sizing.theme.css         (variables)
-│   ├── transitions.theme.css    (variables)
-│   ├── shadows.theme.css        (variables)
-│   ├── borders.theme.css        (variables)
-│   └── typography.theme.css     (variables)
-├── text/
-│   └── typography.core.css      (logic only)
-├── elements/                    (21 elements × 2 files = 42 files)
-│   ├── button.core.css
-│   ├── button.theme.css
-│   ├── input.core.css
-│   ├── input.theme.css
-│   └── ... (all 21 elements paired)
-├── components/                  (6 components × 2 files = 12 files)
-│   ├── card.core.css
-│   ├── card.theme.css
-│   └── ... (all 6 components paired)
-├── helpers/
-│   └── scroll-lock.core.css     (logic only)
+│   ├── helpers.core.css         (logic only)
+│   └── theme.css                (consolidated: tokens, scrollbars, typography)
+│
+├── {element}/                   (20 native HTML element folders)
+│   ├── {element}.core.css       (styling logic)
+│   └── {element}.theme.css      (design tokens)
+│
+├── {component}/                 (6 web component folders)
+│   ├── {component}.core.css     (styling logic)
+│   ├── {component}.theme.css    (design tokens)
+│   └── {component}.core.js      (web component registration)
+│
 ├── core.css                     (imports all *.core.css)
-└── theme.css                    (imports all *.theme.css)
+├── theme.css                    (imports all *.theme.css)
+└── core.js                      (imports all *.core.js)
 ```
 
-**Total: 66 CSS files (33 .core.css + 33 .theme.css)**
+**Actual folders (26 total):**
+- **20 native elements:** a/, button/, checkbox/, code/, details/, dialog/, hr/, img/, input/, label/, nav/, ol/, pre/, progress/, radio/, range/, select/, table/, textarea/, ul/
+- **6 web components:** badge/, card/, sidebar/, tabs/, toast/, toolbar/
+
+**Total: 58 CSS files + 7 JS files**
+- 4 base files (_base/)
+- 40 native element files (20 × 2)
+- 12 web component CSS files (6 × 2)
+- 6 web component JS files
+- 2 aggregate CSS files (core.css, theme.css)
+- 1 aggregate JS file (core.js)
 
 **Why This Rocks:**
-- ✅ No folder jumping - paired files side-by-side
-- ✅ Easy completeness check - every element has .core + .theme
-- ✅ Clear naming - .core.css = logic, .theme.css = variables
-- ✅ Postinstall extracts *.theme.css → nuke-theme/ folder
+- ✅ Component-based folders - each element owns its folder
+- ✅ Paired files together - no folder jumping
+- ✅ Easy completeness check - every folder has .core + .theme
+- ✅ Web components obvious - they have .core.js files
+- ✅ _base/ always at top (underscore prefix)
+- ✅ Alphabetical, predictable navigation
 
-**Folder naming rationale:**
-- `base/` = Global primitives (not vague "foundation")
-- `text/` = Typography only (clear purpose)
-- `elements/` = Native HTML (not vague "ui")
-- `components/` = Web components (future)
-
-### 21 Production-Ready Native Elements ✅ DONE
+### 20 Production-Ready Native Elements ✅ DONE
 
 **Deleted niche/unused elements:**
 - ❌ abbr, kbd, mark, menu (too niche)
@@ -69,7 +66,7 @@ core/
 - ❌ main, header, footer, section (too project-specific - use nuke-templates instead)
 - ❌ meter (removed - too niche, rarely used)
 
-**Current native elements (21 total):**
+**Current native elements (20 total):**
 
 **Form Controls (9):**
 - ✅ button - Solid/outlined/ghost
@@ -249,54 +246,43 @@ core/
 
 ```
 nuke-ds/
-├── core/
-│   ├── base/
-│   ├── text/
-│   ├── elements/          (22 native elements) ✅
-│   ├── components/        ✅ COMPLETE (6 web component styles)
-│   │   ├── card.css
-│   │   ├── toolbar.css
-│   │   ├── badge.css
-│   │   ├── tabs.css
-│   │   ├── toast.css
-│   │   └── sidebar.css
-│   ├── helpers/
-│   └── all.css            ✅ (includes components/)
+├── core/                        (everything lives here)
+│   ├── _base/                   (4 files: 3 .core.css + 1 theme.css)
+│   │   ├── reset.core.css
+│   │   ├── animations.core.css
+│   │   ├── helpers.core.css
+│   │   └── theme.css
+│   │
+│   ├── {element}/               (20 native element folders)
+│   │   ├── {element}.core.css
+│   │   └── {element}.theme.css
+│   │
+│   ├── {component}/             (6 web component folders)
+│   │   ├── {component}.core.css
+│   │   ├── {component}.theme.css
+│   │   └── {component}.core.js
+│   │
+│   ├── core.css                 (aggregate imports)
+│   ├── theme.css                (aggregate imports)
+│   └── core.js                  (aggregate imports)
 │
-├── theme/
-│   ├── base/
-│   ├── elements/
-│   ├── components/        ✅ COMPLETE (6 web component variables)
-│   │   ├── card.css
-│   │   ├── toolbar.css
-│   │   ├── badge.css
-│   │   ├── tabs.css
-│   │   ├── toast.css
-│   │   └── sidebar.css
-│   └── all.css            ✅ (includes components/)
-│
-└── components/            ✅ COMPLETE (7 JS files)
-    ├── nuke-card.js
-    ├── nuke-toolbar.js
-    ├── nuke-badge.js
-    ├── nuke-tabs.js
-    ├── nuke-toast.js
-    ├── nuke-sidebar.js
-    └── core.js             (imports all components)
+└── index.html                   (demo)
 ```
 
 **Total Files:**
-- 68 CSS files (33 core + 35 theme)
-- 7 JavaScript files (6 components + 1 core.js)
+- 58 CSS files (paired .core.css + .theme.css in component folders)
+- 7 JavaScript files (6 .core.js web components + 1 aggregate core.js)
 
 **Import pattern for users:**
 ```html
 <!-- CSS (theme + core) -->
-<link rel="stylesheet" href="nuke-theme/all.css">
-<link rel="stylesheet" href="@nuke-ds/core/all.css">
+<link rel="stylesheet" href="@nuke.dev/design-system/core/theme.css">
+<link rel="stylesheet" href="@nuke.dev/design-system/core/core.css">
 
 <!-- Web components (optional) -->
-<script type="module" src="@nuke-ds/components/core.js"></script>
+<script type="module">
+  import '@nuke.dev/design-system/core/core.js';
+</script>
 ```
 
 ---
@@ -523,27 +509,29 @@ nuke-ds/
 
 **What works RIGHT NOW (v1.0 READY!):**
 - ✅ Open `index.html` in any modern browser
-- ✅ All 22 native elements render perfectly
+- ✅ All 20 native HTML elements render perfectly
 - ✅ All 6 web components fully functional
 - ✅ **Universal numbered style system (1/2/3) across everything**
-- ✅ **Both attribute and class syntax supported**
+- ✅ **Both attribute (`style="1"`) and class (`.style-1`) syntax supported**
 - ✅ Keyboard navigation (tabs with arrow keys, Home/End)
-- ✅ Auto-dismiss toasts with stacking
-- ✅ Collapsible sidebar with overlay
+- ✅ Auto-dismiss toasts with stacking behavior
+- ✅ Collapsible sidebar with overlay backdrop
 - ✅ Clean, semantic HTML structure
-- ✅ Professional, minimal aesthetic (subtle redesign)
-- ✅ Real-world architecture proven
+- ✅ Professional, minimal aesthetic (crispy orange accent)
+- ✅ Component folder structure (26 folders, 58 CSS, 7 JS)
+- ✅ Zero redundancy (all use core primitives)
 
 **What's ready for users:**
-- ✅ Clean, production-ready CSS (58 files)
-- ✅ Comprehensive native element coverage (22 elements)
-- ✅ 6 production-ready web components
-- ✅ Clear separation of concerns (core/theme)
+- ✅ Production-ready CSS (58 files in component folders)
+- ✅ Comprehensive native element coverage (20 elements)
+- ✅ 6 production-ready web components with JS
+- ✅ Component-based folder structure (.core/.theme paired files)
 - ✅ Easy customization through theme variables
-- ✅ Comprehensive demo page with all variants
+- ✅ Comprehensive demo page with all 26 components
 - ✅ Framework independent (works with any stack)
 - ✅ **Numbered style system (1/2/3)**
 - ✅ **Three cohesive design philosophies**
+- ✅ Consolidated base theme (zero redundancy)
 
 **What's needed for v1.0 official release:**
 - ✅ **Numbered style system** - COMPLETE!
@@ -563,25 +551,27 @@ nuke-ds/
 ## 🎉 KEY DECISIONS LOCKED IN
 
 ### Architecture ✅
-- base/ = Global resets, animations, design tokens
-- text/ = Basic typography (no variants)
-- elements/ = FLAT structure, all 22 native elements with Style 1/2/3
-- components/ = Web components for complex patterns
-- Theme mirrors core structure
+- Component folders = Each element/component owns its own folder
+- _base/ = Foundation (4 files: reset, animations, helpers, theme)
+- 26 element/component folders = FLAT structure (20 native + 6 web components)
+- Paired files = .core.css (logic) + .theme.css (variables) in same folder
+- Web components identified by .core.js files
 - Import order: theme FIRST, then core
 
 ### Naming ✅
 - Variables: `--color-1`, `--button-height`, `--button-1-bg`, `--button-2-bg`, `--button-3-bg`
 - Classes: `.style-1`, `.style-2`, `.style-3` (universal)
 - Attributes: `style="1/2/3"` (primary)
-- Components: `<nuke-card>`, `<nuke-toolbar>`, etc.
-- Files: `{element}.css`, `{token}.css`, `nuke-{name}.js`
+- Web components: `<nuke-card>`, `<nuke-toolbar>`, etc.
+- Files: `{element}.core.css`, `{element}.theme.css`, `{component}.core.js`
+- Folders: Named after element/component (button/, card/, etc.)
 
 ### Distribution ✅
-- npm packages: `@nuke-ds/core`, `@nuke-ds/components`
-- Postinstall copies theme to project
-- Users customize theme freely
-- Updates never overwrite theme
+- npm package: `@nuke.dev/design-system`
+- Postinstall optionally extracts *.theme.css to project
+- Users can use directly OR customize extracted theme
+- Updates never overwrite extracted theme
+- Two usage patterns: direct (simple) or extracted (customizable)
 
 ### Philosophy ✅
 - Element-first (native HTML works without classes)

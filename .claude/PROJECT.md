@@ -96,142 +96,173 @@ A pure CSS element-first styling system with **22 fully implemented native eleme
 - If variables live in one giant file, navigation is painful
 - Need: separate concerns, easy navigation, update-safe
 
-**The Solution: Paired File Structure**
+**The Solution: Component Folder Structure with Paired Files**
 
 ```
 nuke-ds/                         (repository)
-├── core/                        (all CSS - logic + variables paired together)
-│   ├── _base/
-│   │   ├── reset.core.css           (browser resets)
-│   │   ├── animations.core.css      (@keyframes definitions)
-│   │   ├── helpers.core.css         (utility classes: .no-scroll)
-│   │   └── theme.css                (all theme: tokens, scrollbars, typography variables + styles)
-│   ├── elements/                    (22 elements × 2 files each)
-│   │   ├── button.core.css          (logic)
-│   │   ├── button.theme.css         (variables)
-│   │   ├── input.core.css
-│   │   ├── input.theme.css
-│   │   └── ... (44 files total - 22 paired)
-│   ├── components/                  (6 components × 2 files each)
-│   │   ├── card.core.css
-│   │   ├── card.theme.css
-│   │   ├── toolbar.core.css
-│   │   ├── toolbar.theme.css
-│   │   └── ... (12 files total - 6 paired)
-│   ├── helpers/
-│   │   └── scroll-lock.core.css     (logic only - no theme pair)
-│   ├── core.css                     (imports all *.core.css)
-│   └── theme.css                    (imports all *.theme.css)
+├── core/                        (everything lives here - paired .core.css + .theme.css)
+│   ├── _base/                   (foundation - always at top)
+│   │   ├── reset.core.css           (browser resets - logic only)
+│   │   ├── animations.core.css      (@keyframes definitions - logic only)
+│   │   ├── helpers.core.css         (utility classes: .no-scroll - logic only)
+│   │   └── theme.css                (consolidated base theme: tokens, scrollbars, typography)
+│   │
+│   ├── {element}/               (20 native HTML element folders)
+│   │   ├── {element}.core.css       (styling logic)
+│   │   └── {element}.theme.css      (design tokens for this element)
+│   │
+│   ├── {component}/             (6 web component folders)
+│   │   ├── {component}.core.css     (styling logic)
+│   │   ├── {component}.theme.css    (design tokens)
+│   │   └── {component}.core.js      (web component registration)
+│   │
+│   ├── core.css                 (imports all *.core.css files)
+│   ├── theme.css                (imports all *.theme.css files)
+│   └── core.js                  (imports all *.core.js web components)
 │
-└── components/                      (web component registration)
-    ├── nuke-card.js
-    ├── nuke-toolbar.js
-    ├── nuke-badge.js
-    ├── nuke-tabs.js
-    ├── nuke-toast.js
-    ├── nuke-sidebar.js
-    └── core.js
+└── index.html                   (comprehensive demo)
 ```
 
+**Actual Folder Structure (26 element/component folders):**
+
+**Native HTML Elements (20 folders - .core.css + .theme.css only):**
+- a/, button/, checkbox/, code/, details/, dialog/, hr/, img/, input/, label/
+- nav/, ol/, pre/, progress/, radio/, range/, select/, table/, textarea/, ul/
+
+**Web Components (6 folders - .core.css + .theme.css + .core.js):**
+- badge/, card/, sidebar/, tabs/, toast/, toolbar/
+
 **Total Files:**
-- 58 CSS files (25 .core.css + 33 .theme.css) - paired in same folders
-- 7 JavaScript files (6 web components + 1 core.js)
+- **58 CSS files:**
+  - 4 base files (reset.core.css, animations.core.css, helpers.core.css, theme.css)
+  - 20 native element pairs (40 files: 20 .core.css + 20 .theme.css)
+  - 6 web component pairs (12 files: 6 .core.css + 6 .theme.css)
+  - 2 aggregate files (core.css, theme.css)
 
-**Note:**
-- All base theme consolidated into single `_base/theme.css` (primitives only, zero redundancy)
-- Was 7 separate files, now 1 unified theme file
-- All 16 component theme files use ONLY core primitives (no hardcoded values)
+- **7 JavaScript files:**
+  - 6 web component registrations (badge.core.js, card.core.js, sidebar.core.js, tabs.core.js, toast.core.js, toolbar.core.js)
+  - 1 aggregate file (core.js)
 
-**Why This Is Brilliant:**
-- ✅ See paired files together (button.core.css + button.theme.css)
+**Why This Architecture Works:**
+- ✅ Component-based folders (each element/component owns its own folder)
+- ✅ Paired files visible together (button.core.css + button.theme.css in same folder)
 - ✅ No folder jumping during development
-- ✅ Easy to verify completeness (every .core.css should have matching .theme.css)
-- ✅ Postinstall extracts *.theme.css → user's nuke-theme/ folder
-- ✅ Clear separation still maintained through naming
+- ✅ Easy completeness check (every folder should have .core.css + .theme.css)
+- ✅ Web components easily identifiable (they have .core.js files)
+- ✅ _base/ always at top (alphabetical sorting)
+- ✅ Clear separation maintained through .core/.theme naming convention
 
 ### Folder Naming Clarity
 
-**Why these names:**
-- `base/` = Global primitives (resets, animations, design tokens)
-- `text/` = Typography only (h1-h6, p, lists, etc.)
-- `elements/` = Native HTML elements (button, input, etc.)
-- `components/` = Custom web components (card, toolbar, etc.)
+**Current Structure:**
+- `_base/` = Foundation (resets, animations, helpers, consolidated theme)
+  - Underscore prefix ensures it's always first alphabetically
+  - Contains only 4 files (3 logic files + 1 consolidated theme)
 
-**German-friendly:** No vague English buzzwords like "foundation" or "ui"
+- `{element}/` = One folder per element/component (26 total)
+  - Flat structure - no nested folders
+  - Named after HTML element or component (button/, card/, etc.)
+  - Contains .core.css + .theme.css (+ .core.js for web components)
+
+**Why this works:**
+- Clear ownership (each element owns its folder)
+- Easy navigation (alphabetical, predictable)
+- No ambiguous categories like "form-controls" or "ui-elements"
+- Web components obvious (they have .core.js files)
+- German-friendly (direct, concrete names)
 
 ### Distribution Model
 
 **npm package:** `@nuke.dev/design-system`
 
+**Package contents:**
+```
+node_modules/@nuke.dev/design-system/
+├── core/                        (everything)
+│   ├── _base/                   (foundation)
+│   ├── {element}/               (26 element/component folders)
+│   ├── core.css                 (import this for styling logic)
+│   ├── theme.css                (import this for design tokens)
+│   └── core.js                  (import this for web components)
+├── index.html                   (demo/reference)
+├── package.json
+└── README.md
+```
+
 **Postinstall script:**
-- Extracts all `*.theme.css` files
+- Extracts all `*.theme.css` files from `core/` subfolders
 - Copies to user's chosen location (default: `./nuke-theme/`)
-- Removes `.theme` suffix (e.g., `button.theme.css` → `button.css`)
-- Preserves folder structure (base/, elements/, components/)
+- Preserves folder structure (_base/, element folders)
+- User can customize freely without affecting node_modules
 
-**User imports:**
+**Two usage patterns:**
+
+**1. Direct usage (simple):**
 ```css
-/* Import extracted theme (customizable) */
-@import './nuke-theme/all.css';
-
-/* Import core logic from node_modules */
-@import '@nuke.dev/design-system/core/core.css';
-```
-
-**Or use directly from node_modules:**
-```css
-/* Import theme from node_modules */
+/* Import theme + core directly from node_modules */
 @import '@nuke.dev/design-system/core/theme.css';
-
-/* Import core logic */
 @import '@nuke.dev/design-system/core/core.css';
 ```
 
-**When installed:**
-```
-node_modules/
-└── @nuke-ds/
-    ├── core/                    (the system - never edit)
-    │   ├── elements/button.css
-    │   └── all.css
-    └── components/              (web components - optional)
-        └── core.js
+**2. Extracted theme (customizable):**
+```css
+/* Import extracted theme (customize freely) */
+@import './nuke-theme/theme.css';
 
+/* Import core logic from node_modules (don't edit) */
+@import '@nuke.dev/design-system/core/core.css';
+```
+
+**After postinstall (if using extracted theme):**
+```
 project-root/
-└── nuke-theme/                  (copied via postinstall - customize this!)
-    ├── base/colors.css
-    ├── elements/button.css
-    └── all.css
+└── nuke-theme/                  (extracted *.theme.css files)
+    ├── _base/theme.css          (base design tokens)
+    ├── button/button.theme.css  (button tokens)
+    ├── card/card.theme.css      (card tokens)
+    └── theme.css                (imports all *.theme.css)
 ```
 
-**Postinstall behavior:**
-- Copies `theme/` → `project-root/nuke-theme/`
-- User customizes `nuke-theme/` freely
-- Updates to `@nuke-ds/core` never touch theme
+**Benefits:**
+- Updates to `@nuke.dev/design-system` never touch your extracted theme
+- Customize theme variables without forking the package
+- Or skip extraction and use directly from node_modules
 
 ### User Workflow
 
 **1. Install:**
 ```bash
-npm install @nuke-ds/core
-# Optional: npm install @nuke-ds/components
-# Postinstall creates nuke-theme/ in your project
+npm install @nuke.dev/design-system
+# Postinstall may prompt for theme extraction location (optional)
 ```
 
-**2. Import in your `style.css`:**
-```css
-/* Define design tokens FIRST */
-@import 'nuke-theme/all.css';
+**2. Choose your import pattern:**
 
-/* Then import system logic */
-@import '@nuke-ds/core/all.css';
+**Option A - Direct (simple, no customization):**
+```css
+/* Import theme + core directly from node_modules */
+@import '@nuke.dev/design-system/core/theme.css';
+@import '@nuke.dev/design-system/core/core.css';
 
 /* Your custom styles below */
 ```
 
-**3. Optional: Import web components (if needed):**
+**Option B - Extracted theme (customizable):**
+```css
+/* Import extracted theme (customize freely) */
+@import './nuke-theme/theme.css';
+
+/* Import core logic from node_modules */
+@import '@nuke.dev/design-system/core/core.css';
+
+/* Your custom styles below */
+```
+
+**3. Optional: Use web components:**
 ```html
-<script type="module" src="node_modules/@nuke-ds/components/core.js"></script>
+<script type="module">
+  import '@nuke.dev/design-system/core/core.js';
+</script>
 
 <!-- Now you can use -->
 <nuke-card style="1">
@@ -240,23 +271,23 @@ npm install @nuke-ds/core
 </nuke-card>
 ```
 
-**4. Customize:**
-- Edit `nuke-theme/base/colors.css` for brand colors
-- Edit `nuke-theme/base/spacing.css` for spacing tokens
-- Edit `nuke-theme/elements/button.css` for button variables
-- Same structure as core - easy navigation
+**4. Customize (if using extracted theme):**
+- Edit `nuke-theme/_base/theme.css` for core tokens (colors, spacing, etc.)
+- Edit `nuke-theme/button/button.theme.css` for button-specific variables
+- Edit `nuke-theme/card/card.theme.css` for card-specific variables
+- Same folder structure as core - easy navigation
 
-**5. Update core safely:**
+**5. Update safely:**
 ```bash
-npm update @nuke-ds/core
-# Your theme stays untouched!
+npm update @nuke.dev/design-system
+# Your extracted theme stays untouched!
 ```
 
 ## Current Implementation Status
 
 ### ✅ FULLY IMPLEMENTED (v1.0 READY!)
 
-**21 Native Elements + 6 Web Components (66 CSS Files + 7 JS Files):**
+**20 Native HTML Elements + 6 Web Components (58 CSS Files + 7 JS Files):**
 **✅ All implemented with numbered style system (1/2/3)!**
 
 **Form Controls (9):**
@@ -295,11 +326,10 @@ npm update @nuke-ds/core
 
 
 **Foundation:**
-- ✅ base/reset.css - CSS reset
-- ✅ base/animations.css - Keyframes (@fadeIn, @slideDown, @spin)
-- ✅ base/scrollbars.css - Custom scrollbar styles
-- ✅ helpers/scroll-lock.css - Body scroll prevention + iOS fix
-- ✅ text/typography.css - Basic text elements (h1-h6, p, lists, etc.)
+- ✅ _base/reset.core.css - CSS reset (browser normalization)
+- ✅ _base/animations.core.css - Keyframes (@fadeIn, @slideDown, @spin, etc.)
+- ✅ _base/helpers.core.css - Utility classes (.no-scroll, body scroll lock)
+- ✅ _base/theme.css - Consolidated base theme (tokens, scrollbars, typography)
 
 **Web Components (6 Fully Implemented with numbered styles!):**
 - ✅ `<nuke-card>` - Content containers with header/content/actions structure
@@ -332,11 +362,12 @@ npm update @nuke-ds/core
   - Close on overlay click
 
 **Demo:**
-- ✅ index.html - Comprehensive demo of all 28 elements + 6 web components
-- ✅ Professional hero with gradient
+- ✅ index.html - Comprehensive demo of all 20 native elements + 6 web components
+- ✅ Sticky NUKE-style header with light/dark theme toggle
 - ✅ Side-by-side variant comparison for all components (Style 1/2/3)
-- ✅ Fixed toast functionality with helper
-- ✅ Subtle, minimal aesthetic (recent redesign)
+- ✅ Working toast notifications (positioned below header)
+- ✅ Collapsible sidebar with overlay
+- ✅ Professional, minimal aesthetic (crispy orange accent)
 - ✅ Numbered style system (style="1/2/3")
 
 ### 🎯 FUTURE COMPONENTS (Post v1.0)
@@ -534,9 +565,9 @@ button.style-1:hover {
 - **Element-first architecture** - Native HTML works out of the box
 - **Numbered style system** - `style="1/2/3"` everywhere (three complete design philosophies)
 - **Hybrid approach** - Pure CSS for native, web components for complex
-- **Core/Theme separation** - Update-safe customization
-- **One file per element** - Clear ownership, easy navigation
-- **Minimal scope** - 28 elements, not 50+ components
+- **Component folder structure** - Each element/component owns its own folder
+- **Core/Theme separation** - Update-safe customization via .core/.theme naming
+- **Minimal scope** - 26 elements/components (20 native + 6 web), not 50+ bloat
 - **Personal toolkit** - Built for real usage, not market trends
 
 ## Best Practices
@@ -569,12 +600,19 @@ button.style-1:hover {
 
 ### Folder Structure Philosophy
 
-**Why we split base/ into focused files:**
-- ❌ BAD: One giant `foundation.css` with 100+ variables
-- ✅ GOOD: `colors.css`, `spacing.css`, `borders.css`, etc.
-- Easy to find what you need
-- Clear ownership (looking for spacing? Open spacing.css)
-- German-friendly (no vague English buzzwords)
+**Component-based folders (one folder per element/component):**
+- ✅ GOOD: `button/`, `card/`, `input/` (each owns its files)
+- ❌ BAD: Nested categories like `elements/form-controls/button/`
+- Easy navigation (alphabetical, predictable)
+- Clear ownership (everything related to button lives in button/)
+- Web components obvious (they have .core.js files)
+
+**Consolidated base theme:**
+- ✅ GOOD: Single `_base/theme.css` with all foundation tokens
+- ❌ BAD: Seven separate files (colors, spacing, borders, etc.)
+- Reduced from 7 files to 1 unified theme
+- Only primitives (colors, spacing, sizing, shadows, transitions, typography)
+- Zero redundancy - components use primitives directly
 
 ## Key Insights
 
@@ -582,9 +620,9 @@ button.style-1:hover {
 
 > "The holy grail: `style="1/2/3"` pattern everywhere. Numbered system that's simple and clear. Three complete design philosophies - Style 1 is minimal, Style 2 is background-driven, Style 3 is all-in. Same pattern across ALL elements."
 
-> "One element = one file. Want to fix buttons? Open `button.css`. Clear ownership, easy to maintain."
+> "One element = one folder. Want to fix buttons? Open `button/` folder. Everything related to buttons lives there: button.core.css, button.theme.css. Clear ownership, easy to maintain."
 
-> "Variables live in the theme, not the core. Update-safe architecture where core improvements never overwrite customizations."
+> "Paired files in same folder. .core.css has logic, .theme.css has variables. Core improvements never overwrite your theme customizations."
 
 > "Native elements stay native. Only complex components (card, toolbar) use web components. Best of both worlds."
 
@@ -595,19 +633,20 @@ button.style-1:hover {
 **Current State:** v1.0 READY (numbered style system COMPLETE!)
 
 **What's Working:**
-- ✅ 22 fully implemented native elements
+- ✅ 20 fully implemented native HTML elements
 - ✅ 6 fully implemented web components
-- ✅ 68 CSS files (33 core + 35 theme)
-- ✅ 7 JavaScript files (6 web components + 1 core.js)
-- ✅ Complete core/theme separation
+- ✅ 58 CSS files (component folders with paired .core/.theme files)
+- ✅ 7 JavaScript files (6 web component .core.js + 1 aggregate core.js)
+- ✅ Component folder structure with clear separation (.core/.theme naming)
+- ✅ Consolidated base theme (4 files in _base/)
 - ✅ **Numbered style system (1/2/3) across ALL elements**
 - ✅ **Both attribute (`style="1"`) and class (`.style-1`) syntax**
-- ✅ Comprehensive demo (index.html) with all variants
-- ✅ Keyboard navigation (tabs with arrow keys)
-- ✅ Auto-dismiss toasts with stacking
-- ✅ Collapsible sidebar with overlay
-- ✅ Professional, minimal aesthetic (recent redesign)
-- ✅ Clear folder structure (base/text/elements/components)
+- ✅ Comprehensive demo (index.html) with all 26 components
+- ✅ Keyboard navigation (tabs with arrow keys, Home/End)
+- ✅ Auto-dismiss toasts with stacking behavior
+- ✅ Collapsible sidebar with overlay backdrop
+- ✅ Professional, minimal aesthetic (crispy orange accent)
+- ✅ Zero redundancy - all components use core primitives
 - ✅ Production-ready CSS + JavaScript
 - ✅ Real-world architecture proven
 
