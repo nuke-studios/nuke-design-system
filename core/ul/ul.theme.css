@@ -1,21 +1,28 @@
 :root {
---ul-margin: 0 0 var(--list-margin-bottom) 0;
---ul-padding-left: var(--list-padding-left);
---ul-item-margin: var(--list-item-margin-bottom);
---ul-1-list-style: disc;
---ul-1-padding-left: var(--space-3);
---ul-1-item-margin: var(--space-1);
---ul-2-list-style: none;
---ul-2-padding-left: 0;
---ul-2-item-bg: var(--background-3);
---ul-2-item-padding: var(--space-1) var(--space-2);
---ul-2-item-margin: var(--space-1);
---ul-2-item-radius: var(--border-radius-small);
---ul-3-list-style: none;
---ul-3-padding-left: 0;
---ul-3-item-bg: var(--background-2);
---ul-3-item-border: 1px solid var(--border-1);
---ul-3-item-padding: var(--space-2);
---ul-3-item-margin: var(--space-1);
---ul-3-item-radius: var(--border-radius);
+  /* core */
+  --ul-margin: 0 0 var(--list-margin-bottom) 0;
+  --ul-padding-left: var(--list-padding-left);
+  --ul-item-margin: var(--list-item-margin-bottom);
+
+  /* style 1 */
+  --ul-1-list-style: disc;
+  --ul-1-padding-left: var(--space-3);
+  --ul-1-item-margin: var(--space-1);
+
+  /* style 2 */
+  --ul-2-list-style: none;
+  --ul-2-padding-left: 0;
+  --ul-2-item-bg: var(--background-3);
+  --ul-2-item-padding: var(--space-1) var(--space-2);
+  --ul-2-item-margin: var(--space-1);
+  --ul-2-item-radius: var(--border-radius-small);
+
+  /* style 3 */
+  --ul-3-list-style: none;
+  --ul-3-padding-left: 0;
+  --ul-3-item-bg: var(--background-2);
+  --ul-3-item-border: 1px solid var(--border-1);
+  --ul-3-item-padding: var(--space-2);
+  --ul-3-item-margin: var(--space-1);
+  --ul-3-item-radius: var(--border-radius);
 }

@@ -1,13 +1,20 @@
 :root {
---hr-margin: var(--space-3) 0;
---hr-border-color: var(--border-1);
---hr-1-border-width: 1px;
---hr-1-opacity: 0.3;
---hr-2-height: calc(var(--space-1) / 2);
---hr-2-bg: linear-gradient(to right, transparent, var(--border-1), transparent);
---hr-2-opacity: 1;
---hr-3-border-width: 3px;
---hr-3-bg: var(--background-3);
---hr-3-opacity: 1;
---hr-3-height: var(--space-1);
+  /* core */
+  --hr-margin: var(--space-3) 0;
+  --hr-border-color: var(--border-1);
+
+  /* style 1 */
+  --hr-1-border-width: 1px;
+  --hr-1-opacity: 0.3;
+
+  /* style 2 */
+  --hr-2-height: calc(var(--space-1) / 2);
+  --hr-2-bg: linear-gradient(to right, transparent, var(--border-1), transparent);
+  --hr-2-opacity: 1;
+
+  /* style 3 */
+  --hr-3-border-width: 3px;
+  --hr-3-bg: var(--background-3);
+  --hr-3-opacity: 1;
+  --hr-3-height: var(--space-1);
 }

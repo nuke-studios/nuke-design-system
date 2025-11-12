@@ -1,19 +1,26 @@
 :root {
---input-height: var(--height-2);
---input-padding-x: var(--space-2);
---input-font-size: var(--font-size-2);
---input-radius: var(--border-radius);
---input-transition: var(--transition-fast);
---input-color: var(--on-background);
---input-placeholder: var(--on-background-light);
---input-focus-border: var(--on-background);
---input-1-bg: transparent;
---input-1-border: transparent;
---input-1-border-bottom: var(--border-2);
---input-1-focus-border-bottom: var(--on-background);
---input-2-bg: var(--background-3);
---input-2-focus-bg: var(--border-1);
---input-3-bg: var(--background-3);
---input-3-border: var(--border-1);
---input-3-focus-border: var(--on-background);
+  /* core */
+  --input-height: var(--height-2);
+  --input-padding-x: var(--space-2);
+  --input-font-size: var(--font-size-2);
+  --input-radius: var(--border-radius);
+  --input-transition: var(--transition-fast);
+  --input-color: var(--on-background);
+  --input-placeholder: var(--on-background-light);
+  --input-focus-border: var(--on-background);
+
+  /* style 1 */
+  --input-1-bg: transparent;
+  --input-1-border: transparent;
+  --input-1-border-bottom: var(--border-2);
+  --input-1-focus-border-bottom: var(--on-background);
+
+  /* style 2 */
+  --input-2-bg: var(--background-3);
+  --input-2-focus-bg: var(--border-1);
+
+  /* style 3 */
+  --input-3-bg: var(--background-3);
+  --input-3-border: var(--border-1);
+  --input-3-focus-border: var(--on-background);
 }

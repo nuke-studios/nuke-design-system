@@ -1,48 +1,40 @@
 :root {
---tabs-gap: var(--space-1);
---tabs-padding: var(--space-2);
---tab-padding-x: var(--space-2);
---tab-padding-y: var(--space-1);
---tab-font-size: var(--font-size-2);
---tab-font-weight: var(--font-weight-medium);
---tab-color: var(--on-background-light);
---tab-color-active: var(--on-background);
---tab-transition: all var(--transition-fast);
---tab-panel-padding: var(--space-2);
---tabs-1-border-bottom: none;
---tab-1-border-active: 1px solid var(--on-background);
---tab-1-background: transparent;
---tab-1-background-hover: transparent;
---tabs-2-background: transparent;
---tab-2-background: transparent;
---tab-2-background-active: var(--background-3);
---tab-2-background-hover: var(--background-3);
---tab-2-color-active: var(--on-background);
---tab-2-radius: var(--border-radius);
---tab-panel-2-background: var(--background-2);
---tabs-3-border: 2px solid var(--border-1);
---tabs-3-wrapper-border: none;
---tab-3-background: var(--background-3);
---tab-3-background-active: var(--background-2);
---tab-3-border: 2px solid var(--border-1);
---tab-3-border-active: 2px solid var(--border-1);
---tab-3-radius: var(--border-radius);
---tab-panel-3-background: var(--background-2);
---tab-panel-3-border: 2px solid var(--border-1);
---tab-panel-3-shadow: var(--shadow-2);
---tabs-style-1-border-bottom: var(--tabs-1-border-bottom);
---tab-style-1-border-active: var(--tab-1-border-active);
---tab-style-1-background: var(--tab-1-background);
---tab-style-1-background-hover: var(--tab-1-background-hover);
---tabs-style-2-background: var(--tabs-2-background);
---tab-style-2-background: var(--tab-2-background);
---tab-style-2-background-active: var(--tab-2-background-active);
---tab-style-2-background-hover: var(--tab-2-background-hover);
---tab-style-2-color-active: var(--tab-2-color-active);
---tab-style-2-radius: var(--tab-2-radius);
---tabs-style-3-border: var(--tabs-3-border);
---tab-style-3-background: var(--tab-3-background);
---tab-style-3-background-active: var(--tab-3-background-active);
---tab-style-3-border-active: var(--tab-3-border-active);
---tab-style-3-radius: var(--tab-3-radius);
+  /* core */
+  --tabs-gap: var(--space-1);
+  --tabs-padding: var(--space-2);
+  --tab-padding-x: var(--space-2);
+  --tab-padding-y: var(--space-1);
+  --tab-font-size: var(--font-size-2);
+  --tab-font-weight: var(--font-weight-medium);
+  --tab-color: var(--on-background-light);
+  --tab-color-active: var(--on-background);
+  --tab-transition: all var(--transition-fast);
+  --tab-panel-padding: var(--space-2);
+
+  /* style 1 */
+  --tabs-1-border-bottom: none;
+  --tab-1-border-active: 1px solid var(--on-background);
+  --tab-1-background: transparent;
+  --tab-1-background-hover: transparent;
+
+  /* style 2 */
+  --tabs-2-background: transparent;
+  --tab-2-background: transparent;
+  --tab-2-background-active: var(--background-3);
+  --tab-2-background-hover: var(--background-3);
+  --tab-2-color-active: var(--on-background);
+  --tab-2-radius: var(--border-radius);
+  --tab-panel-2-background: var(--background-2);
+
+  /* style 3 */
+  --tabs-3-border: 2px solid var(--border-1);
+  --tabs-3-wrapper-border: none;
+  --tab-3-background: var(--background-3);
+  --tab-3-background-active: var(--background-2);
+  --tab-3-border: 2px solid var(--border-1);
+  --tab-3-border-active: 2px solid var(--border-1);
+  --tab-3-radius: var(--border-radius);
+  --tab-panel-3-background: var(--background-2);
+  --tab-panel-3-border: 2px solid var(--border-1);
+  --tab-panel-3-shadow: var(--shadow-2);
 }

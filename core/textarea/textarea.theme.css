@@ -1,26 +1,33 @@
 :root {
---textarea-min-height: 120px;
---textarea-padding: var(--space-2);
---textarea-font-size: var(--font-size-2);
---textarea-radius: var(--border-radius);
---textarea-transition: var(--transition-fast);
---textarea-line-height: var(--line-height-2);
---textarea-bg: var(--background-2);
---textarea-color: var(--on-background);
---textarea-border: var(--border-1);
---textarea-placeholder: var(--on-background-light);
---textarea-focus-border: var(--on-background);
---textarea-1-bg: transparent;
---textarea-1-color: var(--on-background);
---textarea-1-border: var(--border-2);
---textarea-1-focus-bg: var(--background-2);
---textarea-1-focus-border: var(--on-background);
---textarea-2-bg: var(--background-3);
---textarea-2-color: var(--on-background);
---textarea-2-focus-bg: var(--border-1);
---textarea-3-bg: var(--background-3);
---textarea-3-color: var(--on-background);
---textarea-3-border: var(--border-1);
---textarea-3-focus-bg: var(--background-3);
---textarea-3-focus-border: var(--on-background);
+  /* core */
+  --textarea-min-height: 120px;
+  --textarea-padding: var(--space-2);
+  --textarea-font-size: var(--font-size-2);
+  --textarea-radius: var(--border-radius);
+  --textarea-transition: var(--transition-fast);
+  --textarea-line-height: var(--line-height-2);
+  --textarea-bg: var(--background-2);
+  --textarea-color: var(--on-background);
+  --textarea-border: var(--border-1);
+  --textarea-placeholder: var(--on-background-light);
+  --textarea-focus-border: var(--on-background);
+
+  /* style 1 */
+  --textarea-1-bg: transparent;
+  --textarea-1-color: var(--on-background);
+  --textarea-1-border: var(--border-2);
+  --textarea-1-focus-bg: var(--background-2);
+  --textarea-1-focus-border: var(--on-background);
+
+  /* style 2 */
+  --textarea-2-bg: var(--background-3);
+  --textarea-2-color: var(--on-background);
+  --textarea-2-focus-bg: var(--border-1);
+
+  /* style 3 */
+  --textarea-3-bg: var(--background-3);
+  --textarea-3-color: var(--on-background);
+  --textarea-3-border: var(--border-1);
+  --textarea-3-focus-bg: var(--background-3);
+  --textarea-3-focus-border: var(--on-background);
 }

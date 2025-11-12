@@ -1,12 +1,19 @@
 :root {
---img-max-width: 100%;
---img-height: auto;
---img-display: block;
---img-1-border: 1px solid var(--border-1);
---img-1-radius: var(--border-radius-small);
---img-2-shadow: var(--shadow-2);
---img-2-radius: var(--border-radius);
---img-3-border: 2px solid var(--border-1);
---img-3-shadow: var(--shadow-3);
---img-3-radius: var(--border-radius);
+  /* core */
+  --img-max-width: 100%;
+  --img-height: auto;
+  --img-display: block;
+
+  /* style 1 */
+  --img-1-border: 1px solid var(--border-1);
+  --img-1-radius: var(--border-radius-small);
+
+  /* style 2 */
+  --img-2-shadow: var(--shadow-2);
+  --img-2-radius: var(--border-radius);
+
+  /* style 3 */
+  --img-3-border: 2px solid var(--border-1);
+  --img-3-shadow: var(--shadow-3);
+  --img-3-radius: var(--border-radius);
 }

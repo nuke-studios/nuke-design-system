@@ -1,20 +1,27 @@
 :root {
---pre-margin-bottom: var(--space-2);
---pre-padding: var(--space-2);
---pre-bg: var(--background-3);
---pre-color: var(--on-background);
---pre-border: var(--border-1);
---pre-radius: var(--border-radius);
---pre-font-family: var(--code-font-family);
---pre-font-size: var(--font-size-1);
---pre-line-height: var(--line-height-2);
---pre-1-bg: var(--background-3);
---pre-1-color: var(--on-background);
---pre-1-border: 1px solid var(--border-1);
---pre-2-bg: var(--background-3);
---pre-2-color: var(--on-background);
---pre-2-border: none;
---pre-3-bg: var(--background-2);
---pre-3-color: var(--on-background);
---pre-3-border: 2px solid var(--border-1);
+  /* core */
+  --pre-margin-bottom: var(--space-2);
+  --pre-padding: var(--space-2);
+  --pre-bg: var(--background-3);
+  --pre-color: var(--on-background);
+  --pre-border: var(--border-1);
+  --pre-radius: var(--border-radius);
+  --pre-font-family: var(--code-font-family);
+  --pre-font-size: var(--font-size-1);
+  --pre-line-height: var(--line-height-2);
+
+  /* style 1 */
+  --pre-1-bg: var(--background-3);
+  --pre-1-color: var(--on-background);
+  --pre-1-border: 1px solid var(--border-1);
+
+  /* style 2 */
+  --pre-2-bg: var(--background-3);
+  --pre-2-color: var(--on-background);
+  --pre-2-border: none;
+
+  /* style 3 */
+  --pre-3-bg: var(--background-2);
+  --pre-3-color: var(--on-background);
+  --pre-3-border: 2px solid var(--border-1);
 }

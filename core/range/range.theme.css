@@ -1,26 +1,33 @@
 :root {
---range-height: calc(var(--height-2) * 1.3);
---range-track-height: calc(var(--height-1) / 5);
---range-track-bg: var(--background-3);
---range-track-radius: var(--border-radius);
---range-thumb-size: var(--height-1);
---range-thumb-bg: var(--on-background);
---range-thumb-border: var(--on-background);
---range-transition: var(--transition-fast);
---range-1-track-height: calc(var(--height-1) / 15);
---range-1-track-bg: var(--background-3);
---range-1-thumb-size: calc(var(--height-1) * 0.8);
---range-1-thumb-bg: var(--on-background);
---range-1-thumb-border: var(--on-background);
---range-2-track-height: calc(var(--height-1) / 5);
---range-2-track-bg: var(--background-3);
---range-2-thumb-size: var(--height-1);
---range-2-thumb-bg: var(--on-background);
---range-2-thumb-border: transparent;
---range-3-track-height: calc(var(--height-1) / 3.75);
---range-3-track-bg: var(--background-3);
---range-3-track-border: var(--border-1);
---range-3-thumb-size: calc(var(--height-1) * 1.2);
---range-3-thumb-bg: var(--on-background);
---range-3-thumb-border: var(--border-1);
+  /* core */
+  --range-height: calc(var(--height-2) * 1.3);
+  --range-track-height: calc(var(--height-1) / 5);
+  --range-track-bg: var(--background-3);
+  --range-track-radius: var(--border-radius);
+  --range-thumb-size: var(--height-1);
+  --range-thumb-bg: var(--on-background);
+  --range-thumb-border: var(--on-background);
+  --range-transition: var(--transition-fast);
+
+  /* style 1 */
+  --range-1-track-height: calc(var(--height-1) / 15);
+  --range-1-track-bg: var(--background-3);
+  --range-1-thumb-size: calc(var(--height-1) * 0.8);
+  --range-1-thumb-bg: var(--on-background);
+  --range-1-thumb-border: var(--on-background);
+
+  /* style 2 */
+  --range-2-track-height: calc(var(--height-1) / 5);
+  --range-2-track-bg: var(--background-3);
+  --range-2-thumb-size: var(--height-1);
+  --range-2-thumb-bg: var(--on-background);
+  --range-2-thumb-border: transparent;
+
+  /* style 3 */
+  --range-3-track-height: calc(var(--height-1) / 3.75);
+  --range-3-track-bg: var(--background-3);
+  --range-3-track-border: var(--border-1);
+  --range-3-thumb-size: calc(var(--height-1) * 1.2);
+  --range-3-thumb-bg: var(--on-background);
+  --range-3-thumb-border: var(--border-1);
 }
