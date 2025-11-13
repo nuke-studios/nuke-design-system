@@ -46,10 +46,8 @@
     "typescript": "^5.0.0"
   },
   "files": [
-    "core/",
-    "theme/",
-    "components/",
-    ".scripts/",
+    "dist/",
+    ".scripts/postinstall.js",
     "README.md",
     "LICENSE"
   ],

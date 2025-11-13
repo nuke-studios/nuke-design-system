@@ -31,13 +31,18 @@ if (isCI) {
 // Get the project root (where the user's package.json is)
 const projectRoot = process.cwd();
 const packageRoot = path.resolve(__dirname, '..');
-const themeSource = path.join(packageRoot, 'theme');
+const themeSource = path.join(packageRoot, 'dist/nuke-theme');
 
 // Banner
 console.log('');
-console.log(`${colors.cyan}${colors.bright}┌─────────────────────────────────────┐${colors.reset}`);
-console.log(`${colors.cyan}${colors.bright}│  Nuke Design System Setup           │${colors.reset}`);
-console.log(`${colors.cyan}${colors.bright}└─────────────────────────────────────┘${colors.reset}`);
+console.log(`${colors.bright}███╗   ██╗██╗   ██╗██╗  ██╗███████╗${colors.reset}`);
+console.log(`${colors.bright}████╗  ██║██║   ██║██║ ██╔╝██╔════╝${colors.reset}`);
+console.log(`${colors.bright}██╔██╗ ██║██║   ██║█████╔╝ █████╗  ${colors.reset}`);
+console.log(`${colors.bright}██║╚██╗██║██║   ██║██╔═██╗ ██╔══╝  ${colors.reset}`);
+console.log(`${colors.bright}██║ ╚████║╚██████╔╝██║  ██╗███████╗${colors.reset}`);
+console.log(`${colors.bright}╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝${colors.reset}`);
+console.log(`${colors.gray}         DESIGN SYSTEM${colors.reset}`);
+console.log(`${colors.gray}────────────────────────────────────${colors.reset}`);
 console.log('');
 console.log('Where should we copy the theme folder?');
 console.log(`${colors.gray}This folder contains all CSS variables you can customize.${colors.reset}`);
@@ -101,6 +106,14 @@ function copyTheme(targetPath) {
   try {
     const fullTargetPath = path.join(projectRoot, targetPath);
 
+    // Show loading animation
+    console.log('');
+    let dots = 0;
+    const loadingInterval = setInterval(() => {
+      process.stdout.write(`\r${colors.gray}Copying${'.'.repeat(dots)}${colors.reset}   `);
+      dots = (dots + 1) % 4;
+    }, 200);
+
     // Create target directory
     fs.mkdirSync(fullTargetPath, { recursive: true });
 
@@ -111,7 +124,10 @@ function copyTheme(targetPath) {
     const config = { themePath: targetPath };
     fs.writeFileSync(nukeRcPath, JSON.stringify(config, null, 2));
 
-    console.log('');
+    // Stop loading animation
+    clearInterval(loadingInterval);
+    process.stdout.write('\r');
+
     console.log(`${colors.green}${colors.bright}✓ Success!${colors.reset}`);
     console.log(`${colors.green}Theme copied to: ${targetPath}${colors.reset}`);
     console.log('');
@@ -121,7 +137,7 @@ function copyTheme(targetPath) {
     console.error(`${colors.yellow}Error copying theme:${colors.reset}`, error.message);
     console.log('');
     console.log(`You can manually copy the theme folder from:`);
-    console.log(`  node_modules/@nuke.dev/design-system/theme/`);
+    console.log(`  node_modules/@nuke.dev/design-system/dist/nuke-theme/`);
   }
 }
 
@@ -148,27 +164,24 @@ function skipSetup() {
   console.log(`  ${colors.cyan}npx @nuke.dev/design-system setup${colors.reset}`);
   console.log('');
   console.log('Or manually copy the theme:');
-  console.log(`  ${colors.gray}cp -r node_modules/@nuke.dev/design-system/theme ./nuke-theme${colors.reset}`);
+  console.log(`  ${colors.gray}cp -r node_modules/@nuke.dev/design-system/dist/nuke-theme ./nuke-theme${colors.reset}`);
   console.log('');
 }
 
 function showNextSteps(themePath) {
   console.log(`${colors.bright}Next steps:${colors.reset}`);
   console.log('');
-  console.log(`${colors.bright}1.${colors.reset} Import in your CSS (in this order):`);
+  console.log(`${colors.bright}1.${colors.reset} Import in your HTML:`);
   console.log('');
-  console.log(`   ${colors.gray}/* Import theme FIRST (your customized variables) */${colors.reset}`);
-  console.log(`   ${colors.cyan}@import '${themePath}/all.css';${colors.reset}`);
-  console.log('');
-  console.log(`   ${colors.gray}/* Then import system logic */${colors.reset}`);
-  console.log(`   ${colors.cyan}@import '@nuke.dev/design-system/core/all.css';${colors.reset}`);
+  console.log(`   ${colors.cyan}<link rel="stylesheet" href="${themePath}/style.css">${colors.reset}`);
   console.log('');
   console.log(`${colors.bright}2.${colors.reset} Optional: Import web components in your JS/HTML:`);
   console.log('');
-  console.log(`   ${colors.cyan}<script type="module" src="node_modules/@nuke.dev/design-system/components/all.js"></script>${colors.reset}`);
+  console.log(`   ${colors.cyan}<script type="module" src="node_modules/@nuke.dev/design-system/dist/core.js"></script>${colors.reset}`);
   console.log('');
   console.log(`${colors.bright}3.${colors.reset} Customize your theme:`);
-  console.log(`   ${colors.gray}Edit files in ${themePath}/ to customize colors, spacing, etc.${colors.reset}`);
+  console.log(`   ${colors.gray}Edit ${themePath}/style.css for design tokens${colors.reset}`);
+  console.log(`   ${colors.gray}Edit ${themePath}/components/*.theme.css for individual components${colors.reset}`);
   console.log('');
   console.log(`${colors.gray}Documentation: https://github.com/c-heer/nuke-design-system${colors.reset}`);
   console.log('');
