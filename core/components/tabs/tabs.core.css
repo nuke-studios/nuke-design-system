@@ -31,53 +31,66 @@ nuke-tab-panel {
 nuke-tab-panel[aria-hidden="true"] {
   display: none;
 }
-nuke-tabs:is(.nuke-style-1, [nuke-style="1"]) {
+:is(body, *)[nuke-style="1"] nuke-tabs,
+nuke-tabs[nuke-style="1"] {
   border-bottom: var(--tabs-1-border-bottom);
 }
-nuke-tabs:is(.nuke-style-1, [nuke-style="1"]) nuke-tab {
+:is(body, *)[nuke-style="1"] nuke-tabs nuke-tab,
+nuke-tabs[nuke-style="1"] nuke-tab {
   background: var(--tab-1-background);
   border-bottom: 1px solid transparent;
   margin-bottom: -1px;
 }
-nuke-tabs:is(.nuke-style-1, [nuke-style="1"]) nuke-tab:hover {
+:is(body, *)[nuke-style="1"] nuke-tabs nuke-tab:hover,
+nuke-tabs[nuke-style="1"] nuke-tab:hover {
   background: var(--tab-1-background-hover);
 }
-nuke-tabs:is(.nuke-style-1, [nuke-style="1"]) nuke-tab[aria-selected="true"] {
+:is(body, *)[nuke-style="1"] nuke-tabs nuke-tab[aria-selected="true"],
+nuke-tabs[nuke-style="1"] nuke-tab[aria-selected="true"] {
   border-bottom: var(--tab-1-border-active);
 }
-nuke-tabs:is(.nuke-style-2, [nuke-style="2"]) {
+:is(body, *)[nuke-style="2"] nuke-tabs,
+nuke-tabs[nuke-style="2"] {
   background: var(--tabs-2-background);
 }
-nuke-tabs:is(.nuke-style-2, [nuke-style="2"]) nuke-tab {
+:is(body, *)[nuke-style="2"] nuke-tabs nuke-tab,
+nuke-tabs[nuke-style="2"] nuke-tab {
   background: var(--tab-2-background);
   border-radius: var(--tab-2-radius);
 }
-nuke-tabs:is(.nuke-style-2, [nuke-style="2"]) nuke-tab:hover {
+:is(body, *)[nuke-style="2"] nuke-tabs nuke-tab:hover,
+nuke-tabs[nuke-style="2"] nuke-tab:hover {
   background: var(--tab-2-background-hover);
 }
-nuke-tabs:is(.nuke-style-2, [nuke-style="2"]) nuke-tab[aria-selected="true"] {
+:is(body, *)[nuke-style="2"] nuke-tabs nuke-tab[aria-selected="true"],
+nuke-tabs[nuke-style="2"] nuke-tab[aria-selected="true"] {
   background: var(--tab-2-background-active);
   color: var(--tab-2-color-active);
 }
-nuke-tabs:is(.nuke-style-2, [nuke-style="2"]) nuke-tab-panel {
+:is(body, *)[nuke-style="2"] nuke-tabs nuke-tab-panel,
+nuke-tabs[nuke-style="2"] nuke-tab-panel {
   background: var(--tab-panel-2-background);
 }
-nuke-tabs:is(.nuke-style-3, [nuke-style="3"]) {
+:is(body, *)[nuke-style="3"] nuke-tabs,
+nuke-tabs[nuke-style="3"] {
   border: var(--tabs-3-wrapper-border);
 }
-nuke-tabs:is(.nuke-style-3, [nuke-style="3"]) nuke-tab {
+:is(body, *)[nuke-style="3"] nuke-tabs nuke-tab,
+nuke-tabs[nuke-style="3"] nuke-tab {
   background: var(--tab-3-background);
   border: var(--tab-3-border);
   border-radius: var(--tab-3-radius) var(--tab-3-radius) 0 0;
   margin-right: var(--space-1);
   margin-bottom: -2px;
 }
-nuke-tabs:is(.nuke-style-3, [nuke-style="3"]) nuke-tab[aria-selected="true"] {
+:is(body, *)[nuke-style="3"] nuke-tabs nuke-tab[aria-selected="true"],
+nuke-tabs[nuke-style="3"] nuke-tab[aria-selected="true"] {
   background: var(--tab-3-background-active);
   border: var(--tab-3-border-active);
   border-bottom-color: var(--tab-3-background-active);
 }
-nuke-tabs:is(.nuke-style-3, [nuke-style="3"]) nuke-tab-panel {
+:is(body, *)[nuke-style="3"] nuke-tabs nuke-tab-panel,
+nuke-tabs[nuke-style="3"] nuke-tab-panel {
   background: var(--tab-panel-3-background);
   border-left: var(--tab-panel-3-border);
   border-bottom: var(--tab-panel-3-border);

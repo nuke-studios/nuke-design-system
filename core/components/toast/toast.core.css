@@ -53,19 +53,22 @@ nuke-toast.hide {
 .toast-close:hover {
   opacity: 1;
 }
-nuke-toast:is(.nuke-style-1, [nuke-style="1"]) {
+:is(body, *)[nuke-style="1"] nuke-toast,
+nuke-toast[nuke-style="1"] {
   background: var(--toast-1-background);
   color: var(--toast-1-color);
   border: var(--toast-1-border);
   box-shadow: var(--toast-1-shadow);
 }
-nuke-toast:is(.nuke-style-2, [nuke-style="2"]) {
+:is(body, *)[nuke-style="2"] nuke-toast,
+nuke-toast[nuke-style="2"] {
   background: var(--toast-2-background);
   color: var(--toast-2-color);
   border: var(--toast-2-border);
   box-shadow: var(--toast-2-shadow);
 }
-nuke-toast:is(.nuke-style-3, [nuke-style="3"]) {
+:is(body, *)[nuke-style="3"] nuke-toast,
+nuke-toast[nuke-style="3"] {
   background: var(--toast-3-background);
   color: var(--toast-3-color);
   border: var(--toast-3-border);

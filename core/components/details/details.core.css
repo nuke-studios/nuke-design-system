@@ -45,45 +45,55 @@ summary:focus-visible {
 details > *:not(summary) {
   margin-top: var(--details-content-margin-top);
 }
-details:is(.nuke-style-1, [nuke-style="1"]) {
+:is(body, *)[nuke-style="1"] details,
+details[nuke-style="1"] {
   border: 1px solid var(--details-1-border);
   border-radius: 0;
   background: var(--details-1-bg);
   padding: var(--details-1-padding);
 }
-details:is(.nuke-style-1, [nuke-style="1"])[open] {
+:is(body, *)[nuke-style="1"] details[open],
+details[nuke-style="1"][open] {
   border-bottom: 1px solid var(--details-1-open-border-bottom);
 }
-details:is(.nuke-style-1, [nuke-style="1"]) summary {
+:is(body, *)[nuke-style="1"] details summary,
+details[nuke-style="1"] summary {
   padding: 0;
   margin: 0;
 }
-details:is(.nuke-style-1, [nuke-style="1"]) summary:hover {
+:is(body, *)[nuke-style="1"] details summary:hover,
+details[nuke-style="1"] summary:hover {
   background: var(--details-1-summary-hover-bg);
   color: var(--details-1-summary-hover-color);
 }
-details:is(.nuke-style-2, [nuke-style="2"]) {
+:is(body, *)[nuke-style="2"] details,
+details[nuke-style="2"] {
   border: 1px solid var(--details-2-border);
   border-radius: var(--details-2-radius);
   background: var(--details-2-bg);
   padding: var(--details-2-padding);
 }
-details:is(.nuke-style-2, [nuke-style="2"])[open] {
+:is(body, *)[nuke-style="2"] details[open],
+details[nuke-style="2"][open] {
   background: var(--details-2-open-bg);
 }
-details:is(.nuke-style-2, [nuke-style="2"]) summary:hover {
+:is(body, *)[nuke-style="2"] details summary:hover,
+details[nuke-style="2"] summary:hover {
   background: var(--details-2-summary-hover-bg);
 }
-details:is(.nuke-style-3, [nuke-style="3"]) {
+:is(body, *)[nuke-style="3"] details,
+details[nuke-style="3"] {
   border: var(--details-3-border-width) solid var(--details-3-border);
   border-radius: var(--details-3-radius);
   background: var(--details-3-bg);
   padding: var(--details-3-padding);
 }
-details:is(.nuke-style-3, [nuke-style="3"])[open] {
+:is(body, *)[nuke-style="3"] details[open],
+details[nuke-style="3"][open] {
   background: var(--details-3-open-bg);
   border-color: var(--details-3-open-border);
 }
-details:is(.nuke-style-3, [nuke-style="3"]) summary:hover {
+:is(body, *)[nuke-style="3"] details summary:hover,
+details[nuke-style="3"] summary:hover {
   background: var(--details-3-summary-hover-bg);
 }

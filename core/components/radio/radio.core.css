@@ -43,44 +43,54 @@ input[type="radio"]:focus {
 input[type="radio"]:hover:not(:disabled) {
   border-color: var(--radio-checked-border);
 }
-input[type="radio"]:is(.nuke-style-1, [nuke-style="1"]) {
+:is(body, *)[nuke-style="1"] input[type="radio"],
+input[type="radio"][nuke-style="1"] {
   background: var(--radio-1-bg);
   border: 1px solid var(--radio-1-border);
 }
-input[type="radio"]:is(.nuke-style-1, [nuke-style="1"]):checked {
+:is(body, *)[nuke-style="1"] input[type="radio"]:checked,
+input[type="radio"][nuke-style="1"]:checked {
   background-color: var(--radio-1-checked-bg);
   border-color: var(--radio-1-checked-border);
 }
-input[type="radio"]:is(.nuke-style-1, [nuke-style="1"]):checked::before {
+:is(body, *)[nuke-style="1"] input[type="radio"]:checked::before,
+input[type="radio"][nuke-style="1"]:checked::before {
   background: var(--radio-1-dot);
   width: var(--radio-1-dot-size);
   height: var(--radio-1-dot-size);
 }
-input[type="radio"]:is(.nuke-style-2, [nuke-style="2"]) {
+:is(body, *)[nuke-style="2"] input[type="radio"],
+input[type="radio"][nuke-style="2"] {
   background: var(--radio-2-bg);
   border: none;
 }
-input[type="radio"]:is(.nuke-style-2, [nuke-style="2"]):checked {
+:is(body, *)[nuke-style="2"] input[type="radio"]:checked,
+input[type="radio"][nuke-style="2"]:checked {
   background-color: var(--radio-2-checked-bg);
   border-color: var(--radio-2-checked-border);
 }
-input[type="radio"]:is(.nuke-style-2, [nuke-style="2"]):checked::before {
+:is(body, *)[nuke-style="2"] input[type="radio"]:checked::before,
+input[type="radio"][nuke-style="2"]:checked::before {
   background: var(--radio-2-dot);
   width: var(--radio-2-dot-size);
   height: var(--radio-2-dot-size);
 }
-input[type="radio"]:is(.nuke-style-2, [nuke-style="2"]):hover:not(:disabled) {
+:is(body, *)[nuke-style="2"] input[type="radio"]:hover:not(:disabled),
+input[type="radio"][nuke-style="2"]:hover:not(:disabled) {
   background: var(--background-4);
 }
-input[type="radio"]:is(.nuke-style-3, [nuke-style="3"]) {
+:is(body, *)[nuke-style="3"] input[type="radio"],
+input[type="radio"][nuke-style="3"] {
   background: var(--radio-3-bg);
   border: 2px solid var(--radio-3-border);
 }
-input[type="radio"]:is(.nuke-style-3, [nuke-style="3"]):checked {
+:is(body, *)[nuke-style="3"] input[type="radio"]:checked,
+input[type="radio"][nuke-style="3"]:checked {
   background-color: var(--radio-3-checked-bg);
   border-color: var(--radio-3-checked-border);
 }
-input[type="radio"]:is(.nuke-style-3, [nuke-style="3"]):checked::before {
+:is(body, *)[nuke-style="3"] input[type="radio"]:checked::before,
+input[type="radio"][nuke-style="3"]:checked::before {
   background: var(--radio-3-dot);
   width: var(--radio-3-dot-size);
   height: var(--radio-3-dot-size);

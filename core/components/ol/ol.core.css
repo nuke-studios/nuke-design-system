@@ -1,16 +1,20 @@
-ol:is(.nuke-style-1, [nuke-style="1"]) {
+:is(body, *)[nuke-style="1"] ol,
+ol[nuke-style="1"] {
   list-style-type: var(--ol-1-list-style);
   padding-left: var(--ol-1-padding-left);
 }
-ol:is(.nuke-style-1, [nuke-style="1"]) li {
+:is(body, *)[nuke-style="1"] ol li,
+ol[nuke-style="1"] li {
   margin-bottom: var(--ol-1-item-margin);
 }
-ol:is(.nuke-style-2, [nuke-style="2"]) {
+:is(body, *)[nuke-style="2"] ol,
+ol[nuke-style="2"] {
   list-style: var(--ol-2-list-style);
   padding-left: var(--ol-2-padding-left);
   counter-reset: ol-counter-2;
 }
-ol:is(.nuke-style-2, [nuke-style="2"]) li {
+:is(body, *)[nuke-style="2"] ol li,
+ol[nuke-style="2"] li {
   background: var(--ol-2-item-bg);
   padding: var(--ol-2-item-padding);
   margin-bottom: var(--ol-2-item-margin);
@@ -19,17 +23,20 @@ ol:is(.nuke-style-2, [nuke-style="2"]) li {
   position: relative;
   counter-increment: ol-counter-2;
 }
-ol:is(.nuke-style-2, [nuke-style="2"]) li::before {
+:is(body, *)[nuke-style="2"] ol li::before,
+ol[nuke-style="2"] li::before {
   content: counter(ol-counter-2) ".";
   position: absolute;
   left: var(--space-2);
 }
-ol:is(.nuke-style-3, [nuke-style="3"]) {
+:is(body, *)[nuke-style="3"] ol,
+ol[nuke-style="3"] {
   list-style: var(--ol-3-list-style);
   padding-left: var(--ol-3-padding-left);
   counter-reset: ol-counter-3;
 }
-ol:is(.nuke-style-3, [nuke-style="3"]) li {
+:is(body, *)[nuke-style="3"] ol li,
+ol[nuke-style="3"] li {
   background: var(--ol-3-item-bg);
   border: var(--ol-3-item-border);
   padding: var(--ol-3-item-padding);
@@ -39,7 +46,8 @@ ol:is(.nuke-style-3, [nuke-style="3"]) li {
   position: relative;
   counter-increment: ol-counter-3;
 }
-ol:is(.nuke-style-3, [nuke-style="3"]) li::before {
+:is(body, *)[nuke-style="3"] ol li::before,
+ol[nuke-style="3"] li::before {
   content: counter(ol-counter-3) ".";
   position: absolute;
   left: var(--space-2);

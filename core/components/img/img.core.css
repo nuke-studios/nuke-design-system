@@ -3,15 +3,18 @@ img {
   height: var(--img-height);
   display: var(--img-display);
 }
-img:is(.nuke-style-1, [nuke-style="1"]) {
+:is(body, *)[nuke-style="1"] img,
+img[nuke-style="1"] {
   border: var(--img-1-border);
   border-radius: var(--img-1-radius);
 }
-img:is(.nuke-style-2, [nuke-style="2"]) {
+:is(body, *)[nuke-style="2"] img,
+img[nuke-style="2"] {
   box-shadow: var(--img-2-shadow);
   border-radius: var(--img-2-radius);
 }
-img:is(.nuke-style-3, [nuke-style="3"]) {
+:is(body, *)[nuke-style="3"] img,
+img[nuke-style="3"] {
   border: var(--img-3-border);
   box-shadow: var(--img-3-shadow);
   border-radius: var(--img-3-radius);

@@ -31,7 +31,8 @@ dialog[open] {
     transform: scale(1) translateY(0);
   }
 }
-dialog:is(.nuke-style-1, [nuke-style="1"]) {
+:is(body, *)[nuke-style="1"] dialog,
+dialog[nuke-style="1"] {
   max-width: var(--dialog-1-max-width);
   padding: var(--dialog-1-padding);
   background: var(--dialog-1-bg);
@@ -39,7 +40,8 @@ dialog:is(.nuke-style-1, [nuke-style="1"]) {
   border-radius: var(--dialog-1-radius);
   box-shadow: var(--dialog-1-shadow);
 }
-dialog:is(.nuke-style-2, [nuke-style="2"]) {
+:is(body, *)[nuke-style="2"] dialog,
+dialog[nuke-style="2"] {
   max-width: var(--dialog-2-max-width);
   padding: var(--dialog-2-padding);
   background: var(--dialog-2-bg);
@@ -47,7 +49,8 @@ dialog:is(.nuke-style-2, [nuke-style="2"]) {
   border-radius: var(--dialog-2-radius);
   box-shadow: var(--dialog-2-shadow);
 }
-dialog:is(.nuke-style-3, [nuke-style="3"]) {
+:is(body, *)[nuke-style="3"] dialog,
+dialog[nuke-style="3"] {
   max-width: var(--dialog-3-max-width);
   padding: var(--dialog-3-padding);
   background: var(--dialog-3-bg);

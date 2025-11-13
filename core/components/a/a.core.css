@@ -17,30 +17,36 @@ a:focus-visible {
   outline-offset: 2px;
   border-radius: 2px;
 }
-a:is(.nuke-style-1, [nuke-style="1"]) {
+:is(body, *)[nuke-style="1"] a,
+a[nuke-style="1"] {
   color: var(--link-1-color);
   text-decoration: var(--link-1-decoration);
   text-underline-offset: 3px;
 }
-a:is(.nuke-style-1, [nuke-style="1"]):hover {
+:is(body, *)[nuke-style="1"] a:hover,
+a[nuke-style="1"]:hover {
   color: var(--link-1-hover-color);
   text-decoration: var(--link-1-hover-decoration);
 }
-a:is(.nuke-style-2, [nuke-style="2"]) {
+:is(body, *)[nuke-style="2"] a,
+a[nuke-style="2"] {
   color: var(--link-2-color);
   text-decoration: var(--link-2-decoration);
 }
-a:is(.nuke-style-2, [nuke-style="2"]):hover {
+:is(body, *)[nuke-style="2"] a:hover,
+a[nuke-style="2"]:hover {
   color: var(--link-2-hover-color);
   text-decoration: var(--link-2-hover-decoration);
 }
-a:is(.nuke-style-3, [nuke-style="3"]) {
+:is(body, *)[nuke-style="3"] a,
+a[nuke-style="3"] {
   color: var(--link-3-color);
   text-decoration: var(--link-3-decoration);
   text-decoration-thickness: var(--link-3-decoration-thickness);
   text-underline-offset: 3px;
 }
-a:is(.nuke-style-3, [nuke-style="3"]):hover {
+:is(body, *)[nuke-style="3"] a:hover,
+a[nuke-style="3"]:hover {
   color: var(--link-3-hover-color);
   text-decoration: var(--link-3-hover-decoration);
 }

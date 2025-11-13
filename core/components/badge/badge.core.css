@@ -8,17 +8,20 @@ nuke-badge {
   vertical-align: middle;
   white-space: nowrap;
 }
-nuke-badge:is(.nuke-style-1, [nuke-style="1"]) {
+:is(body, *)[nuke-style="1"] nuke-badge,
+nuke-badge[nuke-style="1"] {
   background: var(--badge-1-background);
   color: var(--badge-1-color);
   border: var(--badge-1-border);
 }
-nuke-badge:is(.nuke-style-2, [nuke-style="2"]) {
+:is(body, *)[nuke-style="2"] nuke-badge,
+nuke-badge[nuke-style="2"] {
   background: var(--badge-2-background);
   color: var(--badge-2-color);
   border: var(--badge-2-border);
 }
-nuke-badge:is(.nuke-style-3, [nuke-style="3"]) {
+:is(body, *)[nuke-style="3"] nuke-badge,
+nuke-badge[nuke-style="3"] {
   background: var(--badge-3-background);
   color: var(--badge-3-color);
   border: var(--badge-3-border);

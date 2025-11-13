@@ -18,17 +18,17 @@
   --radio-1-dot-size: calc(var(--height-1) / 5);
 
   /* style 2 */
-  --radio-2-bg: var(--background-3);
+  --radio-2-bg: var(--background-4);
   --radio-2-border: transparent;
-  --radio-2-checked-bg: var(--background-3);
+  --radio-2-checked-bg: var(--background-4);
   --radio-2-checked-border: transparent;
   --radio-2-dot: var(--on-background);
   --radio-2-dot-size: calc(var(--height-1) / 3);
 
   /* style 3 */
-  --radio-3-bg: var(--background-2);
+  --radio-3-bg: var(--background-4);
   --radio-3-border: var(--border-1);
-  --radio-3-checked-bg: var(--background-2);
+  --radio-3-checked-bg: var(--background-4);
   --radio-3-checked-border: var(--on-background);
   --radio-3-dot: var(--on-background);
   --radio-3-dot-size: calc(var(--height-1) / 3);

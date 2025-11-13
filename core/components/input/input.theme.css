@@ -16,11 +16,11 @@
   --input-1-focus-border-bottom: var(--on-background);
 
   /* style 2 */
-  --input-2-bg: var(--background-3);
-  --input-2-focus-bg: var(--border-1);
+  --input-2-bg: var(--background-4);
+  --input-2-focus-bg: var(--background-3);
 
   /* style 3 */
-  --input-3-bg: var(--background-3);
+  --input-3-bg: var(--background-4);
   --input-3-border: var(--border-1);
   --input-3-focus-border: var(--on-background);
 }

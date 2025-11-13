@@ -53,66 +53,78 @@ input[type="range"]:focus::-webkit-slider-thumb {
 input[type="range"]:focus::-moz-range-thumb {
   box-shadow: 0 0 0 3px hsla(210, 100%, 50%, 0.2);
 }
-input[type="range"]:is(.nuke-style-1, [nuke-style="1"])::-webkit-slider-runnable-track {
+:is(body, *)[nuke-style="1"] input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"][nuke-style="1"]::-webkit-slider-runnable-track {
   height: var(--range-1-track-height);
   background: var(--range-1-track-bg);
 }
-input[type="range"]:is(.nuke-style-1, [nuke-style="1"])::-moz-range-track {
+:is(body, *)[nuke-style="1"] input[type="range"]::-moz-range-track,
+input[type="range"][nuke-style="1"]::-moz-range-track {
   height: var(--range-1-track-height);
   background: var(--range-1-track-bg);
 }
-input[type="range"]:is(.nuke-style-1, [nuke-style="1"])::-webkit-slider-thumb {
+:is(body, *)[nuke-style="1"] input[type="range"]::-webkit-slider-thumb,
+input[type="range"][nuke-style="1"]::-webkit-slider-thumb {
   width: var(--range-1-thumb-size);
   height: var(--range-1-thumb-size);
   background: var(--range-1-thumb-bg);
   border: 1px solid var(--range-1-thumb-border);
   margin-top: calc((var(--range-1-track-height) - var(--range-1-thumb-size)) / 2);
 }
-input[type="range"]:is(.nuke-style-1, [nuke-style="1"])::-moz-range-thumb {
+:is(body, *)[nuke-style="1"] input[type="range"]::-moz-range-thumb,
+input[type="range"][nuke-style="1"]::-moz-range-thumb {
   width: var(--range-1-thumb-size);
   height: var(--range-1-thumb-size);
   background: var(--range-1-thumb-bg);
   border: 1px solid var(--range-1-thumb-border);
 }
-input[type="range"]:is(.nuke-style-2, [nuke-style="2"])::-webkit-slider-runnable-track {
+:is(body, *)[nuke-style="2"] input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"][nuke-style="2"]::-webkit-slider-runnable-track {
   height: var(--range-2-track-height);
   background: var(--range-2-track-bg);
 }
-input[type="range"]:is(.nuke-style-2, [nuke-style="2"])::-moz-range-track {
+:is(body, *)[nuke-style="2"] input[type="range"]::-moz-range-track,
+input[type="range"][nuke-style="2"]::-moz-range-track {
   height: var(--range-2-track-height);
   background: var(--range-2-track-bg);
 }
-input[type="range"]:is(.nuke-style-2, [nuke-style="2"])::-webkit-slider-thumb {
+:is(body, *)[nuke-style="2"] input[type="range"]::-webkit-slider-thumb,
+input[type="range"][nuke-style="2"]::-webkit-slider-thumb {
   width: var(--range-2-thumb-size);
   height: var(--range-2-thumb-size);
   background: var(--range-2-thumb-bg);
   border: none;
   margin-top: calc((var(--range-2-track-height) - var(--range-2-thumb-size)) / 2);
 }
-input[type="range"]:is(.nuke-style-2, [nuke-style="2"])::-moz-range-thumb {
+:is(body, *)[nuke-style="2"] input[type="range"]::-moz-range-thumb,
+input[type="range"][nuke-style="2"]::-moz-range-thumb {
   width: var(--range-2-thumb-size);
   height: var(--range-2-thumb-size);
   background: var(--range-2-thumb-bg);
   border: none;
 }
-input[type="range"]:is(.nuke-style-3, [nuke-style="3"])::-webkit-slider-runnable-track {
+:is(body, *)[nuke-style="3"] input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"][nuke-style="3"]::-webkit-slider-runnable-track {
   height: var(--range-3-track-height);
   background: var(--range-3-track-bg);
   border: 1px solid var(--range-3-track-border);
 }
-input[type="range"]:is(.nuke-style-3, [nuke-style="3"])::-moz-range-track {
+:is(body, *)[nuke-style="3"] input[type="range"]::-moz-range-track,
+input[type="range"][nuke-style="3"]::-moz-range-track {
   height: var(--range-3-track-height);
   background: var(--range-3-track-bg);
   border: 1px solid var(--range-3-track-border);
 }
-input[type="range"]:is(.nuke-style-3, [nuke-style="3"])::-webkit-slider-thumb {
+:is(body, *)[nuke-style="3"] input[type="range"]::-webkit-slider-thumb,
+input[type="range"][nuke-style="3"]::-webkit-slider-thumb {
   width: var(--range-3-thumb-size);
   height: var(--range-3-thumb-size);
   background: var(--range-3-thumb-bg);
   border: 2px solid var(--range-3-thumb-border);
   margin-top: calc((var(--range-3-track-height) - var(--range-3-thumb-size)) / 2);
 }
-input[type="range"]:is(.nuke-style-3, [nuke-style="3"])::-moz-range-thumb {
+:is(body, *)[nuke-style="3"] input[type="range"]::-moz-range-thumb,
+input[type="range"][nuke-style="3"]::-moz-range-thumb {
   width: var(--range-3-thumb-size);
   height: var(--range-3-thumb-size);
   background: var(--range-3-thumb-bg);

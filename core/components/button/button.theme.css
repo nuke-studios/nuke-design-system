@@ -16,13 +16,13 @@
   --button-1-hover-color: var(--on-background);
 
   /* style 2 */
-  --button-2-bg: var(--background-3);
+  --button-2-bg: var(--background-4);
   --button-2-color: var(--on-background);
-  --button-2-hover-bg: var(--border-1);
+  --button-2-hover-bg: var(--background-3);
   --button-2-hover-color: var(--on-background);
 
   /* style 3 */
-  --button-3-bg: var(--background-2);
+  --button-3-bg: var(--background-4);
   --button-3-color: var(--on-background);
   --button-3-border: var(--border-2);
   --button-3-hover-bg: var(--background-3);

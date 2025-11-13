@@ -6,17 +6,20 @@ label {
   margin-bottom: var(--label-margin-bottom);
   cursor: pointer;
 }
-label:is(.nuke-style-1, [nuke-style="1"]) {
+:is(body, *)[nuke-style="1"] label,
+label[nuke-style="1"] {
   font-weight: var(--label-1-font-weight);
   color: var(--label-1-color);
   font-size: var(--label-1-font-size);
 }
-label:is(.nuke-style-2, [nuke-style="2"]) {
+:is(body, *)[nuke-style="2"] label,
+label[nuke-style="2"] {
   font-weight: var(--label-2-font-weight);
   color: var(--label-2-color);
   font-size: var(--label-2-font-size);
 }
-label:is(.nuke-style-3, [nuke-style="3"]) {
+:is(body, *)[nuke-style="3"] label,
+label[nuke-style="3"] {
   font-weight: var(--label-3-font-weight);
   color: var(--label-3-color);
   font-size: var(--label-3-font-size);

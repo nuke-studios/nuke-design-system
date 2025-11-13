@@ -14,12 +14,12 @@
   --checkbox-1-checkmark: var(--on-background);
 
   /* style 2 */
-  --checkbox-2-bg: var(--background-3);
+  --checkbox-2-bg: var(--background-4);
   --checkbox-2-checked-bg: var(--on-background);
   --checkbox-2-checkmark: var(--background-1);
 
   /* style 3 */
-  --checkbox-3-bg: var(--background-2);
+  --checkbox-3-bg: var(--background-4);
   --checkbox-3-border: var(--border-1);
   --checkbox-3-checked-bg: var(--on-background);
   --checkbox-3-checked-border: var(--on-background);

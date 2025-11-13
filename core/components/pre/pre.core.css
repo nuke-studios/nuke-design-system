@@ -16,17 +16,20 @@ pre code {
   border-radius: 0;
   color: inherit;
 }
-pre:is(.nuke-style-1, [nuke-style="1"]) {
+:is(body, *)[nuke-style="1"] pre,
+pre[nuke-style="1"] {
   background: var(--pre-1-bg);
   color: var(--pre-1-color);
   border: var(--pre-1-border);
 }
-pre:is(.nuke-style-2, [nuke-style="2"]) {
+:is(body, *)[nuke-style="2"] pre,
+pre[nuke-style="2"] {
   background: var(--pre-2-bg);
   color: var(--pre-2-color);
   border: var(--pre-2-border);
 }
-pre:is(.nuke-style-3, [nuke-style="3"]) {
+:is(body, *)[nuke-style="3"] pre,
+pre[nuke-style="3"] {
   background: var(--pre-3-bg);
   color: var(--pre-3-color);
   border: var(--pre-3-border);

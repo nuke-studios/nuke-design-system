@@ -7,18 +7,21 @@ nuke-toolbar {
   border-radius: var(--toolbar-radius);
   flex-wrap: wrap;
 }
-nuke-toolbar:is(.nuke-style-1, [nuke-style="1"]) {
+:is(body, *)[nuke-style="1"] nuke-toolbar,
+nuke-toolbar[nuke-style="1"] {
   background: var(--toolbar-1-background);
   border: var(--toolbar-1-border);
   border-bottom: var(--toolbar-1-border-bottom);
   padding: var(--toolbar-1-padding);
 }
-nuke-toolbar:is(.nuke-style-2, [nuke-style="2"]) {
+:is(body, *)[nuke-style="2"] nuke-toolbar,
+nuke-toolbar[nuke-style="2"] {
   background: var(--toolbar-2-background);
   border: var(--toolbar-2-border);
   padding: var(--toolbar-2-padding);
 }
-nuke-toolbar:is(.nuke-style-3, [nuke-style="3"]) {
+:is(body, *)[nuke-style="3"] nuke-toolbar,
+nuke-toolbar[nuke-style="3"] {
   background: var(--toolbar-3-background);
   border: var(--toolbar-3-border);
   padding: var(--toolbar-3-padding);

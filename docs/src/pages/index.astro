@@ -19,23 +19,91 @@ import Header from '../components/Header.astro';
     }
   </style>
 </head>
-<body>
-  <Header />
-  <h1>Hello from Astro!</h1>
-  <p>If you see this, Astro is working.</p>
+<body style="padding: 2rem; background: var(--background-1); color: var(--on-background);">
+  <h1>🧪 Cascade Inheritance Test</h1>
 
-  <h2>Button Test (Your Design System):</h2>
-  <div style="display: flex; gap: 1rem; padding: 1rem;">
-    <button nuke-style="1">Default Button</button>
-    <button nuke-style="2">Style 2 Button</button>
-    <button nuke-style="3">Style 3 Button</button>
-  </div>
+  <!-- TEST 1: Body with nuke-style="1" -->
+  <section nuke-style="1" style="padding: 2rem; margin-bottom: 2rem; background: var(--background-2); border: 3px solid red;">
+    <h2 style="color: red;">🔴 BODY LEVEL: nuke-style="1"</h2>
+    <p><strong>Expected:</strong> All buttons/inputs/badges below should be STYLE 1</p>
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+      <button>Button (should be style 1)</button>
+      <input type="text" placeholder="Input (should be style 1)" />
+      <select><option>Select (should be style 1)</option></select>
+      <nuke-badge>Badge (should be style 1)</nuke-badge>
+    </div>
+  </section>
 
-  <h2>Next steps:</h2>
-  <ul>
-    <li>✅ Import your design system CSS</li>
-    <li>✅ Add a button component example</li>
-    <li>✅ See your styles working</li>
-  </ul>
+  <!-- TEST 2: Nested override to style 2 -->
+  <section nuke-style="1" style="padding: 2rem; margin-bottom: 2rem; background: var(--background-2); border: 3px solid red;">
+    <h2 style="color: red;">🔴 BODY LEVEL: nuke-style="1"</h2>
+    <button>Button OUTSIDE wrapper (should be style 1)</button>
+
+    <div nuke-style="2" style="padding: 2rem; margin: 1rem 0; background: var(--background-3); border: 3px solid blue;">
+      <h3 style="color: blue;">🔵 WRAPPER LEVEL: nuke-style="2"</h3>
+      <p><strong>Expected:</strong> All buttons/inputs inside this blue box should be STYLE 2</p>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <button>Button (should be style 2)</button>
+        <input type="text" placeholder="Input (should be style 2)" />
+        <select><option>Select (should be style 2)</option></select>
+        <nuke-badge>Badge (should be style 2)</nuke-badge>
+      </div>
+    </div>
+
+    <button>Button OUTSIDE wrapper (should be style 1 again)</button>
+  </section>
+
+  <!-- TEST 3: Deep nesting with style 3 -->
+  <section nuke-style="1" style="padding: 2rem; margin-bottom: 2rem; background: var(--background-2); border: 3px solid red;">
+    <h2 style="color: red;">🔴 LEVEL 1: nuke-style="1"</h2>
+    <button>Level 1 Button (style 1)</button>
+
+    <div nuke-style="2" style="padding: 1.5rem; margin: 1rem 0; background: var(--background-3); border: 3px solid blue;">
+      <h3 style="color: blue;">🔵 LEVEL 2: nuke-style="2"</h3>
+      <button>Level 2 Button (style 2)</button>
+
+      <div nuke-style="3" style="padding: 1.5rem; margin: 1rem 0; background: var(--background-4); border: 3px solid green;">
+        <h4 style="color: green;">🟢 LEVEL 3: nuke-style="3"</h4>
+        <p><strong>Expected:</strong> All elements here should be STYLE 3</p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <button>Level 3 Button (style 3)</button>
+          <input type="text" placeholder="Input (style 3)" />
+          <nuke-badge>Badge (style 3)</nuke-badge>
+        </div>
+      </div>
+
+      <button>Back to Level 2 Button (style 2)</button>
+    </div>
+
+    <button>Back to Level 1 Button (style 1)</button>
+  </section>
+
+  <!-- TEST 4: Individual element override -->
+  <section nuke-style="1" style="padding: 2rem; margin-bottom: 2rem; background: var(--background-2); border: 3px solid red;">
+    <h2 style="color: red;">🔴 BODY: nuke-style="1"</h2>
+    <p><strong>Test:</strong> Individual element override with nuke-style attribute</p>
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+      <button>Normal (style 1)</button>
+      <button nuke-style="2">Override to style 2</button>
+      <button nuke-style="3">Override to style 3</button>
+      <button>Normal (style 1)</button>
+    </div>
+  </section>
+
+  <!-- VISUAL REFERENCE -->
+  <section style="padding: 2rem; margin-bottom: 2rem; background: var(--background-2); border: 3px solid black;">
+    <h2>📊 Visual Reference (no nuke-style)</h2>
+    <p><strong>Compare these three styles side by side:</strong></p>
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+      <button nuke-style="1">Style 1 Button</button>
+      <button nuke-style="2">Style 2 Button</button>
+      <button nuke-style="3">Style 3 Button</button>
+    </div>
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+      <input nuke-style="1" type="text" placeholder="Style 1 Input" />
+      <input nuke-style="2" type="text" placeholder="Style 2 Input" />
+      <input nuke-style="3" type="text" placeholder="Style 3 Input" />
+    </div>
+  </section>
 </body>
 </html>
