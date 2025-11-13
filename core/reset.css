@@ -13,6 +13,8 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
   background: var(--background-1);
+  font-family: var(--family-1);
+  color: var(--on-background);
 }
 img, picture, video, canvas, svg {
   display: block;

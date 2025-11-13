@@ -29,6 +29,7 @@
   "scripts": {
     "postinstall": "node .scripts/postinstall.js",
     "build": "bun run build:clean && bun run build:ts && bun run build:css && bun run build:theme && bun run build:cleanup",
+    "build:watch": "bun run build && node .scripts/watch.js",
     "build:clean": "mkdir -p dist dist/nuke-theme dist/types",
     "build:ts": "tsc && bun build core/core.ts --outdir dist --format esm",
     "build:css": "node .scripts/bundle-core-css.js",

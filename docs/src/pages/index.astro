@@ -1,5 +1,7 @@
 ---
 const title = "Nuke Design System - Astro Test";
+// Import as Vite module for HMR
+import '@nuke/theme.css';
 ---
 
 <!DOCTYPE html>
@@ -8,8 +10,13 @@ const title = "Nuke Design System - Astro Test";
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
-  <!-- Theme CSS (includes core.css automatically) -->
-  <link rel="stylesheet" href="/nuke-theme/theme.css">
+  <style>
+    @font-face {
+      font-family: 'Railway';
+      src: url('/fonts/raleway.ttf') format('truetype-variations');
+      font-weight: 100 900; /* Declares the range of weights available */
+    }
+  </style>
 </head>
 <body>
   <h1>Hello from Astro!</h1>

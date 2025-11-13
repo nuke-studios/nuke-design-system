@@ -2,8 +2,10 @@
 @import './node_modules/@nuke.dev/design-system/dist/core.css';
 
 :root {
+  --family-1: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  --family-2: 'Impact', 'Arial Black', 'Helvetica', sans-serif;
   --space-1: 0.375rem;
-  --space-2: 0.75rem;
+  --space-2: 10rem;
   --space-3: 1.5rem;
   --space-4: 2.25rem;
   --height-1: 30px;
