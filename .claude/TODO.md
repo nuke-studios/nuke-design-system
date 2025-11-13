@@ -2,14 +2,20 @@
 
 ## 🎯 CURRENT STATUS
 
-**v2.0 - Lit Migration COMPLETE!** ✅
+**v2.1 - Clean Refactor COMPLETE!** ✅
 
 **What's Done:**
 - ✅ Lit + TypeScript setup (Bun, Docker, tsconfig.json)
 - ✅ All 6 web components migrated to Lit/TypeScript
 - ✅ Build pipeline working (TS → JS, CSS copying, type definitions)
 - ✅ Core folder restructured (foundation files at root)
-- ✅ Naming conflicts resolved (variant property, core.css/core.js)
+- ✅ **Renamed `style` → `nuke-style` everywhere** (CSS + HTML + TypeScript)
+- ✅ **Replaced `variant` with `nukeStyle` property** (all Lit components)
+- ✅ **Moved `scripts/` → `.scripts/`** (cleaner project structure)
+- ✅ **Fixed CSS bundler** (skips @import in comments, no warnings)
+- ✅ **Cleaned all leftovers** (zen/soft/solid removed, counters renamed)
+- ✅ **Astro docs setup** with live symlinks to dist/
+- ✅ **One node_modules** at root (docs/node_modules gitignored)
 - ✅ Theme extraction architecture finalized
 - ✅ User import pattern decided (theme.css includes core.css)
 
@@ -17,40 +23,6 @@
 - 🎯 **USE IT IN REAL PROJECTS** (two projects waiting!)
 - 🎯 Battle-test the system
 - 🎯 Find rough edges through real usage
-
----
-
-## 🔥 IMMEDIATE PRIORITY (Before Using in Projects)
-
-### 1. Critical Rename: `style` → `theme` Everywhere
-**Why:** More semantic, matches system philosophy (three themes, not styles)
-
-**Current:** `nuke-style="1/2/3"` in HTML, CSS selectors use `[nuke-style="1"]`
-**Target:** `theme="1/2/3"` in HTML, CSS selectors use `[theme="1"]`
-
-**Scope:**
-- [ ] Rename all CSS selectors: `[nuke-style="1"]` → `[theme="1"]` in all `.core.css` files
-- [ ] Rename all CSS selectors: `.nuke-style-1` → `.theme-1` in all `.core.css` files
-- [ ] Update `docs/index.html` demo: `style="1"` → `theme="1"`
-- [ ] Update comments/documentation in CSS files
-- [ ] Update PROJECT.md references
-- [ ] Update core/theme.css comments
-
-**Note:** Lit components already use `variant` property internally (avoids HTMLElement.style conflict). HTML attribute will be `theme="1"`, reflected to `variant` property.
-
-### 2. Test Build Output
-- [ ] Run `bun run build` and verify dist/ structure
-- [ ] Check all CSS files copied correctly
-- [ ] Check all JS files compiled correctly
-- [ ] Check type definitions generated (dist/types/)
-- [ ] No empty folders in dist/
-
-### 3. Update Demo (docs/index.html)
-- [ ] Point to dist/core.css (not old paths)
-- [ ] Point to dist/core.js (not old vanilla JS files)
-- [ ] Test all components work with Lit versions
-- [ ] Verify theme="1/2/3" works (after rename)
-- [ ] Test in browser (open docs/index.html)
 
 ---
 
