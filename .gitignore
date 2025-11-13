@@ -21,6 +21,7 @@ Thumbs.db
 
 # Dependencies
 node_modules/
+docs/node_modules/
 bun.lock
 
 # Dev scripts
