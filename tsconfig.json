@@ -1,0 +1,50 @@
+{
+  "compilerOptions": {
+    // Target modern browsers (ES2020+)
+    "target": "ES2020",
+    "module": "ESNext",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+
+    // Module resolution
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+
+    // Emit settings
+    "declaration": true,           // Generate .d.ts files (TypeScript definitions)
+    "declarationMap": true,        // Sourcemaps for .d.ts files
+    "outDir": "./dist",            // Output compiled JS here
+    "declarationDir": "./dist/types", // Output .d.ts files here
+
+    // Strictness (always strict!)
+    "strict": true,                // Enable ALL strict checks
+    "noImplicitAny": true,         // No implicit 'any' types
+    "strictNullChecks": true,      // Strict null checking
+    "strictFunctionTypes": true,   // Strict function types
+    "strictPropertyInitialization": true, // Properties must be initialized
+
+    // Code quality
+    "noUnusedLocals": true,        // Error on unused variables
+    "noUnusedParameters": true,    // Error on unused parameters
+    "noImplicitReturns": true,     // Functions must return consistently
+    "noFallthroughCasesInSwitch": true, // No fallthrough in switch
+
+    // Decorators (needed for Lit @property, @state, etc.)
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false, // Lit needs this false
+
+    // Interop
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // Skip lib checking for faster builds
+    "skipLibCheck": true
+  },
+  "include": [
+    "core/**/*.ts"                 // Only compile TypeScript files in core/
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

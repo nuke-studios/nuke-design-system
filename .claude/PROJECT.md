@@ -2,658 +2,498 @@
 
 ## What is This?
 
-A pure CSS element-first styling system with **22 fully implemented native elements**:
-- **No build tools** - Just CSS files
-- **Framework independent** - Works with any project (HTML, React, Vue, Angular, etc.)
-- **Element-first** - Native HTML elements work out of the box
-- **Variable-driven** - Customize through CSS custom properties (design tokens)
-- **Core + Theme** - System logic separate from design tokens
-- **Web components ready** - Custom elements for complex components (card, toolbar, etc.)
+**An element-first design system with the killer feature no one else has: fully extractable, editable theme files.**
+
+- **Native HTML elements work out of the box** - `<button>`, `<input>`, `<select>` - no classes needed
+- **Three complete design philosophies** - `style="1/2/3"` gives you minimal, subtle, or all-in aesthetics
+- **Extracted theme folder** - Get ALL theme files in your project, edit freely, updates never overwrite
+- **Framework independent** - Works with vanilla HTML, React, Vue, Angular, Svelte, etc.
+- **Lit-powered web components** - TypeScript-based, lightweight, accessible
+- **Zero build requirements for users** - Just CSS + optional JS
+
+## The Killer Features (Why Nuke is Different)
+
+### 1. Extracted Theme Architecture (UNIQUE)
+**No other design system does this.**
+
+Most systems: Override variables in your code, hope updates don't break things.
+
+Nuke: Extract ENTIRE theme folder to your project. Every single theme file. Edit anything. Updates never touch it.
+
+```
+npm install @nuke.dev/design-system
+# Postinstall extracts theme files
+
+nuke-theme/
+├── theme.css           (foundation tokens - EDIT FREELY)
+├── button/
+│   └── button.theme.css (button tokens - EDIT FREELY)
+├── card/
+│   └── card.theme.css   (card tokens - EDIT FREELY)
+└── ... (all 26 components)
+```
+
+**Full creative freedom. Update-safe. Simple.**
+
+### 2. Three Design Philosophies in ONE System (UNIQUE)
+
+Ship three complete aesthetic systems. Users pick one or mix them.
+
+**Style 1: Minimal / Japanese**
+- Philosophy: Zen-like simplicity, maximum whitespace
+- Forms: Bottom borders only (underline style)
+- Buttons: Minimal, subtle hover states
+- Think: Japanese design, brutalism, text-heavy interfaces
+
+**Style 2: Subtle Contrasts**
+- Philosophy: Modern, clean, background-driven
+- NO borders anywhere - only backgrounds create structure
+- Soft, airy feel
+- Think: iOS, modern web apps, soft aesthetics
+
+**Style 3: All In**
+- Philosophy: Traditional, clear, defined
+- Borders AND backgrounds working together
+- Maximum clarity, nothing ambiguous
+- Think: Material Design, Bootstrap, enterprise apps
+
+```html
+<!-- Same element, three philosophies -->
+<button style="1">Minimal</button>
+<button style="2">Subtle</button>
+<button style="3">All In</button>
+```
+
+### 3. Native-First with Optional Enhancement
+
+**Most systems wrap everything in components.**
+- Material UI: `<Button>`, `<TextField>`, `<Select>`
+- Every framework: custom components for basic HTML
+
+**Nuke: HTML just works.**
+```html
+<!-- Native elements styled automatically -->
+<button>Works immediately</button>
+<input type="text" placeholder="Styled">
+<select><option>Dropdown</option></select>
+
+<!-- Web components only for complex stuff -->
+<nuke-toast>Notification</nuke-toast>
+<nuke-tabs>Tab interface</nuke-tabs>
+```
+
+**20 native elements + 6 web components. Lightweight. Practical.**
 
 ## Tech Stack
 
-**CSS + Minimal JavaScript (for web components)**
+### For Library Development (You)
+- **TypeScript** - Type-safe component development
+- **Lit** - Lightweight web components (5KB)
+  - `@property()` decorators for reactive props
+  - Light DOM rendering (no Shadow DOM)
+  - Framework-agnostic
+- **Bun** - Fast TypeScript → JavaScript compilation
+  - Built-in bundler (no extra config)
+  - Compiles to `dist/core.js`
+- **Docker** - Consistent build environment
+  - `docker-compose up -d`
+  - Bun container for builds
 
-- Pure CSS for native elements (22 elements)
-- Vanilla JavaScript for custom elements (card, toolbar, etc.)
-- No build process
-- No preprocessors (Sass, Less, etc.)
-- No framework dependencies
-- Just CSS files + optional JS for web components
+### For Users (Zero Dependencies)
+- **Pure CSS** - No preprocessors, no build tools
+- **Vanilla JavaScript** - Web components work everywhere
+- **Framework agnostic** - HTML, React, Vue, Angular, Svelte
 
-## Core Philosophy
-
-### Element-First, Not Class-First
-
-```html
-<!-- Just write HTML. It works. -->
-<button>Click me</button>
-
-<!-- Need a variant? Use style="1/2/3" attribute or .style-1/2/3 class -->
-<button style="1">Style 1</button>
-<button style="2">Style 2</button>
-<button style="3">Style 3</button>
-
-<!-- Also works with classes -->
-<button class="style-1">Style 1</button>
-<button class="style-2">Style 2</button>
-<button class="style-3">Style 3</button>
-```
-
-### The Holy Grail: Universal Style Pattern = Three Complete Design Systems
-
-**✅ COMPLETED: `style="1/2/3"` are three complete, cohesive design philosophies implemented across ALL elements!**
-
-#### Style 1: Minimal / Japanese
-**Philosophy:** Lean, understated, zen-like simplicity
-- Text inputs: Bottom border only (underline style)
-- Checkboxes/radios: 1px border, no background fill
-- Buttons: Minimal styling, only hover states show subtle background
-- Overall: Maximum whitespace, minimal visual weight
-- **Think:** Japanese design, brutalism, text-heavy interfaces
-
-#### Style 2: Subtle Contrasts
-**Philosophy:** Modern, clean, background-driven
-- NO borders at all across any elements
-- Visual guidance through background colors/contrasts only
-- Soft, airier feel
-- Overall: Backgrounds create structure, not borders
-- **Think:** iOS, modern web apps, soft aesthetics
-
-#### Style 3: All In
-**Philosophy:** Traditional, clear, defined
-- Borders AND backgrounds working together
-- The "standard" everyone expects
-- Clear visual boundaries everywhere
-- Overall: Maximum clarity, nothing ambiguous
-- **Think:** Material Design, Bootstrap, enterprise apps
-
-### Why This Is Genius
-
-**Numbered style system:**
-- `<button style="1">` = minimal button
-- `<input style="1">` = minimal input
-- `<checkbox style="1">` = minimal checkbox
-- **All elements follow the SAME design philosophy!**
-
-**Both attribute and class syntax supported:**
-- `style="1/2/3"` attribute syntax (primary)
-- `.style-1/.style-2/.style-3` class syntax (also works)
-
-**Ship three complete aesthetic systems:**
-- Users pick one philosophy and use it everywhere
-- Or mix (Style 1 for forms, Style 3 for buttons)
-- Numbered system is clear and simple
-
-**No naming fatigue. Cohesive design language. Simple and effective.**
-
-## 🔒 LOCKED ARCHITECTURE DECISIONS
-
-### Core vs Theme Separation
-
-**The Problem We Solved:**
-- If variables live in UI files, updates overwrite customizations
-- If variables live in one giant file, navigation is painful
-- Need: separate concerns, easy navigation, update-safe
-
-**The Solution: Component Folder Structure with Paired Files**
+## File Structure
 
 ```
-nuke-ds/                         (repository)
-├── core/                        (everything lives here - paired .core.css + .theme.css)
-│   ├── _base/                   (foundation - always at top)
-│   │   ├── reset.core.css           (browser resets - logic only)
-│   │   ├── animations.core.css      (@keyframes definitions - logic only)
-│   │   ├── helpers.core.css         (utility classes: .no-scroll - logic only)
-│   │   └── theme.css                (consolidated base theme: tokens, scrollbars, typography)
+nuke-design-system/
+├── core/                        # Source (TypeScript + CSS)
+│   ├── animations.css           # Foundation (no .core suffix)
+│   ├── helpers.css
+│   ├── reset.css
+│   ├── theme.css                # Foundation tokens + component imports
+│   ├── core.css                 # Aggregates all *.core.css files
+│   ├── core.ts                  # Web component entry (TypeScript)
 │   │
-│   ├── {element}/               (20 native HTML element folders)
-│   │   ├── {element}.core.css       (styling logic)
-│   │   └── {element}.theme.css      (design tokens for this element)
+│   ├── button/                  # Native element (CSS only)
+│   │   ├── button.core.css      # Styling logic
+│   │   └── button.theme.css     # Design tokens
 │   │
-│   ├── {component}/             (6 web component folders)
-│   │   ├── {component}.core.css     (styling logic)
-│   │   ├── {component}.theme.css    (design tokens)
-│   │   └── {component}.core.js      (web component registration)
+│   ├── badge/                   # Web component (CSS + TS)
+│   │   ├── badge.core.css       # Styling logic
+│   │   ├── badge.theme.css      # Design tokens
+│   │   └── badge.core.ts        # Lit component (TypeScript)
 │   │
-│   ├── core.css                 (imports all *.core.css files)
-│   ├── theme.css                (imports all *.theme.css files)
-│   └── core.js                  (imports all *.core.js web components)
+│   └── ... (26 total: 20 native + 6 web components)
 │
-└── index.html                   (comprehensive demo)
-```
-
-**Actual Folder Structure (26 element/component folders):**
-
-**Native HTML Elements (20 folders - .core.css + .theme.css only):**
-- a/, button/, checkbox/, code/, details/, dialog/, hr/, img/, input/, label/
-- nav/, ol/, pre/, progress/, radio/, range/, select/, table/, textarea/, ul/
-
-**Web Components (6 folders - .core.css + .theme.css + .core.js):**
-- badge/, card/, sidebar/, tabs/, toast/, toolbar/
-
-**Total Files:**
-- **58 CSS files:**
-  - 4 base files (reset.core.css, animations.core.css, helpers.core.css, theme.css)
-  - 20 native element pairs (40 files: 20 .core.css + 20 .theme.css)
-  - 6 web component pairs (12 files: 6 .core.css + 6 .theme.css)
-  - 2 aggregate files (core.css, theme.css)
-
-- **7 JavaScript files:**
-  - 6 web component registrations (badge.core.js, card.core.js, sidebar.core.js, tabs.core.js, toast.core.js, toolbar.core.js)
-  - 1 aggregate file (core.js)
-
-**Why This Architecture Works:**
-- ✅ Component-based folders (each element/component owns its own folder)
-- ✅ Paired files visible together (button.core.css + button.theme.css in same folder)
-- ✅ No folder jumping during development
-- ✅ Easy completeness check (every folder should have .core.css + .theme.css)
-- ✅ Web components easily identifiable (they have .core.js files)
-- ✅ _base/ always at top (alphabetical sorting)
-- ✅ Clear separation maintained through .core/.theme naming convention
-
-### Folder Naming Clarity
-
-**Current Structure:**
-- `_base/` = Foundation (resets, animations, helpers, consolidated theme)
-  - Underscore prefix ensures it's always first alphabetically
-  - Contains only 4 files (3 logic files + 1 consolidated theme)
-
-- `{element}/` = One folder per element/component (26 total)
-  - Flat structure - no nested folders
-  - Named after HTML element or component (button/, card/, etc.)
-  - Contains .core.css + .theme.css (+ .core.js for web components)
-
-**Why this works:**
-- Clear ownership (each element owns its folder)
-- Easy navigation (alphabetical, predictable)
-- No ambiguous categories like "form-controls" or "ui-elements"
-- Web components obvious (they have .core.js files)
-- German-friendly (direct, concrete names)
-
-### Distribution Model
-
-**npm package:** `@nuke.dev/design-system`
-
-**Package contents:**
-```
-node_modules/@nuke.dev/design-system/
-├── core/                        (everything)
-│   ├── _base/                   (foundation)
-│   ├── {element}/               (26 element/component folders)
-│   ├── core.css                 (import this for styling logic)
-│   ├── theme.css                (import this for design tokens)
-│   └── core.js                  (import this for web components)
-├── index.html                   (demo/reference)
-├── package.json
+├── dist/                        # Build output (published to npm)
+│   ├── core.css                 # All styling logic (bundled, imports resolved)
+│   ├── core.js                  # All web components (bundled)
+│   ├── types/                   # TypeScript definitions (.d.ts)
+│   └── nuke-theme/              # Extracted theme (flat structure)
+│       ├── theme.css            # Entry point (imports core.css + all themes)
+│       ├── foundation.theme.css # Foundation tokens (colors, spacing, etc.)
+│       ├── button.theme.css     # Component design tokens
+│       ├── input.theme.css
+│       └── ... (26 theme files)
+│
+├── docs/                        # Astro documentation site
+│   ├── src/
+│   │   └── pages/
+│   │       └── index.astro      # Homepage
+│   ├── public/                  # Static assets
+│   │   ├── nuke-theme/          # Symlink → ../../dist/nuke-theme
+│   │   ├── core.css             # Symlink → ../../dist/core.css
+│   │   └── core.js              # Symlink → ../../dist/core.js
+│   ├── astro.config.mjs
+│   └── dist/                    # Built Astro site (static HTML)
+│
+├── docs_static/                 # Old demo (backup)
+│   ├── index_save.html
+│   └── style_save.css
+│
+├── scripts/
+│   ├── bundle-core-css.js       # Bundles core CSS (resolves imports)
+│   ├── build-theme.js           # Extracts theme files to dist/nuke-theme/
+│   └── postinstall.js           # npm postinstall (theme extraction for users)
+│
+├── docker-compose.yml           # Build environment
+├── tsconfig.json                # TypeScript config
+├── package.json                 # Build scripts + dependencies
 └── README.md
 ```
 
-**Postinstall script:**
-- Extracts all `*.theme.css` files from `core/` subfolders
-- Copies to user's chosen location (default: `./nuke-theme/`)
-- Preserves folder structure (_base/, element folders)
-- User can customize freely without affecting node_modules
+## Architecture Decisions (LOCKED)
 
-**Two usage patterns:**
+### Core vs Theme Separation
 
-**1. Direct usage (simple):**
-```css
-/* Import theme + core directly from node_modules */
-@import '@nuke.dev/design-system/core/theme.css';
-@import '@nuke.dev/design-system/core/core.css';
-```
+**Problem:** How to let users customize without breaking on updates?
 
-**2. Extracted theme (customizable):**
-```css
-/* Import extracted theme (customize freely) */
-@import './nuke-theme/theme.css';
+**Solution:** Paired files in component folders.
 
-/* Import core logic from node_modules (don't edit) */
-@import '@nuke.dev/design-system/core/core.css';
-```
-
-**After postinstall (if using extracted theme):**
-```
-project-root/
-└── nuke-theme/                  (extracted *.theme.css files)
-    ├── _base/theme.css          (base design tokens)
-    ├── button/button.theme.css  (button tokens)
-    ├── card/card.theme.css      (card tokens)
-    └── theme.css                (imports all *.theme.css)
-```
-
-**Benefits:**
-- Updates to `@nuke.dev/design-system` never touch your extracted theme
-- Customize theme variables without forking the package
-- Or skip extraction and use directly from node_modules
-
-### User Workflow
-
-**1. Install:**
-```bash
-npm install @nuke.dev/design-system
-# Postinstall may prompt for theme extraction location (optional)
-```
-
-**2. Choose your import pattern:**
-
-**Option A - Direct (simple, no customization):**
-```css
-/* Import theme + core directly from node_modules */
-@import '@nuke.dev/design-system/core/theme.css';
-@import '@nuke.dev/design-system/core/core.css';
-
-/* Your custom styles below */
-```
-
-**Option B - Extracted theme (customizable):**
-```css
-/* Import extracted theme (customize freely) */
-@import './nuke-theme/theme.css';
-
-/* Import core logic from node_modules */
-@import '@nuke.dev/design-system/core/core.css';
-
-/* Your custom styles below */
-```
-
-**3. Optional: Use web components:**
-```html
-<script type="module">
-  import '@nuke.dev/design-system/core/core.js';
-</script>
-
-<!-- Now you can use -->
-<nuke-card style="1">
-  <nuke-card-header>Title</nuke-card-header>
-  <nuke-card-content>Content</nuke-card-content>
-</nuke-card>
-```
-
-**4. Customize (if using extracted theme):**
-- Edit `nuke-theme/_base/theme.css` for core tokens (colors, spacing, etc.)
-- Edit `nuke-theme/button/button.theme.css` for button-specific variables
-- Edit `nuke-theme/card/card.theme.css` for card-specific variables
-- Same folder structure as core - easy navigation
-
-**5. Update safely:**
-```bash
-npm update @nuke.dev/design-system
-# Your extracted theme stays untouched!
-```
-
-## Current Implementation Status
-
-### ✅ FULLY IMPLEMENTED (v1.0 READY!)
-
-**20 Native HTML Elements + 6 Web Components (58 CSS Files + 7 JS Files):**
-**✅ All implemented with numbered style system (1/2/3)!**
-
-**Form Controls (9):**
-- ✅ button - Solid/outlined/ghost
-- ✅ input - Border/filled/underline
-- ✅ select - Custom dropdown
-- ✅ textarea - Border/filled/minimal
-- ✅ checkbox - Square/rounded/circle
-- ✅ radio - Standard/filled/small dot
-- ✅ label - Bold/uppercase/colored
-- ✅ progress - Solid/striped/rounded
-- ✅ range - Slider with variants
-
-**Navigation (2):**
-- ✅ a - Links with hover states
-- ✅ nav - Navigation (horizontal/bar/vertical)
-
-**Interactive (2):**
-- ✅ dialog - Native modal
-- ✅ details - Accordion/disclosure
-
-**Content (1):**
-- ✅ table - Striped/bordered/minimal
-
-**Lists (2):**
-- ✅ ul - Unordered lists (disc/colored bullets/minimal)
-- ✅ ol - Ordered lists (decimal/colored numbers/letters)
-
-**Text/Code (3):**
-- ✅ hr - Horizontal rules (thin/thick/gradient)
-- ✅ code - Inline code (subtle/highlighted/outlined)
-- ✅ pre - Code blocks (standard/dark/minimal)
-
-**Media (1):**
-- ✅ img - Images (rounded/circle/bordered)
-
-
-**Foundation:**
-- ✅ _base/reset.core.css - CSS reset (browser normalization)
-- ✅ _base/animations.core.css - Keyframes (@fadeIn, @slideDown, @spin, etc.)
-- ✅ _base/helpers.core.css - Utility classes (.no-scroll, body scroll lock)
-- ✅ _base/theme.css - Consolidated base theme (tokens, scrollbars, typography)
-
-**Web Components (6 Fully Implemented with numbered styles!):**
-- ✅ `<nuke-card>` - Content containers with header/content/actions structure
-  - 3 variants: style="1/2/3"
-  - Enforces consistent card structure
-
-- ✅ `<nuke-toolbar>` - Horizontal action button groups
-  - 3 variants: style="1/2/3"
-  - Flexbox layout for button grouping
-
-- ✅ `<nuke-badge>` - Inline labels, tags, and counters
-  - 3 variants: style="1/2/3"
-  - Semantic coloring support
-
-- ✅ `<nuke-tabs>` - Tab interface with full keyboard navigation
-  - 3 variants: style="1/2/3"
-  - Arrow keys, Home/End navigation
-  - ARIA roles for accessibility
-
-- ✅ `<nuke-toast>` - Notification messages
-  - 3 variants: style="1/2/3"
-  - Auto-dismiss with configurable timeout
-  - Stacking behavior for multiple toasts
-  - Slide animations
-
-- ✅ `<nuke-sidebar>` - Collapsible navigation panel
-  - 3 variants: style="1/2/3"
-  - Slide-in animation
-  - Overlay backdrop
-  - Close on overlay click
-
-**Demo:**
-- ✅ index.html - Comprehensive demo of all 20 native elements + 6 web components
-- ✅ Sticky NUKE-style header with light/dark theme toggle
-- ✅ Side-by-side variant comparison for all components (Style 1/2/3)
-- ✅ Working toast notifications (positioned below header)
-- ✅ Collapsible sidebar with overlay
-- ✅ Professional, minimal aesthetic (crispy orange accent)
-- ✅ Numbered style system (style="1/2/3")
-
-### 🎯 FUTURE COMPONENTS (Post v1.0)
-
-**Potential additions:**
-- [ ] `<nuke-tooltip>` - Positioned tooltips with popover API
-- [ ] `<nuke-dropdown>` - Dropdown menus (beyond native select)
-- [ ] `<nuke-modal>` - Enhanced dialog with backdrop
-- [ ] `<nuke-accordion>` - Multi-item accordion (beyond details)
-
-### 🎯 FUTURE ENHANCEMENTS (Post v1.0)
-
-**Distribution:**
-- [ ] Create `package.json` for @nuke-ds/core
-- [ ] Create `package.json` for @nuke-ds/components
-- [ ] Add postinstall script to copy theme/
-- [ ] Create .npmignore (exclude demo files)
-- [ ] Test npm workflow locally
-
-**Documentation:**
-- [ ] Create README.md with installation instructions
-- [ ] Document all design tokens and customization
-- [ ] Write CONTRIBUTING.md guidelines
-- [ ] Document Angular integration (CUSTOM_ELEMENTS_SCHEMA)
-
-**Testing:**
-- [ ] Browser compatibility testing
-- [ ] Mobile testing (iOS/Android)
-- [ ] Accessibility audit
-- [ ] Create dark mode theme example
-
-## Variable Naming Conventions
-
-### Foundation Variables (Global Design Tokens)
-
-Organized into focused files for easy navigation:
-
-**base/colors.css:**
-```css
-/* Primary color - ONLY for links and optional accents */
---color-1: hsl(25, 85%, 55%);       /* Crispy orange (light theme) */
---color-2: hsl(280, 40%, 65%);      /* Muted purple */
---color-3: hsl(160, 45%, 55%);      /* Calmer green */
---on-color: hsl(0, 0%, 100%);       /* Text on colors */
-
-/* Backgrounds - Neutral hierarchy */
---background-1: hsl(0, 0%, 99%);    /* Almost white page */
---background-2: hsl(0, 0%, 100%);   /* Pure white cards/elements */
---background-3: hsl(0, 0%, 97%);    /* Subtle fills */
-
-/* Text - Softer contrast */
---on-background: hsl(0, 0%, 20%);         /* Softer black */
---on-background-light: hsl(0, 0%, 50%);   /* Medium gray */
-
-/* Borders - Subtle but visible */
---border-1: hsl(0, 0%, 88%);        /* Light border */
---border-2: hsl(0, 0%, 75%);        /* Medium border */
-```
-
-**CRITICAL:** Primary colors (--color-1/2/3) are NOT used as backgrounds on UI elements. All buttons, checkboxes, radios, range sliders, progress bars, and badges use NEUTRAL colors (backgrounds, borders, on-background). Primary colors are available for links and optional custom accents only.
-
-**base/spacing.css:**
-```css
---space-1: 0.5rem;    /* 8px */
---space-2: 1rem;      /* 16px */
---space-3: 2rem;      /* 32px */
---space-4: 3rem;      /* 48px */
-```
-
-**base/sizing.css:**
-```css
---height-1: 32px;     /* Small form elements */
---height-2: 40px;     /* Medium form elements */
---height-3: 48px;     /* Large form elements */
-```
-
-### Element Variables (Referencing Foundation)
-
-Element-specific variables in `theme/elements/{element}.css`:
+- `.core.css` = Styling logic (never edited by users, ships from node_modules)
+- `.theme.css` = Design tokens (extracted to user's project, fully editable)
 
 ```css
-/* theme/elements/button.css */
-:root {
-  /* Base button properties */
-  --button-height: var(--height-2);
-  --button-padding-x: var(--space-2);
-  --button-font-size: var(--font-size-1);
-  --button-font-weight: var(--font-weight-medium);
-  --button-radius: var(--border-radius);
-  --button-transition: var(--transition-fast);
-
-  /* Style 1: Minimal */
-  --button-1-bg: transparent;
-  --button-1-color: var(--color-1);
-  --button-1-hover-bg: var(--background-3);
-
-  /* Style 2: Background-driven */
-  --button-2-bg: var(--background-3);
-  --button-2-color: var(--color-1);
-  --button-2-hover-bg: var(--color-1);
-  --button-2-hover-color: var(--on-color);
-
-  /* Style 3: All In */
-  --button-3-bg: var(--color-1);
-  --button-3-color: var(--on-color);
-  --button-3-hover-bg: hsl(210, 100%, 45%);
-}
-```
-
-### Core Files (Use Variables, Never Define)
-
-```css
-/* core/elements/button.css */
+/* button.core.css - Uses variables, never defines them */
 button {
   height: var(--button-height);
-  padding: 0 var(--button-padding-x);
-  font-size: var(--button-font-size);
-  font-weight: var(--button-font-weight);
-  border-radius: var(--button-radius);
-  transition: all var(--button-transition);
+  background: var(--button-bg);
+  color: var(--button-color);
 }
 
-/* Style 1 variant (attribute and class syntax) */
-button[style*="1"],
-button.style-1 {
-  background: var(--button-1-bg);
-  color: var(--button-1-color);
-}
-
-button[style*="1"]:hover,
-button.style-1:hover {
-  background: var(--button-1-hover-bg);
+/* button.theme.css - Defines variables users can edit */
+:root {
+  --button-height: 36px;
+  --button-bg: var(--background-2);
+  --button-color: var(--on-background);
 }
 ```
 
-### Naming Pattern
+**Updates to core never touch user's theme files. Perfect separation.**
 
-**Variables:**
-- Foundation: `--{category}-{number}` → `--color-1`, `--space-2`
-- Element base: `--{element}-{property}` → `--button-height`, `--input-radius`
-- Element variant: `--{element}-{style}-{property}` → `--button-1-bg`, `--button-2-color`
-- Element state: `--{element}-{style}-{state}-{property}` → `--button-1-hover-bg`
+### Lit for Web Components
 
-**Classes & Attributes:**
-- Style variants: `style="1/2/3"` (primary) or `.style-1/.style-2/.style-3` classes
-- Universal across all elements
+**Why Lit?**
+- ✅ TypeScript support (`@property()` decorators)
+- ✅ Tiny (5KB bundled)
+- ✅ Light DOM rendering (no Shadow DOM - keeps CSS simple)
+- ✅ Reactive properties without boilerplate
+- ✅ Framework-agnostic (works everywhere)
+- ✅ Better DX than vanilla `class extends HTMLElement`
 
-**Custom Elements:**
-- Component: `<nuke-{name}>` → `<nuke-card>`, `<nuke-toolbar>`
-- Children: `<nuke-{name}-{part}>` → `<nuke-card-header>`, `<nuke-card-content>`
-- Attributes: `style="1/2/3"` (same universal pattern)
+**Example (Toast component):**
+```typescript
+import { LitElement, html } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 
-**Files:**
-- Element files: `{element}.css` → `button.css`, `input.css`, `checkbox.css`
-- Token files: `{token}.css` → `colors.css`, `spacing.css`, `borders.css`
-- Base files: `{purpose}.css` → `reset.css`, `animations.css`
-- Helpers: `{utility}.css` → `scroll-lock.css`
-- Components: `nuke-{name}.js` → `nuke-card.js`, `nuke-toolbar.js`
+@customElement('nuke-toast')
+export class NukeToast extends LitElement {
+  @property({ type: String, reflect: true }) variant = '1';
+  @property({ type: Number }) duration = 3000;
 
-## Commands
+  // Render in Light DOM (no Shadow DOM)
+  createRenderRoot() {
+    return this;
+  }
 
-**There are no commands!** It's just CSS files (and optional JS for web components).
+  render() {
+    return html`
+      <slot></slot>
+      <button @click=${this.dismiss}>×</button>
+    `;
+  }
 
-**Development workflow:**
-- Edit CSS files directly
-- Open `index.html` in browser
-- Refresh to see changes
-- No build step needed
+  dismiss() {
+    this.remove();
+  }
+}
+```
 
-**For users:**
-- Install via npm OR download files
-- Import theme + core in their CSS
-- Optional: Import components JS for web components
-- Customize theme variables
-- Build their project however they want
+**Compiled to JavaScript, shipped as `dist/core.js`. Users just import and use.**
+
+### Build Pipeline (Bun + TypeScript)
+
+**Source:** TypeScript (`.ts`) + CSS
+**Output:** JavaScript (`.js`) + CSS + Type definitions (`.d.ts`)
+
+```bash
+# Build command (inside Docker container)
+bun run build
+
+# What happens:
+# 1. TypeScript compiles core/*.ts → dist/*.js
+# 2. CSS files copied core/*.css → dist/*.css
+# 3. Type definitions generated → dist/types/*.d.ts
+# 4. Empty folders cleaned up
+```
+
+**Users never see TypeScript. They get clean JavaScript + CSS.**
+
+### User Import Pattern
+
+**Users extract theme, import ONE file:**
+
+```html
+<!-- CSS: Import extracted theme (includes core.css automatically) -->
+<link rel="stylesheet" href="./nuke-theme/theme.css">
+
+<!-- JS: Optional web components -->
+<script type="module" src="./node_modules/@nuke.dev/design-system/dist/core.js"></script>
+```
+
+**That's it. Everything works.**
+
+The extracted `theme.css` has this at the top:
+```css
+/* IMPORTANT: Adjust this path to match your node_modules location */
+@import './node_modules/@nuke.dev/design-system/dist/core.css';
+
+/* Foundation tokens (EDIT THESE) */
+:root { --color-1: ...; }
+
+/* Component theme imports */
+@import './button/button.theme.css';
+@import './card/card.theme.css';
+/* ... */
+```
+
+## What's Implemented (v2.0 - Lit Migration Complete)
+
+### 20 Native HTML Elements
+**Styled automatically, no classes needed:**
+
+- **Forms:** button, input, select, textarea, checkbox, radio, label, progress, range
+- **Navigation:** a, nav
+- **Interactive:** dialog, details
+- **Content:** table
+- **Lists:** ul, ol
+- **Text/Code:** hr, code, pre
+- **Media:** img
+
+**Each has:**
+- `element.core.css` (styling logic)
+- `element.theme.css` (design tokens)
+- 3 style variants (style="1/2/3")
+
+### 6 Web Components (Lit + TypeScript)
+**Complex interactions, keyboard navigation, accessibility:**
+
+- `<nuke-badge>` - Labels, tags, counters
+- `<nuke-card>` - Content containers (header/content/actions)
+- `<nuke-sidebar>` - Collapsible navigation (overlay mode, escape key)
+- `<nuke-tabs>` - Tab interface (arrow keys, Home/End navigation)
+- `<nuke-toast>` - Notifications (auto-dismiss, stacking, animations)
+- `<nuke-toolbar>` - Button groups
+
+**Each has:**
+- `component.core.ts` (Lit component, TypeScript)
+- `component.core.css` (styling logic)
+- `component.theme.css` (design tokens)
+- 3 style variants (variant="1/2/3" property)
+
+### Foundation Files
+- `reset.css` - Browser normalization
+- `animations.css` - Keyframe definitions (@fadeIn, @slideDown, etc.)
+- `helpers.css` - Utility classes (.no-scroll)
+- `theme.css` - Foundation tokens (colors, spacing, typography)
+
+## Development Workflow
+
+### Build System
+```bash
+# Start Docker container
+docker-compose up -d
+
+# Enter container
+docker-compose exec bun bash
+
+# Install dependencies (first time only)
+bun install
+
+# Build library
+bun run build
+# Outputs to dist/
+#   dist/core.css        - Bundled styles (all imports resolved)
+#   dist/core.js         - Bundled web components
+#   dist/types/          - TypeScript definitions
+#   dist/nuke-theme/     - Extracted theme files (flat structure)
+
+# Run Astro docs dev server
+bun run docs:dev
+# Visit http://localhost:4321
+```
+
+### Build Scripts (package.json)
+```json
+{
+  "scripts": {
+    "build": "bun run build:clean && bun run build:ts && bun run build:css && bun run build:theme && bun run build:cleanup",
+    "build:clean": "mkdir -p dist dist/nuke-theme dist/types",
+    "build:ts": "tsc && bun build core/core.ts --outdir dist --format esm",
+    "build:css": "node scripts/bundle-core-css.js",
+    "build:theme": "node scripts/build-theme.js",
+    "build:cleanup": "find dist -mindepth 1 -maxdepth 1 -type d ! -name 'nuke-theme' ! -name 'types' -exec rm -rf {} +",
+    "docs:dev": "astro dev --root docs --host",
+    "docs:build": "astro build --root docs"
+  }
+}
+```
+
+### Build Pipeline Explained
+
+**1. `build:clean`** - Creates dist/ structure (doesn't delete, just ensures folders exist)
+
+**2. `build:ts`** - TypeScript compilation
+   - Compiles `core/core.ts` → `dist/core.js` (bundled)
+   - Generates type definitions → `dist/types/`
+
+**3. `build:css`** - CSS bundling (`scripts/bundle-core-css.js`)
+   - Reads `core/core.css`
+   - Resolves all `@import` statements recursively
+   - Inlines all `.core.css` files (skips `.theme.css`)
+   - Outputs single `dist/core.css` with all styles
+
+**4. `build:theme`** - Theme extraction (`scripts/build-theme.js`)
+   - Finds all `.theme.css` files in `core/`
+   - Copies them to `dist/nuke-theme/` (flat, no subfolders)
+   - Copies `core/theme.css` → `dist/nuke-theme/foundation.theme.css`
+   - Generates `dist/nuke-theme/theme.css` entry point with imports
+
+**5. `build:cleanup`** - Removes leftover component folders from TypeScript build
+
+### File Naming Conventions
+
+**TypeScript (source):**
+- `core.ts` - Main entry (exports all components)
+- `badge.core.ts` - Component logic
+- Compiled to `.js` in dist/
+
+**CSS:**
+- `core.css` - Aggregate (imports all *.core.css)
+- `theme.css` - Aggregate (imports all *.theme.css + core.css)
+- `element.core.css` - Styling logic
+- `element.theme.css` - Design tokens
+- Foundation files: `reset.css`, `animations.css`, `helpers.css` (no suffix)
+
+**Lit Component Pattern:**
+```typescript
+// Properties use 'variant' not 'style' (avoids HTMLElement.style conflict)
+@property({ type: String, reflect: true }) variant = '1';
+
+// Light DOM rendering (no Shadow DOM)
+createRenderRoot() {
+  return this;
+}
+```
 
 ## Nuke vs Other Systems
 
-**Not like Tailwind:**
-- No `.p-4`, `.bg-blue-500`, `.flex`, etc.
-- Elements work without classes
-- Variants use semantic numbered pattern
+### vs Tailwind
+- ❌ Tailwind: `.p-4 .bg-blue-500 .flex` everywhere
+- ✅ Nuke: Elements work without classes, optional `style="1/2/3"`
 
-**Not like Bootstrap:**
-- No `.btn-primary`, `.form-control`, etc.
-- Minimal JavaScript (only for web components)
-- Pure CSS for native elements
+### vs Bootstrap / Material UI
+- ❌ Bootstrap: `.btn-primary`, `.form-control`, framework-locked
+- ✅ Nuke: Native HTML, framework-agnostic, extractable theme
 
-**Not like Shoelace/Carbon:**
-- Native elements stay native (not wrapped in custom elements)
-- Only complex components use web components
-- Much smaller scope (28 elements + ~6 components)
+### vs Shoelace / Carbon
+- ❌ Shoelace: Everything is a web component (even buttons)
+- ✅ Nuke: Native elements stay native, web components only for complex stuff
 
-**What makes Nuke unique:**
-- **Element-first architecture** - Native HTML works out of the box
-- **Numbered style system** - `style="1/2/3"` everywhere (three complete design philosophies)
-- **Hybrid approach** - Pure CSS for native, web components for complex
-- **Component folder structure** - Each element/component owns its own folder
-- **Core/Theme separation** - Update-safe customization via .core/.theme naming
-- **Minimal scope** - 26 elements/components (20 native + 6 web), not 50+ bloat
-- **Personal toolkit** - Built for real usage, not market trends
+### vs PicoCSS / SimpleCSS
+- ❌ Pico: One style, hard to customize
+- ✅ Nuke: Three philosophies, extractable theme folder
 
-## Best Practices
+### The Unique Combination:
+1. Native elements styled by default
+2. Three complete design philosophies (style="1/2/3")
+3. Extracted, fully-editable theme folder
+4. Lit web components for complex interactions
+5. Framework-agnostic
+6. Zero build requirements for users
+7. TypeScript development experience
 
-### When Building Core Files
+**No other system has this exact combination.**
 
-- [x] Element works with no classes (base styling)
-- [x] Uses variables, never defines them
-- [x] Style 1/2/3 variants implemented
-- [x] Both attribute selectors `[style*="1"]` and class selectors `.style-1`
-- [x] Supports all relevant states (:hover, :focus, :disabled, :checked, etc.)
-- [x] Accessible (focus outlines, proper contrast)
-- [x] Works across modern browsers
+## Naming Decisions
 
-### When Building Theme Files
+### Why "variant" not "style" in Lit?
+```typescript
+// ❌ This causes TypeScript errors (conflicts with HTMLElement.style)
+@property({ type: String }) style = '1';
 
-- [x] Variables use foundation variables as base
-- [x] Document what each variable controls (via comments)
-- [x] Provide sensible defaults
-- [x] Consider light/dark theme compatibility
+// ✅ Use 'variant' property internally
+@property({ type: String, reflect: true }) variant = '1';
 
-### When Building Web Components
+// HTML still uses style="1" (attribute reflects to property)
+<nuke-badge style="1">Badge</nuke-badge>
+```
 
-- [x] Minimal JavaScript (just registration + structure)
-- [x] No Shadow DOM (keep CSS simple and customizable)
-- [x] Style via external CSS (theme/components/card.css)
-- [x] Same `style="1/2/3"` attribute pattern
-- [x] Accessibility baked in (ARIA roles, keyboard nav)
-- [x] Framework independent (vanilla JS)
+### Why "core.css" not "index.css"?
+- `core.css` = clear purpose (core styling logic)
+- `core.js` = symmetrical naming (web components)
+- `theme.css` = design tokens
+- User imports `theme.css` (which imports `core.css`)
 
-### Folder Structure Philosophy
+### Folder Structure Logic
+- No `_base/` folder (foundation files at root)
+- Flat component folders (button/, card/, badge/)
+- Paired files in same folder (easy navigation)
+- Web components identifiable (have `.core.ts` files)
 
-**Component-based folders (one folder per element/component):**
-- ✅ GOOD: `button/`, `card/`, `input/` (each owns its files)
-- ❌ BAD: Nested categories like `elements/form-controls/button/`
-- Easy navigation (alphabetical, predictable)
-- Clear ownership (everything related to button lives in button/)
-- Web components obvious (they have .core.js files)
+## Key Insights & Philosophy
 
-**Consolidated base theme:**
-- ✅ GOOD: Single `_base/theme.css` with all foundation tokens
-- ❌ BAD: Seven separate files (colors, spacing, borders, etc.)
-- Reduced from 7 files to 1 unified theme
-- Only primitives (colors, spacing, sizing, shadows, transitions, typography)
-- Zero redundancy - components use primitives directly
+> "Extract the ENTIRE theme folder. Give users the actual files, not just override points. This is the killer feature."
 
-## Key Insights
+> "Three design philosophies in one system. Not variants - complete aesthetic approaches. Minimal, Subtle, All-In."
 
-> "I don't want utility classes like Tailwind. I want my HTML elements to just work, with optional modifiers when I need variants."
+> "Native HTML just works. Web components only when necessary. Hybrid approach beats all-or-nothing."
 
-> "The holy grail: `style="1/2/3"` pattern everywhere. Numbered system that's simple and clear. Three complete design philosophies - Style 1 is minimal, Style 2 is background-driven, Style 3 is all-in. Same pattern across ALL elements."
+> "Build for yourself first. If others find it useful, great. No market pressure, just practical tools."
 
-> "One element = one folder. Want to fix buttons? Open `button/` folder. Everything related to buttons lives there: button.core.css, button.theme.css. Clear ownership, easy to maintain."
+> "Updates never touch extracted theme files. Perfect separation. This solves the customization problem."
 
-> "Paired files in same folder. .core.css has logic, .theme.css has variables. Core improvements never overwrite your theme customizations."
+## What Makes This Brilliant
 
-> "Native elements stay native. Only complex components (card, toolbar) use web components. Best of both worlds."
+**The innovation isn't any single feature. It's the combination:**
 
-> "Building for myself first. If others like it, great. No market pressure, just practical tools."
+1. **Extracted theme architecture** - No one else does this
+2. **Three philosophies** - Not just variants, complete aesthetic systems
+3. **Native-first** - HTML works without wrappers
+4. **Lit web components** - TypeScript DX, tiny runtime
+5. **Framework-agnostic** - Works everywhere
+6. **Zero user build requirements** - Just CSS + optional JS
 
-## Project Status
+**This could cause attention from the right people IF:**
+- ✅ Used in 2-3 real projects (battle-tested)
+- ✅ Clear documentation showing extract → customize → ship workflow
+- ✅ Published to npm with great README
+- ✅ Examples across frameworks (React, Vue, Angular, Svelte)
 
-**Current State:** v1.0 READY (numbered style system COMPLETE!)
+## Next Steps (Wrap Up v2.0)
 
-**What's Working:**
-- ✅ 20 fully implemented native HTML elements
-- ✅ 6 fully implemented web components
-- ✅ 58 CSS files (component folders with paired .core/.theme files)
-- ✅ 7 JavaScript files (6 web component .core.js + 1 aggregate core.js)
-- ✅ Component folder structure with clear separation (.core/.theme naming)
-- ✅ Consolidated base theme (4 files in _base/)
-- ✅ **Numbered style system (1/2/3) across ALL elements**
-- ✅ **Both attribute (`style="1"`) and class (`.style-1`) syntax**
-- ✅ Comprehensive demo (index.html) with all 26 components
-- ✅ Keyboard navigation (tabs with arrow keys, Home/End)
-- ✅ Auto-dismiss toasts with stacking behavior
-- ✅ Collapsible sidebar with overlay backdrop
-- ✅ Professional, minimal aesthetic (crispy orange accent)
-- ✅ Zero redundancy - all components use core primitives
-- ✅ Production-ready CSS + JavaScript
-- ✅ Real-world architecture proven
+See TODO.md for actionable tasks.
 
-**Next Steps:**
-- [ ] Browser compatibility testing
-- [ ] Accessibility audit
-- [ ] Use in real projects for validation
-- [ ] Consider publishing to npm
-
-**Timeline:** Ready for v1.0 release NOW! (Optional testing/polish before npm publish)
+**Priority:** Ship it. Use it. Two projects waiting for this.

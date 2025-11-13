@@ -1,0 +1,11 @@
+services:
+  bun:
+    image: oven/bun:latest
+    volumes:
+      - .:/app
+    working_dir: /app
+    stdin_open: true
+    tty: true
+    ports:
+      - "4321:4321"
+    command: /bin/bash

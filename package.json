@@ -27,7 +27,22 @@
   "module": "components/core.js",
   "type": "module",
   "scripts": {
-    "postinstall": "node scripts/postinstall.js"
+    "postinstall": "node scripts/postinstall.js",
+    "build": "bun run build:clean && bun run build:ts && bun run build:css && bun run build:theme && bun run build:cleanup",
+    "build:clean": "mkdir -p dist dist/nuke-theme dist/types",
+    "build:ts": "tsc && bun build core/core.ts --outdir dist --format esm",
+    "build:css": "node scripts/bundle-core-css.js",
+    "build:theme": "node scripts/build-theme.js",
+    "build:cleanup": "find dist -mindepth 1 -maxdepth 1 -type d ! -name 'nuke-theme' ! -name 'types' -exec rm -rf {} +",
+    "docs:dev": "astro dev --root docs --host",
+    "docs:build": "astro build --root docs"
+  },
+  "dependencies": {
+    "lit": "^3.0.0"
+  },
+  "devDependencies": {
+    "astro": "^4.16.18",
+    "typescript": "^5.0.0"
   },
   "files": [
     "core/",

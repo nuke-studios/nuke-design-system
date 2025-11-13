@@ -1,12 +1,12 @@
 /* ============================================
    NUKE DESIGN SYSTEM - Core
    Pure logic, NO variables defined
-   Variables come from theme.css
+   Variables come from index.theme.css
    ============================================
 
    Import this file AFTER importing theme:
 
-   @import '@nuke-ds/core/theme.css';
+   @import '@nuke-ds/core/index.theme.css';
    @import '@nuke-ds/core/core.css';
 
    Or import individual modules:
@@ -16,9 +16,9 @@
    ============================================ */
 
 /* Base - Browser resets, animations, utilities */
-@import './_base/reset.core.css';
-@import './_base/animations.core.css';
-@import './_base/helpers.core.css';
+@import './reset.css';
+@import './animations.css';
+@import './helpers.css';
 
 /* Elements - Native HTML elements with zen/soft/solid variants */
 @import './a/a.core.css';
