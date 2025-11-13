@@ -1,6 +1,34 @@
 /* IMPORTANT: Adjust this path to match your node_modules location */
 @import './node_modules/@nuke.dev/design-system/dist/core.css';
 
+/* Component theme imports */
+@import './components/a/a.theme.css';
+@import './components/badge/badge.theme.css';
+@import './components/button/button.theme.css';
+@import './components/card/card.theme.css';
+@import './components/checkbox/checkbox.theme.css';
+@import './components/code/code.theme.css';
+@import './components/details/details.theme.css';
+@import './components/dialog/dialog.theme.css';
+@import './components/hr/hr.theme.css';
+@import './components/img/img.theme.css';
+@import './components/input/input.theme.css';
+@import './components/label/label.theme.css';
+@import './components/nav/nav.theme.css';
+@import './components/ol/ol.theme.css';
+@import './components/pre/pre.theme.css';
+@import './components/progress/progress.theme.css';
+@import './components/radio/radio.theme.css';
+@import './components/range/range.theme.css';
+@import './components/select/select.theme.css';
+@import './components/sidebar/sidebar.theme.css';
+@import './components/table/table.theme.css';
+@import './components/tabs/tabs.theme.css';
+@import './components/textarea/textarea.theme.css';
+@import './components/toast/toast.theme.css';
+@import './components/toolbar/toolbar.theme.css';
+@import './components/ul/ul.theme.css';
+
 :root {
   --family-1: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   --family-2: 'Impact', 'Arial Black', 'Helvetica', sans-serif;
@@ -139,31 +167,3 @@ em, i {
 small {
   font-size: 0.875em;
 }
-
-/* Component theme imports */
-@import './a/a.theme.css';
-@import './badge/badge.theme.css';
-@import './button/button.theme.css';
-@import './card/card.theme.css';
-@import './checkbox/checkbox.theme.css';
-@import './code/code.theme.css';
-@import './details/details.theme.css';
-@import './dialog/dialog.theme.css';
-@import './hr/hr.theme.css';
-@import './img/img.theme.css';
-@import './input/input.theme.css';
-@import './label/label.theme.css';
-@import './nav/nav.theme.css';
-@import './ol/ol.theme.css';
-@import './pre/pre.theme.css';
-@import './progress/progress.theme.css';
-@import './radio/radio.theme.css';
-@import './range/range.theme.css';
-@import './select/select.theme.css';
-@import './sidebar/sidebar.theme.css';
-@import './table/table.theme.css';
-@import './tabs/tabs.theme.css';
-@import './textarea/textarea.theme.css';
-@import './toast/toast.theme.css';
-@import './toolbar/toolbar.theme.css';
-@import './ul/ul.theme.css';

@@ -39,61 +39,73 @@ function findThemeFiles(dir, baseDir = dir) {
   return themeFiles;
 }
 
-// Copy theme files (flattened - no subfolders)
+// Create components directory
+const componentsDir = path.join(THEME_DIR, 'components');
+fs.mkdirSync(componentsDir, { recursive: true });
+
+// Copy theme files (preserve components folder structure)
 const themeFiles = findThemeFiles(CORE_DIR);
 const componentImports = [];
 
 console.log('Building dist/nuke-theme/...');
 
 for (const { fullPath, name } of themeFiles) {
-  // Copy to flat structure (no subfolders)
-  const destPath = path.join(THEME_DIR, name);
+  // Check if file is in components folder
+  const relativePath = path.relative(CORE_DIR, fullPath);
+  const isInComponents = relativePath.startsWith('components/');
+
+  let destPath;
+  let importPath;
+
+  if (isInComponents) {
+    // Keep in components/ folder
+    destPath = path.join(componentsDir, name);
+    importPath = `./components/${name}`;
+  } else {
+    // Root level
+    destPath = path.join(THEME_DIR, name);
+    importPath = `./${name}`;
+  }
+
   fs.copyFileSync(fullPath, destPath);
 
   // Track for imports (skip if it's the main theme.css)
   if (name !== 'theme.css') {
-    componentImports.push(`./${name}`);
+    componentImports.push(importPath);
   }
 
-  console.log(`  ✓ ${name}`);
+  console.log(`  ✓ ${isInComponents ? 'components/' : ''}${name}`);
 }
 
-// Copy foundation theme.css from core/
-const foundationThemePath = path.join(CORE_DIR, 'theme.css');
-if (fs.existsSync(foundationThemePath)) {
-  const foundationContent = fs.readFileSync(foundationThemePath, 'utf-8');
+// Copy and process core/theme.css
+const coreThemePath = path.join(CORE_DIR, 'theme.css');
+if (fs.existsSync(coreThemePath)) {
+  const coreThemeContent = fs.readFileSync(coreThemePath, 'utf-8');
 
-  // Remove the @import line (first 2 lines) - we don't want node_modules reference
-  const lines = foundationContent.split('\n');
-  const withoutImport = lines.slice(2).join('\n');
+  // Remove @import lines - we'll add our own
+  const lines = coreThemeContent.split('\n');
+  const withoutImports = lines.filter(line => !line.trim().startsWith('@import')).join('\n');
 
-  fs.writeFileSync(path.join(THEME_DIR, 'foundation.theme.css'), withoutImport);
-  console.log(`  ✓ foundation.theme.css (from core/theme.css)`);
-}
-
-// Generate main theme.css entry point
-const themeContent = `/* ============================================
+  // Build final theme.css
+  const themeContent = `/* ============================================
    NUKE DESIGN SYSTEM - Theme
    Extracted theme files - EDIT FREELY
-   ============================================
-
-   This file imports core.css and all theme files.
-   Users can edit any .theme.css file to customize the design.
-
    ============================================ */
 
 /* Import core styling logic */
 @import '../core.css';
 
-/* Foundation tokens (colors, spacing, typography) */
-@import './foundation.theme.css';
-
 /* Component theme imports */
 ${componentImports.sort().map(imp => `@import '${imp}';`).join('\n')}
+
+${withoutImports}
 `;
 
-fs.writeFileSync(path.join(THEME_DIR, 'theme.css'), themeContent);
-console.log(`  ✓ theme.css (entry point)`);
+  fs.writeFileSync(path.join(THEME_DIR, 'theme.css'), themeContent);
+  console.log(`  ✓ theme.css (entry point with design tokens)`);
+} else {
+  console.error('Error: core/theme.css not found!');
+}
 
 console.log(`\n✅ dist/nuke-theme/ built successfully!`);
 console.log(`   ${themeFiles.length} theme files extracted`);
