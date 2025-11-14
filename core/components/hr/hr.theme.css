@@ -1,7 +1,7 @@
 :root {
   /* core */
   --hr-margin: var(--space-3) 0;
-  --hr-border-color: var(--border-1);
+  --hr-border-color: var(--border-color-1);
 
   /* style 1 */
   --hr-1-border-width: 1px;
@@ -9,7 +9,7 @@
 
   /* style 2 */
   --hr-2-height: calc(var(--space-1) / 2);
-  --hr-2-bg: linear-gradient(to right, transparent, var(--border-1), transparent);
+  --hr-2-bg: linear-gradient(to right, transparent, var(--border-color-1), transparent);
   --hr-2-opacity: 1;
 
   /* style 3 */

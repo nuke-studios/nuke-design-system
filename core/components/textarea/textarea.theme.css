@@ -8,14 +8,14 @@
   --textarea-line-height: var(--line-height-2);
   --textarea-bg: var(--background-2);
   --textarea-color: var(--on-background);
-  --textarea-border: var(--border-1);
+  --textarea-border: var(--border-color-1);
   --textarea-placeholder: var(--on-background-light);
   --textarea-focus-border: var(--on-background);
 
   /* style 1 */
   --textarea-1-bg: transparent;
   --textarea-1-color: var(--on-background);
-  --textarea-1-border: var(--border-2);
+  --textarea-1-border: var(--border-color-2);
   --textarea-1-focus-bg: var(--background-2);
   --textarea-1-focus-border: var(--on-background);
 
@@ -27,7 +27,7 @@
   /* style 3 */
   --textarea-3-bg: var(--background-4);
   --textarea-3-color: var(--on-background);
-  --textarea-3-border: var(--border-1);
+  --textarea-3-border: var(--border-color-1);
   --textarea-3-focus-bg: var(--background-4);
   --textarea-3-focus-border: var(--on-background);
 }

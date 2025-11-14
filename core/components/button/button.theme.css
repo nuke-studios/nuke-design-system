@@ -11,7 +11,7 @@
   /* style 1 */
   --button-1-bg: transparent;
   --button-1-color: var(--on-background);
-  --button-1-border: var(--border-2);
+  --button-1-border: var(--border-color-2);
   --button-1-hover-bg: var(--background-3);
   --button-1-hover-color: var(--on-background);
 
@@ -24,8 +24,8 @@
   /* style 3 */
   --button-3-bg: var(--background-4);
   --button-3-color: var(--on-background);
-  --button-3-border: var(--border-2);
+  --button-3-border: var(--border-color-2);
   --button-3-hover-bg: var(--background-3);
   --button-3-hover-color: var(--on-background);
-  --button-3-hover-border: var(--border-2);
+  --button-3-hover-border: var(--border-color-2);
 }

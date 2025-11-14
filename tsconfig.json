@@ -12,7 +12,7 @@
     // Emit settings
     "declaration": true,           // Generate .d.ts files (TypeScript definitions)
     "declarationMap": true,        // Sourcemaps for .d.ts files
-    "outDir": "./dist",            // Output compiled JS here
+    "emitDeclarationOnly": true,   // Only emit .d.ts files (Bun handles JS)
     "declarationDir": "./dist/types", // Output .d.ts files here
 
     // Strictness (always strict!)

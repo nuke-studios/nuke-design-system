@@ -22,7 +22,7 @@
   --ol-3-list-style: none;
   --ol-3-padding-left: 0;
   --ol-3-item-bg: var(--background-2);
-  --ol-3-item-border: 1px solid var(--border-1);
+  --ol-3-item-border: 1px solid var(--border-color-1);
   --ol-3-item-padding: var(--space-2);
   --ol-3-item-margin: var(--space-1);
   --ol-3-item-radius: var(--border-radius);

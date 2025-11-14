@@ -12,7 +12,7 @@
   /* style 1 */
   --input-1-bg: transparent;
   --input-1-border: transparent;
-  --input-1-border-bottom: var(--border-2);
+  --input-1-border-bottom: var(--border-color-2);
   --input-1-focus-border-bottom: var(--on-background);
 
   /* style 2 */
@@ -21,6 +21,6 @@
 
   /* style 3 */
   --input-3-bg: var(--background-4);
-  --input-3-border: var(--border-1);
+  --input-3-border: var(--border-color-1);
   --input-3-focus-border: var(--on-background);
 }

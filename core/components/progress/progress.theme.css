@@ -20,5 +20,5 @@
   --progress-3-height: calc(var(--height-1) / 2.5);
   --progress-3-bg: var(--background-3);
   --progress-3-fill: var(--on-background);
-  --progress-3-border: var(--border-1);
+  --progress-3-border: var(--border-color-1);
 }

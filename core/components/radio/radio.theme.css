@@ -3,15 +3,15 @@
   --radio-size: var(--height-1);
   --radio-transition: var(--transition-fast);
   --radio-bg: var(--background-2);
-  --radio-border: var(--border-1);
+  --radio-border: var(--border-color-1);
   --radio-checked-bg: var(--background-2);
   --radio-checked-border: var(--on-background);
   --radio-dot: var(--on-background);
-  --radio-focus-ring: var(--border-2);
+  --radio-focus-ring: var(--border-color-2);
 
   /* style 1 */
   --radio-1-bg: transparent;
-  --radio-1-border: var(--border-2);
+  --radio-1-border: var(--border-color-2);
   --radio-1-checked-bg: transparent;
   --radio-1-checked-border: var(--on-background);
   --radio-1-dot: var(--on-background);
@@ -27,7 +27,7 @@
 
   /* style 3 */
   --radio-3-bg: var(--background-4);
-  --radio-3-border: var(--border-1);
+  --radio-3-border: var(--border-color-1);
   --radio-3-checked-bg: var(--background-4);
   --radio-3-checked-border: var(--on-background);
   --radio-3-dot: var(--on-background);

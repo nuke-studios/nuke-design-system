@@ -4,7 +4,7 @@
   --sidebar-background: var(--background-2);
   --sidebar-color: var(--on-background);
   --sidebar-padding: var(--space-2);
-  --sidebar-shadow: var(--shadow-2);
+  --sidebar-shadow: var(--box-shadow-2);
   --sidebar-transition: transform var(--transition-medium);
   --sidebar-z-index: 900;
   --sidebar-overlay-background: rgba(0, 0, 0, 0.5);
@@ -13,18 +13,18 @@
   /* style 1 */
   --sidebar-1-background: var(--background-1);
   --sidebar-1-border-left: none;
-  --sidebar-1-border-right: 1px solid var(--border-1);
+  --sidebar-1-border-right: 1px solid var(--border-color-1);
   --sidebar-1-shadow: none;
 
   /* style 2 */
   --sidebar-2-background: var(--background-2);
   --sidebar-2-border-left: none;
   --sidebar-2-border-right: none;
-  --sidebar-2-shadow: var(--shadow-2);
+  --sidebar-2-shadow: var(--box-shadow-2);
 
   /* style 3 */
   --sidebar-3-background: var(--background-2);
   --sidebar-3-border-left: none;
-  --sidebar-3-border-right: 2px solid var(--border-1);
-  --sidebar-3-shadow: var(--shadow-3);
+  --sidebar-3-border-right: 2px solid var(--border-color-1);
+  --sidebar-3-shadow: var(--box-shadow-3);
 }

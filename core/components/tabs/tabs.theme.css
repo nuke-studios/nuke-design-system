@@ -27,14 +27,14 @@
   --tab-panel-2-background: var(--background-2);
 
   /* style 3 */
-  --tabs-3-border: 2px solid var(--border-1);
+  --tabs-3-border: 2px solid var(--border-color-1);
   --tabs-3-wrapper-border: none;
   --tab-3-background: var(--background-3);
   --tab-3-background-active: var(--background-2);
-  --tab-3-border: 2px solid var(--border-1);
-  --tab-3-border-active: 2px solid var(--border-1);
+  --tab-3-border: 2px solid var(--border-color-1);
+  --tab-3-border-active: 2px solid var(--border-color-1);
   --tab-3-radius: var(--border-radius);
   --tab-panel-3-background: var(--background-2);
-  --tab-panel-3-border: 2px solid var(--border-1);
-  --tab-panel-3-shadow: var(--shadow-2);
+  --tab-panel-3-border: 2px solid var(--border-color-1);
+  --tab-panel-3-shadow: var(--box-shadow-2);
 }

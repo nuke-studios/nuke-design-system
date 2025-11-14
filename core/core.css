@@ -4,11 +4,6 @@
    Variables come from index.style.css
 ============================================ */
 
-/* Base - Browser resets, animations, utilities */
-@import './reset.css';
-@import './animations.css';
-@import './helpers.css';
-
 /* Components core */
 @import './components/a/a.core.css';
 @import './components/button/button.core.css';

@@ -10,7 +10,7 @@
   /* style 1 */
   --badge-1-background: transparent;
   --badge-1-color: var(--on-background);
-  --badge-1-border: 1px solid var(--border-2);
+  --badge-1-border: 1px solid var(--border-color-2);
 
   /* style 2 */
   --badge-2-background: var(--background-4);

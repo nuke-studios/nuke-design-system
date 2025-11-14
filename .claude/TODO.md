@@ -193,7 +193,7 @@
 
 ---
 
-## ✅ COMPLETED (v2.1 - Astro Docs Setup)
+## ✅ COMPLETED (v2.2 - No Docker, Native Bun)
 
 ### Build System Refactor
 - ✅ Refactored `dist/` structure (flat, clean)
@@ -201,8 +201,10 @@
   - `dist/core.js` - Bundled web components
   - `dist/types/` - TypeScript definitions
   - `dist/nuke-theme/` - Flat theme files (no subfolders)
-- ✅ Created `scripts/bundle-core-css.js` (resolves @import recursively)
-- ✅ Created `scripts/build-theme.js` (extracts theme to dist/nuke-theme/)
+- ✅ Created `.scripts/bundle-core-css.js` (resolves @import recursively)
+- ✅ Created `.scripts/build-theme.js` (extracts theme to dist/nuke-theme/)
+- ✅ Created `.scripts/copy-to-docs.js` (copies dist/ to docs/public/)
+- ✅ Created `.scripts/watch.js` (watches core/ and auto-rebuilds)
 - ✅ Updated build pipeline in package.json
 - ✅ Build no longer deletes dist/ (updates files in place)
 
@@ -210,13 +212,20 @@
 - ✅ Set up Astro in `docs/` folder
 - ✅ Added Astro to devDependencies
 - ✅ Created `docs:dev` and `docs:build` scripts
-- ✅ Configured Docker for Astro (port 4321, bash shell)
-- ✅ Created symlinks: `docs/public/nuke-theme` → `dist/nuke-theme`
 - ✅ Working demo page with styled buttons
 
+### Docker Removal & Native Bun Setup
+- ✅ Removed docker-compose.yml
+- ✅ Removed symlinks from docs/public/
+- ✅ Added copy-to-docs.js for dev workflow
+- ✅ Updated Astro config (removed Docker polling)
+- ✅ Updated .gitignore (ignore copied files in docs/public/)
+- ✅ Updated PROJECT.md (removed Docker references)
+
 ### Developer Experience
-- ✅ Simple workflow: `bun run build` → `bun run docs:dev`
-- ✅ Live updates via symlinks (no manual copying)
+- ✅ Native Bun workflow (no Docker overhead)
+- ✅ HMR works perfectly (no polling issues)
+- ✅ Two terminals: `build:watch` + `docs:dev`
 - ✅ Clean separation: library build vs docs site
 
 ---

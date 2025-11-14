@@ -8,7 +8,7 @@
   /* style 1 */
   --toolbar-1-background: transparent;
   --toolbar-1-border: none;
-  --toolbar-1-border-bottom: 1px solid var(--border-1);
+  --toolbar-1-border-bottom: 1px solid var(--border-color-1);
   --toolbar-1-padding: var(--space-1) 0;
 
   /* style 2 */
@@ -18,6 +18,6 @@
 
   /* style 3 */
   --toolbar-3-background: var(--background-2);
-  --toolbar-3-border: 1px solid var(--border-1);
+  --toolbar-3-border: 1px solid var(--border-color-1);
   --toolbar-3-padding: var(--space-1);
 }

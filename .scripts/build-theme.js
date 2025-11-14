@@ -91,7 +91,7 @@ if (fs.existsSync(coreStylePath)) {
    ============================================ */
 
 /* Import core styling logic */
-@import '../core.css';
+@import './core.css';
 
 /* Component theme imports */
 ${componentImports.sort().map(imp => `@import '${imp}';`).join('\n')}

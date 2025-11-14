@@ -4,11 +4,11 @@
   --checkbox-radius: var(--border-radius-small);
   --checkbox-transition: var(--transition-fast);
   --checkbox-checkmark: var(--on-background);
-  --checkbox-focus-ring: var(--border-2);
+  --checkbox-focus-ring: var(--border-color-2);
 
   /* style 1 */
   --checkbox-1-bg: transparent;
-  --checkbox-1-border: var(--border-2);
+  --checkbox-1-border: var(--border-color-2);
   --checkbox-1-checked-bg: transparent;
   --checkbox-1-checked-border: var(--on-background);
   --checkbox-1-checkmark: var(--on-background);
@@ -20,7 +20,7 @@
 
   /* style 3 */
   --checkbox-3-bg: var(--background-4);
-  --checkbox-3-border: var(--border-1);
+  --checkbox-3-border: var(--border-color-1);
   --checkbox-3-checked-bg: var(--on-background);
   --checkbox-3-checked-border: var(--on-background);
   --checkbox-3-checkmark: var(--background-1);

@@ -8,21 +8,10 @@ export default defineConfig({
     port: 4321
   },
   vite: {
-    resolve: {
-      alias: {
-        '@nuke': new URL('../dist/nuke-theme', import.meta.url).pathname
-      }
-    },
     server: {
       watch: {
-        usePolling: true,
-        interval: 100
-      },
-      fs: {
-        allow: ['..']
-      },
-      hmr: {
-        clientPort: 4321
+        // Watch public folder for changes (normally ignored)
+        ignored: ['!**/public/**']
       }
     }
   }

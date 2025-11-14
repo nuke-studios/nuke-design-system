@@ -5,15 +5,15 @@
   --img-display: block;
 
   /* style 1 */
-  --img-1-border: 1px solid var(--border-1);
+  --img-1-border: 1px solid var(--border-color-1);
   --img-1-radius: var(--border-radius-small);
 
   /* style 2 */
-  --img-2-shadow: var(--shadow-2);
+  --img-2-shadow: var(--box-shadow-2);
   --img-2-radius: var(--border-radius);
 
   /* style 3 */
-  --img-3-border: 2px solid var(--border-1);
-  --img-3-shadow: var(--shadow-3);
+  --img-3-border: 2px solid var(--border-color-1);
+  --img-3-shadow: var(--box-shadow-3);
   --img-3-radius: var(--border-radius);
 }

@@ -95,9 +95,7 @@ Ship three complete aesthetic systems. Users pick one or mix them.
 - **Bun** - Fast TypeScript → JavaScript compilation
   - Built-in bundler (no extra config)
   - Compiles to `dist/core.js`
-- **Docker** - Consistent build environment
-  - `docker-compose up -d`
-  - Bun container for builds
+  - Install via Homebrew: `brew install oven-sh/bun/bun`
 
 ### For Users (Zero Dependencies)
 - **Pure CSS** - No preprocessors, no build tools
@@ -143,9 +141,9 @@ nuke-design-system/
 │   │   └── pages/
 │   │       └── index.astro      # Homepage
 │   ├── public/                  # Static assets
-│   │   ├── nuke-theme/          # Symlink → ../../dist/nuke-theme
-│   │   ├── core.css             # Symlink → ../../dist/core.css
-│   │   └── core.js              # Symlink → ../../dist/core.js
+│   │   ├── nuke-theme/          # Copied from ../../dist/nuke-theme (gitignored)
+│   │   ├── core.css             # Copied from ../../dist/core.css (gitignored)
+│   │   └── core.js              # Copied from ../../dist/core.js (gitignored)
 │   ├── astro.config.mjs
 │   └── dist/                    # Built Astro site (static HTML)
 │
@@ -153,12 +151,13 @@ nuke-design-system/
 │   ├── index_save.html
 │   └── style_save.css
 │
-├── scripts/
+├── .scripts/
 │   ├── bundle-core-css.js       # Bundles core CSS (resolves imports)
 │   ├── build-theme.js           # Extracts theme files to dist/nuke-theme/
+│   ├── copy-to-docs.js          # Copies dist/ files to docs/public/ for dev
+│   ├── watch.js                 # Watches core/ and rebuilds on changes
 │   └── postinstall.js           # npm postinstall (theme extraction for users)
 │
-├── docker-compose.yml           # Build environment
 ├── tsconfig.json                # TypeScript config
 ├── package.json                 # Build scripts + dependencies
 └── README.md
@@ -321,15 +320,12 @@ The extracted `theme.css` has this at the top:
 
 ## Development Workflow
 
-### Build System
+### Setup (First Time)
 ```bash
-# Start Docker container
-docker-compose up -d
+# Install Bun via Homebrew
+brew install oven-sh/bun/bun
 
-# Enter container
-docker-compose exec bun bash
-
-# Install dependencies (first time only)
+# Install dependencies
 bun install
 
 # Build library
@@ -338,73 +334,52 @@ bun run build
 #   dist/core.css        - Bundled styles (all imports resolved)
 #   dist/core.js         - Bundled web components
 #   dist/types/          - TypeScript definitions
-#   dist/nuke-theme/     - Extracted theme files (flat structure)
-
-# Run Astro docs dev server
-bun run docs:dev
-# Visit http://localhost:4321
+#   dist/nuke-theme/     - Extracted theme files
 ```
 
-### HMR Setup (Hot Module Reload in Docker)
+### Development Workflow (HMR Enabled)
 
-**IMPORTANT:** For HMR to work when editing `core/` files, you need to run BOTH:
+**Run TWO terminals:**
 
-**Terminal 1:**
+**Terminal 1: Watch & Auto-rebuild**
 ```bash
 bun run build:watch
 ```
-This watches `core/` and auto-rebuilds `dist/` on changes.
+- Watches `core/` for changes
+- Auto-rebuilds `dist/` on changes
+- Copies built files to `docs/public/`
 
-**Terminal 2:**
+**Terminal 2: Astro Dev Server**
 ```bash
 bun run docs:dev
 ```
-This runs Astro dev server with HMR.
+- Serves docs at `http://localhost:4321`
+- HMR enabled (browser auto-reloads)
+- Watches `docs/` for changes
 
-**Critical Astro Config for Docker HMR:**
-The `docs/astro.config.mjs` needs these settings for HMR to work through symlinks in Docker:
+**How it works:**
+1. Edit `core/*.css` or `core/*.ts`
+2. `build:watch` detects change → rebuilds `dist/` → copies to `docs/public/`
+3. Astro detects change in `docs/public/` → browser reloads
+4. See changes immediately!
 
-```javascript
-export default defineConfig({
-  server: {
-    host: true,      // REQUIRED: Expose server in Docker
-    port: 4321
-  },
-  vite: {
-    server: {
-      watch: {
-        usePolling: true,   // REQUIRED: Docker file watching
-        interval: 100       // Poll every 100ms
-      },
-      hmr: {
-        clientPort: 4321    // REQUIRED: HMR WebSocket port for Docker
-      }
-    }
-  }
-});
+**Production Build:**
+```bash
+bun run build          # One-time build for npm publishing
+bun run docs:build     # Static site build
 ```
-
-**Why this works:**
-- `build:watch` detects changes to `core/` files and rebuilds `dist/`
-- `docs/public/nuke-theme` is symlinked to `../../dist/nuke-theme`
-- Astro's polling + correct HMR config detects the symlinked file changes
-- Browser auto-reloads with new styles!
-
-**If HMR breaks:**
-1. Check both terminals are running (`build:watch` + `docs:dev`)
-2. Verify symlinks: `ls -la docs/public/`
-3. Ensure `server.host: true` and `hmr.clientPort: 4321` in config
-4. Restart Astro dev server
 
 ### Build Scripts (package.json)
 ```json
 {
   "scripts": {
     "build": "bun run build:clean && bun run build:ts && bun run build:css && bun run build:theme && bun run build:cleanup",
+    "build:dev": "bun run build && node .scripts/copy-to-docs.js",
+    "build:watch": "bun run build:dev && node .scripts/watch.js",
     "build:clean": "mkdir -p dist dist/nuke-theme dist/types",
     "build:ts": "tsc && bun build core/core.ts --outdir dist --format esm",
-    "build:css": "node scripts/bundle-core-css.js",
-    "build:theme": "node scripts/build-theme.js",
+    "build:css": "node .scripts/bundle-core-css.js",
+    "build:theme": "node .scripts/build-theme.js",
     "build:cleanup": "find dist -mindepth 1 -maxdepth 1 -type d ! -name 'nuke-theme' ! -name 'types' -exec rm -rf {} +",
     "docs:dev": "astro dev --root docs --host",
     "docs:build": "astro build --root docs"
@@ -414,25 +389,20 @@ export default defineConfig({
 
 ### Build Pipeline Explained
 
-**1. `build:clean`** - Creates dist/ structure (doesn't delete, just ensures folders exist)
+**Production Build (`bun run build`):**
+1. **`build:clean`** - Creates dist/ structure
+2. **`build:ts`** - Compiles TypeScript → `dist/core.js` + type definitions
+3. **`build:css`** - Bundles all CSS → `dist/core.css` (resolves @imports)
+4. **`build:theme`** - Extracts theme files → `dist/nuke-theme/`
+5. **`build:cleanup`** - Removes leftover folders
 
-**2. `build:ts`** - TypeScript compilation
-   - Compiles `core/core.ts` → `dist/core.js` (bundled)
-   - Generates type definitions → `dist/types/`
+**Development Build (`bun run build:dev`):**
+1. Runs production build
+2. **Copies files to `docs/public/`** for Astro dev server
 
-**3. `build:css`** - CSS bundling (`scripts/bundle-core-css.js`)
-   - Reads `core/core.css`
-   - Resolves all `@import` statements recursively
-   - Inlines all `.core.css` files (skips `.theme.css`)
-   - Outputs single `dist/core.css` with all styles
-
-**4. `build:theme`** - Theme extraction (`scripts/build-theme.js`)
-   - Finds all `.theme.css` files in `core/`
-   - Copies them to `dist/nuke-theme/` (flat, no subfolders)
-   - Copies `core/theme.css` → `dist/nuke-theme/foundation.theme.css`
-   - Generates `dist/nuke-theme/theme.css` entry point with imports
-
-**5. `build:cleanup`** - Removes leftover component folders from TypeScript build
+**Watch Mode (`bun run build:watch`):**
+1. Runs development build
+2. **Watches `core/` for changes** → auto-rebuilds on file changes
 
 ### File Naming Conventions
 

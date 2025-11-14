@@ -21,7 +21,7 @@
   --ul-3-list-style: none;
   --ul-3-padding-left: 0;
   --ul-3-item-bg: var(--background-2);
-  --ul-3-item-border: 1px solid var(--border-1);
+  --ul-3-item-border: 1px solid var(--border-color-1);
   --ul-3-item-padding: var(--space-2);
   --ul-3-item-margin: var(--space-1);
   --ul-3-item-radius: var(--border-radius);

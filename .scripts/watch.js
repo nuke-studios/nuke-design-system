@@ -36,13 +36,18 @@ function rebuild() {
               ], { stdio: 'inherit' });
 
               cleanup.on('close', () => {
-                console.log('✅ Build complete!\n');
-                building = false;
+                // Copy to docs/public/
+                const copyToDocs = spawn('node', ['.scripts/copy-to-docs.js'], { stdio: 'inherit' });
 
-                if (queuedBuild) {
-                  queuedBuild = false;
-                  rebuild();
-                }
+                copyToDocs.on('close', () => {
+                  console.log('✅ Build complete!\n');
+                  building = false;
+
+                  if (queuedBuild) {
+                    queuedBuild = false;
+                    rebuild();
+                  }
+                });
               });
             }
           });

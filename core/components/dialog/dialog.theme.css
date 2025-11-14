@@ -4,9 +4,9 @@
   --dialog-max-height: 80vh;
   --dialog-padding: var(--space-3);
   --dialog-bg: var(--background-2);
-  --dialog-border: var(--border-1);
+  --dialog-border: var(--border-color-1);
   --dialog-radius: var(--border-radius);
-  --dialog-shadow: var(--shadow-3);
+  --dialog-shadow: var(--box-shadow-3);
   --dialog-color: var(--on-background);
   --dialog-backdrop-bg: rgba(0, 0, 0, 0.5);
   --dialog-backdrop-filter: blur(4px);
@@ -16,7 +16,7 @@
   --dialog-1-max-width: 500px;
   --dialog-1-padding: var(--space-3);
   --dialog-1-bg: var(--background-2);
-  --dialog-1-border: var(--border-1);
+  --dialog-1-border: var(--border-color-1);
   --dialog-1-border-width: 1px;
   --dialog-1-radius: var(--border-radius);
   --dialog-1-shadow: none;
@@ -27,14 +27,14 @@
   --dialog-2-bg: var(--background-2);
   --dialog-2-border: transparent;
   --dialog-2-radius: var(--border-radius);
-  --dialog-2-shadow: var(--shadow-2);
+  --dialog-2-shadow: var(--box-shadow-2);
 
   /* style 3 */
   --dialog-3-max-width: 500px;
   --dialog-3-padding: var(--space-3);
   --dialog-3-bg: var(--background-2);
-  --dialog-3-border: var(--border-1);
+  --dialog-3-border: var(--border-color-1);
   --dialog-3-border-width: 2px;
   --dialog-3-radius: var(--border-radius);
-  --dialog-3-shadow: var(--shadow-3);
+  --dialog-3-shadow: var(--box-shadow-3);
 }

@@ -10,7 +10,7 @@
   /* style 1 */
   --code-1-bg: var(--background-3);
   --code-1-color: var(--on-background);
-  --code-1-border: 1px solid var(--border-1);
+  --code-1-border: 1px solid var(--border-color-1);
 
   /* style 2 */
   --code-2-bg: var(--background-3);
@@ -20,5 +20,5 @@
   /* style 3 */
   --code-3-bg: var(--background-2);
   --code-3-color: var(--on-background);
-  --code-3-border: 1px solid var(--border-1);
+  --code-3-border: 1px solid var(--border-color-1);
 }

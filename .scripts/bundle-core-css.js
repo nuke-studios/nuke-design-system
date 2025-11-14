@@ -64,9 +64,9 @@ console.log('Bundling core.css...');
 const coreEntryPoint = path.join(CORE_DIR, 'core.css');
 const bundledContent = resolveImports(coreEntryPoint);
 
-// Write bundled file
-const outputPath = path.join(DIST_DIR, 'core.css');
+// Write bundled file to nuke-theme/
+const outputPath = path.join(DIST_DIR, 'nuke-theme', 'core.css');
 fs.writeFileSync(outputPath, bundledContent);
 
 console.log(`✅ core.css bundled successfully!`);
-console.log(`   Output: dist/core.css`);
+console.log(`   Output: dist/nuke-theme/core.css`);

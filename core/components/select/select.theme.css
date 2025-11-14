@@ -7,13 +7,13 @@
   --select-transition: var(--transition-fast);
   --select-bg: var(--background-2);
   --select-color: var(--on-background);
-  --select-border: var(--border-1);
+  --select-border: var(--border-color-1);
   --select-focus-border: var(--on-background);
 
   /* style 1 */
   --select-1-bg: transparent;
   --select-1-color: var(--on-background);
-  --select-1-border: var(--border-2);
+  --select-1-border: var(--border-color-2);
   --select-1-focus-bg: var(--background-2);
   --select-1-focus-border: var(--on-background);
 
@@ -25,7 +25,7 @@
   /* style 3 */
   --select-3-bg: var(--background-4);
   --select-3-color: var(--on-background);
-  --select-3-border: var(--border-1);
+  --select-3-border: var(--border-color-1);
   --select-3-focus-bg: var(--background-4);
   --select-3-focus-border: var(--on-background);
 }
