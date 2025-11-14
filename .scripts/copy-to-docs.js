@@ -11,7 +11,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const DIST_DIR = path.join(ROOT, 'dist');
-const DOCS_PUBLIC = path.join(ROOT, 'docs', 'public');
+const DOCS_SRC = path.join(ROOT, 'docs', 'src');
 
 function copyRecursive(src, dest) {
   if (!fs.existsSync(src)) {
@@ -34,13 +34,13 @@ function copyRecursive(src, dest) {
   }
 }
 
-console.log('📋 Copying to docs/public/...');
+console.log('📋 Copying to docs/src/...');
 
 // Copy entire nuke-theme/ folder (contains core.css, core.js, style.css, components/)
 copyRecursive(
   path.join(DIST_DIR, 'nuke-theme'),
-  path.join(DOCS_PUBLIC, 'nuke-theme')
+  path.join(DOCS_SRC, 'nuke-theme')
 );
 console.log('  ✓ nuke-theme/ (core.css, core.js, style.css, components/)');
 
-console.log('✅ Files copied to docs/public/\n');
+console.log('✅ Files copied to docs/src/\n');

@@ -15,7 +15,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const CORE_DIR = path.join(ROOT, 'core');
 const DIST_THEME = path.join(ROOT, 'dist', 'nuke-theme');
-const DOCS_PUBLIC_THEME = path.join(ROOT, 'docs', 'public', 'nuke-theme');
+const DOCS_THEME = path.join(ROOT, 'docs', 'src', 'nuke-theme');
 
 let building = false;
 let queuedChanges = [];
@@ -29,15 +29,19 @@ function ensureStructure() {
   if (!fs.existsSync(componentsDir)) {
     fs.mkdirSync(componentsDir, { recursive: true });
   }
-  if (!fs.existsSync(DOCS_PUBLIC_THEME)) {
-    fs.mkdirSync(DOCS_PUBLIC_THEME, { recursive: true });
+  if (!fs.existsSync(DOCS_THEME)) {
+    fs.mkdirSync(DOCS_THEME, { recursive: true });
+  }
+  const docsComponentsDir = path.join(DOCS_THEME, 'components');
+  if (!fs.existsSync(docsComponentsDir)) {
+    fs.mkdirSync(docsComponentsDir, { recursive: true });
   }
 }
 
-// Copy file from dist to docs
+// Copy file from dist to docs/src
 function copyToDocs(relPath) {
   const src = path.join(DIST_THEME, relPath);
-  const dest = path.join(DOCS_PUBLIC_THEME, relPath);
+  const dest = path.join(DOCS_THEME, relPath);
 
   if (fs.existsSync(src)) {
     // Ensure dest directory exists
