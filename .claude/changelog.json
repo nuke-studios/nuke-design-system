@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "purpose": "Session history - what changed when (updated via 'nuke wrapup')",
+    "fields": {
+      "date": "ISO date",
+      "session": "Session description",
+      "changes": "What was changed/added/fixed"
+    }
+  },
+  "sessions": [
+    {
+      "date": "2025-11-14",
+      "session": "nuke-cli creation",
+      "changes": [
+        "Created nuke-cli tool for project management",
+        "Migrated docs to JSON format (system, project, todos, features, changelog)",
+        "Designed CLI commands: init, todos, features, context, add-todo, wrapup"
+      ]
+    }
+  ]
+}

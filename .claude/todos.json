@@ -1,0 +1,67 @@
+{
+  "_meta": {
+    "purpose": "Track next actions, reminders, don't-forget items",
+    "fields": {
+      "id": "Unique identifier",
+      "task": "What to do",
+      "status": "pending/in_progress/completed",
+      "category": "Group tasks by area"
+    }
+  },
+  "todos": [
+    {
+      "id": 1,
+      "task": "Update README.md with Lit migration info",
+      "status": "pending",
+      "category": "docs"
+    },
+    {
+      "id": 2,
+      "task": "Document build process for contributors",
+      "status": "pending",
+      "category": "docs"
+    },
+    {
+      "id": 3,
+      "task": "Add 'Why Nuke?' section to README (killer features)",
+      "status": "pending",
+      "category": "docs"
+    },
+    {
+      "id": 4,
+      "task": "Update package.json main/module/types/exports fields",
+      "status": "pending",
+      "category": "npm"
+    },
+    {
+      "id": 5,
+      "task": "Test with npm link locally",
+      "status": "pending",
+      "category": "npm"
+    },
+    {
+      "id": 6,
+      "task": "Verify postinstall script works with new structure",
+      "status": "pending",
+      "category": "npm"
+    },
+    {
+      "id": 7,
+      "task": "Use in first real project (battle-test)",
+      "status": "pending",
+      "category": "validation"
+    },
+    {
+      "id": 8,
+      "task": "Create README quickstart guide",
+      "status": "pending",
+      "category": "general"
+    },
+    {
+      "id": 9,
+      "task": "Migrate build system from Bun to npm",
+      "status": "pending",
+      "category": "general"
+    }
+  ]
+}

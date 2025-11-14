@@ -33,3 +33,7 @@ docs/dist/
 
 # Copied build files (dev only)
 docs/src/nuke-theme/
+
+# CLI dependencies
+nuke-cli/node_modules/
+nuke-cli/bun.lockb

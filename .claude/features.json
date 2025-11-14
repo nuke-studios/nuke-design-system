@@ -1,0 +1,49 @@
+{
+  "_meta": {
+    "purpose": "Product backlog - what to build next",
+    "fields": {
+      "id": "Unique identifier",
+      "feature": "Feature name",
+      "description": "What it does",
+      "priority": "high/medium/low",
+      "status": "planned/in_progress/completed"
+    }
+  },
+  "features": [
+    {
+      "id": 1,
+      "feature": "Framework integration examples",
+      "description": "React, Vue, Angular, Svelte usage examples",
+      "priority": "high",
+      "status": "planned"
+    },
+    {
+      "id": 2,
+      "feature": "nuke-tooltip component",
+      "description": "Positioned tooltips with Popover API",
+      "priority": "low",
+      "status": "planned"
+    },
+    {
+      "id": 3,
+      "feature": "nuke-dropdown component",
+      "description": "Dropdown menus beyond native select",
+      "priority": "low",
+      "status": "planned"
+    },
+    {
+      "id": 4,
+      "feature": "VS Code snippets",
+      "description": "Code snippets for Nuke components",
+      "priority": "medium",
+      "status": "planned"
+    },
+    {
+      "id": 5,
+      "feature": "Theme generator tool",
+      "description": "GUI for customizing design tokens",
+      "priority": "medium",
+      "status": "planned"
+    }
+  ]
+}

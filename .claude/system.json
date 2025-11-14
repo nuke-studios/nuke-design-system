@@ -1,0 +1,55 @@
+{
+  "_meta": {
+    "purpose": "Project architecture - stack, folders, build pipeline, what ships where",
+    "fields": {
+      "name": "Project name",
+      "type": "Project type (lib, web, api, etc)",
+      "stack": "Technologies used",
+      "folders": "Key folders and their purpose",
+      "build": "Build pipeline steps",
+      "ship": "What gets shipped and where"
+    }
+  },
+  "name": "nuke-design-system",
+  "type": "lib",
+  "stack": {
+    "runtime": "bun",
+    "language": "typescript",
+    "css": "vanilla-css",
+    "components": "lit",
+    "docs": "astro"
+  },
+  "folders": {
+    "core/": "Source files (TS + CSS)",
+    "dist/": "Build output (published to npm)",
+    "dist/core.css": "Bundled styling logic (all imports resolved)",
+    "dist/core.js": "Bundled web components",
+    "dist/types/": "TypeScript definitions",
+    "dist/nuke-theme/": "Extracted theme files (flat structure)",
+    "docs/": "Astro documentation site",
+    "docs/public/": "Copied dist files for dev (gitignored)",
+    ".scripts/": "Build scripts",
+    "nuke-cli/": "CLI tool for project management"
+  },
+  "build": {
+    "production": "bun run build",
+    "watch": "bun run build:watch",
+    "steps": [
+      "build:clean - Create dist/ structure",
+      "build:ts - TypeScript → dist/core.js + types",
+      "build:css - Bundle CSS → dist/core.css",
+      "build:theme - Extract themes → dist/nuke-theme/",
+      "build:cleanup - Remove leftover folders"
+    ]
+  },
+  "ship": {
+    "npm": "dist/ folder only",
+    "users_import": "nuke-theme/theme.css (includes core.css)",
+    "docs": "dist/ copied to docs/public/ for dev"
+  },
+  "components": {
+    "native": 20,
+    "webComponents": 6,
+    "total": 26
+  }
+}

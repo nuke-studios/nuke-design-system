@@ -1,0 +1,36 @@
+{
+  "_meta": {
+    "purpose": "Project vision - what it is, why it's unique, killer features, benefits",
+    "fields": {
+      "name": "Project name",
+      "tagline": "One-line description",
+      "unique": "What makes it different",
+      "benefits": "Why use this"
+    }
+  },
+  "name": "Nuke Design System",
+  "tagline": "Element-first design system with fully extractable, editable theme files",
+  "unique": [
+    "Extracted theme architecture - no other system does this",
+    "Three design philosophies in one (minimal, subtle, all-in)",
+    "Native-first - HTML works without wrappers",
+    "Lit web components - TypeScript DX, tiny runtime",
+    "Framework-agnostic - works everywhere",
+    "Zero build requirements for users"
+  ],
+  "benefits": [
+    "Native HTML elements work out of the box",
+    "Three complete design philosophies (nuke-style=\"1/2/3\")",
+    "Extract ENTIRE theme folder - edit freely, updates never overwrite",
+    "Framework independent - vanilla HTML, React, Vue, Angular, Svelte",
+    "Lit-powered web components - TypeScript-based, lightweight, accessible",
+    "Zero build requirements for users - just CSS + optional JS"
+  ],
+  "philosophy": [
+    "Extract the ENTIRE theme folder. Give users the actual files, not just override points.",
+    "Three design philosophies in one system. Not variants - complete aesthetic approaches.",
+    "Native HTML just works. Web components only when necessary.",
+    "Build for yourself first. If others find it useful, great.",
+    "Updates never touch extracted theme files. Perfect separation."
+  ]
+}
