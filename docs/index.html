@@ -1,168 +1,26 @@
----
-const title = "NUKE Design System";
-import '../nuke-theme/style.css';
----
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title}</title>
-  <script type="module" src="/src/nuke-theme/core.js"></script>
-  <style is:inline>
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      display: block;
-      margin: 0;
-      padding: 0;
-      overflow: auto;
-    }
-
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--background-2);
-      border-bottom: 1px solid var(--border-color-1);
-      padding: 0 var(--space-3);
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: var(--space-3);
-      height: var(--height-3);
-    }
-
-    .logo-wrap {
-      display: flex;
-      align-items: flex-end;
-    }
-
-    .logo {
-      display: flex;
-      align-items: flex-end;
-      gap: var(--space-1);
-    }
-
-    .logo-nuke {
-      font-family: var(--family-2),sans-serif;
-      font-size: 2rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      line-height: 1;
-      margin: 0;
-    }
-
-    .logo-subtitle {
-      font-size: 1rem;
-      font-weight: 400;
-      text-transform: lowercase;
-      line-height: 1;
-      margin: 0;
-      padding-bottom: 0.15em;
-    }
-
-    .theme-toggle {
-      font-size: var(--font-size-1);
-      font-weight: 900;
-      text-transform: uppercase;
-      background: none;
-      border: none;
-      color: var(--on-background);
-      cursor: pointer;
-      padding: 0;
-      line-height: 1;
-    }
-
-    /* Collection section */
-    .collection {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border-color-1);
-      margin-bottom: 1px;
-      background: var(--background-1);
-    }
-
-    .collection-header {
-      grid-column: 1 / -1;
-      background: var(--background-1);
-      padding: var(--space-3) var(--space-3);
-      font-weight: 900;
-      text-transform: uppercase;
-      font-size: var(--font-size-3);
-      letter-spacing: -0.05em;
-      font-style: italic;
-      height: var(--height-2);
-      display: flex;
-      align-items: center;
-    }
-
-    .column {
-      background: var(--background-2);
-    }
-
-    .column-header {
-      position: sticky;
-      top: var(--height-3);
-      background: var(--background-1);
-      padding: var(--space-2);
-      border-bottom: 2px solid var(--border-color-1);
-      font-weight: 900;
-      font-size: var(--font-size-3);
-      text-align: center;
-      text-transform: uppercase;
-      letter-spacing: -0.05em;
-      font-style: italic;
-      z-index: 50;
-    }
-
-    .element {
-      padding: var(--space-3);
-      border-bottom: 1px solid var(--border-color-1);
-      background: var(--background-2);
-    }
-
-    .element:last-child {
-      border-bottom: none;
-    }
-
-    .element-name {
-      display: inline-block;
-      font-family: var(--code-font-family);
-      font-size: var(--font-size-1);
-      color: var(--on-background);
-      margin-bottom: var(--space-2);
-      background: var(--background-3);
-      padding: 0.25em 0.5em;
-      border-radius: var(--border-radius);
-    }
-  </style>
+  <title>NUKE Design System</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="../dist/nuke-theme/core.js"></script>
 </head>
-<body [nuke-style]="1">
-  <div class="header">
-    <div class="logo-wrap">
-      <div class="logo">
-        <div class="logo-nuke">NUKE</div>
-        <div class="logo-subtitle">design system</div>
-      </div>
+<body>
+  <header class="header">
+    <div class="logo">
+      <span class="logo-nuke">NUKE</span>
+      <span class="logo-subtitle">design system</span>
     </div>
     <button class="theme-toggle" onclick="document.documentElement.classList.toggle('dark-theme')">
       Light / Dark
     </button>
-  </div>
+  </header>
 
   <!-- FORM CONTROLS -->
-  <div class="collection">
-    <div class="collection-header">Form Controls</div>
+  <section class="collection">
+    <h2 class="collection-header">Form Controls</h2>
 
     <div class="column">
       <div class="column-header">Style 1</div>
@@ -319,18 +177,17 @@ import '../nuke-theme/style.css';
         <progress nuke-style="3" value="60" max="100"></progress>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- NAVIGATION -->
-  <div class="collection">
-    <div class="collection-header">Navigation</div>
+  <section class="collection">
+    <h2 class="collection-header">Navigation</h2>
 
     <div class="column">
       <div class="element">
         <div class="element-name">&lt;a&gt;</div>
         <a href="#" nuke-style="1">Link</a>
       </div>
-
       <div class="element">
         <div class="element-name">&lt;nav&gt;</div>
         <nav nuke-style="1"><a href="#" nuke-style="1">Home</a> <a href="#" nuke-style="1">About</a></nav>
@@ -342,7 +199,6 @@ import '../nuke-theme/style.css';
         <div class="element-name">&lt;a&gt;</div>
         <a href="#" nuke-style="2">Link</a>
       </div>
-
       <div class="element">
         <div class="element-name">&lt;nav&gt;</div>
         <nav nuke-style="2"><a href="#" nuke-style="2">Home</a> <a href="#" nuke-style="2">About</a></nav>
@@ -354,17 +210,16 @@ import '../nuke-theme/style.css';
         <div class="element-name">&lt;a&gt;</div>
         <a href="#" nuke-style="3">Link</a>
       </div>
-
       <div class="element">
         <div class="element-name">&lt;nav&gt;</div>
         <nav nuke-style="3"><a href="#" nuke-style="3">Home</a> <a href="#" nuke-style="3">About</a></nav>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- INTERACTIVE -->
-  <div class="collection">
-    <div class="collection-header">Interactive</div>
+  <section class="collection">
+    <h2 class="collection-header">Interactive</h2>
 
     <div class="column">
       <div class="element">
@@ -372,7 +227,6 @@ import '../nuke-theme/style.css';
         <button onclick="document.getElementById('d1').showModal()" nuke-style="1">Open</button>
         <dialog id="d1" nuke-style="1"><p>Dialog</p><button nuke-style="1" onclick="this.parentElement.close()">Close</button></dialog>
       </div>
-
       <div class="element">
         <div class="element-name">&lt;details&gt;</div>
         <details nuke-style="1">
@@ -388,7 +242,6 @@ import '../nuke-theme/style.css';
         <button onclick="document.getElementById('d2').showModal()" nuke-style="2">Open</button>
         <dialog id="d2" nuke-style="2"><p>Dialog</p><button nuke-style="2" onclick="this.parentElement.close()">Close</button></dialog>
       </div>
-
       <div class="element">
         <div class="element-name">&lt;details&gt;</div>
         <details nuke-style="2">
@@ -404,7 +257,6 @@ import '../nuke-theme/style.css';
         <button onclick="document.getElementById('d3').showModal()" nuke-style="3">Open</button>
         <dialog id="d3" nuke-style="3"><p>Dialog</p><button nuke-style="3" onclick="this.parentElement.close()">Close</button></dialog>
       </div>
-
       <div class="element">
         <div class="element-name">&lt;details&gt;</div>
         <details nuke-style="3">
@@ -413,11 +265,11 @@ import '../nuke-theme/style.css';
         </details>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- CONTENT -->
-  <div class="collection">
-    <div class="collection-header">Content</div>
+  <section class="collection">
+    <h2 class="collection-header">Content</h2>
 
     <div class="column">
       <div class="element">
@@ -448,18 +300,17 @@ import '../nuke-theme/style.css';
         </table>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- LISTS -->
-  <div class="collection">
-    <div class="collection-header">Lists</div>
+  <section class="collection">
+    <h2 class="collection-header">Lists</h2>
 
     <div class="column">
       <div class="element">
         <div class="element-name">&lt;ul&gt;</div>
         <ul nuke-style="1"><li>Item 1</li><li>Item 2</li></ul>
       </div>
-
       <div class="element">
         <div class="element-name">&lt;ol&gt;</div>
         <ol nuke-style="1"><li>Item 1</li><li>Item 2</li></ol>
@@ -471,7 +322,6 @@ import '../nuke-theme/style.css';
         <div class="element-name">&lt;ul&gt;</div>
         <ul nuke-style="2"><li>Item 1</li><li>Item 2</li></ul>
       </div>
-
       <div class="element">
         <div class="element-name">&lt;ol&gt;</div>
         <ol nuke-style="2"><li>Item 1</li><li>Item 2</li></ol>
@@ -483,29 +333,26 @@ import '../nuke-theme/style.css';
         <div class="element-name">&lt;ul&gt;</div>
         <ul nuke-style="3"><li>Item 1</li><li>Item 2</li></ul>
       </div>
-
       <div class="element">
         <div class="element-name">&lt;ol&gt;</div>
         <ol nuke-style="3"><li>Item 1</li><li>Item 2</li></ol>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- TEXT / CODE -->
-  <div class="collection">
-    <div class="collection-header">Text / Code</div>
+  <section class="collection">
+    <h2 class="collection-header">Text / Code</h2>
 
     <div class="column">
       <div class="element">
         <div class="element-name">&lt;hr&gt;</div>
         <hr nuke-style="1">
       </div>
-
       <div class="element">
         <div class="element-name">&lt;code&gt;</div>
         <code nuke-style="1">const x = 42;</code>
       </div>
-
       <div class="element">
         <div class="element-name">&lt;pre&gt;</div>
         <pre nuke-style="1">code block</pre>
@@ -517,12 +364,10 @@ import '../nuke-theme/style.css';
         <div class="element-name">&lt;hr&gt;</div>
         <hr nuke-style="2">
       </div>
-
       <div class="element">
         <div class="element-name">&lt;code&gt;</div>
         <code nuke-style="2">const x = 42;</code>
       </div>
-
       <div class="element">
         <div class="element-name">&lt;pre&gt;</div>
         <pre nuke-style="2">code block</pre>
@@ -534,22 +379,20 @@ import '../nuke-theme/style.css';
         <div class="element-name">&lt;hr&gt;</div>
         <hr nuke-style="3">
       </div>
-
       <div class="element">
         <div class="element-name">&lt;code&gt;</div>
         <code nuke-style="3">const x = 42;</code>
       </div>
-
       <div class="element">
         <div class="element-name">&lt;pre&gt;</div>
         <pre nuke-style="3">code block</pre>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- MEDIA -->
-  <div class="collection">
-    <div class="collection-header">Media</div>
+  <section class="collection">
+    <h2 class="collection-header">Media</h2>
 
     <div class="column">
       <div class="element">
@@ -571,18 +414,17 @@ import '../nuke-theme/style.css';
         <img src="https://placekitten.com/200/150" nuke-style="3" alt="Kitten">
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- COMPONENTS -->
-  <div class="collection">
-    <div class="collection-header">Components</div>
+  <section class="collection">
+    <h2 class="collection-header">Components</h2>
 
     <div class="column">
       <div class="element">
         <div class="element-name">&lt;nuke-badge&gt;</div>
         <nuke-badge nuke-style="1">Badge</nuke-badge>
       </div>
-
       <div class="element">
         <div class="element-name">&lt;nuke-card&gt;</div>
         <nuke-card nuke-style="1">
@@ -590,7 +432,6 @@ import '../nuke-theme/style.css';
           <nuke-card-content>Content</nuke-card-content>
         </nuke-card>
       </div>
-
       <div class="element">
         <div class="element-name">&lt;nuke-toolbar&gt;</div>
         <nuke-toolbar nuke-style="1">
@@ -598,7 +439,6 @@ import '../nuke-theme/style.css';
           <button nuke-style="1">Edit</button>
         </nuke-toolbar>
       </div>
-
       <div class="element">
         <div class="element-name">&lt;nuke-tabs&gt;</div>
         <nuke-tabs nuke-style="1">
@@ -608,12 +448,10 @@ import '../nuke-theme/style.css';
           <nuke-tab-panel>Content 2</nuke-tab-panel>
         </nuke-tabs>
       </div>
-
       <div class="element">
         <div class="element-name">&lt;nuke-toast&gt;</div>
         <button nuke-style="1" onclick="showToast('1')">Show Toast</button>
       </div>
-
       <div class="element">
         <div class="element-name">&lt;nuke-sidebar&gt;</div>
         <button nuke-style="1" onclick="showSidebar('1')">Show Sidebar</button>
@@ -625,7 +463,6 @@ import '../nuke-theme/style.css';
         <div class="element-name">&lt;nuke-badge&gt;</div>
         <nuke-badge nuke-style="2">Badge</nuke-badge>
       </div>
-
       <div class="element">
         <div class="element-name">&lt;nuke-card&gt;</div>
         <nuke-card nuke-style="2">
@@ -633,7 +470,6 @@ import '../nuke-theme/style.css';
           <nuke-card-content>Content</nuke-card-content>
         </nuke-card>
       </div>
-
       <div class="element">
         <div class="element-name">&lt;nuke-toolbar&gt;</div>
         <nuke-toolbar nuke-style="2">
@@ -641,7 +477,6 @@ import '../nuke-theme/style.css';
           <button nuke-style="2">Edit</button>
         </nuke-toolbar>
       </div>
-
       <div class="element">
         <div class="element-name">&lt;nuke-tabs&gt;</div>
         <nuke-tabs nuke-style="2">
@@ -651,12 +486,10 @@ import '../nuke-theme/style.css';
           <nuke-tab-panel>Content 2</nuke-tab-panel>
         </nuke-tabs>
       </div>
-
       <div class="element">
         <div class="element-name">&lt;nuke-toast&gt;</div>
         <button nuke-style="2" onclick="showToast('2')">Show Toast</button>
       </div>
-
       <div class="element">
         <div class="element-name">&lt;nuke-sidebar&gt;</div>
         <button nuke-style="2" onclick="showSidebar('2')">Show Sidebar</button>
@@ -668,7 +501,6 @@ import '../nuke-theme/style.css';
         <div class="element-name">&lt;nuke-badge&gt;</div>
         <nuke-badge nuke-style="3">Badge</nuke-badge>
       </div>
-
       <div class="element">
         <div class="element-name">&lt;nuke-card&gt;</div>
         <nuke-card nuke-style="3">
@@ -676,7 +508,6 @@ import '../nuke-theme/style.css';
           <nuke-card-content>Content</nuke-card-content>
         </nuke-card>
       </div>
-
       <div class="element">
         <div class="element-name">&lt;nuke-toolbar&gt;</div>
         <nuke-toolbar nuke-style="3">
@@ -684,7 +515,6 @@ import '../nuke-theme/style.css';
           <button nuke-style="3">Edit</button>
         </nuke-toolbar>
       </div>
-
       <div class="element">
         <div class="element-name">&lt;nuke-tabs&gt;</div>
         <nuke-tabs nuke-style="3">
@@ -694,20 +524,18 @@ import '../nuke-theme/style.css';
           <nuke-tab-panel>Content 2</nuke-tab-panel>
         </nuke-tabs>
       </div>
-
       <div class="element">
         <div class="element-name">&lt;nuke-toast&gt;</div>
         <button nuke-style="3" onclick="showToast('3')">Show Toast</button>
       </div>
-
       <div class="element">
         <div class="element-name">&lt;nuke-sidebar&gt;</div>
         <button nuke-style="3" onclick="showSidebar('3')">Show Sidebar</button>
       </div>
     </div>
-  </div>
+  </section>
 
-  <script is:inline>
+  <script>
     function showToast(variant) {
       const toast = document.createElement('nuke-toast');
       toast.setAttribute('nuke-style', variant);
@@ -720,11 +548,7 @@ import '../nuke-theme/style.css';
       sidebar.setAttribute('nuke-style', variant);
       sidebar.innerHTML = `<h3>Sidebar</h3><p>Content</p><button nuke-style="${variant}" onclick="this.closest('nuke-sidebar').close()">Close</button>`;
       document.body.appendChild(sidebar);
-
-      // Wait for connectedCallback to run
-      setTimeout(() => {
-        sidebar.open();
-      }, 0);
+      setTimeout(() => sidebar.open(), 0);
     }
   </script>
 </body>

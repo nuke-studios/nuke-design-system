@@ -1,0 +1,114 @@
+/* Import the Nuke Design System (single entry point) */
+@import '../dist/nuke-theme/style.css';
+
+/* Showcase layout styles */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--background-2);
+  border-bottom: 1px solid var(--border-color-1);
+  padding: 0 var(--space-3);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: var(--space-3);
+  height: var(--height-3);
+}
+
+.logo {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-1);
+}
+
+.logo-nuke {
+  font-family: var(--family-2), sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.logo-subtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: lowercase;
+  line-height: 1;
+  padding-bottom: 0.15em;
+}
+
+.theme-toggle {
+  font-size: var(--font-size-1);
+  font-weight: 900;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  color: var(--on-background);
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.collection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border-color-1);
+  margin-bottom: 1px;
+}
+
+.collection-header {
+  grid-column: 1 / -1;
+  background: var(--background-1);
+  padding: var(--space-3);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: var(--font-size-3);
+  letter-spacing: -0.05em;
+  font-style: italic;
+  height: var(--height-2);
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.column {
+  background: var(--background-2);
+}
+
+.column-header {
+  position: sticky;
+  top: var(--height-3);
+  background: var(--background-1);
+  padding: var(--space-2);
+  border-bottom: 2px solid var(--border-color-1);
+  font-weight: 900;
+  font-size: var(--font-size-3);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+  font-style: italic;
+  z-index: 50;
+}
+
+.element {
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--border-color-1);
+  background: var(--background-2);
+}
+
+.element:last-child {
+  border-bottom: none;
+}
+
+.element-name {
+  display: inline-block;
+  font-family: var(--family-mono);
+  font-size: var(--font-size-1);
+  color: var(--on-background);
+  margin-bottom: var(--space-2);
+  background: var(--background-3);
+  padding: 0.25em 0.5em;
+  border-radius: var(--border-radius);
+}
