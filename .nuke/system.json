@@ -7,6 +7,7 @@
     "folders": [
       "/.claude",
       "/",
+      "/.nuke",
       "/.scripts",
       "/core/components/a",
       "/core/components/badge",
@@ -42,8 +43,7 @@
       "/docs/public/fonts",
       "/docs/src/components",
       "/docs/src",
-      "/docs/src/pages",
-      "/.nuke"
+      "/docs/src/pages"
     ],
     "files": {
       "/": [
@@ -222,6 +222,6 @@
       ]
     }
   },
-  "last_updated": "2025-12-02T13:51:14+01:00",
+  "last_updated": "2025-12-04T11:30:08+01:00",
   "git_branch": "main"
 }
