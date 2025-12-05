@@ -1,0 +1,13 @@
+{
+  "title": "Nuke Design System",
+  "tagline": "Element-first CSS design system with web components",
+  "type": "lib",
+  "problem": "Design systems force all-or-nothing adoption. Users can't customize tokens without forking.",
+  "solution": "Split architecture: core logic stays in node_modules, theme files copy to user's project for full customization.",
+  "philosophy": [
+    "Element-first: style native HTML elements, not wrapper components",
+    "Universal .style-1/2/3 pattern for variants",
+    "Theme files are user-owned, core logic is package-owned",
+    "Progressive enhancement: works without JS, web components add interactivity"
+  ]
+}

@@ -1,0 +1,15 @@
+[
+  {
+    "id": "t1",
+    "title": "Fix web component issues",
+    "status": "new",
+    "priority": "high",
+    "description": "Web components not working perfectly - needs investigation"
+  },
+  {
+    "id": "t2",
+    "title": "Publish to npm",
+    "status": "blocked",
+    "description": "Publish @nuke.dev/design-system to npm registry"
+  }
+]

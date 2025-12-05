@@ -1,0 +1,12 @@
+[
+  {
+    "id": "g1",
+    "title": "Component File Split",
+    "description": "Every component has 2 files: [name].css (core logic - selectors, structure) and [name].theme.css (tokens - colors, spacing). Never put colors or spacing in core CSS."
+  },
+  {
+    "id": "g2",
+    "title": "Web Components",
+    "description": "Web components use Lit. They enhance native elements, not replace them. CSS works without JS, components add interactivity."
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "c1",
+    "title": "Build All",
+    "run": "bun run build",
+    "why": "Clean build: theme + CSS bundle + TypeScript"
+  },
+  {
+    "id": "c2",
+    "title": "Build Watch",
+    "run": "bun run build:watch",
+    "why": "Incremental builds during development"
+  },
+  {
+    "id": "c3",
+    "title": "Build Theme Only",
+    "run": "bun run build:theme",
+    "why": "Extract .theme.css files to dist/nuke-theme/"
+  }
+]

@@ -1,0 +1,5 @@
+{
+  "framework": "lit",
+  "language": "typescript",
+  "runtime": "node/bun"
+}
