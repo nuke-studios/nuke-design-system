@@ -1,13 +1,39 @@
 {
-  "title": "Nuke Design System",
-  "tagline": "Element-first CSS design system with web components",
-  "type": "lib",
-  "problem": "Design systems force all-or-nothing adoption. Users can't customize tokens without forking.",
-  "solution": "Split architecture: core logic stays in node_modules, theme files copy to user's project for full customization.",
-  "philosophy": [
-    "Element-first: style native HTML elements, not wrapper components",
-    "Universal .style-1/2/3 pattern for variants",
-    "Theme files are user-owned, core logic is package-owned",
-    "Progressive enhancement: works without JS, web components add interactivity"
-  ]
+  "_purpose": "Project identity - who, what, why",
+  "_schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": ["_purpose", "data"],
+    "properties": {
+      "_purpose": {
+        "type": "string",
+        "description": "Purpose of this file - must match schema"
+      },
+      "data": {
+        "type": "object",
+        "required": ["title"],
+        "properties": {
+          "title": { "type": "string" },
+          "tagline": { "type": "string" },
+          "type": { "type": "string" },
+          "problem": { "type": "string" },
+          "solution": { "type": "string" },
+          "philosophy": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  },
+  "data": {
+    "title": "Nuke Design System",
+    "tagline": "Element-first CSS design system with web components",
+    "type": "lib",
+    "problem": "Design systems force all-or-nothing adoption. Users can't customize tokens without forking.",
+    "solution": "Split architecture: core logic stays in node_modules, theme files copy to user's project for full customization.",
+    "philosophy": [
+      "Element-first: style native HTML elements, not wrapper components",
+      "Universal .style-1/2/3 pattern for variants",
+      "Theme files are user-owned, core logic is package-owned",
+      "Progressive enhancement: works without JS, web components add interactivity"
+    ]
+  }
 }
