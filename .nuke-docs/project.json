@@ -2,26 +2,46 @@
   "_purpose": "Project identity - who, what, why",
   "_schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "object",
-    "required": ["_purpose", "data"],
     "properties": {
       "_purpose": {
-        "type": "string",
-        "description": "Purpose of this file - must match schema"
+        "description": "Purpose of this file",
+        "type": "string"
       },
       "data": {
-        "type": "object",
-        "required": ["title"],
         "properties": {
-          "title": { "type": "string" },
-          "tagline": { "type": "string" },
-          "type": { "type": "string" },
-          "problem": { "type": "string" },
-          "solution": { "type": "string" },
-          "philosophy": { "type": "array", "items": { "type": "string" } }
-        }
+          "philosophy": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "problem": {
+            "type": "string"
+          },
+          "solution": {
+            "type": "string"
+          },
+          "tagline": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "title"
+        ],
+        "type": "object"
       }
-    }
+    },
+    "required": [
+      "_purpose",
+      "data"
+    ],
+    "type": "object"
   },
   "data": {
     "title": "Nuke Design System",

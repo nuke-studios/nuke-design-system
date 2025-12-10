@@ -1,97 +1,116 @@
-[
-  {
-    "id": "s1",
-    "title": "The Magic Layer (Theme Extraction)",
-    "details": {
-      "concept": "The design system splits into two parts: core (package-owned) and theme (user-owned)",
-      "core_layer": {
-        "files": [
-          "core.css",
-          "core.js"
-        ],
-        "location": "node_modules/@nuke.dev/design-system/dist/",
-        "purpose": "Component logic, selectors, structure - NOT meant to be edited",
-        "stays_in": "node_modules"
+{
+  "_purpose": "Architecture patterns and key concepts",
+  "_schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+      "_purpose": {
+        "description": "Purpose of this file",
+        "type": "string"
       },
-      "how_it_connects": {
-        "entry_point": "nuke-theme/style.css",
-        "imports_core": "@import '../core.css' (relative path assumes nuke-theme is in dist/)",
-        "imports_themes": "@import './components/*.theme.css'",
-        "result": "User imports one file, gets core logic + customizable tokens"
-      },
-      "the_magic": "postinstall.js extracts theme layer to user's project, creating the bridge between package core and user customization",
-      "theme_layer": {
-        "destination": "User's project (e.g. ./nuke-theme/ or ./src/nuke-theme/)",
-        "extracted_by": "postinstall.js (on npm install) or manual copy (on npm link)",
-        "files": [
-          "style.css",
-          "components/*.theme.css"
+      "items": {
+        "items": {
+          "required": [
+            "id",
+            "title"
+          ],
+          "type": "object"
+        },
+        "type": "array"
+      }
+    },
+    "required": [
+      "_purpose",
+      "items"
+    ],
+    "type": "object"
+  },
+  "items": [
+    {
+      "id": "s1",
+      "title": "The Magic Layer (Theme Extraction)",
+      "details": {
+        "concept": "The design system splits into two parts: core (package-owned) and theme (user-owned)",
+        "core_layer": {
+          "files": ["core.css", "core.js"],
+          "location": "node_modules/@nuke.dev/design-system/dist/",
+          "purpose": "Component logic, selectors, structure - NOT meant to be edited",
+          "stays_in": "node_modules"
+        },
+        "how_it_connects": {
+          "entry_point": "nuke-theme/style.css",
+          "imports_core": "@import '../core.css' (relative path assumes nuke-theme is in dist/)",
+          "imports_themes": "@import './components/*.theme.css'",
+          "result": "User imports one file, gets core logic + customizable tokens"
+        },
+        "the_magic": "postinstall.js extracts theme layer to user's project, creating the bridge between package core and user customization",
+        "theme_layer": {
+          "destination": "User's project (e.g. ./nuke-theme/ or ./src/nuke-theme/)",
+          "extracted_by": "postinstall.js (on npm install) or manual copy (on npm link)",
+          "files": ["style.css", "components/*.theme.css"],
+          "purpose": "Design tokens, colors, spacing - FULLY customizable by user",
+          "source": "dist/nuke-theme/"
+        }
+      }
+    },
+    {
+      "id": "s2",
+      "title": "Build System",
+      "details": {
+        "build_output": {
+          "dist/core.css": "Bundled core logic (all .css files except .theme.css)",
+          "dist/core.js": "Bundled web components",
+          "dist/nuke-theme/components/": "All .theme.css files extracted here",
+          "dist/nuke-theme/style.css": "Theme entry point with all tokens"
+        },
+        "build_scripts": {
+          "build:css": ".scripts/bundle-core-css.js - Bundles core CSS",
+          "build:theme": ".scripts/build-theme.js - Extracts .theme.css files to dist/nuke-theme/",
+          "build:ts": "tsc + bun build - Compiles TypeScript components"
+        },
+        "source_structure": {
+          "core/components/[name].css": "Component core logic",
+          "core/components/[name].theme.css": "Component theme tokens",
+          "core/core.css": "Core logic source",
+          "core/core.ts": "Web component exports",
+          "core/style.css": "Design tokens source"
+        }
+      }
+    },
+    {
+      "id": "s3",
+      "title": "NPM Install Flow",
+      "details": {
+        "after_install": {
+          "customize": "Edit nuke-theme/style.css for tokens, nuke-theme/components/*.theme.css for component styles",
+          "import_css": "<link rel=\"stylesheet\" href=\"./nuke-theme/style.css\">",
+          "import_js": "<script type=\"module\" src=\"node_modules/@nuke.dev/design-system/dist/core.js\"></script>"
+        },
+        "package_name": "@nuke.dev/design-system",
+        "steps": [
+          "1. npm install @nuke.dev/design-system",
+          "2. postinstall.js runs - shows interactive prompt",
+          "3. User picks destination: ./nuke-theme/ (recommended) or custom path",
+          "4. dist/nuke-theme/ copied to chosen location",
+          "5. .nukerc created to remember theme path"
+        ]
+      }
+    },
+    {
+      "id": "s4",
+      "title": "NPM Link Flow (Local Dev)",
+      "details": {
+        "consumer_import_order": "1) nuke-theme/style.css (base) 2) app-specific overrides (global.css)",
+        "linked_projects": ["nuke-commander/frontend"],
+        "steps": [
+          "1. cd nuke-design-system && npm link",
+          "2. cd consumer/frontend && npm link @nuke.dev/design-system",
+          "3. Manually copy dist/nuke-theme/ to consumer's src/",
+          "4. Fix the import in copied style.css: change @import '../core.css' to @import '@nuke.dev/design-system/dist/core.css'"
         ],
-        "purpose": "Design tokens, colors, spacing - FULLY customizable by user",
-        "source": "dist/nuke-theme/"
+        "when": "Developing design system alongside a consumer project",
+        "why_fix_import": "Theme folder is now in consumer's src/, not in dist/ - relative path breaks",
+        "why_manual_copy": "postinstall.js only runs on real npm install, not on npm link"
       }
     }
-  },
-  {
-    "id": "s2",
-    "title": "Build System",
-    "details": {
-      "build_output": {
-        "dist/core.css": "Bundled core logic (all .css files except .theme.css)",
-        "dist/core.js": "Bundled web components",
-        "dist/nuke-theme/components/": "All .theme.css files extracted here",
-        "dist/nuke-theme/style.css": "Theme entry point with all tokens"
-      },
-      "build_scripts": {
-        "build:css": ".scripts/bundle-core-css.js - Bundles core CSS",
-        "build:theme": ".scripts/build-theme.js - Extracts .theme.css files to dist/nuke-theme/",
-        "build:ts": "tsc + bun build - Compiles TypeScript components"
-      },
-      "source_structure": {
-        "core/components/[name].css": "Component core logic",
-        "core/components/[name].theme.css": "Component theme tokens",
-        "core/core.css": "Core logic source",
-        "core/core.ts": "Web component exports",
-        "core/style.css": "Design tokens source"
-      }
-    }
-  },
-  {
-    "id": "s3",
-    "title": "NPM Install Flow",
-    "details": {
-      "after_install": {
-        "customize": "Edit nuke-theme/style.css for tokens, nuke-theme/components/*.theme.css for component styles",
-        "import_css": "\u003clink rel=\"stylesheet\" href=\"./nuke-theme/style.css\"\u003e",
-        "import_js": "\u003cscript type=\"module\" src=\"node_modules/@nuke.dev/design-system/dist/core.js\"\u003e\u003c/script\u003e"
-      },
-      "package_name": "@nuke.dev/design-system",
-      "steps": [
-        "1. npm install @nuke.dev/design-system",
-        "2. postinstall.js runs - shows interactive prompt",
-        "3. User picks destination: ./nuke-theme/ (recommended) or custom path",
-        "4. dist/nuke-theme/ copied to chosen location",
-        "5. .nukerc created to remember theme path"
-      ]
-    }
-  },
-  {
-    "id": "s4",
-    "title": "NPM Link Flow (Local Dev)",
-    "details": {
-      "consumer_import_order": "1) nuke-theme/style.css (base) 2) app-specific overrides (global.css)",
-      "linked_projects": [
-        "nuke-commander/frontend"
-      ],
-      "steps": [
-        "1. cd nuke-design-system \u0026\u0026 npm link",
-        "2. cd consumer/frontend \u0026\u0026 npm link @nuke.dev/design-system",
-        "3. Manually copy dist/nuke-theme/ to consumer's src/",
-        "4. Fix the import in copied style.css: change @import '../core.css' to @import '@nuke.dev/design-system/dist/core.css'"
-      ],
-      "when": "Developing design system alongside a consumer project",
-      "why_fix_import": "Theme folder is now in consumer's src/, not in dist/ - relative path breaks",
-      "why_manual_copy": "postinstall.js only runs on real npm install, not on npm link"
-    }
-  }
-]
+  ]
+}

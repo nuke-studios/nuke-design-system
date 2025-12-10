@@ -1,12 +1,40 @@
-[
-  {
-    "id": "g1",
-    "title": "Component File Split",
-    "description": "Every component has 2 files: [name].css (core logic - selectors, structure) and [name].theme.css (tokens - colors, spacing). Never put colors or spacing in core CSS."
+{
+  "_purpose": "AI behavior guidelines - how AI should work on this project",
+  "_schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+      "_purpose": {
+        "description": "Purpose of this file",
+        "type": "string"
+      },
+      "items": {
+        "items": {
+          "required": [
+            "id",
+            "title",
+            "description"
+          ],
+          "type": "object"
+        },
+        "type": "array"
+      }
+    },
+    "required": [
+      "_purpose",
+      "items"
+    ],
+    "type": "object"
   },
-  {
-    "id": "g2",
-    "title": "Web Components",
-    "description": "Web components use Lit. They enhance native elements, not replace them. CSS works without JS, components add interactivity."
-  }
-]
+  "items": [
+    {
+      "id": "g1",
+      "title": "Component File Split",
+      "description": "Every component has 2 files: [name].css (core logic - selectors, structure) and [name].theme.css (tokens - colors, spacing). Never put colors or spacing in core CSS."
+    },
+    {
+      "id": "g2",
+      "title": "Web Components",
+      "description": "Web components use Lit. They enhance native elements, not replace them. CSS works without JS, components add interactivity."
+    }
+  ]
+}

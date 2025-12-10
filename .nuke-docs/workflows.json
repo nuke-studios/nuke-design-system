@@ -1,1 +1,46 @@
-null
+{
+  "_purpose": "Step-by-step processes triggered by events",
+  "_schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+      "_purpose": {
+        "description": "Purpose of this file",
+        "type": "string"
+      },
+      "items": {
+        "items": {
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "steps": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "title": {
+              "type": "string"
+            },
+            "trigger": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "title",
+            "steps"
+          ],
+          "type": "object"
+        },
+        "type": "array"
+      }
+    },
+    "required": [
+      "_purpose",
+      "items"
+    ],
+    "type": "object"
+  },
+  "items": []
+}

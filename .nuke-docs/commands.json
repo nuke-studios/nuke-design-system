@@ -1,20 +1,48 @@
-[
-  {
-    "id": "c1",
-    "title": "Build All",
-    "run": "bun run build",
-    "why": "Clean build: theme + CSS bundle + TypeScript"
+{
+  "_purpose": "Dev commands - what to run and why",
+  "_schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+      "_purpose": {
+        "description": "Purpose of this file",
+        "type": "string"
+      },
+      "items": {
+        "items": {
+          "required": [
+            "id",
+            "title",
+            "run"
+          ],
+          "type": "object"
+        },
+        "type": "array"
+      }
+    },
+    "required": [
+      "_purpose",
+      "items"
+    ],
+    "type": "object"
   },
-  {
-    "id": "c2",
-    "title": "Build Watch",
-    "run": "bun run build:watch",
-    "why": "Incremental builds during development"
-  },
-  {
-    "id": "c3",
-    "title": "Build Theme Only",
-    "run": "bun run build:theme",
-    "why": "Extract .theme.css files to dist/nuke-theme/"
-  }
-]
+  "items": [
+    {
+      "id": "c1",
+      "title": "Build All",
+      "run": "bun run build",
+      "why": "Clean build: theme + CSS bundle + TypeScript"
+    },
+    {
+      "id": "c2",
+      "title": "Build Watch",
+      "run": "bun run build:watch",
+      "why": "Incremental builds during development"
+    },
+    {
+      "id": "c3",
+      "title": "Build Theme Only",
+      "run": "bun run build:theme",
+      "why": "Extract .theme.css files to dist/nuke-theme/"
+    }
+  ]
+}

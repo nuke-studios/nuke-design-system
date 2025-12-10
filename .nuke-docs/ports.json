@@ -1,1 +1,43 @@
-null
+{
+  "_purpose": "Dev server ports and URLs",
+  "_schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+      "_purpose": {
+        "description": "Purpose of this file",
+        "type": "string"
+      },
+      "items": {
+        "items": {
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "port": {
+              "type": "integer"
+            },
+            "title": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "title",
+            "port"
+          ],
+          "type": "object"
+        },
+        "type": "array"
+      }
+    },
+    "required": [
+      "_purpose",
+      "items"
+    ],
+    "type": "object"
+  },
+  "items": []
+}

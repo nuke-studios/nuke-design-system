@@ -77,7 +77,7 @@ export class NukeToast extends LitElement {
     messageSpan.className = 'toast-message';
     toast.appendChild(messageSpan);
 
-    let container = document.querySelector('.nuke-docs-toast-container');
+    let container = document.querySelector('.nuke-docs-broken-toast-container');
     if (!container) {
       container = document.createElement('div');
       container.className = 'nuke-toast-container';

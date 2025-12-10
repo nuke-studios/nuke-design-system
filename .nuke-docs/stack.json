@@ -1,5 +1,44 @@
 {
-  "framework": "lit",
-  "language": "typescript",
-  "runtime": "node/bun"
+  "_purpose": "Tech stack - language, framework, tools",
+  "_schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+      "_purpose": {
+        "description": "Purpose of this file",
+        "type": "string"
+      },
+      "items": {
+        "items": {
+          "required": [
+            "id",
+            "title"
+          ],
+          "type": "object"
+        },
+        "type": "array"
+      }
+    },
+    "required": [
+      "_purpose",
+      "items"
+    ],
+    "type": "object"
+  },
+  "items": [
+    {
+      "id": "st1",
+      "title": "TypeScript",
+      "description": "Primary language"
+    },
+    {
+      "id": "st2",
+      "title": "Lit",
+      "description": "Web component framework"
+    },
+    {
+      "id": "st3",
+      "title": "Node/Bun",
+      "description": "Runtime environment"
+    }
+  ]
 }
