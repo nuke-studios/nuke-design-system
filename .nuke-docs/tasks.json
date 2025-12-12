@@ -104,15 +104,6 @@
       "updated": "2025-12-12T15:34:51.0213+01:00"
     },
     {
-      "id": "task-7",
-      "title": "Rename project to unit-design-system",
-      "status": "new",
-      "priority": "low",
-      "description": "Rename from nuke-design-system to unit-design-system to reflect the unit-based token architecture",
-      "created": "2025-12-12T16:14:24.503756+01:00",
-      "updated": "2025-12-12T16:14:24.503756+01:00"
-    },
-    {
       "id": "task-8",
       "title": "Review badge and small items - reconsider checkbox/radio colors, maybe drop style-2",
       "status": "new",
@@ -122,9 +113,9 @@
     {
       "id": "task-9",
       "title": "Rethink style-1/style-2 approach - could be a token like --filled: true/false",
-      "status": "new",
+      "status": "completed",
       "created": "2025-12-12T17:54:00.237808+01:00",
-      "updated": "2025-12-12T17:54:00.237808+01:00"
+      "updated": "2025-12-12T23:17:18.628009+01:00"
     },
     {
       "id": "task-10",
@@ -146,6 +137,22 @@
       "status": "new",
       "created": "2025-12-12T17:54:00.536707+01:00",
       "updated": "2025-12-12T17:54:00.536707+01:00"
+    },
+    {
+      "id": "task-13",
+      "title": "Identify elements that need ghost variant (style-3)",
+      "status": "new",
+      "description": "Audit components to decide which ones need a third ghost/borderless style variant (e.g., button, icon-button). Document the pattern.",
+      "created": "2025-12-12T23:30:01.887897+01:00",
+      "updated": "2025-12-12T23:30:01.887897+01:00"
+    },
+    {
+      "id": "task-14",
+      "title": "Discuss alternative: ship separate components (button-1, button-2, button-3)",
+      "status": "new",
+      "description": "Evaluate whether to use nuke-style attribute vs shipping distinct components per variant. Pros/cons of each approach.",
+      "created": "2025-12-12T23:30:01.982724+01:00",
+      "updated": "2025-12-12T23:30:01.982724+01:00"
     }
   ]
 }

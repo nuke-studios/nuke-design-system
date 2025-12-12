@@ -1,11 +1,11 @@
 /* ============================================
-   UNIT DESIGN SYSTEM - TOKENS
+   NUKE DESIGN SYSTEM - TOKENS
    Two variables control everything.
 ============================================ */
 
 :root {
-  --unit: 5px;   /* base size: 4px=compact, 6px=standard, 8px=spacious */
-  --ratio: 0.5;  /* content fill: 0.4=airy, 0.5=balanced, 0.7=tight */
+  --unit: 6px;   /* base size: 4px=compact, 6px=standard, 8px=spacious */
+  --ratio: 0.4;  /* content fill: 0.4=airy, 0.5=balanced, 0.7=tight */
 
   /* TEXT BASE - derived from controls-height × ratio */
   --text-base: calc(var(--controls-height) * var(--ratio));
