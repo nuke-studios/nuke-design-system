@@ -1,6 +1,6 @@
 /* Link */
 a {
-  color: var(--on-background);
+  color: var(--color-text-1);
   text-decoration: none;
   cursor: pointer;
   transition: color var(--transition-fast);

@@ -2,7 +2,7 @@
 code {
   padding: calc(var(--unit) / 3) var(--unit);
   background: var(--background-3);
-  color: var(--on-background);
+  color: var(--color-text-1);
   font-family: var(--family-mono);
   font-size: calc(var(--text-base) * 0.9);
   border-radius: var(--border-radius-1);
@@ -12,7 +12,7 @@ code {
 :is(body, *)[nuke-style="1"] code,
 code[nuke-style="1"] {
   background: transparent;
-  color: var(--on-background);
+  color: var(--color-text-1);
   border: 1px solid var(--border-color-1);
 }
 
@@ -20,6 +20,6 @@ code[nuke-style="1"] {
 :is(body, *)[nuke-style="2"] code,
 code[nuke-style="2"] {
   background: var(--background-4);
-  color: var(--on-background);
+  color: var(--color-text-1);
   border: 1px solid var(--border-color-1);
 }

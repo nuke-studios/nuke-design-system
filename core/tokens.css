@@ -16,101 +16,116 @@
    *          - Padding = container height × (1 - ratio) / 2
    *          0.4 = more padding, 0.5 = balanced, 0.7 = tighter
    */
-  --unit: 6px;
+  --unit: 5px;
   --ratio: 0.5;
 
   /* TEXT BASE - derived from controls-height × ratio */
   --text-base: calc(var(--controls-height) * var(--ratio));
 
   /* HEIGHTS */
-  --controls-height: calc(var(--unit) * 6);
-  --bar-height-1: calc(var(--unit) * 5);
-  --bar-height-2: calc(var(--unit) * 8);
-  --bar-height-3: calc(var(--unit) * 10);
+  --controls-height: calc(var(--unit) * 6);        /* buttons, inputs, select */
+  --controls-height-small: calc(var(--unit) * 4);  /* checkbox, radio, badge */
+  --bar-height-1: calc(var(--unit) * 5);           /* breadcrumb, status bar */
+  --bar-height-2: calc(var(--unit) * 8);           /* toolbar, nav bar */
+  --bar-height-3: calc(var(--unit) * 10);          /* header, hero sections */
 
   /* SPACING */
-  --space-1: var(--unit);
-  --space-2: calc(var(--unit) * 2);
-  --space-3: calc(var(--unit) * 4);
+  --space-1: var(--unit);                          /* tight: gaps, icon padding */
+  --space-2: calc(var(--unit) * 2);                /* default: card padding, form gaps */
+  --space-3: calc(var(--unit) * 4);                /* loose: section spacing */
 
   /* WIDTHS */
-  --width-1: calc(var(--unit) * 40);
-  --width-2: calc(var(--unit) * 80);
-  --width-3: calc(var(--unit) * 128);
+  --width-1: calc(var(--unit) * 40);               /* sidebar, narrow panels */
+  --width-2: calc(var(--unit) * 80);               /* content, modals */
+  --width-3: calc(var(--unit) * 128);              /* max-width, containers */
 
   /* BORDER RADIUS */
-  --border-radius-1: calc(var(--unit) * 0.5);
-  --border-radius-2: var(--unit);
-  --border-radius-3: calc(var(--unit) * 2);
+  --border-radius-1: calc(var(--unit) * 0.5);      /* subtle: inputs, buttons */
+  --border-radius-2: var(--unit);                  /* default: cards, panels */
+  --border-radius-3: calc(var(--unit) * 2);        /* rounded: pills, tags */
 
   /* FONT FAMILIES */
-  --family-1: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-  --family-2: 'Raleway', 'Impact', 'Arial Black', 'Helvetica', sans-serif;
-  --family-mono: 'Monaco', 'Courier New', monospace;
+  --family-1: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;  /* body, UI */
+  --family-2: 'Raleway', 'Impact', 'Arial Black', 'Helvetica', sans-serif;  /* display, headings */
+  --family-mono: 'Monaco', 'Courier New', monospace;  /* code, pre */
 
   /* FONT WEIGHTS */
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-bold: 700;
+  --font-weight-normal: 400;   /* body text */
+  --font-weight-medium: 500;   /* labels, emphasis */
+  --font-weight-bold: 700;     /* headings, strong */
 
   /* NON-UNIT VALUES */
-  --opacity-disabled: 0.5;
-  --z-index-1: 100;
-  --z-index-2: 500;
-  --z-index-3: 1000;
-  --transition-fast: 0.15s ease-out;
-  --transition-medium: 0.25s ease-out;
-  --transition-slow: 0.4s ease-out;
+  --opacity-disabled: 0.5;          /* disabled states */
+  --z-index-1: 100;                 /* dropdowns, tooltips */
+  --z-index-2: 500;                 /* modals, dialogs */
+  --z-index-3: 1000;                /* toasts, notifications */
+  --transition-fast: 0.15s ease-out;    /* hover, focus */
+  --transition-medium: 0.25s ease-out;  /* expand, collapse */
+  --transition-slow: 0.4s ease-out;     /* page transitions */
 }
 
-/* LIGHT THEME (default) */
-:root, .light-theme {
-  --color-1: hsl(25, 85%, 50%);
-  --color-2: hsl(280, 50%, 55%);
-  --color-3: hsl(160, 50%, 45%);
-  --on-color: hsl(0, 0%, 100%);
-  --error-color: hsl(0, 70%, 50%);
-  --warning-color: hsl(40, 90%, 50%);
-  --success-color: hsl(140, 60%, 40%);
+/* DARK THEME (default) */
+:root, .dark-theme {
+  /* Accent colors - brighter for dark backgrounds */
+  --color-1: hsl(25, 90%, 60%);       /* primary: buttons, links, focus */
+  --color-2: hsl(280, 60%, 70%);      /* secondary: accents, highlights */
+  --color-3: hsl(160, 60%, 55%);      /* tertiary: badges, tags */
 
-  --background-1: hsl(0, 0%, 94%);
-  --background-2: hsl(0, 0%, 100%);
-  --background-3: hsl(0, 0%, 90%);
-  --background-4: hsl(0, 0%, 96%);
+  /* Semantic colors */
+  --error-color: hsl(0, 70%, 60%);    /* errors, destructive actions */
+  --warning-color: hsl(40, 90%, 60%); /* warnings, caution */
+  --success-color: hsl(140, 60%, 55%);/* success, confirmation */
 
-  --on-background: hsl(0, 0%, 15%);
-  --on-background-light: hsl(0, 0%, 45%);
-  --border-color-1: hsl(0, 0%, 75%);
-  --border-color-2: hsl(0, 0%, 60%);
+  /* Backgrounds - dark scale */
+  --background-1: hsl(0, 0%, 8%);     /* page background */
+  --background-2: hsl(0, 0%, 14%);    /* cards, elevated surfaces */
+  --background-3: hsl(0, 0%, 20%);    /* hover, active states */
+  --background-4: hsl(0, 0%, 18%);    /* inputs, subtle fills */
+
+  /* Text colors */
+  --color-text-1: hsl(0, 0%, 92%);        /* primary text */
+  --color-text-2: hsl(0, 0%, 60%);        /* muted, placeholders */
+  --color-text-inverse: hsl(0, 0%, 100%); /* text on accent backgrounds */
+  --border-color-1: hsl(0, 0%, 32%);      /* subtle borders */
+  --border-color-2: hsl(0, 0%, 50%);      /* visible borders */
+
+  /* Misc */
   --scrollbar-track: var(--background-1);
   --scrollbar-thumb: var(--border-color-2);
-  --box-shadow-1: 0 1px 3px rgba(0, 0, 0, 0.08);
-  --box-shadow-2: 0 2px 8px rgba(0, 0, 0, 0.12);
-  --box-shadow-3: 0 4px 16px rgba(0, 0, 0, 0.16);
+  --box-shadow-1: 0 1px 3px rgba(0, 0, 0, 0.3);   /* subtle elevation */
+  --box-shadow-2: 0 2px 8px rgba(0, 0, 0, 0.4);   /* cards, dropdowns */
+  --box-shadow-3: 0 4px 16px rgba(0, 0, 0, 0.5);  /* modals, popovers */
 }
 
-/* DARK THEME */
-:root.dark-theme {
-  --color-1: hsl(25, 90%, 60%);
-  --color-2: hsl(280, 60%, 70%);
-  --color-3: hsl(160, 60%, 55%);
-  --on-color: hsl(0, 0%, 100%);
-  --error-color: hsl(0, 70%, 60%);
-  --warning-color: hsl(40, 90%, 60%);
-  --success-color: hsl(140, 60%, 55%);
+/* LIGHT THEME */
+:root.light-theme {
+  /* Accent colors */
+  --color-1: hsl(25, 85%, 50%);       /* primary: buttons, links, focus */
+  --color-2: hsl(280, 50%, 55%);      /* secondary: accents, highlights */
+  --color-3: hsl(160, 50%, 45%);      /* tertiary: badges, tags */
 
-  --background-1: hsl(0, 0%, 8%);
-  --background-2: hsl(0, 0%, 14%);
-  --background-3: hsl(0, 0%, 20%);
-  --background-4: hsl(0, 0%, 18%);
+  /* Semantic colors */
+  --error-color: hsl(0, 70%, 50%);    /* errors, destructive actions */
+  --warning-color: hsl(40, 90%, 50%); /* warnings, caution */
+  --success-color: hsl(140, 60%, 40%);/* success, confirmation */
 
-  --on-background: hsl(0, 0%, 92%);
-  --on-background-light: hsl(0, 0%, 60%);
-  --border-color-1: hsl(0, 0%, 32%);
-  --border-color-2: hsl(0, 0%, 50%);
+  /* Backgrounds - light scale */
+  --background-1: hsl(0, 0%, 94%);    /* page background */
+  --background-2: hsl(0, 0%, 100%);   /* cards, elevated surfaces */
+  --background-3: hsl(0, 0%, 90%);    /* hover, active states */
+  --background-4: hsl(0, 0%, 96%);    /* inputs, subtle fills */
+
+  /* Text colors */
+  --color-text-1: hsl(0, 0%, 15%);        /* primary text */
+  --color-text-2: hsl(0, 0%, 45%);        /* muted, placeholders */
+  --color-text-inverse: hsl(0, 0%, 100%); /* text on accent backgrounds */
+  --border-color-1: hsl(0, 0%, 75%);      /* subtle borders */
+  --border-color-2: hsl(0, 0%, 60%);      /* visible borders */
+
+  /* Misc */
   --scrollbar-track: var(--background-1);
   --scrollbar-thumb: var(--border-color-2);
-  --box-shadow-1: 0 1px 3px rgba(0, 0, 0, 0.3);
-  --box-shadow-2: 0 2px 8px rgba(0, 0, 0, 0.4);
-  --box-shadow-3: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --box-shadow-1: 0 1px 3px rgba(0, 0, 0, 0.08);   /* subtle elevation */
+  --box-shadow-2: 0 2px 8px rgba(0, 0, 0, 0.12);   /* cards, dropdowns */
+  --box-shadow-3: 0 4px 16px rgba(0, 0, 0, 0.16);  /* modals, popovers */
 }

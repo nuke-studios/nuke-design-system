@@ -14,7 +14,7 @@ nuke-badge {
 :is(body, *)[nuke-style="1"] nuke-badge,
 nuke-badge[nuke-style="1"] {
   background: transparent;
-  color: var(--on-background);
+  color: var(--color-text-1);
   border: 1px solid var(--border-color-2);
 }
 
@@ -22,6 +22,6 @@ nuke-badge[nuke-style="1"] {
 :is(body, *)[nuke-style="2"] nuke-badge,
 nuke-badge[nuke-style="2"] {
   background: var(--background-4);
-  color: var(--on-background);
+  color: var(--color-text-1);
   border: 1px solid var(--border-color-1);
 }

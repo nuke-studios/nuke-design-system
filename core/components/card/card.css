@@ -5,7 +5,7 @@ nuke-card {
   padding: 0;
   border-radius: var(--border-radius-1);
   background: var(--background-2);
-  color: var(--on-background);
+  color: var(--color-text-1);
   overflow: hidden;
 }
 nuke-card-header {
@@ -13,7 +13,7 @@ nuke-card-header {
   padding: var(--space-2);
   font-size: calc(var(--text-base) * 1.2);
   font-weight: 600;
-  color: var(--on-background);
+  color: var(--color-text-1);
   border-bottom: 1px solid var(--border-color-1);
 }
 nuke-card-content {

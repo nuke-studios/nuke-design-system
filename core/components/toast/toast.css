@@ -61,7 +61,7 @@ nuke-toast.hide {
 :is(body, *)[nuke-style="1"] nuke-toast,
 nuke-toast[nuke-style="1"] {
   background: var(--background-2);
-  color: var(--on-background);
+  color: var(--color-text-1);
   border: 1px solid var(--border-color-2);
   box-shadow: none;
 }
@@ -70,7 +70,7 @@ nuke-toast[nuke-style="1"] {
 :is(body, *)[nuke-style="2"] nuke-toast,
 nuke-toast[nuke-style="2"] {
   background: var(--background-4);
-  color: var(--on-background);
+  color: var(--color-text-1);
   border: 1px solid var(--border-color-1);
   box-shadow: none;
 }

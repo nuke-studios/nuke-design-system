@@ -35,7 +35,7 @@ input[type="datetime-local"] {
   height: var(--controls-height);
   padding: 0 calc(var(--controls-height) * (1 - var(--ratio)) / 2);
   font-size: var(--text-base);
-  color: var(--on-background);
+  color: var(--color-text-1);
   border-radius: var(--border-radius-1);
   transition:
     border-color var(--transition-fast),
@@ -49,7 +49,7 @@ input[type="number"]::placeholder,
 input[type="url"]::placeholder,
 input[type="tel"]::placeholder,
 input[type="search"]::placeholder {
-  color: var(--on-background-light);
+  color: var(--color-text-2);
 }
 
 /* Style 1 - Outlined */
@@ -61,7 +61,7 @@ input[type="search"]::placeholder {
 :is(body, *)[nuke-style="1"] :is(input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="tel"], input[type="search"], input[type="date"], input[type="time"], input[type="datetime-local"]):focus,
 :is(input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="tel"], input[type="search"], input[type="date"], input[type="time"], input[type="datetime-local"])[nuke-style="1"]:focus {
   outline: none;
-  border-color: var(--on-background);
+  border-color: var(--color-text-1);
   box-shadow: none;
 }
 
@@ -74,7 +74,7 @@ input[type="search"]::placeholder {
 :is(body, *)[nuke-style="2"] :is(input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="tel"], input[type="search"], input[type="date"], input[type="time"], input[type="datetime-local"]):focus,
 :is(input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="tel"], input[type="search"], input[type="date"], input[type="time"], input[type="datetime-local"])[nuke-style="2"]:focus {
   outline: none;
-  border-color: var(--on-background);
+  border-color: var(--color-text-1);
   box-shadow: none;
 }
 

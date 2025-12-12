@@ -19,7 +19,7 @@ textarea {
   padding: calc(var(--controls-height) * (1 - var(--ratio)) / 2);
   font-size: var(--text-base);
   line-height: 1.5;
-  color: var(--on-background);
+  color: var(--color-text-1);
   background: var(--background-4);
   border: 1px solid var(--border-color-1);
   border-radius: var(--border-radius-1);
@@ -29,11 +29,11 @@ textarea {
     box-shadow var(--transition-fast);
 }
 textarea::placeholder {
-  color: var(--on-background-light);
+  color: var(--color-text-2);
 }
 textarea:focus {
   outline: none;
-  border-color: var(--on-background);
+  border-color: var(--color-text-1);
   box-shadow: 0 0 0 3px hsla(210, 100%, 50%, 0.1);
 }
 
@@ -41,26 +41,26 @@ textarea:focus {
 :is(body, *)[nuke-style="1"] textarea,
 textarea[nuke-style="1"] {
   background: transparent;
-  color: var(--on-background);
+  color: var(--color-text-1);
   border: 1px solid var(--border-color-2);
 }
 :is(body, *)[nuke-style="1"] textarea:focus,
 textarea[nuke-style="1"]:focus {
   background: var(--background-2);
-  border-color: var(--on-background);
+  border-color: var(--color-text-1);
 }
 
 /* Style 2 - Filled with border */
 :is(body, *)[nuke-style="2"] textarea,
 textarea[nuke-style="2"] {
   background: var(--background-4);
-  color: var(--on-background);
+  color: var(--color-text-1);
   border: 1px solid var(--border-color-1);
 }
 :is(body, *)[nuke-style="2"] textarea:focus,
 textarea[nuke-style="2"]:focus {
   background: var(--background-3);
-  border-color: var(--on-background);
+  border-color: var(--color-text-1);
 }
 
 /* Disabled */

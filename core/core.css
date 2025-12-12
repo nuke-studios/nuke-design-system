@@ -52,7 +52,7 @@ body {
   font-family: var(--family-1), sans-serif;
   font-size: var(--text-base);
   line-height: 1.5;
-  color: var(--on-background);
+  color: var(--color-text-1);
   background: var(--background-1);
 }
 
@@ -91,14 +91,14 @@ table {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--on-background-light);
+  background-color: var(--color-text-1-light);
 }
 
 /* TYPOGRAPHY */
 h1, h2, h3, h4, h5, h6 {
   font-weight: var(--font-weight-bold);
   line-height: 1.2;
-  color: var(--on-background);
+  color: var(--color-text-1);
 }
 
 h1 { font-size: calc(var(--text-base) * 2); }
@@ -110,7 +110,7 @@ h6 { font-size: calc(var(--text-base) * 0.8); }
 
 p {
   line-height: 1.5;
-  color: var(--on-background);
+  color: var(--color-text-1);
 }
 
 ul, ol {
@@ -134,7 +134,7 @@ small {
 }
 
 a {
-  color: var(--on-background);
+  color: var(--color-text-1);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
@@ -151,7 +151,7 @@ code, kbd, samp {
 blockquote {
   padding-left: var(--space-2);
   border-left: 3px solid var(--border-color-2);
-  color: var(--on-background-light);
+  color: var(--color-text-1-light);
   font-style: italic;
 }
 
@@ -162,7 +162,7 @@ hr {
 
 ::selection {
   background: var(--color-1);
-  color: var(--on-color);
+  color: var(--color-text-inverse);
 }
 
 :focus-visible {

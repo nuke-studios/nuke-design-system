@@ -44,7 +44,7 @@
   text-transform: uppercase;
   background: none;
   border: none;
-  color: var(--on-background);
+  color: var(--color-text-1);
   cursor: pointer;
   padding: 0;
   line-height: 1;

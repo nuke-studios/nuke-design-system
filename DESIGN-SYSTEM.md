@@ -50,28 +50,34 @@ All tokens derive from `--unit`:
 
 ```css
 /* Heights */
---controls-height: calc(var(--unit) * 6);   /* 36px - inputs, buttons */
---bar-height-1: calc(var(--unit) * 5);      /* 30px - breadcrumb */
---bar-height-2: calc(var(--unit) * 8);      /* 48px - toolbar */
---bar-height-3: calc(var(--unit) * 10);     /* 60px - header */
+--controls-height: calc(var(--unit) * 6);        /* buttons, inputs, select */
+--controls-height-small: calc(var(--unit) * 4);  /* checkbox, radio, badge */
+--bar-height-1: calc(var(--unit) * 5);           /* breadcrumb, status bar */
+--bar-height-2: calc(var(--unit) * 8);           /* toolbar, nav bar */
+--bar-height-3: calc(var(--unit) * 10);          /* header, hero sections */
 
 /* Text - derived from height × ratio */
---text-base: calc(var(--controls-height) * var(--ratio));  /* 18px */
+--text-base: calc(var(--controls-height) * var(--ratio));
+
+/* Text Colors */
+--color-text-1: ...;        /* primary text */
+--color-text-2: ...;        /* muted, placeholders */
+--color-text-inverse: ...;  /* text on accent backgrounds */
 
 /* Spacing */
---space-1: var(--unit);                     /* 6px */
---space-2: calc(var(--unit) * 2);           /* 12px */
---space-3: calc(var(--unit) * 4);           /* 24px */
+--space-1: var(--unit);              /* tight: gaps, icon padding */
+--space-2: calc(var(--unit) * 2);    /* default: card padding, form gaps */
+--space-3: calc(var(--unit) * 4);    /* loose: section spacing */
 
 /* Widths */
---width-1: calc(var(--unit) * 40);          /* 240px - sidebar */
---width-2: calc(var(--unit) * 80);          /* 480px - content */
---width-3: calc(var(--unit) * 128);         /* 768px - max-width */
+--width-1: calc(var(--unit) * 40);   /* sidebar, narrow panels */
+--width-2: calc(var(--unit) * 80);   /* content, modals */
+--width-3: calc(var(--unit) * 128);  /* max-width, containers */
 
 /* Border Radius */
---border-radius-1: calc(var(--unit) * 0.5); /* 3px */
---border-radius-2: var(--unit);             /* 6px */
---border-radius-3: calc(var(--unit) * 2);   /* 12px */
+--border-radius-1: calc(var(--unit) * 0.5);  /* subtle: inputs, buttons */
+--border-radius-2: var(--unit);              /* default: cards, panels */
+--border-radius-3: calc(var(--unit) * 2);    /* rounded: pills, tags */
 ```
 
 ## Typography Scale

@@ -3,7 +3,7 @@ label {
   display: block;
   font-size: calc(var(--text-base) * 0.8);
   font-weight: var(--font-weight-medium);
-  color: var(--on-background);
+  color: var(--color-text-1);
   cursor: pointer;
 }
 

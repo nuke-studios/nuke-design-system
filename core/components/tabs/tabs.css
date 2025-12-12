@@ -8,7 +8,7 @@ nuke-tab {
   padding: 0 calc(var(--controls-height) * (1 - var(--ratio)));
   font-size: var(--text-base);
   font-weight: var(--font-weight-medium);
-  color: var(--on-background-light);
+  color: var(--color-text-2);
   background: transparent;
   border: none;
   cursor: pointer;
@@ -17,10 +17,10 @@ nuke-tab {
   line-height: var(--controls-height);
 }
 nuke-tab:hover {
-  color: var(--on-background);
+  color: var(--color-text-1);
 }
 nuke-tab[aria-selected="true"] {
-  color: var(--on-background);
+  color: var(--color-text-1);
 }
 nuke-tab:focus {
   outline: 2px solid var(--color-1);
@@ -52,7 +52,7 @@ nuke-tabs[nuke-style="1"] nuke-tab:hover {
 :is(body, *)[nuke-style="1"] nuke-tabs nuke-tab[aria-selected="true"],
 nuke-tabs[nuke-style="1"] nuke-tab[aria-selected="true"] {
   background: var(--background-3);
-  border-color: var(--on-background);
+  border-color: var(--color-text-1);
 }
 
 /* Style 2 - Filled with border */
@@ -73,5 +73,5 @@ nuke-tabs[nuke-style="2"] nuke-tab:hover {
 :is(body, *)[nuke-style="2"] nuke-tabs nuke-tab[aria-selected="true"],
 nuke-tabs[nuke-style="2"] nuke-tab[aria-selected="true"] {
   background: var(--background-3);
-  border-color: var(--on-background);
+  border-color: var(--color-text-1);
 }

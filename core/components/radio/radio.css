@@ -11,10 +11,10 @@ input[type="radio"] {
 /* Radio - Base */
 input[type="radio"] {
   display: inline-block;
-  width: var(--controls-height);
-  height: var(--controls-height);
-  min-width: var(--controls-height);
-  min-height: var(--controls-height);
+  width: var(--controls-height-small);
+  height: var(--controls-height-small);
+  min-width: var(--controls-height-small);
+  min-height: var(--controls-height-small);
   background: var(--background-4);
   border: 2px solid var(--border-color-1);
   border-radius: 50%;
@@ -26,7 +26,7 @@ input[type="radio"] {
 }
 input[type="radio"]:checked {
   background-color: var(--background-4);
-  border-color: var(--on-background);
+  border-color: var(--color-text-1);
 }
 input[type="radio"]:checked::before {
   content: '';
@@ -34,9 +34,9 @@ input[type="radio"]:checked::before {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: calc(var(--controls-height) * var(--ratio));
-  height: calc(var(--controls-height) * var(--ratio));
-  background: var(--on-background);
+  width: calc(var(--controls-height-small) * var(--ratio));
+  height: calc(var(--controls-height-small) * var(--ratio));
+  background: var(--color-text-1);
   border-radius: 50%;
 }
 input[type="radio"]:focus {
@@ -44,7 +44,7 @@ input[type="radio"]:focus {
   box-shadow: 0 0 0 3px hsla(210, 100%, 50%, 0.1);
 }
 input[type="radio"]:hover:not(:disabled) {
-  border-color: var(--on-background);
+  border-color: var(--color-text-1);
 }
 
 /* Style 1 - Outlined */
@@ -56,13 +56,13 @@ input[type="radio"][nuke-style="1"] {
 :is(body, *)[nuke-style="1"] input[type="radio"]:checked,
 input[type="radio"][nuke-style="1"]:checked {
   background-color: transparent;
-  border-color: var(--on-background);
+  border-color: var(--color-text-1);
 }
 :is(body, *)[nuke-style="1"] input[type="radio"]:checked::before,
 input[type="radio"][nuke-style="1"]:checked::before {
-  background: var(--on-background);
-  width: calc(var(--controls-height) * var(--ratio));
-  height: calc(var(--controls-height) * var(--ratio));
+  background: var(--color-text-1);
+  width: calc(var(--controls-height-small) * var(--ratio));
+  height: calc(var(--controls-height-small) * var(--ratio));
 }
 
 /* Style 2 - Filled with border */
@@ -74,17 +74,17 @@ input[type="radio"][nuke-style="2"] {
 :is(body, *)[nuke-style="2"] input[type="radio"]:checked,
 input[type="radio"][nuke-style="2"]:checked {
   background-color: var(--background-4);
-  border-color: var(--on-background);
+  border-color: var(--color-text-1);
 }
 :is(body, *)[nuke-style="2"] input[type="radio"]:checked::before,
 input[type="radio"][nuke-style="2"]:checked::before {
-  background: var(--on-background);
-  width: calc(var(--controls-height) * var(--ratio));
-  height: calc(var(--controls-height) * var(--ratio));
+  background: var(--color-text-1);
+  width: calc(var(--controls-height-small) * var(--ratio));
+  height: calc(var(--controls-height-small) * var(--ratio));
 }
 :is(body, *)[nuke-style="2"] input[type="radio"]:hover:not(:disabled),
 input[type="radio"][nuke-style="2"]:hover:not(:disabled) {
-  border-color: var(--on-background);
+  border-color: var(--color-text-1);
 }
 
 /* Disabled */

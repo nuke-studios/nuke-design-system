@@ -11,10 +11,10 @@ input[type="checkbox"] {
 /* Checkbox - Base */
 input[type="checkbox"] {
   display: inline-block;
-  width: var(--controls-height);
-  height: var(--controls-height);
-  min-width: var(--controls-height);
-  min-height: var(--controls-height);
+  width: var(--controls-height-small);
+  height: var(--controls-height-small);
+  min-width: var(--controls-height-small);
+  min-height: var(--controls-height-small);
   background: var(--background-4);
   border: 1px solid var(--border-color-1);
   border-radius: var(--border-radius-1);
@@ -25,12 +25,26 @@ input[type="checkbox"] {
   vertical-align: middle;
 }
 input[type="checkbox"]:checked {
-  background: var(--on-background);
-  border-color: var(--on-background);
-  background-image: url("data:image/svg+xml,%3Csvg width='14' height='11' viewBox='0 0 14 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 5L5 9L13 1' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: calc(var(--controls-height) * var(--ratio));
+  background: var(--color-text-1);
+  border-color: var(--color-text-1);
+}
+input[type="checkbox"]:checked::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(var(--controls-height-small) * var(--ratio));
+  height: calc(var(--controls-height-small) * var(--ratio));
+  background: var(--background-1);
+  mask-image: url("data:image/svg+xml,%3Csvg width='14' height='11' viewBox='0 0 14 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 5L5 9L13 1' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg width='14' height='11' viewBox='0 0 14 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 5L5 9L13 1' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
 }
 input[type="checkbox"]:focus {
   outline: none;
@@ -46,15 +60,15 @@ input[type="checkbox"][nuke-style="1"] {
 :is(body, *)[nuke-style="1"] input[type="checkbox"]:checked,
 input[type="checkbox"][nuke-style="1"]:checked {
   background: transparent;
-  border-color: var(--on-background);
-  background-image: url("data:image/svg+xml,%3Csvg width='14' height='11' viewBox='0 0 14 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 5L5 9L13 1' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: calc(var(--controls-height) * var(--ratio));
+  border-color: var(--color-text-1);
+}
+:is(body, *)[nuke-style="1"] input[type="checkbox"]:checked::before,
+input[type="checkbox"][nuke-style="1"]:checked::before {
+  background: var(--color-text-1);
 }
 :is(body, *)[nuke-style="1"] input[type="checkbox"]:hover:not(:disabled),
 input[type="checkbox"][nuke-style="1"]:hover:not(:disabled) {
-  border-color: var(--on-background);
+  border-color: var(--color-text-1);
 }
 :is(body, *)[nuke-style="1"] input[type="checkbox"]:focus,
 input[type="checkbox"][nuke-style="1"]:focus {
@@ -70,16 +84,16 @@ input[type="checkbox"][nuke-style="2"] {
 }
 :is(body, *)[nuke-style="2"] input[type="checkbox"]:checked,
 input[type="checkbox"][nuke-style="2"]:checked {
-  background: var(--on-background);
-  border-color: var(--on-background);
-  background-image: url("data:image/svg+xml,%3Csvg width='14' height='11' viewBox='0 0 14 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 5L5 9L13 1' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: calc(var(--controls-height) * var(--ratio));
+  background: var(--color-text-1);
+  border-color: var(--color-text-1);
+}
+:is(body, *)[nuke-style="2"] input[type="checkbox"]:checked::before,
+input[type="checkbox"][nuke-style="2"]:checked::before {
+  background: var(--background-1);
 }
 :is(body, *)[nuke-style="2"] input[type="checkbox"]:hover:not(:disabled),
 input[type="checkbox"][nuke-style="2"]:hover:not(:disabled) {
-  border-color: var(--on-background);
+  border-color: var(--color-text-1);
 }
 :is(body, *)[nuke-style="2"] input[type="checkbox"]:focus,
 input[type="checkbox"][nuke-style="2"]:focus {
