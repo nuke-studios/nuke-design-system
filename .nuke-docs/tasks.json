@@ -98,10 +98,10 @@
     {
       "id": "task-6",
       "title": "Import Phosphor Icons",
-      "status": "new",
+      "status": "completed",
       "description": "Add Phosphor Icons as the standard icon library for the design system",
       "created": "2025-12-12T15:34:51.0213+01:00",
-      "updated": "2025-12-12T15:34:51.0213+01:00"
+      "updated": "2025-12-12T23:43:27.564225+01:00"
     },
     {
       "id": "task-8",
@@ -153,6 +153,14 @@
       "description": "Evaluate whether to use nuke-style attribute vs shipping distinct components per variant. Pros/cons of each approach.",
       "created": "2025-12-12T23:30:01.982724+01:00",
       "updated": "2025-12-12T23:30:01.982724+01:00"
+    },
+    {
+      "id": "task-15",
+      "title": "Design icon button pattern",
+      "status": "new",
+      "description": "Create icon button variant - square buttons for icons. Need to decide: attribute modifier (button[icon]) vs separate pattern, sizing tied to controls-height tokens, style-1/2/3 support.",
+      "created": "2025-12-13T00:21:02.726414+01:00",
+      "updated": "2025-12-13T00:21:02.726414+01:00"
     }
   ]
 }

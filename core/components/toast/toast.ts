@@ -1,5 +1,6 @@
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import '../icon/icon.js';
 
 /**
  * Nuke Toast Component
@@ -54,7 +55,7 @@ export class NukeToast extends LitElement {
   render() {
     return html`
       <slot></slot>
-      <button class="toast-close" @click=${this.dismiss} aria-label="Close notification">×</button>
+      <button class="toast-close" @click=${this.dismiss} aria-label="Close notification"><nuke-icon name="x"></nuke-icon></button>
     `;
   }
 

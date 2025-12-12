@@ -1,0 +1,16 @@
+/* Icon Component */
+
+nuke-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  line-height: 1;
+  color: inherit;
+}
+
+nuke-icon svg {
+  width: 1em;
+  height: 1em;
+  display: block;
+}

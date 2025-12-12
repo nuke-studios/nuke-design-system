@@ -5,7 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NUKE Design System</title>
   <link rel="stylesheet" href="style.css">
-  <script type="module" src="../dist/core.js?v=4"></script>
+  <script type="module" src="../dist/core.js?v=9"></script>
+  <script>
+    // Set icon base path for docs
+    import('../dist/core.js').then(() => {
+      customElements.whenDefined('nuke-icon').then(() => {
+        const NukeIcon = customElements.get('nuke-icon');
+        NukeIcon.basePath = '../dist/icons';
+      });
+    });
+  </script>
 </head>
 <body>
   <header class="header">
@@ -14,7 +23,7 @@
       <span class="logo-subtitle">design system</span>
     </div>
     <button class="theme-toggle" onclick="document.documentElement.classList.toggle('light-theme')">
-      Light / Dark
+      <nuke-icon name="sun"></nuke-icon> / <nuke-icon name="moon"></nuke-icon>
     </button>
   </header>
 
@@ -63,6 +72,15 @@
     <div class="component-styles">
       <div class="style"><nav nuke-style="1"><a href="#">Home</a> <a href="#">About</a></nav></div>
       <div class="style"><nav nuke-style="2"><a href="#">Home</a> <a href="#">About</a></nav></div>
+    </div>
+  </div>
+
+  <div class="component">
+    <div class="component-name">&lt;nuke-icon&gt;</div>
+    <div class="component-styles">
+      <div class="style"><nuke-icon name="house"></nuke-icon> Home</div>
+      <div class="style"><button nuke-style="1"><nuke-icon name="plus"></nuke-icon></button></div>
+      <div class="style"><button nuke-style="2"><nuke-icon name="x"></nuke-icon></button></div>
     </div>
   </div>
 
@@ -250,7 +268,7 @@
     function showSidebar(variant) {
       const sidebar = document.createElement('nuke-sidebar');
       sidebar.setAttribute('nuke-style', variant);
-      sidebar.innerHTML = `<h3>Sidebar</h3><p>Content</p><button nuke-style="${variant}" onclick="this.closest('nuke-sidebar').close()">Close</button>`;
+      sidebar.innerHTML = `<h3>Sidebar</h3><p>Content</p><button nuke-style="${variant}" onclick="this.closest('nuke-sidebar').close()"><nuke-icon name="x"></nuke-icon> Close</button>`;
       document.body.appendChild(sidebar);
       setTimeout(() => sidebar.show(), 0);
     }

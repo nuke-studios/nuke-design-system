@@ -27,16 +27,18 @@
   "module": "dist/core.js",
   "type": "module",
   "scripts": {
-    "build": "npm run build:clean && npm run build:css && npm run build:ts",
-    "build:clean": "mkdir -p dist/types",
+    "build": "npm run build:clean && npm run build:icons && npm run build:css && npm run build:ts",
+    "build:clean": "mkdir -p dist/types dist/icons",
     "build:ts": "tsc && esbuild core/core.ts --bundle --format=esm --outfile=dist/core.js",
     "build:css": "node .scripts/bundle-core-css.js",
-    "dev": "esbuild core/core.ts --bundle --format=esm --outfile=dist/core.js --watch"
+    "build:icons": "cp core/icons/*.svg dist/icons/",
+    "dev": "npm run build:icons && npm run build:css && esbuild core/core.ts --bundle --format=esm --outfile=dist/core.js --watch"
   },
   "dependencies": {
     "lit": "^3.0.0"
   },
   "devDependencies": {
+    "@phosphor-icons/core": "^2.1.1",
     "esbuild": "^0.24.0",
     "typescript": "^5.0.0"
   },
