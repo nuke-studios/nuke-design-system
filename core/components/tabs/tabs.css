@@ -23,12 +23,15 @@ nuke-tab[aria-selected="true"] {
   color: var(--color-text-1);
 }
 nuke-tab:focus {
-  outline: 2px solid var(--color-1);
-  outline-offset: 2px;
+  outline: none;
 }
 nuke-tab-panel {
   display: block;
   padding: var(--space-2);
+  margin-top: var(--space-1);
+  background: var(--background-2);
+  border: 1px solid var(--border-color-1);
+  border-radius: var(--border-radius-1);
 }
 nuke-tab-panel[aria-hidden="true"] {
   display: none;
