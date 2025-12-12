@@ -55,7 +55,7 @@ nuke-tabs[nuke-style="1"] nuke-tab[aria-selected="true"] {
   border-color: var(--on-background);
 }
 
-/* Style 2 - Filled */
+/* Style 2 - Filled with border */
 :is(body, *)[nuke-style="2"] nuke-tabs,
 nuke-tabs[nuke-style="2"] {
   border: none;
@@ -63,7 +63,7 @@ nuke-tabs[nuke-style="2"] {
 :is(body, *)[nuke-style="2"] nuke-tabs nuke-tab,
 nuke-tabs[nuke-style="2"] nuke-tab {
   background: var(--background-4);
-  border: none;
+  border: 1px solid var(--border-color-1);
   border-radius: var(--border-radius-1);
   margin-right: var(--space-1);
 }
@@ -73,28 +73,6 @@ nuke-tabs[nuke-style="2"] nuke-tab:hover {
 }
 :is(body, *)[nuke-style="2"] nuke-tabs nuke-tab[aria-selected="true"],
 nuke-tabs[nuke-style="2"] nuke-tab[aria-selected="true"] {
-  background: var(--background-3);
-  color: var(--on-background);
-}
-
-/* Style 3 - Filled with border */
-:is(body, *)[nuke-style="3"] nuke-tabs,
-nuke-tabs[nuke-style="3"] {
-  border: none;
-}
-:is(body, *)[nuke-style="3"] nuke-tabs nuke-tab,
-nuke-tabs[nuke-style="3"] nuke-tab {
-  background: var(--background-4);
-  border: 2px solid var(--border-color-1);
-  border-radius: var(--border-radius-1);
-  margin-right: var(--space-1);
-}
-:is(body, *)[nuke-style="3"] nuke-tabs nuke-tab:hover,
-nuke-tabs[nuke-style="3"] nuke-tab:hover {
-  background: var(--background-3);
-}
-:is(body, *)[nuke-style="3"] nuke-tabs nuke-tab[aria-selected="true"],
-nuke-tabs[nuke-style="3"] nuke-tab[aria-selected="true"] {
   background: var(--background-3);
   border-color: var(--on-background);
 }

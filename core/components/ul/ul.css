@@ -13,7 +13,7 @@ ul[nuke-style="1"] li {
   border-radius: var(--border-radius-1);
 }
 
-/* Unordered List - Style 2 - Filled */
+/* Unordered List - Style 2 - Filled with border */
 :is(body, *)[nuke-style="2"] ul,
 ul[nuke-style="2"] {
   list-style: none;
@@ -22,22 +22,7 @@ ul[nuke-style="2"] {
 :is(body, *)[nuke-style="2"] ul li,
 ul[nuke-style="2"] li {
   background: var(--background-4);
-  border: none;
-  padding: var(--space-1) var(--space-2);
-  margin-bottom: var(--space-1);
-  border-radius: var(--border-radius-1);
-}
-
-/* Unordered List - Style 3 - Filled with border */
-:is(body, *)[nuke-style="3"] ul,
-ul[nuke-style="3"] {
-  list-style: none;
-  padding-left: 0;
-}
-:is(body, *)[nuke-style="3"] ul li,
-ul[nuke-style="3"] li {
-  background: var(--background-4);
-  border: 2px solid var(--border-color-1);
+  border: 1px solid var(--border-color-1);
   padding: var(--space-1) var(--space-2);
   margin-bottom: var(--space-1);
   border-radius: var(--border-radius-1);

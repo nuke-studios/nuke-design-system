@@ -52,12 +52,12 @@ select[nuke-style="1"]:focus {
   border-color: var(--on-background);
 }
 
-/* Style 2 - Filled */
+/* Style 2 - Filled with border */
 :is(body, *)[nuke-style="2"] select,
 select[nuke-style="2"] {
   background-color: var(--background-4);
   color: var(--on-background);
-  border: none;
+  border: 1px solid var(--border-color-1);
   background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right var(--space-2) center;
@@ -65,22 +65,6 @@ select[nuke-style="2"] {
 :is(body, *)[nuke-style="2"] select:focus,
 select[nuke-style="2"]:focus {
   background-color: var(--background-3);
-  box-shadow: none;
-}
-
-/* Style 3 - Strong border */
-:is(body, *)[nuke-style="3"] select,
-select[nuke-style="3"] {
-  background-color: var(--background-4);
-  color: var(--on-background);
-  border: 2px solid var(--border-color-1);
-  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right var(--space-2) center;
-}
-:is(body, *)[nuke-style="3"] select:focus,
-select[nuke-style="3"]:focus {
-  background-color: var(--background-4);
   border-color: var(--on-background);
 }
 

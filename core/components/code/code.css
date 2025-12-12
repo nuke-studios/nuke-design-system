@@ -16,18 +16,10 @@ code[nuke-style="1"] {
   border: 1px solid var(--border-color-1);
 }
 
-/* Style 2 - Filled */
+/* Style 2 - Filled with border */
 :is(body, *)[nuke-style="2"] code,
 code[nuke-style="2"] {
   background: var(--background-4);
   color: var(--on-background);
-  border: none;
-}
-
-/* Style 3 - Filled with border */
-:is(body, *)[nuke-style="3"] code,
-code[nuke-style="3"] {
-  background: var(--background-4);
-  color: var(--on-background);
-  border: 2px solid var(--border-color-1);
+  border: 1px solid var(--border-color-1);
 }

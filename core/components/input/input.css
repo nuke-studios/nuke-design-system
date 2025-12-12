@@ -65,27 +65,14 @@ input[type="search"]::placeholder {
   box-shadow: none;
 }
 
-/* Style 2 - Filled */
+/* Style 2 - Filled with border */
 :is(body, *)[nuke-style="2"] :is(input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="tel"], input[type="search"], input[type="date"], input[type="time"], input[type="datetime-local"]),
 :is(input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="tel"], input[type="search"], input[type="date"], input[type="time"], input[type="datetime-local"])[nuke-style="2"] {
   background: var(--background-4);
-  border: none;
+  border: 1px solid var(--border-color-1);
 }
 :is(body, *)[nuke-style="2"] :is(input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="tel"], input[type="search"], input[type="date"], input[type="time"], input[type="datetime-local"]):focus,
 :is(input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="tel"], input[type="search"], input[type="date"], input[type="time"], input[type="datetime-local"])[nuke-style="2"]:focus {
-  outline: none;
-  background: var(--background-3);
-  box-shadow: none;
-}
-
-/* Style 3 - Filled with border */
-:is(body, *)[nuke-style="3"] :is(input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="tel"], input[type="search"], input[type="date"], input[type="time"], input[type="datetime-local"]),
-:is(input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="tel"], input[type="search"], input[type="date"], input[type="time"], input[type="datetime-local"])[nuke-style="3"] {
-  background: var(--background-4);
-  border: 2px solid var(--border-color-1);
-}
-:is(body, *)[nuke-style="3"] :is(input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="tel"], input[type="search"], input[type="date"], input[type="time"], input[type="datetime-local"]):focus,
-:is(input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="tel"], input[type="search"], input[type="date"], input[type="time"], input[type="datetime-local"])[nuke-style="3"]:focus {
   outline: none;
   border-color: var(--on-background);
   box-shadow: none;

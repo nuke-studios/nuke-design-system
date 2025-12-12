@@ -3,7 +3,7 @@ a {
   color: var(--on-background);
   text-decoration: none;
   cursor: pointer;
-  transition: color var(--transition-fast), text-decoration var(--transition-fast);
+  transition: color var(--transition-fast);
 }
 a:hover {
   color: var(--color-1);
@@ -13,43 +13,4 @@ a:focus-visible {
   outline: 2px solid var(--color-1);
   outline-offset: 2px;
   border-radius: 2px;
-}
-
-/* Style 1 - same as default but explicit underline-offset */
-:is(body, *)[nuke-style="1"] a,
-a[nuke-style="1"] {
-  color: var(--on-background);
-  text-decoration: none;
-  text-underline-offset: 3px;
-}
-:is(body, *)[nuke-style="1"] a:hover,
-a[nuke-style="1"]:hover {
-  color: var(--color-1);
-  text-decoration: underline;
-}
-
-/* Style 2 - no underline on hover */
-:is(body, *)[nuke-style="2"] a,
-a[nuke-style="2"] {
-  color: var(--on-background);
-  text-decoration: none;
-}
-:is(body, *)[nuke-style="2"] a:hover,
-a[nuke-style="2"]:hover {
-  color: var(--color-1);
-  text-decoration: none;
-}
-
-/* Style 3 - always underlined */
-:is(body, *)[nuke-style="3"] a,
-a[nuke-style="3"] {
-  color: var(--on-background);
-  text-decoration: underline;
-  text-decoration-thickness: 0.05em;
-  text-underline-offset: 3px;
-}
-:is(body, *)[nuke-style="3"] a:hover,
-a[nuke-style="3"]:hover {
-  color: var(--color-1);
-  text-decoration: underline;
 }

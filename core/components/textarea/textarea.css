@@ -50,29 +50,16 @@ textarea[nuke-style="1"]:focus {
   border-color: var(--on-background);
 }
 
-/* Style 2 - Filled */
+/* Style 2 - Filled with border */
 :is(body, *)[nuke-style="2"] textarea,
 textarea[nuke-style="2"] {
   background: var(--background-4);
   color: var(--on-background);
-  border: none;
+  border: 1px solid var(--border-color-1);
 }
 :is(body, *)[nuke-style="2"] textarea:focus,
 textarea[nuke-style="2"]:focus {
   background: var(--background-3);
-  box-shadow: none;
-}
-
-/* Style 3 - Strong border */
-:is(body, *)[nuke-style="3"] textarea,
-textarea[nuke-style="3"] {
-  background: var(--background-4);
-  color: var(--on-background);
-  border: 2px solid var(--border-color-1);
-}
-:is(body, *)[nuke-style="3"] textarea:focus,
-textarea[nuke-style="3"]:focus {
-  background: var(--background-4);
   border-color: var(--on-background);
 }
 

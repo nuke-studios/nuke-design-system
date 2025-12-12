@@ -18,355 +18,92 @@
     </button>
   </header>
 
-  <!-- FORM CONTROLS -->
-  <section class="collection">
-    <h2 class="collection-header">Form Controls</h2>
-
-    <div class="column">
-      <div class="column-header">Style 1</div>
-
-      <div class="element">
-        <div class="element-name">&lt;button&gt;</div>
-        <button nuke-style="1">Button</button>
-      </div>
-
-      <div class="element">
-        <div class="element-name">&lt;input&gt;</div>
-        <input type="text" nuke-style="1" placeholder="Text input">
-      </div>
-
-      <div class="element">
-        <div class="element-name">&lt;select&gt;</div>
-        <select nuke-style="1">
-          <option>Option 1</option>
-          <option>Option 2</option>
-        </select>
-      </div>
-
-      <div class="element">
-        <div class="element-name">&lt;textarea&gt;</div>
-        <textarea nuke-style="1" rows="2" placeholder="Textarea"></textarea>
-      </div>
-
-      <div class="element">
-        <div class="element-name">&lt;checkbox&gt;</div>
-        <label><input type="checkbox" nuke-style="1" checked> Checkbox</label>
-      </div>
-
-      <div class="element">
-        <div class="element-name">&lt;radio&gt;</div>
-        <label><input type="radio" name="1-r" nuke-style="1" checked> Radio</label>
-      </div>
-
-      <div class="element">
-        <div class="element-name">&lt;label&gt;</div>
-        <label nuke-style="1">Label</label>
-      </div>
-
-      <div class="element">
-        <div class="element-name">&lt;range&gt;</div>
-        <input type="range" nuke-style="1" value="50">
-      </div>
-
+  <div class="component">
+    <div class="component-name">&lt;button&gt;</div>
+    <div class="component-styles">
+      <div class="style"><button nuke-style="1">Button</button></div>
+      <div class="style"><button nuke-style="2">Button</button></div>
     </div>
+  </div>
 
-    <div class="column">
-      <div class="column-header">Style 2</div>
-
-      <div class="element">
-        <div class="element-name">&lt;button&gt;</div>
-        <button nuke-style="2">Button</button>
-      </div>
-
-      <div class="element">
-        <div class="element-name">&lt;input&gt;</div>
-        <input type="text" nuke-style="2" placeholder="Text input">
-      </div>
-
-      <div class="element">
-        <div class="element-name">&lt;select&gt;</div>
-        <select nuke-style="2">
-          <option>Option 1</option>
-          <option>Option 2</option>
-        </select>
-      </div>
-
-      <div class="element">
-        <div class="element-name">&lt;textarea&gt;</div>
-        <textarea nuke-style="2" rows="2" placeholder="Textarea"></textarea>
-      </div>
-
-      <div class="element">
-        <div class="element-name">&lt;checkbox&gt;</div>
-        <label><input type="checkbox" nuke-style="2" checked> Checkbox</label>
-      </div>
-
-      <div class="element">
-        <div class="element-name">&lt;radio&gt;</div>
-        <label><input type="radio" name="2-r" nuke-style="2" checked> Radio</label>
-      </div>
-
-      <div class="element">
-        <div class="element-name">&lt;label&gt;</div>
-        <label nuke-style="2">Label</label>
-      </div>
-
-      <div class="element">
-        <div class="element-name">&lt;range&gt;</div>
-        <input type="range" nuke-style="2" value="50">
-      </div>
-
+  <div class="component">
+    <div class="component-name">&lt;input[checkbox]&gt;</div>
+    <div class="component-styles">
+      <div class="style"><label><input type="checkbox" nuke-style="1" checked> Checkbox</label></div>
+      <div class="style"><label><input type="checkbox" nuke-style="2" checked> Checkbox</label></div>
     </div>
+  </div>
 
-    <div class="column">
-      <div class="column-header">Style 3</div>
-
-      <div class="element">
-        <div class="element-name">&lt;button&gt;</div>
-        <button nuke-style="3">Button</button>
-      </div>
-
-      <div class="element">
-        <div class="element-name">&lt;input&gt;</div>
-        <input type="text" nuke-style="3" placeholder="Text input">
-      </div>
-
-      <div class="element">
-        <div class="element-name">&lt;select&gt;</div>
-        <select nuke-style="3">
-          <option>Option 1</option>
-          <option>Option 2</option>
-        </select>
-      </div>
-
-      <div class="element">
-        <div class="element-name">&lt;textarea&gt;</div>
-        <textarea nuke-style="3" rows="2" placeholder="Textarea"></textarea>
-      </div>
-
-      <div class="element">
-        <div class="element-name">&lt;checkbox&gt;</div>
-        <label><input type="checkbox" nuke-style="3" checked> Checkbox</label>
-      </div>
-
-      <div class="element">
-        <div class="element-name">&lt;radio&gt;</div>
-        <label><input type="radio" name="3-r" nuke-style="3" checked> Radio</label>
-      </div>
-
-      <div class="element">
-        <div class="element-name">&lt;label&gt;</div>
-        <label nuke-style="3">Label</label>
-      </div>
-
-      <div class="element">
-        <div class="element-name">&lt;range&gt;</div>
-        <input type="range" nuke-style="3" value="50">
-      </div>
-
+  <div class="component">
+    <div class="component-name">&lt;code&gt;</div>
+    <div class="component-styles">
+      <div class="style"><code nuke-style="1">const x = 42;</code></div>
+      <div class="style"><code nuke-style="2">const x = 42;</code></div>
     </div>
-  </section>
+  </div>
 
-  <!-- NAVIGATION -->
-  <section class="collection">
-    <h2 class="collection-header">Navigation</h2>
-
-    <div class="column">
-      <div class="element">
-        <div class="element-name">&lt;a&gt;</div>
-        <a href="#" nuke-style="1">Link</a>
-      </div>
-      <div class="element">
-        <div class="element-name">&lt;nav&gt;</div>
-        <nav nuke-style="1"><a href="#" nuke-style="1">Home</a> <a href="#" nuke-style="1">About</a></nav>
-      </div>
+  <div class="component">
+    <div class="component-name">&lt;img&gt;</div>
+    <div class="component-styles">
+      <div class="style"><img src="https://placekitten.com/200/150" nuke-style="1" alt="Kitten"></div>
+      <div class="style"><img src="https://placekitten.com/200/150" nuke-style="2" alt="Kitten"></div>
     </div>
+  </div>
 
-    <div class="column">
-      <div class="element">
-        <div class="element-name">&lt;a&gt;</div>
-        <a href="#" nuke-style="2">Link</a>
-      </div>
-      <div class="element">
-        <div class="element-name">&lt;nav&gt;</div>
-        <nav nuke-style="2"><a href="#" nuke-style="2">Home</a> <a href="#" nuke-style="2">About</a></nav>
-      </div>
+  <div class="component">
+    <div class="component-name">&lt;input&gt;</div>
+    <div class="component-styles">
+      <div class="style"><input type="text" nuke-style="1" placeholder="Text input"></div>
+      <div class="style"><input type="text" nuke-style="2" placeholder="Text input"></div>
     </div>
+  </div>
 
-    <div class="column">
-      <div class="element">
-        <div class="element-name">&lt;a&gt;</div>
-        <a href="#" nuke-style="3">Link</a>
-      </div>
-      <div class="element">
-        <div class="element-name">&lt;nav&gt;</div>
-        <nav nuke-style="3"><a href="#" nuke-style="3">Home</a> <a href="#" nuke-style="3">About</a></nav>
-      </div>
+  <div class="component">
+    <div class="component-name">&lt;nav&gt;</div>
+    <div class="component-styles">
+      <div class="style"><nav nuke-style="1"><a href="#">Home</a> <a href="#">About</a></nav></div>
+      <div class="style"><nav nuke-style="2"><a href="#">Home</a> <a href="#">About</a></nav></div>
     </div>
-  </section>
+  </div>
 
-  <!-- CONTENT -->
-  <section class="collection">
-    <h2 class="collection-header">Content</h2>
-
-    <div class="column">
-      <div class="element">
-        <div class="element-name">&lt;table&gt;</div>
-        <table nuke-style="1">
-          <thead><tr><th>Name</th><th>Val</th></tr></thead>
-          <tbody><tr><td>Item</td><td>100</td></tr></tbody>
-        </table>
-      </div>
+  <div class="component">
+    <div class="component-name">&lt;nuke-badge&gt;</div>
+    <div class="component-styles">
+      <div class="style"><nuke-badge nuke-style="1">Badge</nuke-badge></div>
+      <div class="style"><nuke-badge nuke-style="2">Badge</nuke-badge></div>
     </div>
+  </div>
 
-    <div class="column">
-      <div class="element">
-        <div class="element-name">&lt;table&gt;</div>
-        <table nuke-style="2">
-          <thead><tr><th>Name</th><th>Val</th></tr></thead>
-          <tbody><tr><td>Item</td><td>100</td></tr></tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="column">
-      <div class="element">
-        <div class="element-name">&lt;table&gt;</div>
-        <table nuke-style="3">
-          <thead><tr><th>Name</th><th>Val</th></tr></thead>
-          <tbody><tr><td>Item</td><td>100</td></tr></tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- LISTS -->
-  <section class="collection">
-    <h2 class="collection-header">Lists</h2>
-
-    <div class="column">
-      <div class="element">
-        <div class="element-name">&lt;ul&gt;</div>
-        <ul nuke-style="1"><li>Item 1</li><li>Item 2</li></ul>
-      </div>
-      <div class="element">
-        <div class="element-name">&lt;ol&gt;</div>
-        <ol nuke-style="1"><li>Item 1</li><li>Item 2</li></ol>
-      </div>
-    </div>
-
-    <div class="column">
-      <div class="element">
-        <div class="element-name">&lt;ul&gt;</div>
-        <ul nuke-style="2"><li>Item 1</li><li>Item 2</li></ul>
-      </div>
-      <div class="element">
-        <div class="element-name">&lt;ol&gt;</div>
-        <ol nuke-style="2"><li>Item 1</li><li>Item 2</li></ol>
-      </div>
-    </div>
-
-    <div class="column">
-      <div class="element">
-        <div class="element-name">&lt;ul&gt;</div>
-        <ul nuke-style="3"><li>Item 1</li><li>Item 2</li></ul>
-      </div>
-      <div class="element">
-        <div class="element-name">&lt;ol&gt;</div>
-        <ol nuke-style="3"><li>Item 1</li><li>Item 2</li></ol>
-      </div>
-    </div>
-  </section>
-
-  <!-- TEXT / CODE -->
-  <section class="collection">
-    <h2 class="collection-header">Text / Code</h2>
-
-    <div class="column">
-      <div class="element">
-        <div class="element-name">&lt;code&gt;</div>
-        <code nuke-style="1">const x = 42;</code>
-      </div>
-      <div class="element">
-        <div class="element-name">&lt;pre&gt;</div>
-        <pre nuke-style="1">code block</pre>
-      </div>
-    </div>
-
-    <div class="column">
-      <div class="element">
-        <div class="element-name">&lt;code&gt;</div>
-        <code nuke-style="2">const x = 42;</code>
-      </div>
-      <div class="element">
-        <div class="element-name">&lt;pre&gt;</div>
-        <pre nuke-style="2">code block</pre>
-      </div>
-    </div>
-
-    <div class="column">
-      <div class="element">
-        <div class="element-name">&lt;code&gt;</div>
-        <code nuke-style="3">const x = 42;</code>
-      </div>
-      <div class="element">
-        <div class="element-name">&lt;pre&gt;</div>
-        <pre nuke-style="3">code block</pre>
-      </div>
-    </div>
-  </section>
-
-  <!-- MEDIA -->
-  <section class="collection">
-    <h2 class="collection-header">Media</h2>
-
-    <div class="column">
-      <div class="element">
-        <div class="element-name">&lt;img&gt;</div>
-        <img src="https://placekitten.com/200/150" nuke-style="1" alt="Kitten">
-      </div>
-    </div>
-
-    <div class="column">
-      <div class="element">
-        <div class="element-name">&lt;img&gt;</div>
-        <img src="https://placekitten.com/200/150" nuke-style="2" alt="Kitten">
-      </div>
-    </div>
-
-    <div class="column">
-      <div class="element">
-        <div class="element-name">&lt;img&gt;</div>
-        <img src="https://placekitten.com/200/150" nuke-style="3" alt="Kitten">
-      </div>
-    </div>
-  </section>
-
-  <!-- COMPONENTS -->
-  <section class="collection">
-    <h2 class="collection-header">Components</h2>
-
-    <div class="column">
-      <div class="element">
-        <div class="element-name">&lt;nuke-badge&gt;</div>
-        <nuke-badge nuke-style="1">Badge</nuke-badge>
-      </div>
-      <div class="element">
-        <div class="element-name">&lt;nuke-card&gt;</div>
+  <div class="component">
+    <div class="component-name">&lt;nuke-card&gt;</div>
+    <div class="component-styles">
+      <div class="style">
         <nuke-card nuke-style="1">
           <nuke-card-header>Card</nuke-card-header>
           <nuke-card-content>Content</nuke-card-content>
         </nuke-card>
       </div>
-      <div class="element">
-        <div class="element-name">&lt;nuke-toolbar&gt;</div>
-        <nuke-toolbar nuke-style="1">
-          <button nuke-style="1">New</button>
-          <button nuke-style="1">Edit</button>
-        </nuke-toolbar>
+      <div class="style">
+        <nuke-card nuke-style="2">
+          <nuke-card-header>Card</nuke-card-header>
+          <nuke-card-content>Content</nuke-card-content>
+        </nuke-card>
       </div>
-      <div class="element">
-        <div class="element-name">&lt;nuke-tabs&gt;</div>
+    </div>
+  </div>
+
+  <div class="component">
+    <div class="component-name">&lt;nuke-sidebar&gt;</div>
+    <div class="component-styles">
+      <div class="style"><button nuke-style="1" onclick="showSidebar('1')">Show Sidebar</button></div>
+      <div class="style"><button nuke-style="2" onclick="showSidebar('2')">Show Sidebar</button></div>
+    </div>
+  </div>
+
+  <div class="component">
+    <div class="component-name">&lt;nuke-tabs&gt;</div>
+    <div class="component-styles">
+      <div class="style">
         <nuke-tabs nuke-style="1">
           <nuke-tab>Tab 1</nuke-tab>
           <nuke-tab>Tab 2</nuke-tab>
@@ -374,37 +111,7 @@
           <nuke-tab-panel>Content 2</nuke-tab-panel>
         </nuke-tabs>
       </div>
-      <div class="element">
-        <div class="element-name">&lt;nuke-toast&gt;</div>
-        <button nuke-style="1" onclick="showToast('1')">Show Toast</button>
-      </div>
-      <div class="element">
-        <div class="element-name">&lt;nuke-sidebar&gt;</div>
-        <button nuke-style="1" onclick="showSidebar('1')">Show Sidebar</button>
-      </div>
-    </div>
-
-    <div class="column">
-      <div class="element">
-        <div class="element-name">&lt;nuke-badge&gt;</div>
-        <nuke-badge nuke-style="2">Badge</nuke-badge>
-      </div>
-      <div class="element">
-        <div class="element-name">&lt;nuke-card&gt;</div>
-        <nuke-card nuke-style="2">
-          <nuke-card-header>Card</nuke-card-header>
-          <nuke-card-content>Content</nuke-card-content>
-        </nuke-card>
-      </div>
-      <div class="element">
-        <div class="element-name">&lt;nuke-toolbar&gt;</div>
-        <nuke-toolbar nuke-style="2">
-          <button nuke-style="2">New</button>
-          <button nuke-style="2">Edit</button>
-        </nuke-toolbar>
-      </div>
-      <div class="element">
-        <div class="element-name">&lt;nuke-tabs&gt;</div>
+      <div class="style">
         <nuke-tabs nuke-style="2">
           <nuke-tab>Tab 1</nuke-tab>
           <nuke-tab>Tab 2</nuke-tab>
@@ -412,54 +119,118 @@
           <nuke-tab-panel>Content 2</nuke-tab-panel>
         </nuke-tabs>
       </div>
-      <div class="element">
-        <div class="element-name">&lt;nuke-toast&gt;</div>
-        <button nuke-style="2" onclick="showToast('2')">Show Toast</button>
-      </div>
-      <div class="element">
-        <div class="element-name">&lt;nuke-sidebar&gt;</div>
-        <button nuke-style="2" onclick="showSidebar('2')">Show Sidebar</button>
-      </div>
     </div>
+  </div>
 
-    <div class="column">
-      <div class="element">
-        <div class="element-name">&lt;nuke-badge&gt;</div>
-        <nuke-badge nuke-style="3">Badge</nuke-badge>
-      </div>
-      <div class="element">
-        <div class="element-name">&lt;nuke-card&gt;</div>
-        <nuke-card nuke-style="3">
-          <nuke-card-header>Card</nuke-card-header>
-          <nuke-card-content>Content</nuke-card-content>
-        </nuke-card>
-      </div>
-      <div class="element">
-        <div class="element-name">&lt;nuke-toolbar&gt;</div>
-        <nuke-toolbar nuke-style="3">
-          <button nuke-style="3">New</button>
-          <button nuke-style="3">Edit</button>
+  <div class="component">
+    <div class="component-name">&lt;nuke-toast&gt;</div>
+    <div class="component-styles">
+      <div class="style"><button nuke-style="1" onclick="showToast('1')">Show Toast</button></div>
+      <div class="style"><button nuke-style="2" onclick="showToast('2')">Show Toast</button></div>
+    </div>
+  </div>
+
+  <div class="component">
+    <div class="component-name">&lt;nuke-toolbar&gt;</div>
+    <div class="component-styles">
+      <div class="style">
+        <nuke-toolbar nuke-style="1">
+          <button nuke-style="1">New</button>
+          <button nuke-style="1">Edit</button>
         </nuke-toolbar>
       </div>
-      <div class="element">
-        <div class="element-name">&lt;nuke-tabs&gt;</div>
-        <nuke-tabs nuke-style="3">
-          <nuke-tab>Tab 1</nuke-tab>
-          <nuke-tab>Tab 2</nuke-tab>
-          <nuke-tab-panel>Content 1</nuke-tab-panel>
-          <nuke-tab-panel>Content 2</nuke-tab-panel>
-        </nuke-tabs>
-      </div>
-      <div class="element">
-        <div class="element-name">&lt;nuke-toast&gt;</div>
-        <button nuke-style="3" onclick="showToast('3')">Show Toast</button>
-      </div>
-      <div class="element">
-        <div class="element-name">&lt;nuke-sidebar&gt;</div>
-        <button nuke-style="3" onclick="showSidebar('3')">Show Sidebar</button>
+      <div class="style">
+        <nuke-toolbar nuke-style="2">
+          <button nuke-style="2">New</button>
+          <button nuke-style="2">Edit</button>
+        </nuke-toolbar>
       </div>
     </div>
-  </section>
+  </div>
+
+  <div class="component">
+    <div class="component-name">&lt;ol&gt;</div>
+    <div class="component-styles">
+      <div class="style"><ol nuke-style="1"><li>Item 1</li><li>Item 2</li></ol></div>
+      <div class="style"><ol nuke-style="2"><li>Item 1</li><li>Item 2</li></ol></div>
+    </div>
+  </div>
+
+  <div class="component">
+    <div class="component-name">&lt;pre&gt;</div>
+    <div class="component-styles">
+      <div class="style"><pre nuke-style="1">code block</pre></div>
+      <div class="style"><pre nuke-style="2">code block</pre></div>
+    </div>
+  </div>
+
+  <div class="component">
+    <div class="component-name">&lt;input[radio]&gt;</div>
+    <div class="component-styles">
+      <div class="style"><label><input type="radio" name="1-r" nuke-style="1" checked> Radio</label></div>
+      <div class="style"><label><input type="radio" name="2-r" nuke-style="2" checked> Radio</label></div>
+    </div>
+  </div>
+
+  <div class="component">
+    <div class="component-name">&lt;input[range]&gt;</div>
+    <div class="component-styles">
+      <div class="style"><input type="range" nuke-style="1" value="50"></div>
+      <div class="style"><input type="range" nuke-style="2" value="50"></div>
+    </div>
+  </div>
+
+  <div class="component">
+    <div class="component-name">&lt;select&gt;</div>
+    <div class="component-styles">
+      <div class="style">
+        <select nuke-style="1">
+          <option>Option 1</option>
+          <option>Option 2</option>
+        </select>
+      </div>
+      <div class="style">
+        <select nuke-style="2">
+          <option>Option 1</option>
+          <option>Option 2</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="component">
+    <div class="component-name">&lt;table&gt;</div>
+    <div class="component-styles">
+      <div class="style">
+        <table nuke-style="1">
+          <thead><tr><th>Name</th><th>Val</th></tr></thead>
+          <tbody><tr><td>Item</td><td>100</td></tr></tbody>
+        </table>
+      </div>
+      <div class="style">
+        <table nuke-style="2">
+          <thead><tr><th>Name</th><th>Val</th></tr></thead>
+          <tbody><tr><td>Item</td><td>100</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="component">
+    <div class="component-name">&lt;textarea&gt;</div>
+    <div class="component-styles">
+      <div class="style"><textarea nuke-style="1" rows="2" placeholder="Textarea"></textarea></div>
+      <div class="style"><textarea nuke-style="2" rows="2" placeholder="Textarea"></textarea></div>
+    </div>
+  </div>
+
+  <div class="component">
+    <div class="component-name">&lt;ul&gt;</div>
+    <div class="component-styles">
+      <div class="style"><ul nuke-style="1"><li>Item 1</li><li>Item 2</li></ul></div>
+      <div class="style"><ul nuke-style="2"><li>Item 1</li><li>Item 2</li></ul></div>
+    </div>
+  </div>
 
   <script>
     function showToast(variant) {

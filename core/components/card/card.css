@@ -37,20 +37,12 @@ nuke-card[nuke-style="1"] {
   box-shadow: none;
 }
 
-/* Style 2 - Elevated */
+/* Style 2 - Filled with border */
 :is(body, *)[nuke-style="2"] nuke-card,
 nuke-card[nuke-style="2"] {
-  background: var(--background-2);
+  background: var(--background-4);
   border: 1px solid var(--border-color-1);
-  box-shadow: var(--box-shadow-1);
-}
-
-/* Style 3 - Strong elevation */
-:is(body, *)[nuke-style="3"] nuke-card,
-nuke-card[nuke-style="3"] {
-  background: var(--background-2);
-  border: 2px solid var(--border-color-1);
-  box-shadow: var(--box-shadow-2);
+  box-shadow: none;
 }
 
 /* Card without header/actions adjustments */

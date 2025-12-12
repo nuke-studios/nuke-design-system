@@ -17,19 +17,11 @@ nuke-toolbar[nuke-style="1"] {
   padding: var(--space-1);
 }
 
-/* Style 2 - Filled */
+/* Style 2 - Filled with border */
 :is(body, *)[nuke-style="2"] nuke-toolbar,
 nuke-toolbar[nuke-style="2"] {
   background: var(--background-4);
-  border: none;
-  padding: var(--space-1);
-}
-
-/* Style 3 - Filled with border */
-:is(body, *)[nuke-style="3"] nuke-toolbar,
-nuke-toolbar[nuke-style="3"] {
-  background: var(--background-4);
-  border: 2px solid var(--border-color-1);
+  border: 1px solid var(--border-color-1);
   padding: var(--space-1);
 }
 

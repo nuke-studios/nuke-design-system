@@ -43,50 +43,26 @@ table[nuke-style="1"] tbody tr:last-child {
   border-bottom: none;
 }
 
-/* Style 2 - Filled */
+/* Style 2 - Filled with border */
 :is(body, *)[nuke-style="2"] table,
 table[nuke-style="2"] {
   background: var(--background-4);
-  border: none;
+  border: 1px solid var(--border-color-1);
 }
 :is(body, *)[nuke-style="2"] table thead,
 table[nuke-style="2"] thead {
   background: var(--background-3);
-  border: none;
+  border-bottom: 1px solid var(--border-color-1);
 }
 :is(body, *)[nuke-style="2"] table tbody tr,
 table[nuke-style="2"] tbody tr {
-  border: none;
+  border-bottom: 1px solid var(--border-color-1);
+}
+:is(body, *)[nuke-style="2"] table tbody tr:last-child,
+table[nuke-style="2"] tbody tr:last-child {
+  border-bottom: none;
 }
 :is(body, *)[nuke-style="2"] table tbody tr:hover,
 table[nuke-style="2"] tbody tr:hover {
   background: var(--background-3);
-}
-
-/* Style 3 - Filled with border */
-:is(body, *)[nuke-style="3"] table,
-table[nuke-style="3"] {
-  background: var(--background-4);
-  border: 2px solid var(--border-color-1);
-}
-:is(body, *)[nuke-style="3"] table thead,
-table[nuke-style="3"] thead {
-  background: var(--background-3);
-  border-bottom: 2px solid var(--border-color-1);
-}
-:is(body, *)[nuke-style="3"] table th,
-table[nuke-style="3"] th {
-  border-right: 2px solid var(--border-color-1);
-}
-:is(body, *)[nuke-style="3"] table th:last-child,
-table[nuke-style="3"] th:last-child {
-  border-right: none;
-}
-:is(body, *)[nuke-style="3"] table td,
-table[nuke-style="3"] td {
-  border-right: 2px solid var(--border-color-1);
-}
-:is(body, *)[nuke-style="3"] table td:last-child,
-table[nuke-style="3"] td:last-child {
-  border-right: none;
 }

@@ -66,20 +66,11 @@ nuke-toast[nuke-style="1"] {
   box-shadow: none;
 }
 
-/* Style 2 - Shadow, no border */
+/* Style 2 - Filled with border */
 :is(body, *)[nuke-style="2"] nuke-toast,
 nuke-toast[nuke-style="2"] {
-  background: var(--background-2);
+  background: var(--background-4);
   color: var(--on-background);
-  border: none;
-  box-shadow: var(--box-shadow-2);
-}
-
-/* Style 3 - Strong border with shadow */
-:is(body, *)[nuke-style="3"] nuke-toast,
-nuke-toast[nuke-style="3"] {
-  background: var(--background-2);
-  color: var(--on-background);
-  border: 2px solid var(--border-color-1);
-  box-shadow: var(--box-shadow-3);
+  border: 1px solid var(--border-color-1);
+  box-shadow: none;
 }

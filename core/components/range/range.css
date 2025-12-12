@@ -82,23 +82,25 @@ input[type="range"][nuke-style="1"]::-moz-range-thumb {
   border: 1px solid var(--on-background);
 }
 
-/* Style 2 - Medium track, no border */
+/* Style 2 - Filled with border */
 :is(body, *)[nuke-style="2"] input[type="range"]::-webkit-slider-runnable-track,
 input[type="range"][nuke-style="2"]::-webkit-slider-runnable-track {
   height: calc(var(--height-1) / 5);
-  background: var(--background-3);
+  background: var(--background-4);
+  border: 1px solid var(--border-color-1);
 }
 :is(body, *)[nuke-style="2"] input[type="range"]::-moz-range-track,
 input[type="range"][nuke-style="2"]::-moz-range-track {
   height: calc(var(--height-1) / 5);
-  background: var(--background-3);
+  background: var(--background-4);
+  border: 1px solid var(--border-color-1);
 }
 :is(body, *)[nuke-style="2"] input[type="range"]::-webkit-slider-thumb,
 input[type="range"][nuke-style="2"]::-webkit-slider-thumb {
   width: var(--height-1);
   height: var(--height-1);
   background: var(--on-background);
-  border: none;
+  border: 1px solid var(--border-color-1);
   margin-top: calc((calc(var(--height-1) / 5) - var(--height-1)) / 2);
 }
 :is(body, *)[nuke-style="2"] input[type="range"]::-moz-range-thumb,
@@ -106,34 +108,5 @@ input[type="range"][nuke-style="2"]::-moz-range-thumb {
   width: var(--height-1);
   height: var(--height-1);
   background: var(--on-background);
-  border: none;
-}
-
-/* Style 3 - Thick track with border */
-:is(body, *)[nuke-style="3"] input[type="range"]::-webkit-slider-runnable-track,
-input[type="range"][nuke-style="3"]::-webkit-slider-runnable-track {
-  height: calc(var(--height-1) / 3.75);
-  background: var(--background-3);
   border: 1px solid var(--border-color-1);
-}
-:is(body, *)[nuke-style="3"] input[type="range"]::-moz-range-track,
-input[type="range"][nuke-style="3"]::-moz-range-track {
-  height: calc(var(--height-1) / 3.75);
-  background: var(--background-3);
-  border: 1px solid var(--border-color-1);
-}
-:is(body, *)[nuke-style="3"] input[type="range"]::-webkit-slider-thumb,
-input[type="range"][nuke-style="3"]::-webkit-slider-thumb {
-  width: calc(var(--height-1) * 1.2);
-  height: calc(var(--height-1) * 1.2);
-  background: var(--on-background);
-  border: 2px solid var(--border-color-1);
-  margin-top: calc((calc(var(--height-1) / 3.75) - calc(var(--height-1) * 1.2)) / 2);
-}
-:is(body, *)[nuke-style="3"] input[type="range"]::-moz-range-thumb,
-input[type="range"][nuke-style="3"]::-moz-range-thumb {
-  width: calc(var(--height-1) * 1.2);
-  height: calc(var(--height-1) * 1.2);
-  background: var(--on-background);
-  border: 2px solid var(--border-color-1);
 }
