@@ -40,13 +40,18 @@
   "items": [
     {
       "id": "instruction-1",
-      "title": "Component File Split",
-      "description": "Every component has 2 files: [name].css (core logic - selectors, structure) and [name].theme.css (tokens - colors, spacing). Never put colors or spacing in core CSS."
+      "title": "Component Structure",
+      "description": "Each component has a single [name].css file with: reset styles, base styles, and style variants (nuke-style='1/2/3'). Use design tokens directly from style.css - no component-specific variables."
     },
     {
       "id": "instruction-2",
       "title": "Web Components",
       "description": "Web components use Lit. They enhance native elements, not replace them. CSS works without JS, components add interactivity."
+    },
+    {
+      "id": "instruction-3",
+      "title": "Token Naming",
+      "description": "Always use 1-2-3 suffix pattern for tokens (e.g., --border-radius-1, --z-index-2, --width-3). Never use semantic names like --button-bg or --input-border."
     }
   ]
 }

@@ -45,19 +45,13 @@
       "id": "cmd-1",
       "title": "Build All",
       "run": "bun run build",
-      "why": "Clean build: theme + CSS bundle + TypeScript"
+      "why": "Full build: CSS bundle + TypeScript web components"
     },
     {
       "id": "cmd-2",
       "title": "Build Watch",
       "run": "bun run build:watch",
       "why": "Incremental builds during development"
-    },
-    {
-      "id": "cmd-3",
-      "title": "Build Theme Only",
-      "run": "bun run build:theme",
-      "why": "Extract .theme.css files to dist/nuke-theme/"
     }
   ]
 }
