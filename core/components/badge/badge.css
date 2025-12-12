@@ -26,10 +26,10 @@ nuke-badge[nuke-style="2"] {
   border: none;
 }
 
-/* Style 3 - Inverted */
+/* Style 3 - Filled with border */
 :is(body, *)[nuke-style="3"] nuke-badge,
 nuke-badge[nuke-style="3"] {
-  background: var(--on-background);
-  color: var(--background-1);
-  border: 1px solid var(--on-background);
+  background: var(--background-4);
+  color: var(--on-background);
+  border: 2px solid var(--border-color-1);
 }

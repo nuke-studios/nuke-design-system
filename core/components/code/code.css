@@ -8,26 +8,26 @@ code {
   border-radius: var(--border-radius-1);
 }
 
-/* Style 1 - With border */
+/* Style 1 - Outlined */
 :is(body, *)[nuke-style="1"] code,
 code[nuke-style="1"] {
-  background: var(--background-3);
+  background: transparent;
   color: var(--on-background);
   border: 1px solid var(--border-color-1);
 }
 
-/* Style 2 - No border */
+/* Style 2 - Filled */
 :is(body, *)[nuke-style="2"] code,
 code[nuke-style="2"] {
-  background: var(--background-3);
+  background: var(--background-4);
   color: var(--on-background);
   border: none;
 }
 
-/* Style 3 - Subtle */
+/* Style 3 - Filled with border */
 :is(body, *)[nuke-style="3"] code,
 code[nuke-style="3"] {
-  background: var(--background-2);
+  background: var(--background-4);
   color: var(--on-background);
-  border: 1px solid var(--border-color-1);
+  border: 2px solid var(--border-color-1);
 }

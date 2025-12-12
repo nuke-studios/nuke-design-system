@@ -9,28 +9,27 @@ nuke-toolbar {
   flex-wrap: wrap;
 }
 
-/* Style 1 - Underlined */
+/* Style 1 - Outlined */
 :is(body, *)[nuke-style="1"] nuke-toolbar,
 nuke-toolbar[nuke-style="1"] {
   background: transparent;
-  border: none;
-  border-bottom: 1px solid var(--border-color-1);
-  padding: var(--space-1) 0;
+  border: 1px solid var(--border-color-1);
+  padding: var(--space-1);
 }
 
 /* Style 2 - Filled */
 :is(body, *)[nuke-style="2"] nuke-toolbar,
 nuke-toolbar[nuke-style="2"] {
-  background: var(--background-3);
+  background: var(--background-4);
   border: none;
   padding: var(--space-1);
 }
 
-/* Style 3 - Bordered */
+/* Style 3 - Filled with border */
 :is(body, *)[nuke-style="3"] nuke-toolbar,
 nuke-toolbar[nuke-style="3"] {
-  background: var(--background-2);
-  border: 1px solid var(--border-color-1);
+  background: var(--background-4);
+  border: 2px solid var(--border-color-1);
   padding: var(--space-1);
 }
 
