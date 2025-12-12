@@ -44,13 +44,13 @@
     {
       "id": "cmd-1",
       "title": "Build All",
-      "run": "bun run build",
+      "run": "npm run build",
       "why": "Full build: CSS bundle + TypeScript web components"
     },
     {
       "id": "cmd-2",
       "title": "Build Watch",
-      "run": "bun run build:watch",
+      "run": "npm run build:watch",
       "why": "Incremental builds during development"
     }
   ]

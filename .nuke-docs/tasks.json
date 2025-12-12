@@ -64,7 +64,7 @@
     {
       "id": "task-1",
       "title": "Change bun to npm as builder",
-      "status": "new",
+      "status": "completed",
       "priority": "high",
       "description": "Replace bun with npm for build scripts"
     },

@@ -27,16 +27,17 @@
   "module": "dist/core.js",
   "type": "module",
   "scripts": {
-    "build": "bun run build:clean && bun run build:css && bun run build:ts",
+    "build": "npm run build:clean && npm run build:css && npm run build:ts",
     "build:watch": "node .scripts/watch-incremental.js",
     "build:clean": "mkdir -p dist/types",
-    "build:ts": "tsc && bun build core/core.ts --outdir dist --format esm",
+    "build:ts": "tsc && esbuild core/core.ts --bundle --format=esm --outfile=dist/core.js --external:lit",
     "build:css": "node .scripts/bundle-core-css.js"
   },
   "dependencies": {
     "lit": "^3.0.0"
   },
   "devDependencies": {
+    "esbuild": "^0.24.0",
     "typescript": "^5.0.0"
   },
   "files": [
