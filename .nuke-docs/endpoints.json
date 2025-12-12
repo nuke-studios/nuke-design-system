@@ -9,6 +9,32 @@
       },
       "items": {
         "items": {
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "id": {
+              "pattern": "^endpoint-[0-9]+$",
+              "type": "string"
+            },
+            "method": {
+              "enum": [
+                "GET",
+                "POST",
+                "PUT",
+                "DELETE",
+                "PATCH",
+                "CALL"
+              ],
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
           "required": [
             "id",
             "title",

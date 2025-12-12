@@ -9,6 +9,21 @@
       },
       "items": {
         "items": {
+          "properties": {
+            "id": {
+              "pattern": "^cmd-[0-9]+$",
+              "type": "string"
+            },
+            "run": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "why": {
+              "type": "string"
+            }
+          },
           "required": [
             "id",
             "title",
@@ -27,19 +42,19 @@
   },
   "items": [
     {
-      "id": "c1",
+      "id": "cmd-1",
       "title": "Build All",
       "run": "bun run build",
       "why": "Clean build: theme + CSS bundle + TypeScript"
     },
     {
-      "id": "c2",
+      "id": "cmd-2",
       "title": "Build Watch",
       "run": "bun run build:watch",
       "why": "Incremental builds during development"
     },
     {
-      "id": "c3",
+      "id": "cmd-3",
       "title": "Build Theme Only",
       "run": "bun run build:theme",
       "why": "Extract .theme.css files to dist/nuke-theme/"

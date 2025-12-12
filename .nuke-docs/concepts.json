@@ -9,6 +9,21 @@
       },
       "items": {
         "items": {
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "details": {
+              "type": "object"
+            },
+            "id": {
+              "pattern": "^concept-[0-9]+$",
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
           "required": [
             "id",
             "title"
@@ -26,12 +41,15 @@
   },
   "items": [
     {
-      "id": "s1",
+      "id": "concept-1",
       "title": "The Magic Layer (Theme Extraction)",
       "details": {
         "concept": "The design system splits into two parts: core (package-owned) and theme (user-owned)",
         "core_layer": {
-          "files": ["core.css", "core.js"],
+          "files": [
+            "core.css",
+            "core.js"
+          ],
           "location": "node_modules/@nuke.dev/design-system/dist/",
           "purpose": "Component logic, selectors, structure - NOT meant to be edited",
           "stays_in": "node_modules"
@@ -46,14 +64,17 @@
         "theme_layer": {
           "destination": "User's project (e.g. ./nuke-theme/ or ./src/nuke-theme/)",
           "extracted_by": "postinstall.js (on npm install) or manual copy (on npm link)",
-          "files": ["style.css", "components/*.theme.css"],
+          "files": [
+            "style.css",
+            "components/*.theme.css"
+          ],
           "purpose": "Design tokens, colors, spacing - FULLY customizable by user",
           "source": "dist/nuke-theme/"
         }
       }
     },
     {
-      "id": "s2",
+      "id": "concept-2",
       "title": "Build System",
       "details": {
         "build_output": {
@@ -77,13 +98,13 @@
       }
     },
     {
-      "id": "s3",
+      "id": "concept-3",
       "title": "NPM Install Flow",
       "details": {
         "after_install": {
           "customize": "Edit nuke-theme/style.css for tokens, nuke-theme/components/*.theme.css for component styles",
-          "import_css": "<link rel=\"stylesheet\" href=\"./nuke-theme/style.css\">",
-          "import_js": "<script type=\"module\" src=\"node_modules/@nuke.dev/design-system/dist/core.js\"></script>"
+          "import_css": "\u003clink rel=\"stylesheet\" href=\"./nuke-theme/style.css\"\u003e",
+          "import_js": "\u003cscript type=\"module\" src=\"node_modules/@nuke.dev/design-system/dist/core.js\"\u003e\u003c/script\u003e"
         },
         "package_name": "@nuke.dev/design-system",
         "steps": [
@@ -96,14 +117,16 @@
       }
     },
     {
-      "id": "s4",
+      "id": "concept-4",
       "title": "NPM Link Flow (Local Dev)",
       "details": {
         "consumer_import_order": "1) nuke-theme/style.css (base) 2) app-specific overrides (global.css)",
-        "linked_projects": ["nuke-commander/frontend"],
+        "linked_projects": [
+          "nuke-commander/frontend"
+        ],
         "steps": [
-          "1. cd nuke-design-system && npm link",
-          "2. cd consumer/frontend && npm link @nuke.dev/design-system",
+          "1. cd nuke-design-system \u0026\u0026 npm link",
+          "2. cd consumer/frontend \u0026\u0026 npm link @nuke.dev/design-system",
           "3. Manually copy dist/nuke-theme/ to consumer's src/",
           "4. Fix the import in copied style.css: change @import '../core.css' to @import '@nuke.dev/design-system/dist/core.css'"
         ],

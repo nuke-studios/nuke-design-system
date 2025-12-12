@@ -9,6 +9,18 @@
       },
       "items": {
         "items": {
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "id": {
+              "pattern": "^dep-[0-9]+$",
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
           "required": [
             "id",
             "title"

@@ -9,6 +9,18 @@
       },
       "items": {
         "items": {
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "id": {
+              "pattern": "^stack-[0-9]+$",
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
           "required": [
             "id",
             "title"
@@ -26,17 +38,17 @@
   },
   "items": [
     {
-      "id": "st1",
+      "id": "stack-1",
       "title": "TypeScript",
       "description": "Primary language"
     },
     {
-      "id": "st2",
+      "id": "stack-2",
       "title": "Lit",
       "description": "Web component framework"
     },
     {
-      "id": "st3",
+      "id": "stack-3",
       "title": "Node/Bun",
       "description": "Runtime environment"
     }

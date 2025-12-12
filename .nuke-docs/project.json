@@ -28,6 +28,12 @@
             "type": "string"
           },
           "type": {
+            "enum": [
+              "app",
+              "lib",
+              "cli",
+              "desktop"
+            ],
             "type": "string"
           }
         },
