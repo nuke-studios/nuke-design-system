@@ -1,64 +1,38 @@
 /* ============================================
-   NUKE DESIGN SYSTEM - Core
-   Pure logic, NO variables defined
-   Variables come from index.style.css
+   NUKE DESIGN SYSTEM
+   Element-first CSS with .style-1/2/3 variants
 ============================================ */
 
-/* Components core */
-@import './components/a/a.core.css';
-@import './components/button/button.core.css';
-@import './components/checkbox/checkbox.core.css';
-@import './components/code/code.core.css';
-@import './components/details/details.core.css';
-@import './components/dialog/dialog.core.css';
-@import './components/hr/hr.core.css';
-@import './components/img/img.core.css';
-@import './components/input/input.core.css';
-@import './components/label/label.core.css';
-@import './components/nav/nav.core.css';
-@import './components/ol/ol.core.css';
-@import './components/pre/pre.core.css';
-@import './components/progress/progress.core.css';
-@import './components/radio/radio.core.css';
-@import './components/range/range.core.css';
-@import './components/select/select.core.css';
-@import './components/table/table.core.css';
-@import './components/textarea/textarea.core.css';
-@import './components/ul/ul.core.css';
-@import './components/badge/badge.core.css';
-@import './components/card/card.core.css';
-@import './components/sidebar/sidebar.core.css';
-@import './components/tabs/tabs.core.css';
-@import './components/toast/toast.core.css';
-@import './components/toolbar/toolbar.core.css';
+/* Design tokens (fonts, colors, spacing, themes) */
+@import './style.css';
 
-/* Components theme */
-@import './components/a/a.theme.css';
-@import './components/badge/badge.theme.css';
-@import './components/button/button.theme.css';
-@import './components/card/card.theme.css';
-@import './components/checkbox/checkbox.theme.css';
-@import './components/code/code.theme.css';
-@import './components/details/details.theme.css';
-@import './components/dialog/dialog.theme.css';
-@import './components/hr/hr.theme.css';
-@import './components/img/img.theme.css';
-@import './components/input/input.theme.css';
-@import './components/label/label.theme.css';
-@import './components/nav/nav.theme.css';
-@import './components/ol/ol.theme.css';
-@import './components/pre/pre.theme.css';
-@import './components/progress/progress.theme.css';
-@import './components/radio/radio.theme.css';
-@import './components/range/range.theme.css';
-@import './components/select/select.theme.css';
-@import './components/sidebar/sidebar.theme.css';
-@import './components/table/table.theme.css';
-@import './components/tabs/tabs.theme.css';
-@import './components/textarea/textarea.theme.css';
-@import './components/toast/toast.theme.css';
-@import './components/toolbar/toolbar.theme.css';
-@import './components/ul/ul.theme.css';
+/* Components */
+@import './components/a/a.css';
+@import './components/badge/badge.css';
+@import './components/button/button.css';
+@import './components/card/card.css';
+@import './components/checkbox/checkbox.css';
+@import './components/code/code.css';
+@import './components/details/details.css';
+@import './components/dialog/dialog.css';
+@import './components/hr/hr.css';
+@import './components/img/img.css';
+@import './components/input/input.css';
+@import './components/label/label.css';
+@import './components/nav/nav.css';
+@import './components/ol/ol.css';
+@import './components/pre/pre.css';
+@import './components/progress/progress.css';
+@import './components/radio/radio.css';
+@import './components/range/range.css';
+@import './components/select/select.css';
+@import './components/sidebar/sidebar.css';
+@import './components/table/table.css';
+@import './components/tabs/tabs.css';
+@import './components/textarea/textarea.css';
+@import './components/toast/toast.css';
+@import './components/toolbar/toolbar.css';
+@import './components/ul/ul.css';
 
 /* Reset default browser styles */
 *, *::before, *::after {

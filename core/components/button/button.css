@@ -1,0 +1,104 @@
+/* Button - Reset */
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Button - Base */
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  padding: 0 var(--space-2);
+  height: var(--height-2);
+  font-size: var(--font-size-1);
+  font-weight: 500;
+  white-space: nowrap;
+  border-radius: var(--border-radius-1);
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+  text-align: center;
+  text-decoration: none;
+  line-height: 1;
+}
+
+/* Style 1 - Ghost/outlined */
+:is(body, *)[nuke-style="1"] :is(button, input[type="button"], input[type="submit"], input[type="reset"]),
+:is(button, input[type="button"], input[type="submit"], input[type="reset"])[nuke-style="1"] {
+  background: transparent;
+  color: var(--on-background);
+  border: 1px solid var(--border-color-2);
+}
+:is(body, *)[nuke-style="1"] :is(button, input[type="button"], input[type="submit"], input[type="reset"]):hover,
+:is(body, *)[nuke-style="1"] :is(button, input[type="button"], input[type="submit"], input[type="reset"]):focus,
+:is(button, input[type="button"], input[type="submit"], input[type="reset"])[nuke-style="1"]:hover,
+:is(button, input[type="button"], input[type="submit"], input[type="reset"])[nuke-style="1"]:focus {
+  background: var(--background-3);
+  color: var(--on-background);
+}
+
+/* Style 2 - Filled */
+:is(body, *)[nuke-style="2"] :is(button, input[type="button"], input[type="submit"], input[type="reset"]),
+:is(button, input[type="button"], input[type="submit"], input[type="reset"])[nuke-style="2"] {
+  background: var(--background-4);
+  color: var(--on-background);
+  border: none;
+}
+:is(body, *)[nuke-style="2"] :is(button, input[type="button"], input[type="submit"], input[type="reset"]):hover,
+:is(body, *)[nuke-style="2"] :is(button, input[type="button"], input[type="submit"], input[type="reset"]):focus,
+:is(button, input[type="button"], input[type="submit"], input[type="reset"])[nuke-style="2"]:hover,
+:is(button, input[type="button"], input[type="submit"], input[type="reset"])[nuke-style="2"]:focus {
+  background: var(--background-3);
+  color: var(--on-background);
+}
+
+/* Style 3 - Filled with border */
+:is(body, *)[nuke-style="3"] :is(button, input[type="button"], input[type="submit"], input[type="reset"]),
+:is(button, input[type="button"], input[type="submit"], input[type="reset"])[nuke-style="3"] {
+  background: var(--background-4);
+  color: var(--on-background);
+  border: 2px solid var(--border-color-2);
+}
+:is(body, *)[nuke-style="3"] :is(button, input[type="button"], input[type="submit"], input[type="reset"]):hover,
+:is(body, *)[nuke-style="3"] :is(button, input[type="button"], input[type="submit"], input[type="reset"]):focus,
+:is(button, input[type="button"], input[type="submit"], input[type="reset"])[nuke-style="3"]:hover,
+:is(button, input[type="button"], input[type="submit"], input[type="reset"])[nuke-style="3"]:focus {
+  background: var(--background-3);
+  color: var(--on-background);
+  border-color: var(--border-color-2);
+}
+
+/* Focus & Disabled states */
+button:focus-visible,
+input[type="button"]:focus-visible,
+input[type="submit"]:focus-visible,
+input[type="reset"]:focus-visible {
+  outline: 2px solid var(--color-1);
+  outline-offset: 2px;
+}
+button:disabled,
+button[disabled],
+input[type="button"]:disabled,
+input[type="submit"]:disabled,
+input[type="reset"]:disabled {
+  opacity: var(--opacity-disabled);
+  cursor: not-allowed;
+  pointer-events: none;
+}

@@ -1,0 +1,43 @@
+/* Preformatted text */
+pre {
+  margin: 0 0 var(--space-2) 0;
+  padding: var(--space-2);
+  background: var(--background-3);
+  color: var(--on-background);
+  font-family: var(--family-mono);
+  font-size: var(--font-size-1);
+  line-height: var(--line-height-2);
+  border-radius: var(--border-radius-1);
+  overflow-x: auto;
+}
+pre code {
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  color: inherit;
+}
+
+/* Style 1 - With border */
+:is(body, *)[nuke-style="1"] pre,
+pre[nuke-style="1"] {
+  background: var(--background-3);
+  color: var(--on-background);
+  border: 1px solid var(--border-color-1);
+}
+
+/* Style 2 - No border */
+:is(body, *)[nuke-style="2"] pre,
+pre[nuke-style="2"] {
+  background: var(--background-3);
+  color: var(--on-background);
+  border: none;
+}
+
+/* Style 3 - Subtle background with strong border */
+:is(body, *)[nuke-style="3"] pre,
+pre[nuke-style="3"] {
+  background: var(--background-2);
+  color: var(--on-background);
+  border: 2px solid var(--border-color-1);
+}

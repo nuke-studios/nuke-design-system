@@ -1,0 +1,84 @@
+/* Textarea - Reset */
+textarea {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  width: 100%;
+  resize: vertical;
+}
+
+/* Textarea - Base */
+textarea {
+  display: block;
+  width: 100%;
+  min-height: 120px;
+  padding: var(--space-2);
+  font-size: var(--font-size-2);
+  line-height: var(--line-height-2);
+  color: var(--on-background);
+  background: var(--background-4);
+  border: 1px solid var(--border-color-1);
+  border-radius: var(--border-radius-1);
+  transition:
+    border-color var(--transition-fast),
+    background-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+textarea::placeholder {
+  color: var(--on-background-light);
+}
+textarea:focus {
+  outline: none;
+  border-color: var(--on-background);
+  box-shadow: 0 0 0 3px hsla(210, 100%, 50%, 0.1);
+}
+
+/* Style 1 - Outlined */
+:is(body, *)[nuke-style="1"] textarea,
+textarea[nuke-style="1"] {
+  background: transparent;
+  color: var(--on-background);
+  border: 1px solid var(--border-color-2);
+}
+:is(body, *)[nuke-style="1"] textarea:focus,
+textarea[nuke-style="1"]:focus {
+  background: var(--background-2);
+  border-color: var(--on-background);
+}
+
+/* Style 2 - Filled */
+:is(body, *)[nuke-style="2"] textarea,
+textarea[nuke-style="2"] {
+  background: var(--background-4);
+  color: var(--on-background);
+  border: none;
+}
+:is(body, *)[nuke-style="2"] textarea:focus,
+textarea[nuke-style="2"]:focus {
+  background: var(--background-3);
+  box-shadow: none;
+}
+
+/* Style 3 - Strong border */
+:is(body, *)[nuke-style="3"] textarea,
+textarea[nuke-style="3"] {
+  background: var(--background-4);
+  color: var(--on-background);
+  border: 2px solid var(--border-color-1);
+}
+:is(body, *)[nuke-style="3"] textarea:focus,
+textarea[nuke-style="3"]:focus {
+  background: var(--background-4);
+  border-color: var(--on-background);
+}
+
+/* Disabled */
+textarea:disabled {
+  opacity: var(--opacity-disabled);
+  cursor: not-allowed;
+  resize: none;
+}

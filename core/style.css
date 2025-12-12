@@ -1,5 +1,7 @@
-/* IMPORTANT: Adjust this path to match your node_modules location */
-@import 'nuke-theme/core.css';
+/* ============================================
+   NUKE DESIGN SYSTEM - Design Tokens
+   Fonts, colors, spacing, light/dark themes
+============================================ */
 
 :root {
   --family-1: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
@@ -22,8 +24,16 @@
   --height-1: 30px;
   --height-2: 36px;
   --height-3: 70px;
-  --border-radius-1: 5px;
-  --border-radius-2: 14px;
+  --border-radius-1: 3px;
+  --border-radius-2: 5px;
+  --border-radius-3: 14px;
+  --opacity-disabled: 0.5;
+  --z-index-1: 100;
+  --z-index-2: 500;
+  --z-index-3: 1000;
+  --width-1: 280px;
+  --width-2: 500px;
+  --width-3: 768px;
   --transition-fast: 0.2s ease-in-out;
   --transition-medium: 0.3s ease-in-out;
   --transition-slow: 0.5s ease-in-out;

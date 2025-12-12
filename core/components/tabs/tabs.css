@@ -1,0 +1,106 @@
+/* Tabs */
+nuke-tabs {
+  display: block;
+}
+nuke-tab {
+  display: inline-block;
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-medium);
+  color: var(--on-background-light);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+  margin-right: var(--space-1);
+}
+nuke-tab:hover {
+  color: var(--on-background);
+}
+nuke-tab[aria-selected="true"] {
+  color: var(--on-background);
+}
+nuke-tab:focus {
+  outline: 2px solid var(--color-1);
+  outline-offset: 2px;
+}
+nuke-tab-panel {
+  display: block;
+  padding: var(--space-2);
+}
+nuke-tab-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* Style 1 - Underline */
+:is(body, *)[nuke-style="1"] nuke-tabs,
+nuke-tabs[nuke-style="1"] {
+  border-bottom: none;
+}
+:is(body, *)[nuke-style="1"] nuke-tabs nuke-tab,
+nuke-tabs[nuke-style="1"] nuke-tab {
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  margin-bottom: -1px;
+}
+:is(body, *)[nuke-style="1"] nuke-tabs nuke-tab:hover,
+nuke-tabs[nuke-style="1"] nuke-tab:hover {
+  background: transparent;
+}
+:is(body, *)[nuke-style="1"] nuke-tabs nuke-tab[aria-selected="true"],
+nuke-tabs[nuke-style="1"] nuke-tab[aria-selected="true"] {
+  border-bottom: 1px solid var(--on-background);
+}
+
+/* Style 2 - Pill */
+:is(body, *)[nuke-style="2"] nuke-tabs,
+nuke-tabs[nuke-style="2"] {
+  background: transparent;
+}
+:is(body, *)[nuke-style="2"] nuke-tabs nuke-tab,
+nuke-tabs[nuke-style="2"] nuke-tab {
+  background: transparent;
+  border-radius: var(--border-radius-1);
+}
+:is(body, *)[nuke-style="2"] nuke-tabs nuke-tab:hover,
+nuke-tabs[nuke-style="2"] nuke-tab:hover {
+  background: var(--background-3);
+}
+:is(body, *)[nuke-style="2"] nuke-tabs nuke-tab[aria-selected="true"],
+nuke-tabs[nuke-style="2"] nuke-tab[aria-selected="true"] {
+  background: var(--background-3);
+  color: var(--on-background);
+}
+:is(body, *)[nuke-style="2"] nuke-tabs nuke-tab-panel,
+nuke-tabs[nuke-style="2"] nuke-tab-panel {
+  background: var(--background-2);
+}
+
+/* Style 3 - Boxed */
+:is(body, *)[nuke-style="3"] nuke-tabs,
+nuke-tabs[nuke-style="3"] {
+  border: none;
+}
+:is(body, *)[nuke-style="3"] nuke-tabs nuke-tab,
+nuke-tabs[nuke-style="3"] nuke-tab {
+  background: var(--background-3);
+  border: 2px solid var(--border-color-1);
+  border-radius: var(--border-radius-1) var(--border-radius-1) 0 0;
+  margin-right: var(--space-1);
+  margin-bottom: -2px;
+}
+:is(body, *)[nuke-style="3"] nuke-tabs nuke-tab[aria-selected="true"],
+nuke-tabs[nuke-style="3"] nuke-tab[aria-selected="true"] {
+  background: var(--background-2);
+  border: 2px solid var(--border-color-1);
+  border-bottom-color: var(--background-2);
+}
+:is(body, *)[nuke-style="3"] nuke-tabs nuke-tab-panel,
+nuke-tabs[nuke-style="3"] nuke-tab-panel {
+  background: var(--background-2);
+  border-left: 2px solid var(--border-color-1);
+  border-bottom: 2px solid var(--border-color-1);
+  border-right: 2px solid var(--border-color-1);
+  box-shadow: var(--box-shadow-2);
+}

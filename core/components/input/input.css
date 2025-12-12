@@ -1,0 +1,109 @@
+/* Input - Reset */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="url"],
+input[type="tel"],
+input[type="search"],
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"] {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  width: 100%;
+}
+
+/* Input - Base */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="url"],
+input[type="tel"],
+input[type="search"],
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"] {
+  display: block;
+  width: 100%;
+  height: var(--height-2);
+  padding: 0 var(--space-2);
+  font-size: var(--font-size-2);
+  color: var(--on-background);
+  border-radius: var(--border-radius-1);
+  transition:
+    border-color var(--transition-fast),
+    background-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder,
+input[type="number"]::placeholder,
+input[type="url"]::placeholder,
+input[type="tel"]::placeholder,
+input[type="search"]::placeholder {
+  color: var(--on-background-light);
+}
+
+/* Style 1 - Underlined */
+:is(body, *)[nuke-style="1"] :is(input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="tel"], input[type="search"], input[type="date"], input[type="time"], input[type="datetime-local"]),
+:is(input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="tel"], input[type="search"], input[type="date"], input[type="time"], input[type="datetime-local"])[nuke-style="1"] {
+  background: transparent;
+  border: 1px solid transparent;
+  border-bottom: 1px solid var(--border-color-2);
+  border-radius: 0;
+}
+:is(body, *)[nuke-style="1"] :is(input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="tel"], input[type="search"], input[type="date"], input[type="time"], input[type="datetime-local"]):focus,
+:is(input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="tel"], input[type="search"], input[type="date"], input[type="time"], input[type="datetime-local"])[nuke-style="1"]:focus {
+  outline: none;
+  border-bottom-color: var(--on-background);
+  box-shadow: none;
+}
+
+/* Style 2 - Filled */
+:is(body, *)[nuke-style="2"] :is(input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="tel"], input[type="search"], input[type="date"], input[type="time"], input[type="datetime-local"]),
+:is(input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="tel"], input[type="search"], input[type="date"], input[type="time"], input[type="datetime-local"])[nuke-style="2"] {
+  background: var(--background-4);
+  border: none;
+}
+:is(body, *)[nuke-style="2"] :is(input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="tel"], input[type="search"], input[type="date"], input[type="time"], input[type="datetime-local"]):focus,
+:is(input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="tel"], input[type="search"], input[type="date"], input[type="time"], input[type="datetime-local"])[nuke-style="2"]:focus {
+  outline: none;
+  background: var(--background-3);
+  box-shadow: 0 0 0 3px hsla(210, 60%, 50%, 0.08);
+}
+
+/* Style 3 - Bordered */
+:is(body, *)[nuke-style="3"] :is(input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="tel"], input[type="search"], input[type="date"], input[type="time"], input[type="datetime-local"]),
+:is(input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="tel"], input[type="search"], input[type="date"], input[type="time"], input[type="datetime-local"])[nuke-style="3"] {
+  background: var(--background-4);
+  border: 1px solid var(--border-color-1);
+}
+:is(body, *)[nuke-style="3"] :is(input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="tel"], input[type="search"], input[type="date"], input[type="time"], input[type="datetime-local"]):focus,
+:is(input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="tel"], input[type="search"], input[type="date"], input[type="time"], input[type="datetime-local"])[nuke-style="3"]:focus {
+  outline: none;
+  border-color: var(--on-background);
+  box-shadow: 0 0 0 3px hsla(210, 60%, 50%, 0.1);
+}
+
+/* Disabled */
+input[type="text"]:disabled,
+input[type="email"]:disabled,
+input[type="password"]:disabled,
+input[type="number"]:disabled,
+input[type="url"]:disabled,
+input[type="tel"]:disabled,
+input[type="search"]:disabled,
+input[type="date"]:disabled,
+input[type="time"]:disabled,
+input[type="datetime-local"]:disabled {
+  opacity: var(--opacity-disabled);
+  cursor: not-allowed;
+}

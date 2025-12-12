@@ -1,0 +1,43 @@
+/* Label */
+label {
+  display: block;
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-medium);
+  color: var(--on-background);
+  margin-bottom: var(--space-1);
+  cursor: pointer;
+}
+
+/* Style 1 - Light */
+:is(body, *)[nuke-style="1"] label,
+label[nuke-style="1"] {
+  font-weight: var(--font-weight-normal);
+  color: var(--on-background-light);
+  font-size: var(--font-size-1);
+}
+
+/* Style 2 - Medium */
+:is(body, *)[nuke-style="2"] label,
+label[nuke-style="2"] {
+  font-weight: var(--font-weight-medium);
+  color: var(--on-background);
+  font-size: var(--font-size-1);
+}
+
+/* Style 3 - Bold uppercase */
+:is(body, *)[nuke-style="3"] label,
+label[nuke-style="3"] {
+  font-weight: var(--font-weight-bold);
+  color: var(--on-background);
+  font-size: var(--font-size-1);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* Disabled state */
+label:has(input:disabled),
+label:has(select:disabled),
+label:has(textarea:disabled) {
+  opacity: var(--opacity-disabled);
+  cursor: not-allowed;
+}

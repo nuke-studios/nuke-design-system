@@ -1,0 +1,139 @@
+/* Range */
+input[type="range"] {
+  appearance: none;
+  width: 100%;
+  height: calc(var(--height-2) * 1.3);
+  background: transparent;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: calc(var(--height-1) / 5);
+  background: var(--background-3);
+  border-radius: var(--border-radius-1);
+}
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: calc(var(--height-1) / 5);
+  background: var(--background-3);
+  border-radius: var(--border-radius-1);
+}
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: var(--height-1);
+  height: var(--height-1);
+  background: var(--on-background);
+  border: 2px solid var(--on-background);
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: calc((calc(var(--height-1) / 5) - var(--height-1)) / 2);
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+input[type="range"]::-moz-range-thumb {
+  appearance: none;
+  width: var(--height-1);
+  height: var(--height-1);
+  background: var(--on-background);
+  border: 2px solid var(--on-background);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+input[type="range"]:hover::-webkit-slider-thumb {
+  transform: scale(1.1);
+}
+input[type="range"]:hover::-moz-range-thumb {
+  transform: scale(1.1);
+}
+input[type="range"]:focus {
+  outline: none;
+}
+input[type="range"]:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 3px hsla(210, 100%, 50%, 0.2);
+}
+input[type="range"]:focus::-moz-range-thumb {
+  box-shadow: 0 0 0 3px hsla(210, 100%, 50%, 0.2);
+}
+
+/* Style 1 - Thin track, smaller thumb */
+:is(body, *)[nuke-style="1"] input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"][nuke-style="1"]::-webkit-slider-runnable-track {
+  height: calc(var(--height-1) / 15);
+  background: var(--background-3);
+}
+:is(body, *)[nuke-style="1"] input[type="range"]::-moz-range-track,
+input[type="range"][nuke-style="1"]::-moz-range-track {
+  height: calc(var(--height-1) / 15);
+  background: var(--background-3);
+}
+:is(body, *)[nuke-style="1"] input[type="range"]::-webkit-slider-thumb,
+input[type="range"][nuke-style="1"]::-webkit-slider-thumb {
+  width: calc(var(--height-1) * 0.8);
+  height: calc(var(--height-1) * 0.8);
+  background: var(--on-background);
+  border: 1px solid var(--on-background);
+  margin-top: calc((calc(var(--height-1) / 15) - calc(var(--height-1) * 0.8)) / 2);
+}
+:is(body, *)[nuke-style="1"] input[type="range"]::-moz-range-thumb,
+input[type="range"][nuke-style="1"]::-moz-range-thumb {
+  width: calc(var(--height-1) * 0.8);
+  height: calc(var(--height-1) * 0.8);
+  background: var(--on-background);
+  border: 1px solid var(--on-background);
+}
+
+/* Style 2 - Medium track, no border */
+:is(body, *)[nuke-style="2"] input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"][nuke-style="2"]::-webkit-slider-runnable-track {
+  height: calc(var(--height-1) / 5);
+  background: var(--background-3);
+}
+:is(body, *)[nuke-style="2"] input[type="range"]::-moz-range-track,
+input[type="range"][nuke-style="2"]::-moz-range-track {
+  height: calc(var(--height-1) / 5);
+  background: var(--background-3);
+}
+:is(body, *)[nuke-style="2"] input[type="range"]::-webkit-slider-thumb,
+input[type="range"][nuke-style="2"]::-webkit-slider-thumb {
+  width: var(--height-1);
+  height: var(--height-1);
+  background: var(--on-background);
+  border: none;
+  margin-top: calc((calc(var(--height-1) / 5) - var(--height-1)) / 2);
+}
+:is(body, *)[nuke-style="2"] input[type="range"]::-moz-range-thumb,
+input[type="range"][nuke-style="2"]::-moz-range-thumb {
+  width: var(--height-1);
+  height: var(--height-1);
+  background: var(--on-background);
+  border: none;
+}
+
+/* Style 3 - Thick track with border */
+:is(body, *)[nuke-style="3"] input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"][nuke-style="3"]::-webkit-slider-runnable-track {
+  height: calc(var(--height-1) / 3.75);
+  background: var(--background-3);
+  border: 1px solid var(--border-color-1);
+}
+:is(body, *)[nuke-style="3"] input[type="range"]::-moz-range-track,
+input[type="range"][nuke-style="3"]::-moz-range-track {
+  height: calc(var(--height-1) / 3.75);
+  background: var(--background-3);
+  border: 1px solid var(--border-color-1);
+}
+:is(body, *)[nuke-style="3"] input[type="range"]::-webkit-slider-thumb,
+input[type="range"][nuke-style="3"]::-webkit-slider-thumb {
+  width: calc(var(--height-1) * 1.2);
+  height: calc(var(--height-1) * 1.2);
+  background: var(--on-background);
+  border: 2px solid var(--border-color-1);
+  margin-top: calc((calc(var(--height-1) / 3.75) - calc(var(--height-1) * 1.2)) / 2);
+}
+:is(body, *)[nuke-style="3"] input[type="range"]::-moz-range-thumb,
+input[type="range"][nuke-style="3"]::-moz-range-thumb {
+  width: calc(var(--height-1) * 1.2);
+  height: calc(var(--height-1) * 1.2);
+  background: var(--on-background);
+  border: 2px solid var(--border-color-1);
+}

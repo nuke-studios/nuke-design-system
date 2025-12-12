@@ -1,0 +1,28 @@
+/* Image */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Style 1 - Bordered */
+:is(body, *)[nuke-style="1"] img,
+img[nuke-style="1"] {
+  border: 1px solid var(--border-color-1);
+  border-radius: var(--border-radius-1);
+}
+
+/* Style 2 - Shadow */
+:is(body, *)[nuke-style="2"] img,
+img[nuke-style="2"] {
+  box-shadow: var(--box-shadow-2);
+  border-radius: var(--border-radius-1);
+}
+
+/* Style 3 - Bordered with shadow */
+:is(body, *)[nuke-style="3"] img,
+img[nuke-style="3"] {
+  border: 2px solid var(--border-color-1);
+  box-shadow: var(--box-shadow-3);
+  border-radius: var(--border-radius-1);
+}

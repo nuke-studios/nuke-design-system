@@ -1,0 +1,114 @@
+/* Sidebar */
+nuke-sidebar {
+  position: fixed;
+  top: 0;
+  width: var(--width-1);
+  height: 100vh;
+  padding: var(--space-2);
+  background: var(--background-2);
+  color: var(--on-background);
+  overflow-y: auto;
+  transition: transform var(--transition-medium);
+  z-index: var(--z-index-2);
+}
+nuke-sidebar[position="left"] {
+  left: 0;
+  transform: translateX(-100%);
+}
+nuke-sidebar[position="left"][open] {
+  transform: translateX(0);
+}
+nuke-sidebar[position="right"] {
+  right: 0;
+  transform: translateX(100%);
+}
+nuke-sidebar[position="right"][open] {
+  transform: translateX(0);
+}
+.nuke-sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: calc(var(--z-index-2) - 1);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.nuke-sidebar-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Style 1 - Border, no shadow */
+:is(body, *)[nuke-style="1"] nuke-sidebar,
+nuke-sidebar[nuke-style="1"] {
+  background: var(--background-1);
+  box-shadow: none;
+}
+:is(body, *)[nuke-style="1"] nuke-sidebar[position="left"],
+nuke-sidebar[nuke-style="1"][position="left"] {
+  border-left: none;
+  border-right: 1px solid var(--border-color-1);
+}
+:is(body, *)[nuke-style="1"] nuke-sidebar[position="right"],
+nuke-sidebar[nuke-style="1"][position="right"] {
+  border-right: none;
+  border-left: 1px solid var(--border-color-1);
+}
+
+/* Style 2 - Shadow, no border */
+:is(body, *)[nuke-style="2"] nuke-sidebar,
+nuke-sidebar[nuke-style="2"] {
+  background: var(--background-2);
+  box-shadow: var(--box-shadow-2);
+}
+:is(body, *)[nuke-style="2"] nuke-sidebar[position="left"],
+nuke-sidebar[nuke-style="2"][position="left"] {
+  border-left: none;
+  border-right: none;
+}
+:is(body, *)[nuke-style="2"] nuke-sidebar[position="right"],
+nuke-sidebar[nuke-style="2"][position="right"] {
+  border-right: none;
+  border-left: none;
+}
+
+/* Style 3 - Strong border with shadow */
+:is(body, *)[nuke-style="3"] nuke-sidebar,
+nuke-sidebar[nuke-style="3"] {
+  background: var(--background-2);
+  box-shadow: var(--box-shadow-3);
+}
+:is(body, *)[nuke-style="3"] nuke-sidebar[position="left"],
+nuke-sidebar[nuke-style="3"][position="left"] {
+  border-left: none;
+  border-right: 2px solid var(--border-color-1);
+}
+:is(body, *)[nuke-style="3"] nuke-sidebar[position="right"],
+nuke-sidebar[nuke-style="3"][position="right"] {
+  border-right: none;
+  border-left: 2px solid var(--border-color-1);
+}
+
+@media (max-width: 768px) {
+  :is(body, *)[nuke-style="3"] nuke-sidebar,
+  nuke-sidebar[nuke-style="3"] {
+    position: fixed;
+    transform: translateX(-100%);
+  }
+  :is(body, *)[nuke-style="3"] nuke-sidebar[open],
+  nuke-sidebar[nuke-style="3"][open] {
+    transform: translateX(0);
+  }
+  :is(body, *)[nuke-style="3"] nuke-sidebar[position="right"],
+  nuke-sidebar[nuke-style="3"][position="right"] {
+    transform: translateX(100%);
+  }
+  :is(body, *)[nuke-style="3"] nuke-sidebar[position="right"][open],
+  nuke-sidebar[nuke-style="3"][position="right"][open] {
+    transform: translateX(0);
+  }
+}

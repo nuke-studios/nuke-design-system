@@ -1,0 +1,33 @@
+/* Code */
+code {
+  padding: calc(var(--space-1) / 3) var(--space-1);
+  background: var(--background-3);
+  color: var(--on-background);
+  font-family: var(--family-mono);
+  font-size: var(--font-size-1);
+  border-radius: var(--border-radius-1);
+}
+
+/* Style 1 - With border */
+:is(body, *)[nuke-style="1"] code,
+code[nuke-style="1"] {
+  background: var(--background-3);
+  color: var(--on-background);
+  border: 1px solid var(--border-color-1);
+}
+
+/* Style 2 - No border */
+:is(body, *)[nuke-style="2"] code,
+code[nuke-style="2"] {
+  background: var(--background-3);
+  color: var(--on-background);
+  border: none;
+}
+
+/* Style 3 - Subtle */
+:is(body, *)[nuke-style="3"] code,
+code[nuke-style="3"] {
+  background: var(--background-2);
+  color: var(--on-background);
+  border: 1px solid var(--border-color-1);
+}

@@ -23,17 +23,15 @@
   "bugs": {
     "url": "https://github.com/nuke-studios/nuke-design-system/issues"
   },
-  "main": "core/all.css",
-  "module": "components/core.js",
+  "main": "dist/core.css",
+  "module": "dist/core.js",
   "type": "module",
   "scripts": {
-    "postinstall": "node .scripts/postinstall.js",
-    "build": "bun run build:clean && bun run build:theme && bun run build:css && bun run build:ts",
+    "build": "bun run build:clean && bun run build:css && bun run build:ts",
     "build:watch": "node .scripts/watch-incremental.js",
-    "build:clean": "mkdir -p dist/nuke-theme/components dist/types",
-    "build:ts": "tsc && bun build core/core.ts --outdir dist/nuke-theme --format esm",
-    "build:css": "node .scripts/bundle-core-css.js",
-    "build:theme": "node .scripts/build-theme.js"
+    "build:clean": "mkdir -p dist/types",
+    "build:ts": "tsc && bun build core/core.ts --outdir dist --format esm",
+    "build:css": "node .scripts/bundle-core-css.js"
   },
   "dependencies": {
     "lit": "^3.0.0"
@@ -43,7 +41,6 @@
   },
   "files": [
     "dist/",
-    ".scripts/postinstall.js",
     "README.md",
     "LICENSE"
   ],

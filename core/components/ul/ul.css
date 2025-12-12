@@ -1,0 +1,39 @@
+/* Unordered List - Style 1 - Default */
+:is(body, *)[nuke-style="1"] ul,
+ul[nuke-style="1"] {
+  list-style-type: disc;
+  padding-left: var(--space-3);
+}
+:is(body, *)[nuke-style="1"] ul li,
+ul[nuke-style="1"] li {
+  margin-bottom: var(--space-1);
+}
+
+/* Unordered List - Style 2 - Card items */
+:is(body, *)[nuke-style="2"] ul,
+ul[nuke-style="2"] {
+  list-style: none;
+  padding-left: 0;
+}
+:is(body, *)[nuke-style="2"] ul li,
+ul[nuke-style="2"] li {
+  background: var(--background-3);
+  padding: var(--space-1) var(--space-2);
+  margin-bottom: var(--space-1);
+  border-radius: var(--border-radius-1);
+}
+
+/* Unordered List - Style 3 - Bordered items */
+:is(body, *)[nuke-style="3"] ul,
+ul[nuke-style="3"] {
+  list-style: none;
+  padding-left: 0;
+}
+:is(body, *)[nuke-style="3"] ul li,
+ul[nuke-style="3"] li {
+  background: var(--background-2);
+  border: 1px solid var(--border-color-1);
+  padding: var(--space-2);
+  margin-bottom: var(--space-1);
+  border-radius: var(--border-radius-1);
+}

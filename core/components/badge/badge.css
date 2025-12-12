@@ -1,0 +1,35 @@
+/* Badge */
+nuke-badge {
+  display: inline-block;
+  padding: calc(var(--space-1) / 2) var(--space-1);
+  font-size: var(--font-size-2);
+  font-weight: 600;
+  line-height: 1;
+  border-radius: var(--border-radius-1);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* Style 1 - Outlined */
+:is(body, *)[nuke-style="1"] nuke-badge,
+nuke-badge[nuke-style="1"] {
+  background: transparent;
+  color: var(--on-background);
+  border: 1px solid var(--border-color-2);
+}
+
+/* Style 2 - Filled */
+:is(body, *)[nuke-style="2"] nuke-badge,
+nuke-badge[nuke-style="2"] {
+  background: var(--background-4);
+  color: var(--on-background);
+  border: none;
+}
+
+/* Style 3 - Inverted */
+:is(body, *)[nuke-style="3"] nuke-badge,
+nuke-badge[nuke-style="3"] {
+  background: var(--on-background);
+  color: var(--background-1);
+  border: 1px solid var(--on-background);
+}

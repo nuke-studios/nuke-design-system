@@ -46,11 +46,8 @@ function resolveImports(filePath, baseDir = path.dirname(filePath), processed = 
       const importPath = importMatch[1];
       const resolvedPath = path.resolve(path.dirname(absolutePath), importPath);
 
-      // Skip .style.css files (they go to nuke-theme/)
-      if (!importPath.includes('.style.css')) {
-        result.push(`\n/* Imported from: ${path.relative(CORE_DIR, resolvedPath)} */`);
-        result.push(resolveImports(resolvedPath, path.dirname(resolvedPath), processed));
-      }
+      result.push(`\n/* Imported from: ${path.relative(CORE_DIR, resolvedPath)} */`);
+      result.push(resolveImports(resolvedPath, path.dirname(resolvedPath), processed));
     } else {
       result.push(line);
     }
@@ -64,9 +61,9 @@ console.log('Bundling core.css...');
 const coreEntryPoint = path.join(CORE_DIR, 'core.css');
 const bundledContent = resolveImports(coreEntryPoint);
 
-// Write bundled file to nuke-theme/
-const outputPath = path.join(DIST_DIR, 'nuke-theme', 'core.css');
+// Write bundled file
+const outputPath = path.join(DIST_DIR, 'core.css');
 fs.writeFileSync(outputPath, bundledContent);
 
 console.log(`✅ core.css bundled successfully!`);
-console.log(`   Output: dist/nuke-theme/core.css`);
+console.log(`   Output: dist/core.css`);

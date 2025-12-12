@@ -1,0 +1,82 @@
+/* Progress */
+progress {
+  appearance: none;
+  width: 100%;
+  height: calc(var(--height-1) / 2.5);
+  border: none;
+  border-radius: var(--border-radius-1);
+  background: var(--background-3);
+  overflow: hidden;
+}
+progress::-webkit-progress-bar {
+  background: var(--background-3);
+  border-radius: var(--border-radius-1);
+}
+progress::-webkit-progress-value {
+  background: var(--on-background);
+  border-radius: var(--border-radius-1);
+  transition: width var(--transition-fast);
+}
+progress::-moz-progress-bar {
+  background: var(--on-background);
+  border-radius: var(--border-radius-1);
+  transition: width var(--transition-fast);
+}
+
+/* Style 1 - Thin */
+:is(body, *)[nuke-style="1"] progress,
+progress[nuke-style="1"] {
+  height: calc(var(--height-1) / 7.5);
+  background: var(--background-3);
+}
+:is(body, *)[nuke-style="1"] progress::-webkit-progress-bar,
+progress[nuke-style="1"]::-webkit-progress-bar {
+  background: var(--background-3);
+}
+:is(body, *)[nuke-style="1"] progress::-webkit-progress-value,
+progress[nuke-style="1"]::-webkit-progress-value {
+  background: var(--on-background);
+}
+:is(body, *)[nuke-style="1"] progress::-moz-progress-bar,
+progress[nuke-style="1"]::-moz-progress-bar {
+  background: var(--on-background);
+}
+
+/* Style 2 - Medium */
+:is(body, *)[nuke-style="2"] progress,
+progress[nuke-style="2"] {
+  height: calc(var(--height-1) / 3.75);
+  background: var(--background-3);
+}
+:is(body, *)[nuke-style="2"] progress::-webkit-progress-bar,
+progress[nuke-style="2"]::-webkit-progress-bar {
+  background: var(--background-3);
+}
+:is(body, *)[nuke-style="2"] progress::-webkit-progress-value,
+progress[nuke-style="2"]::-webkit-progress-value {
+  background: var(--on-background);
+}
+:is(body, *)[nuke-style="2"] progress::-moz-progress-bar,
+progress[nuke-style="2"]::-moz-progress-bar {
+  background: var(--on-background);
+}
+
+/* Style 3 - Thick with border */
+:is(body, *)[nuke-style="3"] progress,
+progress[nuke-style="3"] {
+  height: calc(var(--height-1) / 2.5);
+  background: var(--background-3);
+  border: 1px solid var(--border-color-1);
+}
+:is(body, *)[nuke-style="3"] progress::-webkit-progress-bar,
+progress[nuke-style="3"]::-webkit-progress-bar {
+  background: var(--background-3);
+}
+:is(body, *)[nuke-style="3"] progress::-webkit-progress-value,
+progress[nuke-style="3"]::-webkit-progress-value {
+  background: var(--on-background);
+}
+:is(body, *)[nuke-style="3"] progress::-moz-progress-bar,
+progress[nuke-style="3"]::-moz-progress-bar {
+  background: var(--on-background);
+}

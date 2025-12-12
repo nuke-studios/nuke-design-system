@@ -1,0 +1,106 @@
+/* Details/Accordion */
+details {
+  border: 1px solid var(--border-color-1);
+  border-radius: var(--border-radius-1);
+  background: var(--background-2);
+  padding: var(--space-2);
+  margin-bottom: var(--space-2);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+summary {
+  cursor: pointer;
+  font-weight: var(--font-weight-medium);
+  color: var(--on-background);
+  list-style: none;
+  padding: var(--space-2);
+  margin: calc(var(--space-2) * -1);
+  border-radius: var(--border-radius-1);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+  user-select: none;
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+summary::before {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid currentColor;
+  margin-right: var(--space-1);
+  transform: rotate(-90deg);
+  transition: transform var(--transition-fast);
+}
+details[open] summary::before {
+  transform: rotate(0deg);
+}
+summary:hover {
+  background: var(--background-3);
+}
+summary:focus-visible {
+  outline: 2px solid var(--color-1);
+  outline-offset: 2px;
+}
+details > *:not(summary) {
+  margin-top: var(--space-2);
+}
+
+/* Style 1 - Minimal */
+:is(body, *)[nuke-style="1"] details,
+details[nuke-style="1"] {
+  border: 1px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  padding: var(--space-2) 0;
+}
+:is(body, *)[nuke-style="1"] details[open],
+details[nuke-style="1"][open] {
+  border-bottom: 1px solid var(--border-color-1);
+}
+:is(body, *)[nuke-style="1"] details summary,
+details[nuke-style="1"] summary {
+  padding: 0;
+  margin: 0;
+}
+:is(body, *)[nuke-style="1"] details summary:hover,
+details[nuke-style="1"] summary:hover {
+  background: transparent;
+  color: var(--color-1);
+}
+
+/* Style 2 - Card-like */
+:is(body, *)[nuke-style="2"] details,
+details[nuke-style="2"] {
+  border: 1px solid transparent;
+  border-radius: var(--border-radius-1);
+  background: transparent;
+  padding: var(--space-2);
+}
+:is(body, *)[nuke-style="2"] details[open],
+details[nuke-style="2"][open] {
+  background: var(--background-2);
+}
+:is(body, *)[nuke-style="2"] details summary:hover,
+details[nuke-style="2"] summary:hover {
+  background: var(--background-2);
+}
+
+/* Style 3 - Bordered */
+:is(body, *)[nuke-style="3"] details,
+details[nuke-style="3"] {
+  border: 1px solid var(--border-color-1);
+  border-radius: var(--border-radius-1);
+  background: transparent;
+  padding: var(--space-2);
+}
+:is(body, *)[nuke-style="3"] details[open],
+details[nuke-style="3"][open] {
+  background: var(--background-2);
+  border-color: var(--border-color-1);
+}
+:is(body, *)[nuke-style="3"] details summary:hover,
+details[nuke-style="3"] summary:hover {
+  background: var(--background-2);
+}
