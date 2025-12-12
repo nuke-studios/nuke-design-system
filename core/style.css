@@ -43,58 +43,56 @@
   --animation-slow-infinite: 0.6s ease-in-out 0s infinite;
 }
 
-.dark-theme {
+:root.dark-theme {
   --color-1: hsl(25, 90%, 60%);
-  --color-2: hsl(280, 50%, 70%);
-  --color-3: hsl(160, 50%, 60%);
+  --color-2: hsl(280, 60%, 70%);
+  --color-3: hsl(160, 60%, 55%);
   --on-color: hsl(0, 0%, 100%);
-  --error-color: red;
-  --warning-color: orange;
-  --success-color: green;
+  --error-color: hsl(0, 70%, 60%);
+  --warning-color: hsl(40, 90%, 60%);
+  --success-color: hsl(140, 60%, 55%);
 
   /* Layout backgrounds */
-  --background-1: hsl(0, 0%, 10%);   /* page/section background */
-  --background-2: hsl(0, 0%, 18%);   /* elevated surfaces (cards, dialogs, toast) */
-  --background-3: hsl(0, 0%, 26%);   /* subtle contrast sections */
+  --background-1: hsl(0, 0%, 8%);    /* page background */
+  --background-2: hsl(0, 0%, 14%);   /* elevated surfaces (cards, islands) */
+  --background-3: hsl(0, 0%, 20%);   /* component headers, subtle sections */
+  --background-4: hsl(0, 0%, 18%);   /* inputs, form elements */
 
-  /* UI element backgrounds */
-  --background-4: hsl(0, 0%, 34%);   /* buttons, inputs, tabs, interactive elements */
-
-  --on-background: hsl(0, 0%, 90%);
-  --on-background-light: hsl(0, 0%, 65%);
-  --border-color-1: hsl(0, 0%, 30%);
-  --border-color-2: hsl(0, 0%, 45%);
+  --on-background: hsl(0, 0%, 92%);
+  --on-background-light: hsl(0, 0%, 60%);
+  --border-color-1: hsl(0, 0%, 32%);
+  --border-color-2: hsl(0, 0%, 50%);
   --scrollbar-track: var(--background-1);
   --scrollbar-thumb: var(--border-color-2);
-  --box-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.2);
-  --box-shadow-2: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --box-shadow-3: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --box-shadow-1: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --box-shadow-2: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --box-shadow-3: 0 4px 16px rgba(0, 0, 0, 0.5);
 }
 
 :root, .light-theme {
-  --color-1: hsl(25, 85%, 55%);
-  --color-2: hsl(280, 40%, 65%);
-  --color-3: hsl(160, 45%, 55%);
+  --color-1: hsl(25, 85%, 50%);
+  --color-2: hsl(280, 50%, 55%);
+  --color-3: hsl(160, 50%, 45%);
   --on-color: hsl(0, 0%, 100%);
-  --error-color: red;
-  --warning-color: orange;
-  --success-color: green;
+  --error-color: hsl(0, 70%, 50%);
+  --warning-color: hsl(40, 90%, 50%);
+  --success-color: hsl(140, 60%, 40%);
 
   /* Layout backgrounds */
-  --background-1: hsl(0, 0%, 92%);   /* page/section background */
-  --background-2: hsl(0, 0%, 100%);  /* elevated surfaces (cards, dialogs, toast) */
-  --background-3: hsl(0, 0%, 85%);   /* subtle contrast sections */
+  --background-1: hsl(0, 0%, 94%);   /* page background */
+  --background-2: hsl(0, 0%, 100%);  /* elevated surfaces (cards, islands) */
+  --background-3: hsl(0, 0%, 90%);   /* component headers, subtle sections */
+  --background-4: hsl(0, 0%, 96%);   /* inputs, form elements */
 
-  --background-4: hsl(0, 0%, 83%);   /* buttons, inputs, tabs, interactive elements */
-  --on-background: hsl(0, 0%, 20%);
-  --on-background-light: hsl(0, 0%, 50%);
-  --border-color-1: hsl(0, 0%, 80%);
-  --border-color-2: hsl(0, 0%, 65%);
+  --on-background: hsl(0, 0%, 15%);
+  --on-background-light: hsl(0, 0%, 45%);
+  --border-color-1: hsl(0, 0%, 75%);
+  --border-color-2: hsl(0, 0%, 60%);
   --scrollbar-track: var(--background-1);
   --scrollbar-thumb: var(--border-color-2);
-  --box-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --box-shadow-2: 0 2px 8px rgba(0, 0, 0, 0.06);
-  --box-shadow-3: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --box-shadow-1: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --box-shadow-2: 0 2px 8px rgba(0, 0, 0, 0.12);
+  --box-shadow-3: 0 4px 16px rgba(0, 0, 0, 0.16);
 }
 
 html, body {

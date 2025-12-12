@@ -10,7 +10,7 @@ import { customElement, property } from 'lit/decorators.js';
 export class NukeSidebar extends LitElement {
   @property({ type: String, reflect: true, attribute: 'nuke-style' }) nukeStyle = '1';
   @property({ type: String, reflect: true }) position = 'left';
-  @property({ type: Boolean, reflect: true }) isOpen = false;
+  @property({ type: Boolean, reflect: true }) open = false;
 
   private overlay: HTMLElement | null = null;
   private escapeHandler: ((e: KeyboardEvent) => void) | null = null;
@@ -31,12 +31,12 @@ export class NukeSidebar extends LitElement {
 
     // Escape key handler
     this.escapeHandler = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && this.isOpen) {
-        this.closeSidebar();
+      if (e.key === 'Escape' && this.open) {
+        this.close();
       }
     };
 
-    if (this.isOpen) {
+    if (this.open) {
       document.addEventListener('keydown', this.escapeHandler);
     }
   }
@@ -54,19 +54,19 @@ export class NukeSidebar extends LitElement {
   createOverlay() {
     this.overlay = document.createElement('div');
     this.overlay.className = 'nuke-sidebar-overlay';
-    this.overlay.addEventListener('click', () => this.closeSidebar());
+    this.overlay.addEventListener('click', () => this.close());
 
     if (this.parentNode) {
       this.parentNode.insertBefore(this.overlay, this);
     }
 
-    if (this.isOpen) {
+    if (this.open) {
       this.overlay.classList.add('show');
     }
   }
 
-  openSidebar() {
-    this.isOpen = true;
+  show() {
+    this.open = true;
     if (this.escapeHandler) {
       document.addEventListener('keydown', this.escapeHandler);
     }
@@ -78,8 +78,8 @@ export class NukeSidebar extends LitElement {
     this.dispatchEvent(new CustomEvent('sidebar-open', { bubbles: true }));
   }
 
-  closeSidebar() {
-    this.isOpen = false;
+  close() {
+    this.open = false;
     if (this.escapeHandler) {
       document.removeEventListener('keydown', this.escapeHandler);
     }
@@ -92,10 +92,10 @@ export class NukeSidebar extends LitElement {
   }
 
   toggle() {
-    if (this.isOpen) {
-      this.closeSidebar();
+    if (this.open) {
+      this.close();
     } else {
-      this.openSidebar();
+      this.show();
     }
   }
 

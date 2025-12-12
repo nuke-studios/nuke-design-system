@@ -94,6 +94,14 @@
       "title": "Publish to npm",
       "status": "new",
       "description": "Publish @nuke.dev/design-system to npm registry"
+    },
+    {
+      "id": "task-6",
+      "title": "Import Phosphor Icons",
+      "status": "new",
+      "description": "Add Phosphor Icons as the standard icon library for the design system",
+      "created": "2025-12-12T15:34:51.0213+01:00",
+      "updated": "2025-12-12T15:34:51.0213+01:00"
     }
   ]
 }

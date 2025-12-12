@@ -34,6 +34,22 @@ table[nuke-style="1"] {
 table[nuke-style="1"] thead {
   border-bottom: 1px solid var(--border-color-1);
 }
+:is(body, *)[nuke-style="1"] table th,
+table[nuke-style="1"] th {
+  border-right: 1px solid var(--border-color-1);
+}
+:is(body, *)[nuke-style="1"] table th:last-child,
+table[nuke-style="1"] th:last-child {
+  border-right: none;
+}
+:is(body, *)[nuke-style="1"] table td,
+table[nuke-style="1"] td {
+  border-right: 1px solid var(--border-color-1);
+}
+:is(body, *)[nuke-style="1"] table td:last-child,
+table[nuke-style="1"] td:last-child {
+  border-right: none;
+}
 :is(body, *)[nuke-style="1"] table tbody tr,
 table[nuke-style="1"] tbody tr {
   border-bottom: 1px solid var(--border-color-1);
@@ -53,6 +69,22 @@ table[nuke-style="2"] {
 table[nuke-style="2"] thead {
   background: var(--background-3);
   border-bottom: 1px solid var(--border-color-1);
+}
+:is(body, *)[nuke-style="2"] table th,
+table[nuke-style="2"] th {
+  border-right: 1px solid var(--border-color-1);
+}
+:is(body, *)[nuke-style="2"] table th:last-child,
+table[nuke-style="2"] th:last-child {
+  border-right: none;
+}
+:is(body, *)[nuke-style="2"] table td,
+table[nuke-style="2"] td {
+  border-right: 1px solid var(--border-color-1);
+}
+:is(body, *)[nuke-style="2"] table td:last-child,
+table[nuke-style="2"] td:last-child {
+  border-right: none;
 }
 :is(body, *)[nuke-style="2"] table tbody tr,
 table[nuke-style="2"] tbody tr {

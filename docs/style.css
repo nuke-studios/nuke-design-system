@@ -1,5 +1,5 @@
-/* Import the Nuke Design System (single entry point) */
-@import '../dist/core.css';
+/* Import the Nuke Design System (source files for dev) */
+@import '../core/core.css';
 
 /* Showcase layout styles */
 .header {

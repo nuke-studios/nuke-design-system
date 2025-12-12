@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NUKE Design System</title>
   <link rel="stylesheet" href="style.css">
-  <script type="module" src="../dist/core.js"></script>
+  <script type="module" src="../dist/core.js?v=4"></script>
 </head>
 <body>
   <header class="header">
@@ -45,8 +45,8 @@
   <div class="component">
     <div class="component-name">&lt;img&gt;</div>
     <div class="component-styles">
-      <div class="style"><img src="https://placekitten.com/200/150" nuke-style="1" alt="Kitten"></div>
-      <div class="style"><img src="https://placekitten.com/200/150" nuke-style="2" alt="Kitten"></div>
+      <div class="style"><img src="https://picsum.photos/200/150" nuke-style="1" alt="Kitten"></div>
+      <div class="style"><img src="https://picsum.photos/200/150" nuke-style="2" alt="Kitten"></div>
     </div>
   </div>
 
@@ -234,10 +234,17 @@
 
   <script>
     function showToast(variant) {
+      let container = document.querySelector('.nuke-toast-container');
+      if (!container) {
+        container = document.createElement('div');
+        container.className = 'nuke-toast-container';
+        document.body.appendChild(container);
+      }
       const toast = document.createElement('nuke-toast');
       toast.setAttribute('nuke-style', variant);
+      toast.setAttribute('duration', '3000');
       toast.textContent = `Toast (${variant})`;
-      document.body.appendChild(toast);
+      container.appendChild(toast);
     }
 
     function showSidebar(variant) {
@@ -245,7 +252,7 @@
       sidebar.setAttribute('nuke-style', variant);
       sidebar.innerHTML = `<h3>Sidebar</h3><p>Content</p><button nuke-style="${variant}" onclick="this.closest('nuke-sidebar').close()">Close</button>`;
       document.body.appendChild(sidebar);
-      setTimeout(() => sidebar.open(), 0);
+      setTimeout(() => sidebar.show(), 0);
     }
   </script>
 </body>
