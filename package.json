@@ -27,12 +27,8 @@
   "module": "dist/core.js",
   "type": "module",
   "scripts": {
-    "build": "npm run build:clean && npm run build:icons && npm run build:css && npm run build:ts",
-    "build:clean": "mkdir -p dist/types dist/icons",
-    "build:ts": "tsc && esbuild core/core.ts --bundle --format=esm --outfile=dist/core.js",
-    "build:css": "node .scripts/bundle-core-css.js",
-    "build:icons": "cp core/icons/*.svg dist/icons/",
-    "dev": "npm run build:icons && npm run build:css && esbuild core/core.ts --bundle --format=esm --outfile=dist/core.js --watch"
+    "build": "mkdir -p dist/icons && cp core/icons/*.svg dist/icons/ && tsc && esbuild core/core.css core/core.ts --bundle --outdir=dist --format=esm",
+    "dev": "mkdir -p dist/icons && cp core/icons/*.svg dist/icons/ && esbuild core/core.css core/core.ts --bundle --outdir=dist --format=esm --watch"
   },
   "dependencies": {
     "lit": "^3.0.0"
