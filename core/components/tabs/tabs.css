@@ -33,35 +33,39 @@ nuke-tab-panel[aria-hidden="true"] {
   display: none;
 }
 
-/* Style 1 - Underline */
+/* Style 1 - Outlined */
 :is(body, *)[nuke-style="1"] nuke-tabs,
 nuke-tabs[nuke-style="1"] {
-  border-bottom: none;
+  border: none;
 }
 :is(body, *)[nuke-style="1"] nuke-tabs nuke-tab,
 nuke-tabs[nuke-style="1"] nuke-tab {
   background: transparent;
-  border-bottom: 1px solid transparent;
-  margin-bottom: -1px;
+  border: 1px solid var(--border-color-1);
+  border-radius: var(--border-radius-1);
+  margin-right: var(--space-1);
 }
 :is(body, *)[nuke-style="1"] nuke-tabs nuke-tab:hover,
 nuke-tabs[nuke-style="1"] nuke-tab:hover {
-  background: transparent;
+  background: var(--background-3);
 }
 :is(body, *)[nuke-style="1"] nuke-tabs nuke-tab[aria-selected="true"],
 nuke-tabs[nuke-style="1"] nuke-tab[aria-selected="true"] {
-  border-bottom: 1px solid var(--on-background);
+  background: var(--background-3);
+  border-color: var(--on-background);
 }
 
-/* Style 2 - Pill */
+/* Style 2 - Filled */
 :is(body, *)[nuke-style="2"] nuke-tabs,
 nuke-tabs[nuke-style="2"] {
-  background: transparent;
+  border: none;
 }
 :is(body, *)[nuke-style="2"] nuke-tabs nuke-tab,
 nuke-tabs[nuke-style="2"] nuke-tab {
-  background: transparent;
+  background: var(--background-4);
+  border: none;
   border-radius: var(--border-radius-1);
+  margin-right: var(--space-1);
 }
 :is(body, *)[nuke-style="2"] nuke-tabs nuke-tab:hover,
 nuke-tabs[nuke-style="2"] nuke-tab:hover {
@@ -72,35 +76,25 @@ nuke-tabs[nuke-style="2"] nuke-tab[aria-selected="true"] {
   background: var(--background-3);
   color: var(--on-background);
 }
-:is(body, *)[nuke-style="2"] nuke-tabs nuke-tab-panel,
-nuke-tabs[nuke-style="2"] nuke-tab-panel {
-  background: var(--background-2);
-}
 
-/* Style 3 - Boxed */
+/* Style 3 - Filled with border */
 :is(body, *)[nuke-style="3"] nuke-tabs,
 nuke-tabs[nuke-style="3"] {
   border: none;
 }
 :is(body, *)[nuke-style="3"] nuke-tabs nuke-tab,
 nuke-tabs[nuke-style="3"] nuke-tab {
-  background: var(--background-3);
+  background: var(--background-4);
   border: 2px solid var(--border-color-1);
-  border-radius: var(--border-radius-1) var(--border-radius-1) 0 0;
+  border-radius: var(--border-radius-1);
   margin-right: var(--space-1);
-  margin-bottom: -2px;
+}
+:is(body, *)[nuke-style="3"] nuke-tabs nuke-tab:hover,
+nuke-tabs[nuke-style="3"] nuke-tab:hover {
+  background: var(--background-3);
 }
 :is(body, *)[nuke-style="3"] nuke-tabs nuke-tab[aria-selected="true"],
 nuke-tabs[nuke-style="3"] nuke-tab[aria-selected="true"] {
-  background: var(--background-2);
-  border: 2px solid var(--border-color-1);
-  border-bottom-color: var(--background-2);
-}
-:is(body, *)[nuke-style="3"] nuke-tabs nuke-tab-panel,
-nuke-tabs[nuke-style="3"] nuke-tab-panel {
-  background: var(--background-2);
-  border-left: 2px solid var(--border-color-1);
-  border-bottom: 2px solid var(--border-color-1);
-  border-right: 2px solid var(--border-color-1);
-  box-shadow: var(--box-shadow-2);
+  background: var(--background-3);
+  border-color: var(--on-background);
 }

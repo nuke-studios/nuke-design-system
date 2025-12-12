@@ -18,26 +18,26 @@ pre code {
   color: inherit;
 }
 
-/* Style 1 - With border */
+/* Style 1 - Outlined */
 :is(body, *)[nuke-style="1"] pre,
 pre[nuke-style="1"] {
-  background: var(--background-3);
+  background: transparent;
   color: var(--on-background);
   border: 1px solid var(--border-color-1);
 }
 
-/* Style 2 - No border */
+/* Style 2 - Filled */
 :is(body, *)[nuke-style="2"] pre,
 pre[nuke-style="2"] {
-  background: var(--background-3);
+  background: var(--background-4);
   color: var(--on-background);
   border: none;
 }
 
-/* Style 3 - Subtle background with strong border */
+/* Style 3 - Filled with border */
 :is(body, *)[nuke-style="3"] pre,
 pre[nuke-style="3"] {
-  background: var(--background-2);
+  background: var(--background-4);
   color: var(--on-background);
   border: 2px solid var(--border-color-1);
 }

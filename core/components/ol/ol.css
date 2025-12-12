@@ -1,15 +1,29 @@
-/* Ordered List - Style 1 - Default */
+/* Ordered List - Style 1 - Outlined */
 :is(body, *)[nuke-style="1"] ol,
 ol[nuke-style="1"] {
-  list-style-type: decimal;
-  padding-left: var(--space-3);
+  list-style: none;
+  padding-left: 0;
+  counter-reset: ol-counter-1;
 }
 :is(body, *)[nuke-style="1"] ol li,
 ol[nuke-style="1"] li {
+  background: transparent;
+  border: 1px solid var(--border-color-1);
+  padding: var(--space-1) var(--space-2);
+  padding-left: var(--space-4);
   margin-bottom: var(--space-1);
+  border-radius: var(--border-radius-1);
+  position: relative;
+  counter-increment: ol-counter-1;
+}
+:is(body, *)[nuke-style="1"] ol li::before,
+ol[nuke-style="1"] li::before {
+  content: counter(ol-counter-1) ".";
+  position: absolute;
+  left: var(--space-2);
 }
 
-/* Ordered List - Style 2 - Card items */
+/* Ordered List - Style 2 - Filled */
 :is(body, *)[nuke-style="2"] ol,
 ol[nuke-style="2"] {
   list-style: none;
@@ -18,11 +32,12 @@ ol[nuke-style="2"] {
 }
 :is(body, *)[nuke-style="2"] ol li,
 ol[nuke-style="2"] li {
-  background: var(--background-3);
+  background: var(--background-4);
+  border: none;
   padding: var(--space-1) var(--space-2);
+  padding-left: var(--space-4);
   margin-bottom: var(--space-1);
   border-radius: var(--border-radius-1);
-  padding-left: var(--space-4);
   position: relative;
   counter-increment: ol-counter-2;
 }
@@ -33,7 +48,7 @@ ol[nuke-style="2"] li::before {
   left: var(--space-2);
 }
 
-/* Ordered List - Style 3 - Bordered items */
+/* Ordered List - Style 3 - Filled with border */
 :is(body, *)[nuke-style="3"] ol,
 ol[nuke-style="3"] {
   list-style: none;
@@ -42,12 +57,12 @@ ol[nuke-style="3"] {
 }
 :is(body, *)[nuke-style="3"] ol li,
 ol[nuke-style="3"] li {
-  background: var(--background-2);
-  border: 1px solid var(--border-color-1);
-  padding: var(--space-2);
+  background: var(--background-4);
+  border: 2px solid var(--border-color-1);
+  padding: var(--space-1) var(--space-2);
+  padding-left: var(--space-4);
   margin-bottom: var(--space-1);
   border-radius: var(--border-radius-1);
-  padding-left: var(--space-4);
   position: relative;
   counter-increment: ol-counter-3;
 }

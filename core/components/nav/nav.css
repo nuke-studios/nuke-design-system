@@ -13,38 +13,35 @@ nav a:hover {
   color: var(--color-1);
 }
 
-/* Style 1 - Breadcrumb */
+/* Style 1 - Outlined */
 :is(body, *)[nuke-style="1"] nav,
 nav[nuke-style="1"] {
   display: flex;
   flex-direction: row;
   background: transparent;
-  gap: var(--space-3);
+  border: 1px solid var(--border-color-1);
+  border-radius: var(--border-radius-1);
+  gap: var(--space-2);
   padding: var(--space-2);
 }
 :is(body, *)[nuke-style="1"] nav a,
 nav[nuke-style="1"] a {
-  position: relative;
-  padding: 0;
-}
-:is(body, *)[nuke-style="1"] nav a:not(:last-child)::after,
-nav[nuke-style="1"] a:not(:last-child)::after {
-  content: '/';
-  color: var(--border-color-1);
-  margin-left: var(--space-3);
-  pointer-events: none;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--border-radius-1);
 }
 :is(body, *)[nuke-style="1"] nav a:hover,
 nav[nuke-style="1"] a:hover {
-  color: var(--color-1);
+  background: var(--background-3);
 }
 
-/* Style 2 - Pill links */
+/* Style 2 - Filled */
 :is(body, *)[nuke-style="2"] nav,
 nav[nuke-style="2"] {
   display: flex;
   flex-direction: row;
-  background: transparent;
+  background: var(--background-4);
+  border: none;
+  border-radius: var(--border-radius-1);
   gap: var(--space-2);
   padding: var(--space-2);
 }
@@ -55,19 +52,19 @@ nav[nuke-style="2"] a {
 }
 :is(body, *)[nuke-style="2"] nav a:hover,
 nav[nuke-style="2"] a:hover {
-  background: var(--background-2);
-  color: var(--color-1);
+  background: var(--background-3);
 }
 
-/* Style 3 - Bar with border */
+/* Style 3 - Filled with border */
 :is(body, *)[nuke-style="3"] nav,
 nav[nuke-style="3"] {
   display: flex;
   flex-direction: row;
-  background: var(--background-2);
-  border-bottom: 1px solid var(--border-color-1);
+  background: var(--background-4);
+  border: 2px solid var(--border-color-1);
+  border-radius: var(--border-radius-1);
   gap: var(--space-2);
-  padding: var(--space-2) var(--space-3);
+  padding: var(--space-2);
 }
 :is(body, *)[nuke-style="3"] nav a,
 nav[nuke-style="3"] a {
@@ -77,5 +74,4 @@ nav[nuke-style="3"] a {
 :is(body, *)[nuke-style="3"] nav a:hover,
 nav[nuke-style="3"] a:hover {
   background: var(--background-3);
-  color: var(--color-1);
 }
