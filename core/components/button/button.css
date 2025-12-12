@@ -24,9 +24,9 @@ input[type="reset"] {
   align-items: center;
   justify-content: center;
   gap: var(--space-1);
-  padding: 0 var(--space-2);
-  height: var(--height-2);
-  font-size: var(--font-size-1);
+  padding: 0 calc(var(--controls-height) * (1 - var(--content-ratio)));
+  height: var(--controls-height);
+  font-size: var(--text-base);
   font-weight: 500;
   white-space: nowrap;
   border-radius: var(--border-radius-1);

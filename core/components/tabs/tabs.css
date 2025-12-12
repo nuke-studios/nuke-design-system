@@ -4,8 +4,9 @@ nuke-tabs {
 }
 nuke-tab {
   display: inline-block;
-  padding: var(--space-1) var(--space-2);
-  font-size: var(--font-size-2);
+  height: var(--controls-height);
+  padding: 0 calc(var(--controls-height) * (1 - var(--content-ratio)));
+  font-size: var(--text-base);
   font-weight: var(--font-weight-medium);
   color: var(--on-background-light);
   background: transparent;
@@ -13,7 +14,7 @@ nuke-tab {
   cursor: pointer;
   transition: all var(--transition-fast);
   user-select: none;
-  margin-right: var(--space-1);
+  line-height: var(--controls-height);
 }
 nuke-tab:hover {
   color: var(--on-background);
@@ -43,7 +44,6 @@ nuke-tabs[nuke-style="1"] nuke-tab {
   background: transparent;
   border: 1px solid var(--border-color-1);
   border-radius: var(--border-radius-1);
-  margin-right: var(--space-1);
 }
 :is(body, *)[nuke-style="1"] nuke-tabs nuke-tab:hover,
 nuke-tabs[nuke-style="1"] nuke-tab:hover {
@@ -65,7 +65,6 @@ nuke-tabs[nuke-style="2"] nuke-tab {
   background: var(--background-4);
   border: 1px solid var(--border-color-1);
   border-radius: var(--border-radius-1);
-  margin-right: var(--space-1);
 }
 :is(body, *)[nuke-style="2"] nuke-tabs nuke-tab:hover,
 nuke-tabs[nuke-style="2"] nuke-tab:hover {

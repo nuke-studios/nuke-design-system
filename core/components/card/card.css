@@ -11,7 +11,7 @@ nuke-card {
 nuke-card-header {
   display: block;
   padding: var(--space-2);
-  font-size: var(--font-size-4);
+  font-size: calc(var(--text-base) * 1.2);
   font-weight: 600;
   color: var(--on-background);
   border-bottom: 1px solid var(--border-color-1);

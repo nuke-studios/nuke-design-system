@@ -52,6 +52,20 @@
       "id": "instruction-3",
       "title": "Token Naming",
       "description": "Always use 1-2-3 suffix pattern for tokens (e.g., --border-radius-1, --z-index-2, --width-3). Never use semantic names like --button-bg or --input-border."
+    },
+    {
+      "id": "instruction-4",
+      "title": "Prefer grid over flex",
+      "description": "Always prefer CSS Grid over Flexbox for layouts. Grid is more powerful and predictable for 2D layouts.",
+      "created": "2025-12-12T16:16:14.509394+01:00",
+      "updated": "2025-12-12T16:16:14.509394+01:00"
+    },
+    {
+      "id": "instruction-5",
+      "title": "No margin on elements",
+      "description": "Never add margin to component elements. Use gap on parent containers (grid/flex) for spacing instead.",
+      "created": "2025-12-12T16:16:14.649981+01:00",
+      "updated": "2025-12-12T16:16:14.649981+01:00"
     }
   ]
 }

@@ -50,16 +50,18 @@
     "type": "object"
   },
   "data": {
-    "title": "Nuke Design System",
-    "tagline": "Element-first CSS design system with web components",
+    "title": "Unit Design System",
+    "tagline": "One unit. One ratio. Everything scales.",
     "type": "lib",
-    "problem": "Design systems are overcomplicated with excessive abstraction layers and wrapper components.",
-    "solution": "Simple, flat architecture: design tokens + component styles in single CSS files. Import one file, get everything.",
+    "problem": "Design systems have arbitrary token values that don't relate to each other. Scaling UI density requires changing dozens of variables.",
+    "solution": "Two CSS variables control everything: --unit (base size) and --ratio (growth rate). All tokens derive from a modular scale. Change one value, entire UI scales proportionally.",
     "philosophy": [
+      "One unit to rule them all: every size derives from --unit × --ratio^n",
       "Element-first: style native HTML elements, not wrapper components",
-      "Universal nuke-style='1/2/3' attribute for style variants",
-      "Flat token architecture: use design tokens directly, no component-specific variable layers",
-      "Progressive enhancement: works without JS, web components add interactivity"
+      "Mathematical harmony: modular scale creates visual consistency",
+      "Density modes: change --unit for compact/standard/spacious UI",
+      "Fluid scaling: use clamp() for responsive UI without breakpoints",
+      "Progressive enhancement: CSS works alone, JS adds interactivity"
     ]
   }
 }

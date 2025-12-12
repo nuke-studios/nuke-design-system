@@ -1,0 +1,121 @@
+/* ============================================
+   UNIT DESIGN SYSTEM - TOKENS
+   One unit. One ratio. Pure math.
+
+   --unit: base size (scales entire UI)
+   --content-ratio: how content fills containers
+
+   Height is truth. Content = height × ratio.
+   Padding = height × (1 - ratio) / 2.
+
+   Examples:
+   --unit: 4px  → compact
+   --unit: 6px  → standard
+   --unit: 8px  → spacious
+   --content-ratio: 0.4  → more padding
+   --content-ratio: 0.5  → balanced
+   --content-ratio: 0.6  → tighter
+
+   Fluid: --unit: clamp(4px, 0.5vw + 3px, 8px);
+============================================ */
+
+:root {
+  /* THE TWO CONTROLS */
+  --unit: 6px;
+  --content-ratio: 0.5;
+
+  /* TEXT BASE - derived from unit × ratio, used everywhere */
+  --text-base: calc(var(--controls-height) * var(--content-ratio));
+
+  /* HEIGHTS - source of truth */
+  --controls-height: calc(var(--unit) * 6);
+  --bar-height-1: calc(var(--unit) * 5);
+  --bar-height-2: calc(var(--unit) * 8);
+  --bar-height-3: calc(var(--unit) * 10);
+
+  /* SPACING - gaps between elements */
+  --space-1: var(--unit);
+  --space-2: calc(var(--unit) * 2);
+  --space-3: calc(var(--unit) * 4);
+
+  /* WIDTHS */
+  --width-1: calc(var(--unit) * 40);
+  --width-2: calc(var(--unit) * 80);
+  --width-3: calc(var(--unit) * 128);
+
+  /* BORDER RADIUS */
+  --border-radius-1: calc(var(--unit) * 0.5);
+  --border-radius-2: var(--unit);
+  --border-radius-3: calc(var(--unit) * 2);
+
+  /* FONT FAMILIES */
+  --family-1: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  --family-2: 'Raleway', 'Impact', 'Arial Black', 'Helvetica', sans-serif;
+  --family-mono: 'Monaco', 'Courier New', monospace;
+
+  /* FONT WEIGHTS */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* NON-UNIT VALUES */
+  --opacity-disabled: 0.5;
+  --z-index-1: 100;
+  --z-index-2: 500;
+  --z-index-3: 1000;
+  --transition-fast: 0.15s ease-out;
+  --transition-medium: 0.25s ease-out;
+  --transition-slow: 0.4s ease-out;
+}
+
+/* LIGHT THEME (default) */
+:root, .light-theme {
+  --color-1: hsl(25, 85%, 50%);
+  --color-2: hsl(280, 50%, 55%);
+  --color-3: hsl(160, 50%, 45%);
+  --on-color: hsl(0, 0%, 100%);
+  --error-color: hsl(0, 70%, 50%);
+  --warning-color: hsl(40, 90%, 50%);
+  --success-color: hsl(140, 60%, 40%);
+
+  --background-1: hsl(0, 0%, 94%);
+  --background-2: hsl(0, 0%, 100%);
+  --background-3: hsl(0, 0%, 90%);
+  --background-4: hsl(0, 0%, 96%);
+
+  --on-background: hsl(0, 0%, 15%);
+  --on-background-light: hsl(0, 0%, 45%);
+  --border-color-1: hsl(0, 0%, 75%);
+  --border-color-2: hsl(0, 0%, 60%);
+  --scrollbar-track: var(--background-1);
+  --scrollbar-thumb: var(--border-color-2);
+  --box-shadow-1: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --box-shadow-2: 0 2px 8px rgba(0, 0, 0, 0.12);
+  --box-shadow-3: 0 4px 16px rgba(0, 0, 0, 0.16);
+}
+
+/* DARK THEME */
+:root.dark-theme {
+  --color-1: hsl(25, 90%, 60%);
+  --color-2: hsl(280, 60%, 70%);
+  --color-3: hsl(160, 60%, 55%);
+  --on-color: hsl(0, 0%, 100%);
+  --error-color: hsl(0, 70%, 60%);
+  --warning-color: hsl(40, 90%, 60%);
+  --success-color: hsl(140, 60%, 55%);
+
+  --background-1: hsl(0, 0%, 8%);
+  --background-2: hsl(0, 0%, 14%);
+  --background-3: hsl(0, 0%, 20%);
+  --background-4: hsl(0, 0%, 18%);
+
+  --on-background: hsl(0, 0%, 92%);
+  --on-background-light: hsl(0, 0%, 60%);
+  --border-color-1: hsl(0, 0%, 32%);
+  --border-color-2: hsl(0, 0%, 50%);
+  --scrollbar-track: var(--background-1);
+  --scrollbar-thumb: var(--border-color-2);
+  --box-shadow-1: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --box-shadow-2: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --box-shadow-3: 0 4px 16px rgba(0, 0, 0, 0.5);
+}

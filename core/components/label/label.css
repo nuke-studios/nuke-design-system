@@ -1,10 +1,9 @@
 /* Label */
 label {
   display: block;
-  font-size: var(--font-size-1);
+  font-size: calc(var(--text-base) * 0.8);
   font-weight: var(--font-weight-medium);
   color: var(--on-background);
-  margin-bottom: var(--space-1);
   cursor: pointer;
 }
 

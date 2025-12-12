@@ -15,10 +15,10 @@ textarea {
 textarea {
   display: block;
   width: 100%;
-  min-height: 120px;
-  padding: var(--space-2);
-  font-size: var(--font-size-2);
-  line-height: var(--line-height-2);
+  min-height: calc(var(--controls-height) * 4);
+  padding: calc(var(--controls-height) * (1 - var(--content-ratio)) / 2);
+  font-size: var(--text-base);
+  line-height: 1.5;
   color: var(--on-background);
   background: var(--background-4);
   border: 1px solid var(--border-color-1);

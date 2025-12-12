@@ -52,16 +52,29 @@
     },
     {
       "id": "concept-2",
-      "title": "Design Tokens",
+      "title": "Modular Scale",
       "details": {
-        "location": "core/style.css - single source of truth",
-        "naming_convention": "Always use 1-2-3 suffix pattern (e.g., --border-radius-1, --z-index-2)",
-        "token_categories": {
-          "colors": "--background-1/2/3/4, --on-background, --border-color-1/2",
-          "layout": "--width-1/2/3, --height-1/2/3, --z-index-1/2/3",
-          "spacing": "--space-1/2/3",
-          "typography": "--font-size-1/2/3, --font-weight-*, --line-height-*",
-          "ui": "--border-radius-1/2/3, --box-shadow-1/2/3, --opacity-disabled"
+        "core_principle": "Two variables control everything: --unit (base size) and --ratio (growth rate)",
+        "scale_formula": "--scale-n = --unit × --ratio^n (exponential growth)",
+        "base_values": {
+          "--unit": "6px (base size - change to scale entire UI)",
+          "--ratio": "1.5 (growth rate - tighter or looser progression)"
+        },
+        "scale_steps": {
+          "--scale-1": "6px (unit)",
+          "--scale-2": "9px (unit × 1.5)",
+          "--scale-3": "13.5px (unit × 2.25)",
+          "--scale-4": "20px (unit × 3.375)",
+          "--scale-5": "30px (unit × 5.06)",
+          "--scale-6": "46px (unit × 7.59)",
+          "--scale-7": "68px (unit × 11.39)",
+          "--scale-8": "103px (unit × 17.09)"
+        },
+        "density_modes": {
+          "compact": "--unit: 4px",
+          "standard": "--unit: 6px",
+          "spacious": "--unit: 8px",
+          "fluid": "--unit: clamp(4px, 0.5vw + 3px, 8px)"
         }
       }
     },
