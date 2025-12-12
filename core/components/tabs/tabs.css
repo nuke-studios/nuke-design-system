@@ -5,7 +5,7 @@ nuke-tabs {
 nuke-tab {
   display: inline-block;
   height: var(--controls-height);
-  padding: 0 calc(var(--controls-height) * (1 - var(--content-ratio)));
+  padding: 0 calc(var(--controls-height) * (1 - var(--ratio)));
   font-size: var(--text-base);
   font-weight: var(--font-weight-medium);
   color: var(--on-background-light);

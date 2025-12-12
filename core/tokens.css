@@ -1,39 +1,34 @@
 /* ============================================
    UNIT DESIGN SYSTEM - TOKENS
-   One unit. One ratio. Pure math.
-
-   --unit: base size (scales entire UI)
-   --content-ratio: how content fills containers
-
-   Height is truth. Content = height × ratio.
-   Padding = height × (1 - ratio) / 2.
-
-   Examples:
-   --unit: 4px  → compact
-   --unit: 6px  → standard
-   --unit: 8px  → spacious
-   --content-ratio: 0.4  → more padding
-   --content-ratio: 0.5  → balanced
-   --content-ratio: 0.6  → tighter
-
-   Fluid: --unit: clamp(4px, 0.5vw + 3px, 8px);
+   Two variables control everything.
 ============================================ */
 
 :root {
-  /* THE TWO CONTROLS */
+  /*
+   * THE TWO CONTROLS
+   *
+   * --unit:  Base size. Scales the entire UI.
+   *          4px = compact, 6px = standard, 8px = spacious
+   *
+   * --ratio: How much content fills its container (0-1).
+   *          Controls text size AND padding automatically.
+   *          - Text size = container height × ratio
+   *          - Padding = container height × (1 - ratio) / 2
+   *          0.4 = more padding, 0.5 = balanced, 0.7 = tighter
+   */
   --unit: 6px;
-  --content-ratio: 0.5;
+  --ratio: 0.5;
 
-  /* TEXT BASE - derived from unit × ratio, used everywhere */
-  --text-base: calc(var(--controls-height) * var(--content-ratio));
+  /* TEXT BASE - derived from controls-height × ratio */
+  --text-base: calc(var(--controls-height) * var(--ratio));
 
-  /* HEIGHTS - source of truth */
+  /* HEIGHTS */
   --controls-height: calc(var(--unit) * 6);
   --bar-height-1: calc(var(--unit) * 5);
   --bar-height-2: calc(var(--unit) * 8);
   --bar-height-3: calc(var(--unit) * 10);
 
-  /* SPACING - gaps between elements */
+  /* SPACING */
   --space-1: var(--unit);
   --space-2: calc(var(--unit) * 2);
   --space-3: calc(var(--unit) * 4);

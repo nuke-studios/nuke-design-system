@@ -24,7 +24,7 @@ input[type="reset"] {
   align-items: center;
   justify-content: center;
   gap: var(--space-1);
-  padding: 0 calc(var(--controls-height) * (1 - var(--content-ratio)));
+  padding: 0 calc(var(--controls-height) * (1 - var(--ratio)));
   height: var(--controls-height);
   font-size: var(--text-base);
   font-weight: 500;

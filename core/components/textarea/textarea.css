@@ -16,7 +16,7 @@ textarea {
   display: block;
   width: 100%;
   min-height: calc(var(--controls-height) * 4);
-  padding: calc(var(--controls-height) * (1 - var(--content-ratio)) / 2);
+  padding: calc(var(--controls-height) * (1 - var(--ratio)) / 2);
   font-size: var(--text-base);
   line-height: 1.5;
   color: var(--on-background);

@@ -30,7 +30,7 @@ input[type="checkbox"]:checked {
   background-image: url("data:image/svg+xml,%3Csvg width='14' height='11' viewBox='0 0 14 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 5L5 9L13 1' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: calc(var(--controls-height) * var(--content-ratio));
+  background-size: calc(var(--controls-height) * var(--ratio));
 }
 input[type="checkbox"]:focus {
   outline: none;
@@ -50,7 +50,7 @@ input[type="checkbox"][nuke-style="1"]:checked {
   background-image: url("data:image/svg+xml,%3Csvg width='14' height='11' viewBox='0 0 14 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 5L5 9L13 1' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: calc(var(--controls-height) * var(--content-ratio));
+  background-size: calc(var(--controls-height) * var(--ratio));
 }
 :is(body, *)[nuke-style="1"] input[type="checkbox"]:hover:not(:disabled),
 input[type="checkbox"][nuke-style="1"]:hover:not(:disabled) {
@@ -75,7 +75,7 @@ input[type="checkbox"][nuke-style="2"]:checked {
   background-image: url("data:image/svg+xml,%3Csvg width='14' height='11' viewBox='0 0 14 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 5L5 9L13 1' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: calc(var(--controls-height) * var(--content-ratio));
+  background-size: calc(var(--controls-height) * var(--ratio));
 }
 :is(body, *)[nuke-style="2"] input[type="checkbox"]:hover:not(:disabled),
 input[type="checkbox"][nuke-style="2"]:hover:not(:disabled) {

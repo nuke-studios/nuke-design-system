@@ -1,4 +1,4 @@
-/* Import the Nuke Design System (source files for dev) */
+/* Import the Unit Design System */
 @import '../core/core.css';
 
 /* Showcase layout styles */
@@ -13,7 +13,7 @@
   grid-template-columns: 1fr auto;
   align-items: center;
   gap: var(--space-3);
-  height: var(--height-3);
+  height: var(--bar-height-3);
 }
 
 .logo {
@@ -24,14 +24,14 @@
 
 .logo-nuke {
   font-family: var(--family-2), sans-serif;
-  font-size: 2rem;
+  font-size: calc(var(--text-base) * 2);
   font-weight: 900;
   text-transform: uppercase;
   line-height: 1;
 }
 
 .logo-subtitle {
-  font-size: 1rem;
+  font-size: var(--text-base);
   font-weight: 400;
   text-transform: lowercase;
   line-height: 1;
@@ -39,7 +39,7 @@
 }
 
 .theme-toggle {
-  font-size: var(--font-size-1);
+  font-size: calc(var(--text-base) * 0.8);
   font-weight: 900;
   text-transform: uppercase;
   background: none;
@@ -61,7 +61,7 @@
 .component-name {
   padding: var(--space-2) var(--space-3);
   font-family: var(--family-mono);
-  font-size: var(--font-size-2);
+  font-size: var(--text-base);
   font-weight: 600;
   background: var(--background-3);
   border-bottom: 1px solid var(--border-color-1);

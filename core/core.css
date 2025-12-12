@@ -1,12 +1,10 @@
 /* ============================================
-   NUKE DESIGN SYSTEM
-   Element-first CSS with .style-1/2/3 variants
+   UNIT DESIGN SYSTEM
+   One unit. One ratio. Pure math.
 ============================================ */
 
-/* Design tokens (fonts, colors, spacing, themes) */
-@import './style.css';
-
-/* Components */
+/* All @imports must come first */
+@import './tokens.css';
 @import './components/a/a.css';
 @import './components/area/area.css';
 @import './components/badge/badge.css';
@@ -32,143 +30,175 @@
 @import './components/toolbar/toolbar.css';
 @import './components/ul/ul.css';
 
-/* Reset default browser styles */
+/* RESETS */
 *, *::before, *::after {
   box-sizing: border-box;
 }
-* {
+
+html, body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, figcaption, blockquote, dl, dd {
   margin: 0;
+  padding: 0;
 }
+
 html {
-  height: 100%;
-  background: var(--background-1);
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
+
 body {
-  height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  background: var(--background-1);
-  font-family: var(--family-1);
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  font-family: var(--family-1), sans-serif;
+  font-size: var(--text-base);
+  line-height: 1.5;
   color: var(--on-background);
+  background: var(--background-1);
 }
+
 img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
 }
+
 input, button, textarea, select {
   font: inherit;
 }
-#root, #__next {
-  isolation: isolate;
-}
+
 ul, ol {
-  margin: 0;
-  padding: 0 0 0 1rem;
+  list-style: none;
 }
 
-/*Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
-.fadeIn {
-  opacity: 0;
-  will-change: transform;
-  animation: fadeIn var(--animation-fast);
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+  width: var(--space-2);
+  height: var(--space-2);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border: calc(var(--unit) * 0.5) solid var(--scrollbar-track);
+  border-radius: var(--border-radius-2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--on-background-light);
+}
+
+/* TYPOGRAPHY */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  color: var(--on-background);
+}
+
+h1 { font-size: calc(var(--text-base) * 2); }
+h2 { font-size: calc(var(--text-base) * 1.5); }
+h3 { font-size: calc(var(--text-base) * 1.25); }
+h4 { font-size: var(--text-base); }
+h5 { font-size: calc(var(--text-base) * 0.9); }
+h6 { font-size: calc(var(--text-base) * 0.8); }
+
+p {
+  line-height: 1.5;
+  color: var(--on-background);
+}
+
+ul, ol {
+  padding-left: var(--space-3);
+}
+
+li {
+  line-height: 1.5;
+}
+
+strong, b {
+  font-weight: var(--font-weight-bold);
+}
+
+em, i {
+  font-style: italic;
+}
+
+small {
+  font-size: calc(var(--text-base) * 0.8);
+}
+
+a {
+  color: var(--on-background);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-1);
+}
+
+code, kbd, samp {
+  font-family: var(--family-mono), monospace;
+  font-size: calc(var(--text-base) * 0.9);
+}
+
+blockquote {
+  padding-left: var(--space-2);
+  border-left: 3px solid var(--border-color-2);
+  color: var(--on-background-light);
+  font-style: italic;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border-color-1);
+}
+
+::selection {
+  background: var(--color-1);
+  color: var(--on-color);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-1);
+  outline-offset: 2px;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 @keyframes dropInRight {
-  from {
-    opacity: 0;
-    transform: translateX(.5rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-.dropInRight {
-  opacity: 0;
-  will-change: transform;
-  animation: dropInRight var(--animation-fast);
+  from { opacity: 0; transform: translateX(0.5rem); }
+  to { opacity: 1; transform: translateX(0); }
 }
 @keyframes dropInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-.5rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-.dropInLeft {
-  opacity: 0;
-  will-change: transform;
-  animation: dropInLeft var(--animation-fast);
+  from { opacity: 0; transform: translateX(-0.5rem); }
+  to { opacity: 1; transform: translateX(0); }
 }
 @keyframes dropInTop {
-  from {
-    opacity: 0;
-    transform: translateY(-.5rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.dropInTop {
-  opacity: 0;
-  will-change: transform;
-  animation: dropInTop var(--animation-fast);
+  from { opacity: 0; transform: translateY(-0.5rem); }
+  to { opacity: 1; transform: translateY(0); }
 }
 @keyframes dropInBottom {
-  from {
-    opacity: 0;
-    transform: translateY(.5rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.dropInBottom {
-  opacity: 0;
-  will-change: transform;
-  animation: dropInBottom var(--animation-fast);
-}
-.motion-off *,
-.motion-off *::before,
-.motion-off *::after {
-  animation: none !important;
-  transition: none !important;
-}
-@media screen and (prefers-reduced-motion: reduce) {
-  .fadeIn,
-  .dropInRight,
-  .dropInLeft,
-  .dropInTop,
-  .dropInBottom,
-  *, *::before, *::after {
-    animation: none !important;
-    transition: none !important;
-  }
+  from { opacity: 0; transform: translateY(0.5rem); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Scroll lock */
+.fadeIn { animation: fadeIn var(--transition-fast); }
+.dropInRight { animation: dropInRight var(--transition-fast); }
+.dropInLeft { animation: dropInLeft var(--transition-fast); }
+.dropInTop { animation: dropInTop var(--transition-fast); }
+.dropInBottom { animation: dropInBottom var(--transition-fast); }
+
+/* UTILITIES */
 body.no-scroll {
   overflow: hidden;
-}
-@media (max-width: 991px) {
-  body.no-scroll {
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-  }
-  html.no-scroll {
-    overflow: hidden;
-  }
 }

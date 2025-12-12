@@ -33,7 +33,7 @@ input[type="datetime-local"] {
   display: block;
   width: 100%;
   height: var(--controls-height);
-  padding: 0 calc(var(--controls-height) * (1 - var(--content-ratio)) / 2);
+  padding: 0 calc(var(--controls-height) * (1 - var(--ratio)) / 2);
   font-size: var(--text-base);
   color: var(--on-background);
   border-radius: var(--border-radius-1);

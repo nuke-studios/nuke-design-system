@@ -34,8 +34,8 @@ input[type="radio"]:checked::before {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: calc(var(--controls-height) * var(--content-ratio));
-  height: calc(var(--controls-height) * var(--content-ratio));
+  width: calc(var(--controls-height) * var(--ratio));
+  height: calc(var(--controls-height) * var(--ratio));
   background: var(--on-background);
   border-radius: 50%;
 }
@@ -61,8 +61,8 @@ input[type="radio"][nuke-style="1"]:checked {
 :is(body, *)[nuke-style="1"] input[type="radio"]:checked::before,
 input[type="radio"][nuke-style="1"]:checked::before {
   background: var(--on-background);
-  width: calc(var(--controls-height) * var(--content-ratio));
-  height: calc(var(--controls-height) * var(--content-ratio));
+  width: calc(var(--controls-height) * var(--ratio));
+  height: calc(var(--controls-height) * var(--ratio));
 }
 
 /* Style 2 - Filled with border */
@@ -79,8 +79,8 @@ input[type="radio"][nuke-style="2"]:checked {
 :is(body, *)[nuke-style="2"] input[type="radio"]:checked::before,
 input[type="radio"][nuke-style="2"]:checked::before {
   background: var(--on-background);
-  width: calc(var(--controls-height) * var(--content-ratio));
-  height: calc(var(--controls-height) * var(--content-ratio));
+  width: calc(var(--controls-height) * var(--ratio));
+  height: calc(var(--controls-height) * var(--ratio));
 }
 :is(body, *)[nuke-style="2"] input[type="radio"]:hover:not(:disabled),
 input[type="radio"][nuke-style="2"]:hover:not(:disabled) {
