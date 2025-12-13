@@ -41,7 +41,7 @@
     {
       "id": "instruction-1",
       "title": "Component Structure",
-      "description": "Each component has a single [name].scss file with: reset styles, base styles, and style variants using @include style(1/2/3). Use design tokens directly from tokens.scss - no component-specific variables."
+      "description": "Each component has a single [name].scss file with: reset styles and base styles using design tokens directly. Use tokens from tokens.scss - no component-specific variables. All styling controlled via token references (--border-component, --background-component, etc.)."
     },
     {
       "id": "instruction-2",
@@ -51,56 +51,42 @@
     {
       "id": "instruction-3",
       "title": "Token Naming",
-      "description": "Use tree-level suffixes for gap/radius: --gap-shell, --gap-primitive, --gap-component (same for --radius-*). Use 1-2-3 suffixes for scale tokens: --space-1/2/3, --width-1/2/3, --z-index-1/2/3. Never use semantic names like --button-bg."
+      "description": "Use tree-level suffixes for cascading tokens: --gap-shell/primitive/component, --radius-shell/primitive/component, --border-shell/primitive/component, --background-shell/primitive/component. Use 1-2-3 suffixes for scale tokens: --space-1/2/3, --width-1/2/3, --z-index-1/2/3. Never use semantic names like --button-bg."
     },
     {
       "id": "instruction-4",
       "title": "Prefer grid over flex",
-      "description": "Always prefer CSS Grid over Flexbox for layouts. Grid is more powerful and predictable for 2D layouts.",
-      "created": "2025-12-12T16:16:14.509394+01:00",
-      "updated": "2025-12-12T16:16:14.509394+01:00"
+      "description": "Always prefer CSS Grid over Flexbox for layouts. Grid is more powerful and predictable for 2D layouts."
     },
     {
       "id": "instruction-5",
       "title": "No margin on elements",
-      "description": "Never add margin to component elements. Use gap on parent containers (grid/flex) for spacing instead.",
-      "created": "2025-12-12T16:16:14.649981+01:00",
-      "updated": "2025-12-12T16:16:14.649981+01:00"
+      "description": "Never add margin to component elements. Use gap on parent containers (grid/flex) for spacing instead."
     },
     {
       "id": "instruction-6",
       "title": "Workspace Structure",
-      "description": "Project has two packages: lib/ (design system - CSS tokens, components, web components) and frontend/ (Svelte 5 docs app). Frontend imports lib via relative paths (../../lib/dist/). Icons are copied to frontend/public/icons/ for Vite serving.",
-      "created": "2025-12-13T01:42:44.501322+01:00",
-      "updated": "2025-12-13T01:42:44.501322+01:00"
+      "description": "Project has two packages: lib/ (design system - CSS tokens, components, web components) and frontend/ (Svelte 5 docs app). Frontend imports lib via relative paths (../../lib/dist/). Icons are copied to frontend/public/icons/ for Vite serving."
     },
     {
       "id": "instruction-7",
       "title": "Frontend Development",
-      "description": "Run 'npm run dev' in frontend/ folder. Uses Vite + Svelte 5 with runes (, , ). Import lib CSS via @import '../../lib/dist/core.css' and JS via import '../../lib/dist/core.js'. Configure nuke-icon basePath to '/icons'.",
-      "created": "2025-12-13T01:42:52.692233+01:00",
-      "updated": "2025-12-13T01:42:52.692233+01:00"
+      "description": "Run 'npm run dev' in frontend/ folder. Uses Vite + Svelte 5 with runes. Import lib CSS via @import '../../lib/dist/core.css' and JS via import '../../lib/dist/core.js'. Configure nuke-icon basePath to '/icons'."
     },
     {
       "id": "instruction-8",
       "title": "Token Overrides",
-      "description": "Frontend can override lib tokens in style.css. Create aliases for compatibility (--on-background → --color-text-1) and override colors for app-specific theming. Both dark-theme and light-theme classes supported.",
-      "created": "2025-12-13T01:42:52.787266+01:00",
-      "updated": "2025-12-13T01:42:52.787266+01:00"
+      "description": "Frontend can override lib tokens in style.css. Override tokens at :root for global changes, or on any container for scoped changes. Both dark-theme and light-theme classes supported."
     },
     {
       "id": "instruction-9",
-      "title": "SCSS Component Pattern",
-      "description": "Components use SCSS: @use '../mixins' as *; then use element variables ($btn, $input) and @include style(1/2/3) { } for variants. This replaces verbose CSS selectors with readable mixin calls.",
-      "created": "2025-12-13T19:30:17.728741+01:00",
-      "updated": "2025-12-13T19:30:17.728741+01:00"
+      "title": "Token Usage by Layer",
+      "description": "Use tokens matching folder level: 1-app-shell uses --*-shell tokens, 2-primitives uses --*-primitive tokens, 3-components uses --*-component tokens. This applies to gap, radius, border, and background token families."
     },
     {
       "id": "instruction-10",
-      "title": "Gap/Radius Token Usage",
-      "description": "Use tokens matching folder level: 1-app-shell uses --gap-shell/--radius-shell, 2-primitives uses --gap-primitive/--radius-primitive, 3-components uses --gap-component/--radius-component. This enables per-level customization while cascading from base --gap and --radius values.",
-      "created": "2025-12-13T23:57:14.037595+01:00",
-      "updated": "2025-12-13T23:57:14.037595+01:00"
+      "title": "No Hardcoded Borders",
+      "description": "Never use 'border: 1px solid var(--border-color-1)' directly. Always use token references: --border-primitive for 2-primitives, --border-component for 3-components. This enables style mode switching via token overrides."
     }
   ]
 }

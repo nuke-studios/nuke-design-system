@@ -43,12 +43,12 @@
     {
       "id": "concept-1",
       "title": "Flat Architecture",
-      "description": "Single-layer design: tokens defined once, used directly in components. No component-specific variables. Each component has one .scss file with reset, base styles, and style variants via @include style(1/2/3).",
+      "description": "Single-layer design: tokens defined once in tokens.scss, used directly in components. No component-specific variables. Each component has one .scss file with reset and base styles. All styling controlled via cascading CSS tokens.",
       "details": {
         "concept": "Single-layer design: tokens defined once in tokens.scss, used directly in component SCSS",
-        "no_abstraction": "No component-specific CSS variables (e.g., --button-bg). Components use design tokens directly (e.g., var(--background-4))",
-        "single_file_per_component": "Each component has one .scss file containing reset, base styles, and style variants using @include style(n)",
-        "style_variants": "Three global style variants via nuke-style='1/2/3' attribute - use @include style(1/2/3) mixin"
+        "no_abstraction": "No component-specific CSS variables (e.g., --button-bg). Components use design tokens directly (e.g., var(--background-component))",
+        "single_file_per_component": "Each component has one .scss file containing reset and base styles",
+        "token_styling": "All visual styles controlled via token overrides - no style attributes needed"
       }
     },
     {
@@ -91,86 +91,58 @@
           "core/1-app-shell/": "Page-level layouts (app-shell-sidebar, app-shell-stacked)",
           "core/2-primitives/": "Layout containers (area, grid, header, nav-*, sidebar, toolbar)",
           "core/3-components/": "UI elements (button, input, tabs, badge, etc.)",
-          "core/_mixins.scss": "Shared mixins (style() mixin, element selectors)",
+          "core/_mixins.scss": "Shared mixins (currently empty - style variants via tokens)",
           "core/core.scss": "SCSS entry point (imports tokens + all components)",
           "core/core.ts": "Web component exports",
-          "core/tokens.scss": "Design tokens (--unit, --gap-*, --radius-*, colors)"
+          "core/tokens.scss": "Design tokens (--unit, --gap-*, --radius-*, --border-*, --background-*, colors)"
         }
       }
     },
     {
       "id": "concept-4",
       "title": "Usage",
-      "description": "Import core.css and core.js. Use nuke-style='1/2/3' attribute for style variants. Override CSS variables in your stylesheet for customization. Works with any framework.",
+      "description": "Import core.css and core.js. Override CSS tokens on any container to change styles for all children. Works with any framework.",
       "details": {
-        "customize_tokens": "Override CSS variables in your own stylesheet after importing core.css",
-        "import_css": "\u003clink rel='stylesheet' href='dist/core.css'\u003e",
-        "import_js": "\u003cscript type='module' src='dist/core.js'\u003e\u003c/script\u003e",
-        "style_variants": "Add nuke-style='1', '2', or '3' attribute to elements for different visual styles"
+        "customize_tokens": "Override CSS tokens on :root, body, or any container to cascade style changes to children",
+        "import_css": "<link rel='stylesheet' href='dist/core.css'>",
+        "import_js": "<script type='module' src='dist/core.js'></script>",
+        "style_modes": "Set --border-component, --background-component, --radius-component etc. on any element to control all children"
       }
     },
     {
       "id": "concept-5",
       "title": "Frontend App",
-      "description": "Svelte 5 documentation app in frontend/ folder. Two pages: Welcome (landing) and Components (showcase). Uses Nav.svelte for navigation, imports lib web components (\u003cnuke-icon\u003e, \u003cnuke-tabs\u003e, etc). Serves as dogfooding environment to test lib components.",
-      "created": "2025-12-13T01:43:19.428617+01:00",
-      "updated": "2025-12-13T01:43:19.428617+01:00"
+      "description": "Svelte 5 documentation app in frontend/ folder. Two pages: Welcome (landing) and Components (showcase). Uses Nav.svelte for navigation, imports lib web components (<nuke-icon>, <nuke-tabs>, etc). Serves as dogfooding environment to test lib components."
     },
     {
       "id": "concept-6",
-      "title": "Style Inheritance",
-      "description": "nuke-style attribute cascades from parent to children. Set once on a container, all styled elements inside inherit it. The cascade is a feature, not a bug. Element-specific modifiers like [icon] stay flat boolean attributes since they shouldn't cascade.",
-      "created": "2025-12-13T18:38:02.029618+01:00",
-      "updated": "2025-12-13T18:38:02.029618+01:00"
+      "title": "Component Hierarchy",
+      "description": "Three-layer architecture matching folder structure: 1-app-shell (page frame - sidebar/stacked layouts), 2-primitives (layout regions - area, grid, nav-*, toolbar), 3-components (UI elements - button, input, tabs). Numbered folders show usage order and token cascade direction."
     },
     {
       "id": "concept-7",
-      "title": "Cascading Styles DX",
-      "description": "Unlike other design systems that require classes on every element, nuke-style cascades from parent to children. Set once on a container, all buttons/inputs/selects inside inherit. Verbose CSS is the cost of cleaner HTML for users.",
-      "created": "2025-12-13T18:50:00.198084+01:00",
-      "updated": "2025-12-13T18:50:00.198084+01:00"
+      "title": "Gap & Radius Token System",
+      "description": "Tokens cascade through component tree matching folder structure. Gap: --gap (base), --gap-shell (1-app-shell), --gap-primitive (2-primitives), --gap-component (3-components). Radius: --radius (base), --radius-shell, --radius-primitive, --radius-component. Set base values, override per-level as needed."
     },
     {
       "id": "concept-8",
-      "title": "nuke-style Selector Pattern",
-      "description": "The CSS pattern ':is(body, *)[nuke-style=\"1\"] :is(button, ...)' enables full cascade. The ':is(body, *)' ensures body-level works - set nuke-style on \u003cbody\u003e and ALL elements inherit globally. Override locally by setting nuke-style on any container. Any CSS refactoring (nesting, SCSS) must preserve this pattern.",
-      "created": "2025-12-13T18:56:06.137958+01:00",
-      "updated": "2025-12-13T18:56:06.137958+01:00"
+      "title": "Border Token System",
+      "description": "Tokens cascade through component tree. Border: --border (base), --border-shell, --border-primitive, --border-component. Plus --border-bottom-component for underline-only styles. Set --border to 'none' for borderless, or override per-level."
     },
     {
       "id": "concept-9",
-      "title": "Style Boundaries",
-      "description": "Any element with nuke-style becomes a 'style boundary'. All children inherit until a new boundary overrides. Works on div, nav, section, form, body - any element. Enables scoped styling without classes on every child.",
-      "created": "2025-12-13T18:57:20.065436+01:00",
-      "updated": "2025-12-13T18:57:20.065436+01:00"
+      "title": "Background Token System",
+      "description": "Semantic backgrounds matching tree hierarchy. --background-body (page base, shows through gaps), --background-shell (1-app-shell), --background-primitive (2-primitives), --background-component (3-components), --background-hover (hover states). In block mode, --background-body creates visual borders through 1px gaps."
     },
     {
       "id": "concept-10",
-      "title": "SCSS Architecture",
-      "description": "Components use SCSS with shared mixins from _mixins.scss. Element selector variables ($btn, $input, $select, etc.) and style() mixin enable DRY code. The style($n) mixin expands to the full cascade pattern: ':is(body, *)[nuke-style=\"n\"] \u0026, \u0026[nuke-style=\"n\"]'. Files: tokens.scss (design tokens), _mixins.scss (shared mixins), core.scss (entry point), components/*.scss.",
-      "created": "2025-12-13T19:30:08.244907+01:00",
-      "updated": "2025-12-13T19:30:08.244907+01:00"
+      "title": "Block vs Island Mode",
+      "description": "Two aesthetic modes controlled by tokens. Block mode (--gap: 1px, --radius: 0, --border: none): Japanese hairline aesthetic - body color shows through 1px gaps creating visual borders. Island mode (--gap: 5px+, --radius: 3px+, --border: 1px solid): floating card aesthetic - visible separation, rounded corners, explicit borders."
     },
     {
       "id": "concept-11",
-      "title": "Component Hierarchy",
-      "description": "Three-layer architecture matching folder structure: 1-app-shell (page frame - sidebar/stacked layouts), 2-primitives (layout regions - area, grid, nav-*, toolbar), 3-components (UI elements - button, input, tabs). Numbered folders show usage order and token cascade direction.",
-      "created": "2025-12-13T23:56:42.337829+01:00",
-      "updated": "2025-12-13T23:56:42.337829+01:00"
-    },
-    {
-      "id": "concept-12",
-      "title": "Gap \u0026 Radius Token System",
-      "description": "Tokens cascade through component tree matching folder structure. Gap: --gap (base), --gap-shell (1-app-shell), --gap-primitive (2-primitives), --gap-component (3-components). Radius: --radius (base), --radius-shell, --radius-primitive, --radius-component. Set base values, override per-level as needed.",
-      "created": "2025-12-13T23:56:48.258418+01:00",
-      "updated": "2025-12-13T23:56:48.258418+01:00"
-    },
-    {
-      "id": "concept-13",
-      "title": "Block vs Island Mode",
-      "description": "Two aesthetic modes controlled by --gap and --radius. Block mode (--gap: 1px, --radius: 0): Japanese hairline aesthetic - gaps create visual borders, no rounded corners, everything flush. Island mode (--gap: 5px+, --radius: 3px+): floating card aesthetic - visible separation, rounded corners, components need their own borders.",
-      "created": "2025-12-13T23:56:54.402944+01:00",
-      "updated": "2025-12-13T23:56:54.402944+01:00"
+      "title": "Token Cascade Styling",
+      "description": "All visual styling via CSS token overrides. Set tokens on any container to style all children. Example: set --border-component: none; --border-bottom-component: 1px solid var(--border-color-2); on a form for underline-only inputs. No classes or attributes needed."
     }
   ]
 }
