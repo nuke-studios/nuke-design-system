@@ -51,7 +51,7 @@
     {
       "id": "instruction-3",
       "title": "Token Naming",
-      "description": "Always use 1-2-3 suffix pattern for tokens (e.g., --border-radius-1, --z-index-2, --width-3). Never use semantic names like --button-bg or --input-border."
+      "description": "Use tree-level suffixes for gap/radius: --gap-shell, --gap-primitive, --gap-component (same for --radius-*). Use 1-2-3 suffixes for scale tokens: --space-1/2/3, --width-1/2/3, --z-index-1/2/3. Never use semantic names like --button-bg."
     },
     {
       "id": "instruction-4",
@@ -94,6 +94,13 @@
       "description": "Components use SCSS: @use '../mixins' as *; then use element variables ($btn, $input) and @include style(1/2/3) { } for variants. This replaces verbose CSS selectors with readable mixin calls.",
       "created": "2025-12-13T19:30:17.728741+01:00",
       "updated": "2025-12-13T19:30:17.728741+01:00"
+    },
+    {
+      "id": "instruction-10",
+      "title": "Gap/Radius Token Usage",
+      "description": "Use tokens matching folder level: 1-app-shell uses --gap-shell/--radius-shell, 2-primitives uses --gap-primitive/--radius-primitive, 3-components uses --gap-component/--radius-component. This enables per-level customization while cascading from base --gap and --radius values.",
+      "created": "2025-12-13T23:57:14.037595+01:00",
+      "updated": "2025-12-13T23:57:14.037595+01:00"
     }
   ]
 }

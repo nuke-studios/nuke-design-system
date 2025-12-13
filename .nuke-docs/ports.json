@@ -40,5 +40,14 @@
     ],
     "type": "object"
   },
-  "items": []
+  "items": [
+    {
+      "id": "port-1",
+      "title": "Frontend Dev",
+      "port": 5173,
+      "url": "http://localhost:5173",
+      "created": "2025-12-14T00:00:14.764562+01:00",
+      "updated": "2025-12-14T00:00:14.764562+01:00"
+    }
+  ]
 }

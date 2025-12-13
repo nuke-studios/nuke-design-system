@@ -192,6 +192,15 @@
       "description": "Make frontend prove the lib is complete - should rebuild nuke-docs-style app without custom component styles.",
       "created": "2025-12-13T19:39:22.226336+01:00",
       "updated": "2025-12-13T19:39:22.226336+01:00"
+    },
+    {
+      "id": "task-23",
+      "title": "Switch to Radix Icons",
+      "status": "new",
+      "priority": "medium",
+      "description": "Replace Phosphor Icons with Radix Icons. Simple, flat, made for UI.",
+      "created": "2025-12-13T23:53:29.789767+01:00",
+      "updated": "2025-12-13T23:53:29.789767+01:00"
     }
   ]
 }
