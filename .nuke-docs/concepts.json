@@ -54,12 +54,18 @@
       "id": "concept-2",
       "title": "Modular Scale",
       "details": {
-        "core_principle": "Two variables control everything: --unit (base size) and --ratio (growth rate)",
-        "scale_formula": "--scale-n = --unit × --ratio^n (exponential growth)",
         "base_values": {
-          "--unit": "6px (base size - change to scale entire UI)",
-          "--ratio": "1.5 (growth rate - tighter or looser progression)"
+          "--ratio": "1.5 (growth rate - tighter or looser progression)",
+          "--unit": "6px (base size - change to scale entire UI)"
         },
+        "core_principle": "Two variables control everything: --unit (base size) and --ratio (growth rate)",
+        "density_modes": {
+          "compact": "--unit: 4px",
+          "fluid": "--unit: clamp(4px, 0.5vw + 3px, 8px)",
+          "spacious": "--unit: 8px",
+          "standard": "--unit: 6px"
+        },
+        "scale_formula": "--scale-n = --unit × --ratio^n (exponential growth)",
         "scale_steps": {
           "--scale-1": "6px (unit)",
           "--scale-2": "9px (unit × 1.5)",
@@ -69,12 +75,6 @@
           "--scale-6": "46px (unit × 7.59)",
           "--scale-7": "68px (unit × 11.39)",
           "--scale-8": "103px (unit × 17.09)"
-        },
-        "density_modes": {
-          "compact": "--unit: 4px",
-          "standard": "--unit: 6px",
-          "spacious": "--unit: 8px",
-          "fluid": "--unit: clamp(4px, 0.5vw + 3px, 8px)"
         }
       }
     },
@@ -91,11 +91,11 @@
           "build:ts": "tsc + bun build - Compiles TypeScript web components"
         },
         "source_structure": {
-          "core/style.css": "Design tokens",
+          "core/components/[name]/[name].css": "Component styles (single file)",
+          "core/components/[name]/[name].ts": "Web component (if interactive)",
           "core/core.css": "CSS entry point (imports style.css + all component CSS)",
           "core/core.ts": "Web component exports",
-          "core/components/[name]/[name].css": "Component styles (single file)",
-          "core/components/[name]/[name].ts": "Web component (if interactive)"
+          "core/style.css": "Design tokens"
         }
       }
     },
@@ -103,11 +103,18 @@
       "id": "concept-4",
       "title": "Usage",
       "details": {
-        "import_css": "<link rel='stylesheet' href='dist/core.css'>",
-        "import_js": "<script type='module' src='dist/core.js'></script>",
         "customize_tokens": "Override CSS variables in your own stylesheet after importing core.css",
+        "import_css": "\u003clink rel='stylesheet' href='dist/core.css'\u003e",
+        "import_js": "\u003cscript type='module' src='dist/core.js'\u003e\u003c/script\u003e",
         "style_variants": "Add nuke-style='1', '2', or '3' attribute to elements for different visual styles"
       }
+    },
+    {
+      "id": "concept-5",
+      "title": "Frontend App",
+      "description": "Svelte 5 documentation app in frontend/ folder. Two pages: Welcome (landing) and Components (showcase). Uses Nav.svelte for navigation, imports lib web components (\u003cnuke-icon\u003e, \u003cnuke-tabs\u003e, etc). Serves as dogfooding environment to test lib components.",
+      "created": "2025-12-13T01:43:19.428617+01:00",
+      "updated": "2025-12-13T01:43:19.428617+01:00"
     }
   ]
 }

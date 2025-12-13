@@ -1,0 +1,98 @@
+/* ============================================
+   NUKE DESIGN SYSTEM DOCS
+   Import core lib + app-specific overrides
+   ============================================ */
+
+/* Import the design system from lib */
+@import '../../lib/dist/core.css';
+
+/* Token aliases for frontend compatibility */
+:root {
+  /* Font size aliases (lib uses --text-base with multipliers) */
+  --font-size-1: calc(var(--text-base) * 0.75);
+  --font-size-2: calc(var(--text-base) * 0.85);
+  --font-size-3: var(--text-base);
+  --font-size-4: calc(var(--text-base) * 1.5);
+
+  /* Color aliases */
+  --on-background: var(--color-text-1);
+  --on-background-light: var(--color-text-2);
+  --on-color: var(--color-text-inverse);
+
+  /* Border aliases */
+  --border-1: var(--border-color-1);
+  --border-2: var(--border-color-2);
+
+  /* Height aliases */
+  --height-1: var(--controls-height-small);
+  --height-2: var(--controls-height);
+  --height-3: var(--bar-height-2);
+
+  /* Gap alias */
+  --area-gap: var(--area-gap-1);
+}
+
+/* Color overrides - nuke-docs blue/cyan theme */
+:root, .dark-theme {
+  /* Accent colors */
+  --color-1: hsl(214, 89%, 72%);
+  --color-2: hsl(212, 17%, 48%);
+  --color-3: hsl(190, 80%, 65%);
+  --color-text-inverse: hsl(220, 15%, 10%);
+
+  /* Text colors */
+  --color-text-1: hsl(0, 0%, 100%);
+  --color-text-2: hsl(0, 0%, 65%);
+
+  /* Semantic colors */
+  --error-color: hsl(0, 72%, 65%);
+  --warning-color: hsl(45, 90%, 55%);
+  --success-color: hsl(170, 70%, 60%);
+
+  /* Backgrounds - blue-tinted dark */
+  --background-1: hsl(240, 9%, 11%);
+  --background-2: hsl(240, 5%, 14%);
+  --background-3: hsl(240, 5%, 18%);
+  --background-4: hsl(240, 5%, 7%);
+
+  /* Borders */
+  --border-color-1: hsl(0, 0%, 30%);
+  --border-color-2: hsl(0, 0%, 45%);
+
+  /* Shadows */
+  --box-shadow-1: 0 1px 2px hsla(0, 0%, 0%, 0.2);
+  --box-shadow-2: 0 2px 8px hsla(0, 0%, 0%, 0.3);
+  --box-shadow-3: 0 4px 16px hsla(0, 0%, 0%, 0.4);
+}
+
+.light-theme {
+  /* Accent colors */
+  --color-1: hsl(221, 55%, 45%);
+  --color-2: hsl(270, 65%, 45%);
+  --color-3: hsl(190, 75%, 38%);
+  --color-text-inverse: hsl(0, 0%, 100%);
+
+  /* Text colors */
+  --color-text-1: hsl(220, 15%, 5%);
+  --color-text-2: hsl(220, 10%, 25%);
+
+  /* Semantic colors */
+  --error-color: hsl(0, 70%, 50%);
+  --warning-color: hsl(20, 80%, 50%);
+  --success-color: hsl(170, 65%, 45%);
+
+  /* Backgrounds */
+  --background-1: hsl(240, 5%, 72%);
+  --background-2: hsl(240, 5%, 69%);
+  --background-3: hsl(240, 5%, 66%);
+  --background-4: hsl(240, 5%, 75%);
+
+  /* Borders */
+  --border-color-1: hsl(0, 0%, 80%);
+  --border-color-2: hsl(0, 0%, 65%);
+
+  /* Shadows */
+  --box-shadow-1: 0 1px 2px hsla(0, 0%, 0%, 0.04);
+  --box-shadow-2: 0 2px 8px hsla(0, 0%, 0%, 0.06);
+  --box-shadow-3: 0 4px 16px hsla(0, 0%, 0%, 0.08);
+}

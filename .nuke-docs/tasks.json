@@ -85,9 +85,10 @@
     {
       "id": "task-4",
       "title": "Check nuke-docs project for references",
-      "status": "new",
+      "status": "completed",
       "priority": "medium",
-      "description": "Look at nuke-docs project to see what components are used and how they work in a real project"
+      "description": "Look at nuke-docs project to see what components are used and how they work in a real project",
+      "updated": "2025-12-13T01:42:44.598182+01:00"
     },
     {
       "id": "task-5",
@@ -125,13 +126,6 @@
       "updated": "2025-12-12T17:54:00.341733+01:00"
     },
     {
-      "id": "task-11",
-      "title": "Create docs playground route - user card, login window, real layouts using area/section",
-      "status": "new",
-      "created": "2025-12-12T17:54:00.438583+01:00",
-      "updated": "2025-12-12T17:54:00.438583+01:00"
-    },
-    {
       "id": "task-12",
       "title": "Overall missing components audit from projects and playground testing",
       "status": "new",
@@ -161,6 +155,15 @@
       "description": "Create icon button variant - square buttons for icons. Need to decide: attribute modifier (button[icon]) vs separate pattern, sizing tied to controls-height tokens, style-1/2/3 support.",
       "created": "2025-12-13T00:21:02.726414+01:00",
       "updated": "2025-12-13T00:21:02.726414+01:00"
+    },
+    {
+      "id": "task-16",
+      "title": "Rail nav component",
+      "status": "new",
+      "priority": "medium",
+      "description": "Create lib/core/components/rail/rail.css - vertical navigation rail with icon + optional label, collapsed/expanded states",
+      "created": "2025-12-13T01:42:58.591869+01:00",
+      "updated": "2025-12-13T01:42:58.591869+01:00"
     }
   ]
 }

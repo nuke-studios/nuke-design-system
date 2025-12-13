@@ -66,6 +66,27 @@
       "description": "Never add margin to component elements. Use gap on parent containers (grid/flex) for spacing instead.",
       "created": "2025-12-12T16:16:14.649981+01:00",
       "updated": "2025-12-12T16:16:14.649981+01:00"
+    },
+    {
+      "id": "instruction-6",
+      "title": "Workspace Structure",
+      "description": "Project has two packages: lib/ (design system - CSS tokens, components, web components) and frontend/ (Svelte 5 docs app). Frontend imports lib via relative paths (../../lib/dist/). Icons are copied to frontend/public/icons/ for Vite serving.",
+      "created": "2025-12-13T01:42:44.501322+01:00",
+      "updated": "2025-12-13T01:42:44.501322+01:00"
+    },
+    {
+      "id": "instruction-7",
+      "title": "Frontend Development",
+      "description": "Run 'npm run dev' in frontend/ folder. Uses Vite + Svelte 5 with runes (, , ). Import lib CSS via @import '../../lib/dist/core.css' and JS via import '../../lib/dist/core.js'. Configure nuke-icon basePath to '/icons'.",
+      "created": "2025-12-13T01:42:52.692233+01:00",
+      "updated": "2025-12-13T01:42:52.692233+01:00"
+    },
+    {
+      "id": "instruction-8",
+      "title": "Token Overrides",
+      "description": "Frontend can override lib tokens in style.css. Create aliases for compatibility (--on-background → --color-text-1) and override colors for app-specific theming. Both dark-theme and light-theme classes supported.",
+      "created": "2025-12-13T01:42:52.787266+01:00",
+      "updated": "2025-12-13T01:42:52.787266+01:00"
     }
   ]
 }
