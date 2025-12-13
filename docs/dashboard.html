@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Example - NUKE Design System</title>
+  <link rel="stylesheet" href="../dist/core.css">
+  <script type="module" src="../dist/core.js"></script>
+  <script>
+    import('../dist/core.js').then(() => {
+      customElements.whenDefined('nuke-icon').then(() => {
+        const NukeIcon = customElements.get('nuke-icon');
+        NukeIcon.basePath = '../dist/icons';
+      });
+    });
+  </script>
+</head>
+<body>
+  <!-- App Layout: sidebar + main -->
+  <nuke-grid style="grid-template-columns: 240px 1fr; min-height: 100vh;">
+
+    <!-- Sidebar -->
+    <nuke-area>
+      <h3 style="margin-bottom: var(--space-2);"><nuke-icon name="terminal"></nuke-icon> Acme</h3>
+      <nav nuke-style="1">
+        <a href="#"><nuke-icon name="house"></nuke-icon> Dashboard</a>
+        <a href="#"><nuke-icon name="user"></nuke-icon> Users</a>
+        <a href="#"><nuke-icon name="folder"></nuke-icon> Projects</a>
+        <a href="#"><nuke-icon name="gear"></nuke-icon> Settings</a>
+      </nav>
+    </nuke-area>
+
+    <!-- Main Content -->
+    <nuke-area>
+      <!-- Header -->
+      <nuke-toolbar nuke-style="1" style="margin-bottom: var(--space-2);">
+        <h1>Dashboard</h1>
+        <span style="flex: 1;"></span>
+        <button nuke-style="2"><nuke-icon name="bell"></nuke-icon></button>
+        <button nuke-style="2"><nuke-icon name="gear"></nuke-icon></button>
+        <button nuke-style="1"><nuke-icon name="user"></nuke-icon> Profile</button>
+      </nuke-toolbar>
+
+      <!-- Stats Row -->
+      <nuke-grid style="grid-template-columns: repeat(3, 1fr); margin-bottom: var(--space-2); border-radius: var(--border-radius-1); overflow: hidden;">
+        <nuke-area>
+          <small><nuke-icon name="user"></nuke-icon> Total Users</small>
+          <h2>2,847</h2>
+        </nuke-area>
+        <nuke-area>
+          <small><nuke-icon name="folder"></nuke-icon> Projects</small>
+          <h2>142</h2>
+        </nuke-area>
+        <nuke-area>
+          <small><nuke-icon name="check"></nuke-icon> Completed</small>
+          <h2>89%</h2>
+        </nuke-area>
+      </nuke-grid>
+
+      <!-- Two Column Layout -->
+      <nuke-grid style="grid-template-columns: 2fr 1fr; border-radius: var(--border-radius-1); overflow: hidden;">
+
+        <!-- Left Column: Form + Table stacked -->
+        <nuke-grid style="grid-template-rows: auto auto;">
+
+          <!-- New User Form -->
+          <nuke-area>
+            <h3 style="margin-bottom: var(--space-2);"><nuke-icon name="user"></nuke-icon> New User</h3>
+            <form style="display: grid; gap: var(--space-2);">
+              <nuke-grid style="grid-template-columns: 1fr 1fr; border-radius: var(--border-radius-1); overflow: hidden;">
+                <nuke-area>
+                  <label>First Name</label>
+                  <input type="text" nuke-style="1" placeholder="John">
+                </nuke-area>
+                <nuke-area>
+                  <label>Last Name</label>
+                  <input type="text" nuke-style="1" placeholder="Doe">
+                </nuke-area>
+              </nuke-grid>
+              <label>Email</label>
+              <input type="email" nuke-style="1" placeholder="john@example.com">
+              <label>Role</label>
+              <select nuke-style="1">
+                <option>Select role...</option>
+                <option>Admin</option>
+                <option>Editor</option>
+                <option>Viewer</option>
+              </select>
+              <label>Bio</label>
+              <textarea nuke-style="1" rows="2" placeholder="Tell us about yourself..."></textarea>
+              <nuke-toolbar nuke-style="1">
+                <button type="submit" nuke-style="1"><nuke-icon name="plus"></nuke-icon> Create</button>
+                <button type="reset" nuke-style="2">Reset</button>
+              </nuke-toolbar>
+            </form>
+          </nuke-area>
+
+          <!-- Users Table -->
+          <nuke-area>
+            <h3 style="margin-bottom: var(--space-2);">Recent Users</h3>
+            <table nuke-style="1">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Role</th>
+                  <th>Status</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Alice Johnson</td>
+                  <td>Admin</td>
+                  <td><nuke-badge nuke-style="1">Active</nuke-badge></td>
+                  <td><button nuke-style="2"><nuke-icon name="pencil"></nuke-icon></button></td>
+                </tr>
+                <tr>
+                  <td>Bob Smith</td>
+                  <td>Editor</td>
+                  <td><nuke-badge nuke-style="1">Active</nuke-badge></td>
+                  <td><button nuke-style="2"><nuke-icon name="pencil"></nuke-icon></button></td>
+                </tr>
+                <tr>
+                  <td>Carol White</td>
+                  <td>Viewer</td>
+                  <td><nuke-badge nuke-style="2">Pending</nuke-badge></td>
+                  <td><button nuke-style="2"><nuke-icon name="pencil"></nuke-icon></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </nuke-area>
+        </nuke-grid>
+
+        <!-- Right Column: Activity + Settings -->
+        <nuke-grid style="grid-template-rows: 1fr auto;">
+
+          <!-- Activity -->
+          <nuke-area>
+            <h3 style="margin-bottom: var(--space-2);">Activity</h3>
+            <ul nuke-style="1">
+              <li><nuke-icon name="plus"></nuke-icon> New project created <small>2h ago</small></li>
+              <li><nuke-icon name="user"></nuke-icon> User signed up <small>5h ago</small></li>
+              <li><nuke-icon name="check"></nuke-icon> Task completed <small>Yesterday</small></li>
+              <li><nuke-icon name="upload"></nuke-icon> File uploaded <small>2 days ago</small></li>
+            </ul>
+          </nuke-area>
+
+          <!-- Quick Settings -->
+          <nuke-area>
+            <h3 style="margin-bottom: var(--space-2);"><nuke-icon name="gear"></nuke-icon> Quick Settings</h3>
+            <label><input type="checkbox" nuke-style="1" checked> Email notifications</label>
+            <label><input type="checkbox" nuke-style="1" checked> Weekly reports</label>
+            <label><input type="checkbox" nuke-style="1"> Dark mode</label>
+          </nuke-area>
+        </nuke-grid>
+
+      </nuke-grid>
+    </nuke-area>
+  </nuke-grid>
+
+  <script>
+    setTimeout(() => {
+      if (window.NukeToast) {
+        NukeToast.show('Welcome to the dashboard!', { nukeStyle: '1', duration: 4000 });
+      }
+    }, 1000);
+  </script>
+</body>
+</html>

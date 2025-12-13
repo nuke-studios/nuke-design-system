@@ -4,10 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NUKE Design System</title>
-  <link rel="stylesheet" href="style.css">
-  <script type="module" src="../dist/core.js?v=9"></script>
+  <link rel="stylesheet" href="../dist/core.css">
+  <script type="module" src="../dist/core.js"></script>
   <script>
-    // Set icon base path for docs
     import('../dist/core.js').then(() => {
       customElements.whenDefined('nuke-icon').then(() => {
         const NukeIcon = customElements.get('nuke-icon');
@@ -17,261 +16,154 @@
   </script>
 </head>
 <body>
-  <header class="header">
-    <div class="logo">
-      <span class="logo-nuke">NUKE</span>
-      <span class="logo-subtitle">design system</span>
-    </div>
-    <button class="theme-toggle" onclick="document.documentElement.classList.toggle('light-theme')">
-      <nuke-icon name="sun"></nuke-icon> / <nuke-icon name="moon"></nuke-icon>
-    </button>
-  </header>
+  <nuke-grid style="grid-template-columns: 200px 1fr; min-height: 100vh;">
 
-  <div class="component">
-    <div class="component-name">&lt;button&gt;</div>
-    <div class="component-styles">
-      <div class="style"><button nuke-style="1">Button</button></div>
-      <div class="style"><button nuke-style="2">Button</button></div>
-    </div>
-  </div>
+    <!-- Sidebar -->
+    <nuke-area style="position: sticky; top: 0; height: 100vh;">
+      <h2 style="margin-bottom: var(--space-2);">
+        <nuke-icon name="terminal"></nuke-icon> NUKE
+      </h2>
+      <p style="margin-bottom: var(--space-3);"><small>Design System</small></p>
+      <nav nuke-style="1">
+        <a href="index.html"><nuke-icon name="house"></nuke-icon> Home</a>
+        <a href="components.html"><nuke-icon name="code"></nuke-icon> Components</a>
+        <a href="dashboard.html"><nuke-icon name="list"></nuke-icon> Dashboard</a>
+      </nav>
+      <nav nuke-style="1" style="margin-top: var(--space-3);">
+        <a href="https://github.com"><nuke-icon name="globe"></nuke-icon> GitHub</a>
+      </nav>
+      <nuke-toolbar nuke-style="1" style="margin-top: auto;">
+        <button nuke-style="2" onclick="document.documentElement.classList.toggle('light-theme')">
+          <nuke-icon name="sun"></nuke-icon>
+        </button>
+      </nuke-toolbar>
+    </nuke-area>
 
-  <div class="component">
-    <div class="component-name">&lt;input[checkbox]&gt;</div>
-    <div class="component-styles">
-      <div class="style"><label><input type="checkbox" nuke-style="1" checked> Checkbox</label></div>
-      <div class="style"><label><input type="checkbox" nuke-style="2" checked> Checkbox</label></div>
-    </div>
-  </div>
-
-  <div class="component">
-    <div class="component-name">&lt;code&gt;</div>
-    <div class="component-styles">
-      <div class="style"><code nuke-style="1">const x = 42;</code></div>
-      <div class="style"><code nuke-style="2">const x = 42;</code></div>
-    </div>
-  </div>
-
-  <div class="component">
-    <div class="component-name">&lt;img&gt;</div>
-    <div class="component-styles">
-      <div class="style"><img src="https://picsum.photos/200/150" nuke-style="1" alt="Kitten"></div>
-      <div class="style"><img src="https://picsum.photos/200/150" nuke-style="2" alt="Kitten"></div>
-    </div>
-  </div>
-
-  <div class="component">
-    <div class="component-name">&lt;input&gt;</div>
-    <div class="component-styles">
-      <div class="style"><input type="text" nuke-style="1" placeholder="Text input"></div>
-      <div class="style"><input type="text" nuke-style="2" placeholder="Text input"></div>
-    </div>
-  </div>
-
-  <div class="component">
-    <div class="component-name">&lt;nav&gt;</div>
-    <div class="component-styles">
-      <div class="style"><nav nuke-style="1"><a href="#">Home</a> <a href="#">About</a></nav></div>
-      <div class="style"><nav nuke-style="2"><a href="#">Home</a> <a href="#">About</a></nav></div>
-    </div>
-  </div>
-
-  <div class="component">
-    <div class="component-name">&lt;nuke-icon&gt;</div>
-    <div class="component-styles">
-      <div class="style"><nuke-icon name="house"></nuke-icon> Home</div>
-      <div class="style"><button nuke-style="1"><nuke-icon name="plus"></nuke-icon></button></div>
-      <div class="style"><button nuke-style="2"><nuke-icon name="x"></nuke-icon></button></div>
-    </div>
-  </div>
-
-  <div class="component">
-    <div class="component-name">&lt;nuke-badge&gt;</div>
-    <div class="component-styles">
-      <div class="style"><nuke-badge nuke-style="1">Badge</nuke-badge></div>
-      <div class="style"><nuke-badge nuke-style="2">Badge</nuke-badge></div>
-    </div>
-  </div>
-
-  <div class="component">
-    <div class="component-name">&lt;nuke-card&gt;</div>
-    <div class="component-styles">
-      <div class="style">
-        <nuke-card nuke-style="1">
-          <nuke-card-header>Card</nuke-card-header>
-          <nuke-card-content>Content</nuke-card-content>
-        </nuke-card>
-      </div>
-      <div class="style">
-        <nuke-card nuke-style="2">
-          <nuke-card-header>Card</nuke-card-header>
-          <nuke-card-content>Content</nuke-card-content>
-        </nuke-card>
-      </div>
-    </div>
-  </div>
-
-  <div class="component">
-    <div class="component-name">&lt;nuke-sidebar&gt;</div>
-    <div class="component-styles">
-      <div class="style"><button nuke-style="1" onclick="showSidebar('1')">Show Sidebar</button></div>
-      <div class="style"><button nuke-style="2" onclick="showSidebar('2')">Show Sidebar</button></div>
-    </div>
-  </div>
-
-  <div class="component">
-    <div class="component-name">&lt;nuke-tabs&gt;</div>
-    <div class="component-styles">
-      <div class="style">
-        <nuke-tabs nuke-style="1">
-          <nuke-tab>Tab 1</nuke-tab>
-          <nuke-tab>Tab 2</nuke-tab>
-          <nuke-tab-panel>Content 1</nuke-tab-panel>
-          <nuke-tab-panel>Content 2</nuke-tab-panel>
-        </nuke-tabs>
-      </div>
-      <div class="style">
-        <nuke-tabs nuke-style="2">
-          <nuke-tab>Tab 1</nuke-tab>
-          <nuke-tab>Tab 2</nuke-tab>
-          <nuke-tab-panel>Content 1</nuke-tab-panel>
-          <nuke-tab-panel>Content 2</nuke-tab-panel>
-        </nuke-tabs>
-      </div>
-    </div>
-  </div>
-
-  <div class="component">
-    <div class="component-name">&lt;nuke-toast&gt;</div>
-    <div class="component-styles">
-      <div class="style"><button nuke-style="1" onclick="showToast('1')">Show Toast</button></div>
-      <div class="style"><button nuke-style="2" onclick="showToast('2')">Show Toast</button></div>
-    </div>
-  </div>
-
-  <div class="component">
-    <div class="component-name">&lt;nuke-toolbar&gt;</div>
-    <div class="component-styles">
-      <div class="style">
-        <nuke-toolbar nuke-style="1">
-          <button nuke-style="1">New</button>
-          <button nuke-style="1">Edit</button>
+    <!-- Main Content -->
+    <nuke-area>
+      <!-- Hero -->
+      <nuke-area style="text-align: center; padding: var(--space-3);">
+        <h1 style="font-size: calc(var(--text-base) * 3); margin-bottom: var(--space-2);">
+          <nuke-icon name="terminal"></nuke-icon> NUKE
+        </h1>
+        <p style="margin-bottom: var(--space-2);">
+          Two variables control everything. One unit. One ratio. Pure math.
+        </p>
+        <nuke-toolbar nuke-style="1" style="justify-content: center;">
+          <a href="components.html"><button nuke-style="1"><nuke-icon name="code"></nuke-icon> Components</button></a>
+          <a href="dashboard.html"><button nuke-style="2"><nuke-icon name="list"></nuke-icon> Dashboard</button></a>
         </nuke-toolbar>
-      </div>
-      <div class="style">
-        <nuke-toolbar nuke-style="2">
-          <button nuke-style="2">New</button>
-          <button nuke-style="2">Edit</button>
-        </nuke-toolbar>
-      </div>
-    </div>
-  </div>
+      </nuke-area>
 
-  <div class="component">
-    <div class="component-name">&lt;ol&gt;</div>
-    <div class="component-styles">
-      <div class="style"><ol nuke-style="1"><li>Item 1</li><li>Item 2</li></ol></div>
-      <div class="style"><ol nuke-style="2"><li>Item 1</li><li>Item 2</li></ol></div>
-    </div>
-  </div>
+      <!-- Config Panel -->
+      <nuke-grid style="grid-template-columns: repeat(2, 1fr); margin: var(--space-2);">
+        <nuke-area>
+          <h3 style="margin-bottom: var(--space-2);"><nuke-icon name="gear"></nuke-icon> Configuration</h3>
+          <table nuke-style="1">
+            <tbody>
+              <tr>
+                <td><code nuke-style="1">--unit</code></td>
+                <td>6px</td>
+                <td><small>Base size</small></td>
+              </tr>
+              <tr>
+                <td><code nuke-style="1">--ratio</code></td>
+                <td>0.4</td>
+                <td><small>Content fill</small></td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="margin-top: var(--space-2);"><small>All other tokens derive from these two values.</small></p>
+        </nuke-area>
+        <nuke-area>
+          <h3 style="margin-bottom: var(--space-2);"><nuke-icon name="info"></nuke-icon> Presets</h3>
+          <ul nuke-style="1">
+            <li><code nuke-style="1">4px</code> <nuke-badge nuke-style="2">Compact</nuke-badge></li>
+            <li><code nuke-style="1">6px</code> <nuke-badge nuke-style="1">Standard</nuke-badge></li>
+            <li><code nuke-style="1">8px</code> <nuke-badge nuke-style="2">Spacious</nuke-badge></li>
+          </ul>
+        </nuke-area>
+      </nuke-grid>
 
-  <div class="component">
-    <div class="component-name">&lt;pre&gt;</div>
-    <div class="component-styles">
-      <div class="style"><pre nuke-style="1">code block</pre></div>
-      <div class="style"><pre nuke-style="2">code block</pre></div>
-    </div>
-  </div>
+      <!-- Features -->
+      <h3 style="margin: var(--space-2);"><nuke-icon name="star"></nuke-icon> Features</h3>
+      <nuke-grid style="grid-template-columns: repeat(3, 1fr); margin: 0 var(--space-2);">
+        <nuke-area>
+          <h4><nuke-icon name="code"></nuke-icon> Semantic HTML</h4>
+          <p><small>Native elements with nuke-style attributes. No framework lock-in.</small></p>
+        </nuke-area>
+        <nuke-area>
+          <h4><nuke-icon name="gear"></nuke-icon> Token System</h4>
+          <p><small>Modular scale. Change --unit and everything adjusts.</small></p>
+        </nuke-area>
+        <nuke-area>
+          <h4><nuke-icon name="sun"></nuke-icon> Themes</h4>
+          <p><small>Dark and light. Add .light-theme to :root.</small></p>
+        </nuke-area>
+      </nuke-grid>
 
-  <div class="component">
-    <div class="component-name">&lt;input[radio]&gt;</div>
-    <div class="component-styles">
-      <div class="style"><label><input type="radio" name="1-r" nuke-style="1" checked> Radio</label></div>
-      <div class="style"><label><input type="radio" name="2-r" nuke-style="2" checked> Radio</label></div>
-    </div>
-  </div>
+      <!-- Stats -->
+      <h3 style="margin: var(--space-2);"><nuke-icon name="list"></nuke-icon> Bundle</h3>
+      <nuke-grid style="grid-template-columns: repeat(4, 1fr); margin: 0 var(--space-2);">
+        <nuke-area style="text-align: center;">
+          <h2>44kb</h2>
+          <small>CSS</small>
+        </nuke-area>
+        <nuke-area style="text-align: center;">
+          <h2>36kb</h2>
+          <small>JS</small>
+        </nuke-area>
+        <nuke-area style="text-align: center;">
+          <h2>36</h2>
+          <small>Icons</small>
+        </nuke-area>
+        <nuke-area style="text-align: center;">
+          <h2>25</h2>
+          <small>Components</small>
+        </nuke-area>
+      </nuke-grid>
 
-  <div class="component">
-    <div class="component-name">&lt;input[range]&gt;</div>
-    <div class="component-styles">
-      <div class="style"><input type="range" nuke-style="1" value="50"></div>
-      <div class="style"><input type="range" nuke-style="2" value="50"></div>
-    </div>
-  </div>
+      <!-- Components Preview -->
+      <h3 style="margin: var(--space-2);"><nuke-icon name="code"></nuke-icon> Components</h3>
+      <nuke-grid style="grid-template-columns: repeat(2, 1fr); margin: 0 var(--space-2) var(--space-2);">
+        <nuke-area>
+          <h4 style="margin-bottom: var(--space-1);">Buttons</h4>
+          <nuke-toolbar nuke-style="1">
+            <button nuke-style="1"><nuke-icon name="plus"></nuke-icon> Primary</button>
+            <button nuke-style="2">Secondary</button>
+            <button nuke-style="2"><nuke-icon name="gear"></nuke-icon></button>
+          </nuke-toolbar>
+        </nuke-area>
+        <nuke-area>
+          <h4 style="margin-bottom: var(--space-1);">Form</h4>
+          <nuke-toolbar nuke-style="1">
+            <input type="text" nuke-style="1" placeholder="Input...">
+            <select nuke-style="1"><option>Select</option></select>
+          </nuke-toolbar>
+        </nuke-area>
+        <nuke-area>
+          <h4 style="margin-bottom: var(--space-1);">Badges</h4>
+          <nuke-toolbar nuke-style="1">
+            <nuke-badge nuke-style="1">Active</nuke-badge>
+            <nuke-badge nuke-style="2">Pending</nuke-badge>
+          </nuke-toolbar>
+        </nuke-area>
+        <nuke-area>
+          <h4 style="margin-bottom: var(--space-1);">Tabs</h4>
+          <nuke-tabs nuke-style="1">
+            <nuke-tab>Tab 1</nuke-tab>
+            <nuke-tab>Tab 2</nuke-tab>
+            <nuke-tab-panel>Content for tab 1</nuke-tab-panel>
+            <nuke-tab-panel>Content for tab 2</nuke-tab-panel>
+          </nuke-tabs>
+        </nuke-area>
+      </nuke-grid>
 
-  <div class="component">
-    <div class="component-name">&lt;select&gt;</div>
-    <div class="component-styles">
-      <div class="style">
-        <select nuke-style="1">
-          <option>Option 1</option>
-          <option>Option 2</option>
-        </select>
-      </div>
-      <div class="style">
-        <select nuke-style="2">
-          <option>Option 1</option>
-          <option>Option 2</option>
-        </select>
-      </div>
-    </div>
-  </div>
-
-  <div class="component">
-    <div class="component-name">&lt;table&gt;</div>
-    <div class="component-styles">
-      <div class="style">
-        <table nuke-style="1">
-          <thead><tr><th>Name</th><th>Val</th></tr></thead>
-          <tbody><tr><td>Item</td><td>100</td></tr></tbody>
-        </table>
-      </div>
-      <div class="style">
-        <table nuke-style="2">
-          <thead><tr><th>Name</th><th>Val</th></tr></thead>
-          <tbody><tr><td>Item</td><td>100</td></tr></tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <div class="component">
-    <div class="component-name">&lt;textarea&gt;</div>
-    <div class="component-styles">
-      <div class="style"><textarea nuke-style="1" rows="2" placeholder="Textarea"></textarea></div>
-      <div class="style"><textarea nuke-style="2" rows="2" placeholder="Textarea"></textarea></div>
-    </div>
-  </div>
-
-  <div class="component">
-    <div class="component-name">&lt;ul&gt;</div>
-    <div class="component-styles">
-      <div class="style"><ul nuke-style="1"><li>Item 1</li><li>Item 2</li></ul></div>
-      <div class="style"><ul nuke-style="2"><li>Item 1</li><li>Item 2</li></ul></div>
-    </div>
-  </div>
-
-  <script>
-    function showToast(variant) {
-      let container = document.querySelector('.nuke-toast-container');
-      if (!container) {
-        container = document.createElement('div');
-        container.className = 'nuke-toast-container';
-        document.body.appendChild(container);
-      }
-      const toast = document.createElement('nuke-toast');
-      toast.setAttribute('nuke-style', variant);
-      toast.setAttribute('duration', '3000');
-      toast.textContent = `Toast (${variant})`;
-      container.appendChild(toast);
-    }
-
-    function showSidebar(variant) {
-      const sidebar = document.createElement('nuke-sidebar');
-      sidebar.setAttribute('nuke-style', variant);
-      sidebar.innerHTML = `<h3>Sidebar</h3><p>Content</p><button nuke-style="${variant}" onclick="this.closest('nuke-sidebar').close()"><nuke-icon name="x"></nuke-icon> Close</button>`;
-      document.body.appendChild(sidebar);
-      setTimeout(() => sidebar.show(), 0);
-    }
-  </script>
+      <!-- Footer -->
+      <nuke-area style="text-align: center;">
+        <small>NUKE Design System</small>
+      </nuke-area>
+    </nuke-area>
+  </nuke-grid>
 </body>
 </html>

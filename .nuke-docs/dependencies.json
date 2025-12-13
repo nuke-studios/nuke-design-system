@@ -36,5 +36,21 @@
     ],
     "type": "object"
   },
-  "items": []
+  "items": [
+    {
+      "id": "dep-1",
+      "title": "Lit",
+      "description": "Web component framework"
+    },
+    {
+      "id": "dep-2",
+      "title": "@phosphor-icons/core",
+      "description": "Icon source - SVGs copied to core/icons/"
+    },
+    {
+      "id": "dep-3",
+      "title": "esbuild",
+      "description": "Bundler for CSS and TypeScript"
+    }
+  ]
 }

@@ -49,9 +49,9 @@
     },
     {
       "id": "cmd-2",
-      "title": "Build Watch",
-      "run": "npm run build:watch",
-      "why": "Incremental builds during development"
+      "title": "Dev Watch",
+      "run": "npm run dev",
+      "why": "Watch mode - auto-rebuild on CSS/TS changes"
     }
   ]
 }

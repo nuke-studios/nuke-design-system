@@ -22,6 +22,11 @@
   --space-2: calc(var(--unit) * 2);                /* default: card padding, form gaps */
   --space-3: calc(var(--unit) * 4);                /* loose: section spacing */
 
+  /* AREA GAPS - for grid layouts with line illusion */
+  --area-gap-1: 1px;                               /* thin line between areas */
+  --area-gap-2: 2px;                               /* visible separator */
+  --area-gap-3: calc(var(--unit) * 0.5);           /* subtle spacing */
+
   /* WIDTHS */
   --width-1: calc(var(--unit) * 40);               /* sidebar, narrow panels */
   --width-2: calc(var(--unit) * 80);               /* content, modals */

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Components - NUKE Design System</title>
+  <link rel="stylesheet" href="../dist/core.css">
+  <script type="module" src="../dist/core.js"></script>
+  <script>
+    import('../dist/core.js').then(() => {
+      customElements.whenDefined('nuke-icon').then(() => {
+        const NukeIcon = customElements.get('nuke-icon');
+        NukeIcon.basePath = '../dist/icons';
+      });
+    });
+  </script>
+</head>
+<body>
+  <nuke-grid style="grid-template-columns: 200px 1fr; min-height: 100vh;">
+
+    <!-- Sidebar -->
+    <nuke-area style="position: sticky; top: 0; height: 100vh; overflow-y: auto;">
+      <h2 style="margin-bottom: var(--space-2);">
+        <nuke-icon name="terminal"></nuke-icon> NUKE
+      </h2>
+      <p style="margin-bottom: var(--space-3);"><small>Design System</small></p>
+      <nav nuke-style="1">
+        <a href="index.html"><nuke-icon name="house"></nuke-icon> Home</a>
+        <a href="components.html"><nuke-icon name="code"></nuke-icon> Components</a>
+        <a href="dashboard.html"><nuke-icon name="list"></nuke-icon> Dashboard</a>
+      </nav>
+      <p style="margin-top: var(--space-3); margin-bottom: var(--space-1);"><small>Components</small></p>
+      <nav nuke-style="1">
+        <a href="#buttons"><nuke-icon name="caret-right"></nuke-icon> Buttons</a>
+        <a href="#inputs"><nuke-icon name="caret-right"></nuke-icon> Inputs</a>
+        <a href="#badges"><nuke-icon name="caret-right"></nuke-icon> Badges</a>
+        <a href="#cards"><nuke-icon name="caret-right"></nuke-icon> Cards</a>
+        <a href="#tabs"><nuke-icon name="caret-right"></nuke-icon> Tabs</a>
+        <a href="#tables"><nuke-icon name="caret-right"></nuke-icon> Tables</a>
+        <a href="#lists"><nuke-icon name="caret-right"></nuke-icon> Lists</a>
+        <a href="#icons"><nuke-icon name="caret-right"></nuke-icon> Icons</a>
+      </nav>
+      <nuke-toolbar nuke-style="1" style="margin-top: auto;">
+        <button nuke-style="2" onclick="document.documentElement.classList.toggle('light-theme')">
+          <nuke-icon name="sun"></nuke-icon>
+        </button>
+      </nuke-toolbar>
+    </nuke-area>
+
+    <!-- Main Content -->
+    <nuke-grid style="grid-template-columns: 1fr; align-content: start;">
+
+      <!-- Header -->
+      <nuke-area>
+        <h1><nuke-icon name="code"></nuke-icon> Components</h1>
+        <p>All components with style-1 and style-2 variants.</p>
+      </nuke-area>
+
+      <!-- Buttons -->
+      <nuke-area id="buttons">
+        <h3 style="margin-bottom: var(--space-2);"><code nuke-style="1">&lt;button&gt;</code></h3>
+        <nuke-grid style="grid-template-columns: 1fr 1fr;">
+          <nuke-area>
+            <small>style-1</small>
+            <nuke-toolbar nuke-style="1" style="margin-top: var(--space-1);">
+              <button nuke-style="1">Button</button>
+              <button nuke-style="1"><nuke-icon name="plus"></nuke-icon> Add</button>
+              <button nuke-style="1"><nuke-icon name="gear"></nuke-icon></button>
+            </nuke-toolbar>
+          </nuke-area>
+          <nuke-area>
+            <small>style-2</small>
+            <nuke-toolbar nuke-style="1" style="margin-top: var(--space-1);">
+              <button nuke-style="2">Button</button>
+              <button nuke-style="2"><nuke-icon name="pencil"></nuke-icon> Edit</button>
+              <button nuke-style="2"><nuke-icon name="trash"></nuke-icon></button>
+            </nuke-toolbar>
+          </nuke-area>
+        </nuke-grid>
+      </nuke-area>
+
+      <!-- Inputs -->
+      <nuke-area id="inputs">
+        <h3 style="margin-bottom: var(--space-2);"><code nuke-style="1">&lt;input&gt; &lt;select&gt; &lt;textarea&gt;</code></h3>
+        <nuke-grid style="grid-template-columns: 1fr 1fr;">
+          <nuke-area>
+            <small>style-1</small>
+            <nuke-grid style="grid-template-columns: 1fr; margin-top: var(--space-1); gap: var(--space-1);">
+              <nuke-area><input type="text" nuke-style="1" placeholder="Text input"></nuke-area>
+              <nuke-area>
+                <select nuke-style="1">
+                  <option>Select option...</option>
+                  <option>Option 1</option>
+                  <option>Option 2</option>
+                </select>
+              </nuke-area>
+              <nuke-area><textarea nuke-style="1" rows="2" placeholder="Textarea..."></textarea></nuke-area>
+            </nuke-grid>
+          </nuke-area>
+          <nuke-area>
+            <small>style-2</small>
+            <nuke-grid style="grid-template-columns: 1fr; margin-top: var(--space-1); gap: var(--space-1);">
+              <nuke-area><input type="text" nuke-style="2" placeholder="Text input"></nuke-area>
+              <nuke-area>
+                <select nuke-style="2">
+                  <option>Select option...</option>
+                  <option>Option 1</option>
+                  <option>Option 2</option>
+                </select>
+              </nuke-area>
+              <nuke-area><textarea nuke-style="2" rows="2" placeholder="Textarea..."></textarea></nuke-area>
+            </nuke-grid>
+          </nuke-area>
+        </nuke-grid>
+      </nuke-area>
+
+      <!-- Checkbox & Radio -->
+      <nuke-area>
+        <h3 style="margin-bottom: var(--space-2);"><code nuke-style="1">&lt;input type="checkbox|radio"&gt;</code></h3>
+        <nuke-grid style="grid-template-columns: 1fr 1fr;">
+          <nuke-area>
+            <small>style-1</small>
+            <nuke-grid style="grid-template-columns: 1fr; margin-top: var(--space-1); gap: var(--space-1);">
+              <nuke-area><label><input type="checkbox" nuke-style="1" checked> Checkbox</label></nuke-area>
+              <nuke-area><label><input type="radio" name="r1" nuke-style="1" checked> Radio A</label></nuke-area>
+              <nuke-area><label><input type="radio" name="r1" nuke-style="1"> Radio B</label></nuke-area>
+            </nuke-grid>
+          </nuke-area>
+          <nuke-area>
+            <small>style-2</small>
+            <nuke-grid style="grid-template-columns: 1fr; margin-top: var(--space-1); gap: var(--space-1);">
+              <nuke-area><label><input type="checkbox" nuke-style="2" checked> Checkbox</label></nuke-area>
+              <nuke-area><label><input type="radio" name="r2" nuke-style="2" checked> Radio A</label></nuke-area>
+              <nuke-area><label><input type="radio" name="r2" nuke-style="2"> Radio B</label></nuke-area>
+            </nuke-grid>
+          </nuke-area>
+        </nuke-grid>
+      </nuke-area>
+
+      <!-- Range -->
+      <nuke-area>
+        <h3 style="margin-bottom: var(--space-2);"><code nuke-style="1">&lt;input type="range"&gt;</code></h3>
+        <nuke-grid style="grid-template-columns: 1fr 1fr;">
+          <nuke-area>
+            <small>style-1</small>
+            <input type="range" nuke-style="1" value="60" style="margin-top: var(--space-1); width: 100%;">
+          </nuke-area>
+          <nuke-area>
+            <small>style-2</small>
+            <input type="range" nuke-style="2" value="40" style="margin-top: var(--space-1); width: 100%;">
+          </nuke-area>
+        </nuke-grid>
+      </nuke-area>
+
+      <!-- Badges -->
+      <nuke-area id="badges">
+        <h3 style="margin-bottom: var(--space-2);"><code nuke-style="1">&lt;nuke-badge&gt;</code></h3>
+        <nuke-grid style="grid-template-columns: 1fr 1fr;">
+          <nuke-area>
+            <small>style-1</small>
+            <nuke-toolbar nuke-style="1" style="margin-top: var(--space-1);">
+              <nuke-badge nuke-style="1">Active</nuke-badge>
+              <nuke-badge nuke-style="1">New</nuke-badge>
+            </nuke-toolbar>
+          </nuke-area>
+          <nuke-area>
+            <small>style-2</small>
+            <nuke-toolbar nuke-style="1" style="margin-top: var(--space-1);">
+              <nuke-badge nuke-style="2">Pending</nuke-badge>
+              <nuke-badge nuke-style="2">Draft</nuke-badge>
+            </nuke-toolbar>
+          </nuke-area>
+        </nuke-grid>
+      </nuke-area>
+
+      <!-- Cards -->
+      <nuke-area id="cards">
+        <h3 style="margin-bottom: var(--space-2);"><code nuke-style="1">&lt;nuke-card&gt;</code></h3>
+        <nuke-grid style="grid-template-columns: 1fr 1fr;">
+          <nuke-area>
+            <small>style-1</small>
+            <nuke-card nuke-style="1" style="margin-top: var(--space-1);">
+              <nuke-card-header>Card Title</nuke-card-header>
+              <nuke-card-content>Card content goes here with some text.</nuke-card-content>
+            </nuke-card>
+          </nuke-area>
+          <nuke-area>
+            <small>style-2</small>
+            <nuke-card nuke-style="2" style="margin-top: var(--space-1);">
+              <nuke-card-header>Card Title</nuke-card-header>
+              <nuke-card-content>Card content goes here with some text.</nuke-card-content>
+            </nuke-card>
+          </nuke-area>
+        </nuke-grid>
+      </nuke-area>
+
+      <!-- Tabs -->
+      <nuke-area id="tabs">
+        <h3 style="margin-bottom: var(--space-2);"><code nuke-style="1">&lt;nuke-tabs&gt;</code></h3>
+        <nuke-grid style="grid-template-columns: 1fr 1fr;">
+          <nuke-area>
+            <small>style-1</small>
+            <nuke-tabs nuke-style="1" style="margin-top: var(--space-1);">
+              <nuke-tab>Overview</nuke-tab>
+              <nuke-tab>Details</nuke-tab>
+              <nuke-tab>Settings</nuke-tab>
+              <nuke-tab-panel>Overview content</nuke-tab-panel>
+              <nuke-tab-panel>Details content</nuke-tab-panel>
+              <nuke-tab-panel>Settings content</nuke-tab-panel>
+            </nuke-tabs>
+          </nuke-area>
+          <nuke-area>
+            <small>style-2</small>
+            <nuke-tabs nuke-style="2" style="margin-top: var(--space-1);">
+              <nuke-tab>Overview</nuke-tab>
+              <nuke-tab>Details</nuke-tab>
+              <nuke-tab>Settings</nuke-tab>
+              <nuke-tab-panel>Overview content</nuke-tab-panel>
+              <nuke-tab-panel>Details content</nuke-tab-panel>
+              <nuke-tab-panel>Settings content</nuke-tab-panel>
+            </nuke-tabs>
+          </nuke-area>
+        </nuke-grid>
+      </nuke-area>
+
+      <!-- Tables -->
+      <nuke-area id="tables">
+        <h3 style="margin-bottom: var(--space-2);"><code nuke-style="1">&lt;table&gt;</code></h3>
+        <nuke-grid style="grid-template-columns: 1fr 1fr;">
+          <nuke-area>
+            <small>style-1</small>
+            <table nuke-style="1" style="margin-top: var(--space-1);">
+              <thead><tr><th>Name</th><th>Status</th><th>Actions</th></tr></thead>
+              <tbody>
+                <tr><td>Project A</td><td><nuke-badge nuke-style="1">Active</nuke-badge></td><td><button nuke-style="2"><nuke-icon name="pencil"></nuke-icon></button></td></tr>
+                <tr><td>Project B</td><td><nuke-badge nuke-style="2">Draft</nuke-badge></td><td><button nuke-style="2"><nuke-icon name="pencil"></nuke-icon></button></td></tr>
+              </tbody>
+            </table>
+          </nuke-area>
+          <nuke-area>
+            <small>style-2</small>
+            <table nuke-style="2" style="margin-top: var(--space-1);">
+              <thead><tr><th>Name</th><th>Status</th><th>Actions</th></tr></thead>
+              <tbody>
+                <tr><td>User 1</td><td><nuke-badge nuke-style="1">Active</nuke-badge></td><td><button nuke-style="2"><nuke-icon name="pencil"></nuke-icon></button></td></tr>
+                <tr><td>User 2</td><td><nuke-badge nuke-style="2">Pending</nuke-badge></td><td><button nuke-style="2"><nuke-icon name="pencil"></nuke-icon></button></td></tr>
+              </tbody>
+            </table>
+          </nuke-area>
+        </nuke-grid>
+      </nuke-area>
+
+      <!-- Lists -->
+      <nuke-area id="lists">
+        <h3 style="margin-bottom: var(--space-2);"><code nuke-style="1">&lt;ul&gt; &lt;ol&gt;</code></h3>
+        <nuke-grid style="grid-template-columns: 1fr 1fr;">
+          <nuke-area>
+            <small>style-1 (ul)</small>
+            <ul nuke-style="1" style="margin-top: var(--space-1);">
+              <li><nuke-icon name="check"></nuke-icon> Task completed</li>
+              <li><nuke-icon name="check"></nuke-icon> Feature added</li>
+              <li><nuke-icon name="check"></nuke-icon> Bug fixed</li>
+            </ul>
+          </nuke-area>
+          <nuke-area>
+            <small>style-1 (ol)</small>
+            <ol nuke-style="1" style="margin-top: var(--space-1);">
+              <li>First step</li>
+              <li>Second step</li>
+              <li>Third step</li>
+            </ol>
+          </nuke-area>
+        </nuke-grid>
+      </nuke-area>
+
+      <!-- Nav -->
+      <nuke-area>
+        <h3 style="margin-bottom: var(--space-2);"><code nuke-style="1">&lt;nav&gt;</code></h3>
+        <nuke-grid style="grid-template-columns: 1fr 1fr;">
+          <nuke-area>
+            <small>style-1 (vertical)</small>
+            <nav nuke-style="1" style="margin-top: var(--space-1);">
+              <a href="#"><nuke-icon name="house"></nuke-icon> Home</a>
+              <a href="#"><nuke-icon name="user"></nuke-icon> Profile</a>
+              <a href="#"><nuke-icon name="gear"></nuke-icon> Settings</a>
+            </nav>
+          </nuke-area>
+          <nuke-area>
+            <small>style-2 (horizontal)</small>
+            <nav nuke-style="2" style="margin-top: var(--space-1);">
+              <a href="#">Home</a>
+              <a href="#">About</a>
+              <a href="#">Contact</a>
+            </nav>
+          </nuke-area>
+        </nuke-grid>
+      </nuke-area>
+
+      <!-- Toolbar -->
+      <nuke-area>
+        <h3 style="margin-bottom: var(--space-2);"><code nuke-style="1">&lt;nuke-toolbar&gt;</code></h3>
+        <nuke-grid style="grid-template-columns: 1fr 1fr;">
+          <nuke-area>
+            <small>style-1</small>
+            <nuke-toolbar nuke-style="1" style="margin-top: var(--space-1);">
+              <button nuke-style="1"><nuke-icon name="plus"></nuke-icon> New</button>
+              <button nuke-style="2"><nuke-icon name="download"></nuke-icon> Export</button>
+              <span style="flex: 1;"></span>
+              <button nuke-style="2"><nuke-icon name="gear"></nuke-icon></button>
+            </nuke-toolbar>
+          </nuke-area>
+          <nuke-area>
+            <small>style-2</small>
+            <nuke-toolbar nuke-style="2" style="margin-top: var(--space-1);">
+              <button nuke-style="1">Save</button>
+              <button nuke-style="2">Cancel</button>
+            </nuke-toolbar>
+          </nuke-area>
+        </nuke-grid>
+      </nuke-area>
+
+      <!-- Code -->
+      <nuke-area>
+        <h3 style="margin-bottom: var(--space-2);"><code nuke-style="1">&lt;code&gt; &lt;pre&gt;</code></h3>
+        <nuke-grid style="grid-template-columns: 1fr 1fr;">
+          <nuke-area>
+            <small>style-1</small>
+            <p style="margin-top: var(--space-1);">Inline <code nuke-style="1">const x = 42;</code> code</p>
+            <pre nuke-style="1" style="margin-top: var(--space-1);">function hello() {
+  console.log('Hello');
+}</pre>
+          </nuke-area>
+          <nuke-area>
+            <small>style-2</small>
+            <p style="margin-top: var(--space-1);">Inline <code nuke-style="2">const x = 42;</code> code</p>
+            <pre nuke-style="2" style="margin-top: var(--space-1);">function hello() {
+  console.log('Hello');
+}</pre>
+          </nuke-area>
+        </nuke-grid>
+      </nuke-area>
+
+      <!-- Images -->
+      <nuke-area>
+        <h3 style="margin-bottom: var(--space-2);"><code nuke-style="1">&lt;img&gt;</code></h3>
+        <nuke-grid style="grid-template-columns: 1fr 1fr;">
+          <nuke-area>
+            <small>style-1</small>
+            <img src="https://picsum.photos/200/120" nuke-style="1" alt="Sample" style="margin-top: var(--space-1);">
+          </nuke-area>
+          <nuke-area>
+            <small>style-2</small>
+            <img src="https://picsum.photos/200/120" nuke-style="2" alt="Sample" style="margin-top: var(--space-1);">
+          </nuke-area>
+        </nuke-grid>
+      </nuke-area>
+
+      <!-- Icons -->
+      <nuke-area id="icons">
+        <h3 style="margin-bottom: var(--space-2);"><code nuke-style="1">&lt;nuke-icon&gt;</code></h3>
+        <p style="margin-bottom: var(--space-2);">36 icons from Phosphor Icons (regular weight)</p>
+        <nuke-grid style="grid-template-columns: repeat(12, 1fr); gap: var(--space-2);">
+          <nuke-area style="text-align: center;"><nuke-icon name="house"></nuke-icon><br><small>house</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="x"></nuke-icon><br><small>x</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="plus"></nuke-icon><br><small>plus</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="minus"></nuke-icon><br><small>minus</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="check"></nuke-icon><br><small>check</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="trash"></nuke-icon><br><small>trash</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="pencil"></nuke-icon><br><small>pencil</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="copy"></nuke-icon><br><small>copy</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="download"></nuke-icon><br><small>download</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="upload"></nuke-icon><br><small>upload</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="magnifying-glass"></nuke-icon><br><small>magnifying-glass</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="gear"></nuke-icon><br><small>gear</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="user"></nuke-icon><br><small>user</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="bell"></nuke-icon><br><small>bell</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="heart"></nuke-icon><br><small>heart</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="star"></nuke-icon><br><small>star</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="eye"></nuke-icon><br><small>eye</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="lock"></nuke-icon><br><small>lock</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="info"></nuke-icon><br><small>info</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="warning"></nuke-icon><br><small>warning</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="question"></nuke-icon><br><small>question</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="link"></nuke-icon><br><small>link</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="sun"></nuke-icon><br><small>sun</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="moon"></nuke-icon><br><small>moon</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="globe"></nuke-icon><br><small>globe</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="code"></nuke-icon><br><small>code</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="terminal"></nuke-icon><br><small>terminal</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="list"></nuke-icon><br><small>list</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="arrow-left"></nuke-icon><br><small>arrow-left</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="arrow-right"></nuke-icon><br><small>arrow-right</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="arrow-up"></nuke-icon><br><small>arrow-up</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="arrow-down"></nuke-icon><br><small>arrow-down</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="caret-left"></nuke-icon><br><small>caret-left</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="caret-right"></nuke-icon><br><small>caret-right</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="caret-up"></nuke-icon><br><small>caret-up</small></nuke-area>
+          <nuke-area style="text-align: center;"><nuke-icon name="caret-down"></nuke-icon><br><small>caret-down</small></nuke-area>
+        </nuke-grid>
+      </nuke-area>
+
+      <!-- Toast & Sidebar -->
+      <nuke-area>
+        <h3 style="margin-bottom: var(--space-2);"><code nuke-style="1">&lt;nuke-toast&gt; &lt;nuke-sidebar&gt;</code></h3>
+        <nuke-grid style="grid-template-columns: 1fr 1fr;">
+          <nuke-area>
+            <small>Toast</small>
+            <nuke-toolbar nuke-style="1" style="margin-top: var(--space-1);">
+              <button nuke-style="1" onclick="showToast('1')">Show Toast (1)</button>
+              <button nuke-style="2" onclick="showToast('2')">Show Toast (2)</button>
+            </nuke-toolbar>
+          </nuke-area>
+          <nuke-area>
+            <small>Sidebar</small>
+            <nuke-toolbar nuke-style="1" style="margin-top: var(--space-1);">
+              <button nuke-style="1" onclick="showSidebar('1')">Show Sidebar (1)</button>
+              <button nuke-style="2" onclick="showSidebar('2')">Show Sidebar (2)</button>
+            </nuke-toolbar>
+          </nuke-area>
+        </nuke-grid>
+      </nuke-area>
+
+      <!-- Area & Grid -->
+      <nuke-area>
+        <h3 style="margin-bottom: var(--space-2);"><code nuke-style="1">&lt;nuke-area&gt; &lt;nuke-grid&gt;</code></h3>
+        <p style="margin-bottom: var(--space-1);">Layout primitives. Grid gap shows as lines (parent background).</p>
+        <nuke-grid style="grid-template-columns: repeat(3, 1fr);">
+          <nuke-area style="text-align: center;">Area 1</nuke-area>
+          <nuke-area style="text-align: center;">Area 2</nuke-area>
+          <nuke-area style="text-align: center;">Area 3</nuke-area>
+        </nuke-grid>
+      </nuke-area>
+
+    </nuke-grid>
+  </nuke-grid>
+
+  <script>
+    function showToast(variant) {
+      let container = document.querySelector('.nuke-toast-container');
+      if (!container) {
+        container = document.createElement('div');
+        container.className = 'nuke-toast-container';
+        document.body.appendChild(container);
+      }
+      const toast = document.createElement('nuke-toast');
+      toast.setAttribute('nuke-style', variant);
+      toast.setAttribute('duration', '3000');
+      toast.textContent = `Toast message (style-${variant})`;
+      container.appendChild(toast);
+    }
+
+    function showSidebar(variant) {
+      const sidebar = document.createElement('nuke-sidebar');
+      sidebar.setAttribute('nuke-style', variant);
+      sidebar.innerHTML = `
+        <h3>Sidebar (style-${variant})</h3>
+        <p style="margin: var(--space-2) 0;">Sidebar content goes here.</p>
+        <button nuke-style="${variant}" onclick="this.closest('nuke-sidebar').close()">
+          <nuke-icon name="x"></nuke-icon> Close
+        </button>
+      `;
+      document.body.appendChild(sidebar);
+      setTimeout(() => sidebar.show(), 0);
+    }
+  </script>
+</body>
+</html>
