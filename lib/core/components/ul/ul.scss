@@ -1,0 +1,31 @@
+@use '../../mixins' as *;
+
+ul {
+  // Style 1 - Outlined
+  @include style(1) {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+      background: transparent;
+      border: 1px solid var(--border-color-1);
+      padding: var(--space-1) var(--space-2);
+      margin-bottom: var(--space-1);
+      border-radius: var(--border-radius-1);
+    }
+  }
+
+  // Style 2 - Filled
+  @include style(2) {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+      background: var(--background-4);
+      border: 1px solid var(--border-color-1);
+      padding: var(--space-1) var(--space-2);
+      margin-bottom: var(--space-1);
+      border-radius: var(--border-radius-1);
+    }
+  }
+}

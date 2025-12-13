@@ -1,4 +1,5 @@
-/* Card */
+@use '../../mixins' as *;
+
 nuke-card {
   display: flex;
   flex-direction: column;
@@ -7,7 +8,22 @@ nuke-card {
   background: var(--background-2);
   color: var(--color-text-1);
   overflow: hidden;
+
+  // Style 1 - Outlined
+  @include style(1) {
+    background: transparent;
+    border: 1px solid var(--border-color-1);
+    box-shadow: none;
+  }
+
+  // Style 2 - Filled
+  @include style(2) {
+    background: var(--background-4);
+    border: 1px solid var(--border-color-1);
+    box-shadow: none;
+  }
 }
+
 nuke-card-header {
   display: block;
   padding: var(--space-2);
@@ -16,11 +32,13 @@ nuke-card-header {
   color: var(--color-text-1);
   border-bottom: 1px solid var(--border-color-1);
 }
+
 nuke-card-content {
   display: block;
   flex: 1;
   padding: var(--space-2);
 }
+
 nuke-card-actions {
   display: flex;
   gap: var(--space-1);
@@ -29,29 +47,15 @@ nuke-card-actions {
   justify-content: flex-end;
 }
 
-/* Style 1 - Outlined */
-:is(body, *)[nuke-style="1"] nuke-card,
-nuke-card[nuke-style="1"] {
-  background: transparent;
-  border: 1px solid var(--border-color-1);
-  box-shadow: none;
-}
-
-/* Style 2 - Filled with border */
-:is(body, *)[nuke-style="2"] nuke-card,
-nuke-card[nuke-style="2"] {
-  background: var(--background-4);
-  border: 1px solid var(--border-color-1);
-  box-shadow: none;
-}
-
-/* Card without header/actions adjustments */
+// Card without header/actions adjustments
 nuke-card:not(:has(nuke-card-header)) nuke-card-content {
   border-top: none;
 }
+
 nuke-card:not(:has(nuke-card-actions)) nuke-card-content {
   border-bottom: none;
 }
+
 nuke-card:not(:has(nuke-card-header)):not(:has(nuke-card-actions)) nuke-card-content {
   padding: var(--space-2);
 }

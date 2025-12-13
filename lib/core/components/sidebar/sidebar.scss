@@ -1,0 +1,82 @@
+@use '../../mixins' as *;
+
+nuke-sidebar {
+  position: fixed;
+  top: 0;
+  width: var(--width-1);
+  height: 100vh;
+  padding: var(--space-2);
+  background: var(--background-2);
+  color: var(--color-text-1);
+  overflow-y: auto;
+  transition: transform var(--transition-medium);
+  z-index: var(--z-index-2);
+
+  &[position="left"] {
+    left: 0;
+    transform: translateX(-100%);
+  }
+
+  &[position="left"][open] {
+    transform: translateX(0);
+  }
+
+  &[position="right"] {
+    right: 0;
+    transform: translateX(100%);
+  }
+
+  &[position="right"][open] {
+    transform: translateX(0);
+  }
+
+  // Style 1 - Border, no shadow
+  @include style(1) {
+    background: var(--background-1);
+    box-shadow: none;
+
+    &[position="left"] {
+      border-left: none;
+      border-right: 1px solid var(--border-color-1);
+    }
+
+    &[position="right"] {
+      border-right: none;
+      border-left: 1px solid var(--border-color-1);
+    }
+  }
+
+  // Style 2 - Filled
+  @include style(2) {
+    background: var(--background-4);
+    box-shadow: none;
+
+    &[position="left"] {
+      border-left: none;
+      border-right: 1px solid var(--border-color-1);
+    }
+
+    &[position="right"] {
+      border-right: none;
+      border-left: 1px solid var(--border-color-1);
+    }
+  }
+}
+
+.nuke-sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: calc(var(--z-index-2) - 1);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+
+  &.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

@@ -3,35 +3,35 @@
    One unit. One ratio. Pure math.
 ============================================ */
 
-/* All @imports must come first */
-@import './tokens.css';
-@import './components/a/a.css';
-@import './components/area/area.css';
-@import './components/badge/badge.css';
-@import './components/button/button.css';
-@import './components/card/card.css';
-@import './components/checkbox/checkbox.css';
-@import './components/code/code.css';
-@import './components/grid/grid.css';
-@import './components/icon/icon.css';
-@import './components/img/img.css';
-@import './components/input/input.css';
-@import './components/label/label.css';
-@import './components/nav/nav.css';
-@import './components/ol/ol.css';
-@import './components/pre/pre.css';
-@import './components/radio/radio.css';
-@import './components/range/range.css';
-@import './components/section/section.css';
-@import './components/select/select.css';
-@import './components/sidebar/sidebar.css';
-@import './components/table/table.css';
-@import './components/tabs/tabs.css';
-@import './components/tag/tag.css';
-@import './components/textarea/textarea.css';
-@import './components/toast/toast.css';
-@import './components/toolbar/toolbar.css';
-@import './components/ul/ul.css';
+/* Tokens and components */
+@use './tokens';
+@use './components/a/a';
+@use './components/area/area';
+@use './components/badge/badge';
+@use './components/button/button';
+@use './components/card/card';
+@use './components/checkbox/checkbox';
+@use './components/code/code';
+@use './components/grid/grid';
+@use './components/icon/icon';
+@use './components/img/img';
+@use './components/input/input';
+@use './components/label/label';
+@use './components/nav/nav';
+@use './components/ol/ol';
+@use './components/pre/pre';
+@use './components/radio/radio';
+@use './components/range/range';
+@use './components/section/section';
+@use './components/select/select';
+@use './components/sidebar/sidebar';
+@use './components/table/table';
+@use './components/tabs/tabs';
+@use './components/tag/tag';
+@use './components/textarea/textarea';
+@use './components/toast/toast';
+@use './components/toolbar/toolbar';
+@use './components/ul/ul';
 
 /* RESETS */
 *, *::before, *::after {

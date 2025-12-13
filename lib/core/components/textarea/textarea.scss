@@ -1,0 +1,71 @@
+@use '../../mixins' as *;
+
+textarea {
+  // Reset
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  width: 100%;
+  resize: vertical;
+
+  // Base
+  display: block;
+  width: 100%;
+  min-height: calc(var(--controls-height) * 4);
+  padding: calc(var(--controls-height) * (1 - var(--ratio)) / 2);
+  font-size: var(--text-base);
+  line-height: 1.5;
+  color: var(--color-text-1);
+  background: var(--background-4);
+  border: 1px solid var(--border-color-1);
+  border-radius: var(--border-radius-1);
+  transition:
+    border-color var(--transition-fast),
+    background-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+
+  &::placeholder {
+    color: var(--color-text-2);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-text-1);
+    box-shadow: 0 0 0 3px hsla(210, 100%, 50%, 0.1);
+  }
+
+  // Style 1 - Outlined
+  @include style(1) {
+    background: transparent;
+    color: var(--color-text-1);
+    border: 1px solid var(--border-color-2);
+
+    &:focus {
+      background: var(--background-2);
+      border-color: var(--color-text-1);
+    }
+  }
+
+  // Style 2 - Filled
+  @include style(2) {
+    background: var(--background-4);
+    color: var(--color-text-1);
+    border: 1px solid var(--border-color-1);
+
+    &:focus {
+      background: var(--background-3);
+      border-color: var(--color-text-1);
+    }
+  }
+
+  // Disabled
+  &:disabled {
+    opacity: var(--opacity-disabled);
+    cursor: not-allowed;
+    resize: none;
+  }
+}

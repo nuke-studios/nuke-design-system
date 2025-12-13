@@ -4,7 +4,7 @@
    ============================================ */
 
 /* Import the design system from lib */
-@import '../../lib/dist/core.css';
+@import '../../lib/dist/core.min.css';
 
 /* Token aliases for frontend compatibility */
 :root {

@@ -115,6 +115,34 @@
       "description": "Svelte 5 documentation app in frontend/ folder. Two pages: Welcome (landing) and Components (showcase). Uses Nav.svelte for navigation, imports lib web components (\u003cnuke-icon\u003e, \u003cnuke-tabs\u003e, etc). Serves as dogfooding environment to test lib components.",
       "created": "2025-12-13T01:43:19.428617+01:00",
       "updated": "2025-12-13T01:43:19.428617+01:00"
+    },
+    {
+      "id": "concept-6",
+      "title": "Style Inheritance",
+      "description": "nuke-style attribute cascades from parent to children. Set once on a container, all styled elements inside inherit it. The cascade is a feature, not a bug. Element-specific modifiers like [icon] stay flat boolean attributes since they shouldn't cascade.",
+      "created": "2025-12-13T18:38:02.029618+01:00",
+      "updated": "2025-12-13T18:38:02.029618+01:00"
+    },
+    {
+      "id": "concept-7",
+      "title": "Cascading Styles DX",
+      "description": "Unlike other design systems that require classes on every element, nuke-style cascades from parent to children. Set once on a container, all buttons/inputs/selects inside inherit. Verbose CSS is the cost of cleaner HTML for users.",
+      "created": "2025-12-13T18:50:00.198084+01:00",
+      "updated": "2025-12-13T18:50:00.198084+01:00"
+    },
+    {
+      "id": "concept-8",
+      "title": "nuke-style Selector Pattern",
+      "description": "The CSS pattern ':is(body, *)[nuke-style=\"1\"] :is(button, ...)' enables full cascade. The ':is(body, *)' ensures body-level works - set nuke-style on \u003cbody\u003e and ALL elements inherit globally. Override locally by setting nuke-style on any container. Any CSS refactoring (nesting, SCSS) must preserve this pattern.",
+      "created": "2025-12-13T18:56:06.137958+01:00",
+      "updated": "2025-12-13T18:56:06.137958+01:00"
+    },
+    {
+      "id": "concept-9",
+      "title": "Style Boundaries",
+      "description": "Any element with nuke-style becomes a 'style boundary'. All children inherit until a new boundary overrides. Works on div, nav, section, form, body - any element. Enables scoped styling without classes on every child.",
+      "created": "2025-12-13T18:57:20.065436+01:00",
+      "updated": "2025-12-13T18:57:20.065436+01:00"
     }
   ]
 }

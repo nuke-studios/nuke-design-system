@@ -1,0 +1,85 @@
+@use '../../mixins' as *;
+
+nuke-tabs {
+  display: block;
+
+  // Style 1 - Outlined
+  @include style(1) {
+    border: none;
+
+    nuke-tab {
+      background: transparent;
+      border: 1px solid var(--border-color-1);
+      border-radius: var(--border-radius-1);
+
+      &:hover {
+        background: var(--background-3);
+      }
+
+      &[aria-selected="true"] {
+        background: var(--background-3);
+        border-color: var(--color-text-1);
+      }
+    }
+  }
+
+  // Style 2 - Filled
+  @include style(2) {
+    border: none;
+
+    nuke-tab {
+      background: var(--background-4);
+      border: 1px solid var(--border-color-1);
+      border-radius: var(--border-radius-1);
+
+      &:hover {
+        background: var(--background-3);
+      }
+
+      &[aria-selected="true"] {
+        background: var(--background-3);
+        border-color: var(--color-text-1);
+      }
+    }
+  }
+}
+
+nuke-tab {
+  display: inline-block;
+  height: var(--controls-height);
+  padding: 0 calc(var(--controls-height) * (1 - var(--ratio)));
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-2);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+  line-height: var(--controls-height);
+
+  &:hover {
+    color: var(--color-text-1);
+  }
+
+  &[aria-selected="true"] {
+    color: var(--color-text-1);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+nuke-tab-panel {
+  display: block;
+  padding: var(--space-2);
+  margin-top: var(--space-1);
+  background: var(--background-2);
+  border: 1px solid var(--border-color-1);
+  border-radius: var(--border-radius-1);
+
+  &[aria-hidden="true"] {
+    display: none;
+  }
+}

@@ -1,0 +1,25 @@
+@use '../../mixins' as *;
+
+nuke-toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1);
+  background: transparent;
+  border-radius: var(--border-radius-1);
+  flex-wrap: wrap;
+
+  // Style 1 - Outlined
+  @include style(1) {
+    background: transparent;
+    border: 1px solid var(--border-color-1);
+    padding: var(--space-1);
+  }
+
+  // Style 2 - Filled
+  @include style(2) {
+    background: var(--background-4);
+    border: 1px solid var(--border-color-1);
+    padding: var(--space-1);
+  }
+}
