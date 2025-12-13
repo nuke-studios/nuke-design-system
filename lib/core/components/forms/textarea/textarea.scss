@@ -1,6 +1,6 @@
-@use '../../mixins' as *;
+@use '../../../mixins' as *;
 
-:is(#{$input}) {
+textarea {
   /* Reset */
   appearance: none;
   background: none;
@@ -10,13 +10,15 @@
   font: inherit;
   color: inherit;
   width: 100%;
+  resize: vertical;
 
   /* Base */
   display: block;
   width: 100%;
-  height: var(--controls-height);
-  padding: 0 calc(var(--controls-height) * (1 - var(--ratio)) / 2);
+  min-height: calc(var(--controls-height) * 4);
+  padding: calc(var(--controls-height) * (1 - var(--ratio)) / 2);
   font-size: var(--text-base);
+  line-height: 1.5;
   color: var(--color-text-1);
   border-radius: var(--border-radius-1);
   transition:
@@ -67,5 +69,6 @@
   &:disabled {
     opacity: var(--opacity-disabled);
     cursor: not-allowed;
+    resize: none;
   }
 }

@@ -5,10 +5,16 @@
  * import '@nuke.dev/design-system/dist/index.js';
  */
 
-// Export all web components
-export { NukeBadge } from './components/badge/badge.js';
-export { NukeIcon } from './components/icon/icon.js';
-export { NukeSidebar } from './components/sidebar/sidebar.js';
-export { NukeTabs, NukeTab, NukeTabPanel } from './components/tabs/tabs.js';
-export { NukeToast } from './components/toast/toast.js';
-export { NukeToolbar } from './components/toolbar/toolbar.js';
+// Feedback
+export { NukeBadge } from './components/feedback/badge/badge.js';
+export { NukeToast } from './components/feedback/toast/toast.js';
+
+// Content
+export { NukeIcon } from './components/content/icon/icon.js';
+
+// Layout
+export { NukeSidebar } from './components/layout/sidebar/sidebar.js';
+export { NukeToolbar } from './components/layout/toolbar/toolbar.js';
+
+// Navigation
+export { NukeTabs, NukeTab, NukeTabPanel } from './components/navigation/tabs/tabs.js';

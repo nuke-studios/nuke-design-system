@@ -3,33 +3,43 @@
    One unit. One ratio. Pure math.
 ============================================ */
 
-/* Tokens and components */
+/* Tokens */
 @use './tokens';
-@use './components/a/a';
-@use './components/area/area';
-@use './components/badge/badge';
-@use './components/button/button';
-@use './components/checkbox/checkbox';
-@use './components/code/code';
-@use './components/grid/grid';
-@use './components/icon/icon';
-@use './components/img/img';
-@use './components/input/input';
-@use './components/label/label';
-@use './components/nav/nav';
-@use './components/ol/ol';
-@use './components/radio/radio';
-@use './components/range/range';
-@use './components/section/section';
-@use './components/select/select';
-@use './components/sidebar/sidebar';
-@use './components/table/table';
-@use './components/tabs/tabs';
-@use './components/tag/tag';
-@use './components/textarea/textarea';
-@use './components/toast/toast';
-@use './components/toolbar/toolbar';
-@use './components/ul/ul';
+
+/* Forms */
+@use './components/forms/button/button';
+@use './components/forms/checkbox/checkbox';
+@use './components/forms/input/input';
+@use './components/forms/label/label';
+@use './components/forms/radio/radio';
+@use './components/forms/range/range';
+@use './components/forms/select/select';
+@use './components/forms/textarea/textarea';
+
+/* Layout */
+@use './components/layout/area/area';
+@use './components/layout/grid/grid';
+@use './components/layout/section/section';
+@use './components/layout/sidebar/sidebar';
+@use './components/layout/toolbar/toolbar';
+
+/* Navigation */
+@use './components/navigation/nav/nav';
+@use './components/navigation/tabs/tabs';
+
+/* Feedback */
+@use './components/feedback/badge/badge';
+@use './components/feedback/tag/tag';
+@use './components/feedback/toast/toast';
+
+/* Content */
+@use './components/content/a/a';
+@use './components/content/code/code';
+@use './components/content/icon/icon';
+@use './components/content/img/img';
+@use './components/content/ol/ol';
+@use './components/content/table/table';
+@use './components/content/ul/ul';
 
 /* RESETS */
 *, *::before, *::after {
