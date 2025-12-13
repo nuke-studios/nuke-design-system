@@ -1,0 +1,89 @@
+/* Nav Rail - Vertical icon navigation */
+nuke-nav-rail {
+  display: flex;
+  flex-direction: column;
+  width: var(--width-1);
+  height: 100%;
+  background: var(--background-2);
+  border-right: 1px solid var(--border-color-1);
+  transition: width var(--transition-medium);
+  overflow: hidden;
+}
+
+nuke-nav-rail-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  height: var(--controls-height);
+  border-bottom: 1px solid var(--border-color-1);
+}
+
+nuke-nav-rail-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--space-1);
+  gap: var(--space-1);
+  overflow-y: auto;
+}
+
+nuke-nav-rail-footer {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-1);
+  gap: var(--space-1);
+  border-top: 1px solid var(--border-color-1);
+}
+
+/* Nav Rail Item */
+nuke-nav-rail-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-2);
+  min-height: var(--controls-height);
+  color: var(--color-text-2);
+  border-radius: var(--border-radius-1);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+
+  &:hover {
+    color: var(--color-text-1);
+    background: var(--background-3);
+  }
+
+  &[active] {
+    color: var(--color-text-1);
+    background: var(--background-4);
+  }
+
+  nuke-icon {
+    flex-shrink: 0;
+    font-size: calc(var(--text-base) * 1.25);
+  }
+
+  span {
+    flex: 1;
+    font-size: var(--text-base);
+    transition: opacity var(--transition-fast);
+  }
+}
+
+/* Collapsed state - handled by app-shell[collapsed] */
+nuke-app-shell[collapsed] nuke-nav-rail {
+  width: calc(var(--controls-height) + var(--space-2) * 2);
+}
+
+nuke-app-shell[collapsed] nuke-nav-rail-item span {
+  opacity: 0;
+  width: 0;
+}
+
+nuke-app-shell[collapsed] nuke-nav-rail-header span {
+  opacity: 0;
+  width: 0;
+}

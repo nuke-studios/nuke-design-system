@@ -1,0 +1,25 @@
+/* App Shell - Main layout wrapper */
+nuke-app-shell {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr;
+  min-height: 100vh;
+  background: var(--background-1);
+
+  /* Collapsed rail state */
+  &[collapsed] {
+    nuke-nav-rail {
+      width: var(--controls-height);
+    }
+
+    nuke-nav-rail-item span {
+      display: none;
+    }
+  }
+}
+
+nuke-app-shell-main {
+  display: block;
+  overflow-y: auto;
+  background: var(--background-1);
+}

@@ -1,0 +1,80 @@
+/* Header Nav - Horizontal navigation with dropdowns */
+nuke-header-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+nuke-header-nav-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  height: var(--controls-height);
+  color: var(--color-text-1);
+  font-size: var(--text-base);
+  text-decoration: none;
+  border-radius: var(--border-radius-1);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+
+  &:hover {
+    background: var(--background-3);
+  }
+
+  &[active] {
+    background: var(--background-4);
+  }
+
+  /* Dropdown indicator */
+  &[has-dropdown]::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid currentColor;
+    margin-left: var(--space-1);
+  }
+}
+
+/* Dropdown menu */
+nuke-header-nav-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  padding: var(--space-1);
+  background: var(--background-2);
+  border: 1px solid var(--border-color-1);
+  border-radius: var(--border-radius-1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all var(--transition-fast);
+  z-index: var(--z-index-2);
+
+  nuke-header-nav-item:hover > &,
+  nuke-header-nav-item:focus-within > & {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+nuke-header-nav-dropdown-item {
+  display: block;
+  padding: var(--space-1) var(--space-2);
+  color: var(--color-text-1);
+  font-size: var(--text-base);
+  text-decoration: none;
+  border-radius: var(--border-radius-1);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+
+  &:hover {
+    background: var(--background-3);
+  }
+}

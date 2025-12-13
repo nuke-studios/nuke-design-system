@@ -17,14 +17,20 @@
 @use './components/forms/textarea/textarea';
 
 /* Layout */
+@use './components/layout/app-shell/app-shell';
 @use './components/layout/area/area';
+@use './components/layout/footer/footer';
 @use './components/layout/grid/grid';
+@use './components/layout/header/header';
 @use './components/layout/section/section';
 @use './components/layout/sidebar/sidebar';
 @use './components/layout/toolbar/toolbar';
 
 /* Navigation */
+@use './components/navigation/header-nav/header-nav';
+@use './components/navigation/mobile-nav/mobile-nav';
 @use './components/navigation/nav/nav';
+@use './components/navigation/nav-rail/nav-rail';
 @use './components/navigation/tabs/tabs';
 
 /* Feedback */
@@ -34,6 +40,7 @@
 
 /* Content */
 @use './components/content/a/a';
+@use './components/content/accordion/accordion';
 @use './components/content/code/code';
 @use './components/content/icon/icon';
 @use './components/content/img/img';
