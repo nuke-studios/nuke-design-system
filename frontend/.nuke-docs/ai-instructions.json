@@ -1,0 +1,49 @@
+{
+  "_purpose": "AI behavior guidelines - how AI should work on this project",
+  "_schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+      "_purpose": {
+        "description": "Purpose of this file",
+        "type": "string"
+      },
+      "items": {
+        "items": {
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "id": {
+              "pattern": "^instruction-[0-9]+$",
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "title",
+            "description"
+          ],
+          "type": "object"
+        },
+        "type": "array"
+      }
+    },
+    "required": [
+      "_purpose",
+      "items"
+    ],
+    "type": "object"
+  },
+  "items": [
+    {
+      "id": "instruction-1",
+      "title": "SCSS Build System",
+      "description": "Lib uses SCSS with shared mixins in core/_mixins.scss. The @include style(n) mixin generates cascading nuke-style selectors. Build outputs: dist/core.css (readable) and dist/core.min.css (minified). Run 'npm run build' in lib/ folder.",
+      "created": "2025-12-13T19:20:25.17348+01:00",
+      "updated": "2025-12-13T19:20:25.17348+01:00"
+    }
+  ]
+}

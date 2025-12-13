@@ -143,10 +143,10 @@
     {
       "id": "task-14",
       "title": "Discuss alternative: ship separate components (button-1, button-2, button-3)",
-      "status": "new",
+      "status": "completed",
       "description": "Evaluate whether to use nuke-style attribute vs shipping distinct components per variant. Pros/cons of each approach.",
       "created": "2025-12-12T23:30:01.982724+01:00",
-      "updated": "2025-12-12T23:30:01.982724+01:00"
+      "updated": "2025-12-13T19:21:08.883003+01:00"
     },
     {
       "id": "task-15",

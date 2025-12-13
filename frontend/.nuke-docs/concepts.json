@@ -1,0 +1,51 @@
+{
+  "_purpose": "Architecture patterns and key concepts",
+  "_schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+      "_purpose": {
+        "description": "Purpose of this file",
+        "type": "string"
+      },
+      "items": {
+        "items": {
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "details": {
+              "type": "object"
+            },
+            "id": {
+              "pattern": "^concept-[0-9]+$",
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "title"
+          ],
+          "type": "object"
+        },
+        "type": "array"
+      }
+    },
+    "required": [
+      "_purpose",
+      "items"
+    ],
+    "type": "object"
+  },
+  "items": [
+    {
+      "id": "concept-1",
+      "title": "Style Mixin Pattern",
+      "description": "Use @include style(n) { } inside element selectors to generate cascading nuke-style CSS. Mixin outputs: ':is(body, *)[nuke-style=\"n\"] \u0026, \u0026[nuke-style=\"n\"]' - enabling both inheritance from parent containers and direct element styling.",
+      "created": "2025-12-13T19:20:25.268139+01:00",
+      "updated": "2025-12-13T19:20:25.268139+01:00"
+    }
+  ]
+}
