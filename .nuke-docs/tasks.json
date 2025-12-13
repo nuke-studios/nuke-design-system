@@ -108,7 +108,7 @@
     {
       "id": "task-13",
       "title": "Identify elements that need ghost variant (style-3)",
-      "status": "new",
+      "status": "completed",
       "description": "Audit components to decide which ones need a third ghost/borderless style variant (e.g., button, icon-button). Document the pattern.",
       "created": "2025-12-12T23:30:01.887897+01:00",
       "updated": "2025-12-12T23:30:01.887897+01:00"
@@ -124,7 +124,7 @@
     {
       "id": "task-15",
       "title": "Audit: which components need style variants",
-      "status": "new",
+      "status": "completed",
       "priority": "high",
       "description": "Go through each component and decide: needs style-1/2/3, or just one default style. Document the pattern.",
       "created": "2025-12-13T19:39:21.519444+01:00",
@@ -133,7 +133,7 @@
     {
       "id": "task-16",
       "title": "Define composite component architecture",
-      "status": "new",
+      "status": "completed",
       "priority": "high",
       "description": "Decide folder structure for related components (nav-rail + nav-rail-item, etc). Flat vs grouped.",
       "created": "2025-12-13T19:39:21.627557+01:00",
@@ -142,7 +142,7 @@
     {
       "id": "task-17",
       "title": "Layout components audit",
-      "status": "new",
+      "status": "completed",
       "priority": "high",
       "description": "Identify layout components needed to build nuke-docs-style apps. Grid, sidebar, rail, header, main content area, etc.",
       "created": "2025-12-13T19:39:21.727763+01:00",

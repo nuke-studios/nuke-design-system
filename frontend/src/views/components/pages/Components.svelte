@@ -42,7 +42,7 @@
       <nuke-toolbar nuke-style="1" style="margin-top: var(--space-1);">
         <button nuke-style="1">Button</button>
         <button nuke-style="1"><nuke-icon name="plus"></nuke-icon> Add</button>
-        <button nuke-style="1"><nuke-icon name="gear"></nuke-icon></button>
+        <button nuke-style="1" aria-label="Settings"><nuke-icon name="gear"></nuke-icon></button>
       </nuke-toolbar>
     </nuke-area>
     <nuke-area>
@@ -50,7 +50,7 @@
       <nuke-toolbar nuke-style="1" style="margin-top: var(--space-1);">
         <button nuke-style="2">Button</button>
         <button nuke-style="2"><nuke-icon name="pencil"></nuke-icon> Edit</button>
-        <button nuke-style="2"><nuke-icon name="trash"></nuke-icon></button>
+        <button nuke-style="2" aria-label="Delete"><nuke-icon name="trash"></nuke-icon></button>
       </nuke-toolbar>
     </nuke-area>
   </nuke-grid>
