@@ -22,11 +22,11 @@ nuke-nav-bar-item {
   transition: all var(--transition-fast);
 
   &:hover {
-    background: var(--background-3);
+    background: var(--background-hover);
   }
 
   &[active] {
-    background: var(--background-4);
+    background: var(--background-component);
   }
 
   /* Dropdown indicator */
@@ -47,7 +47,7 @@ nuke-nav-bar-dropdown {
   left: 0;
   min-width: 200px;
   padding: var(--space-1);
-  background: var(--background-2);
+  background: var(--background-primitive);
   border: 1px solid var(--border-color-1);
   border-radius: var(--radius-primitive);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -76,6 +76,6 @@ nuke-nav-bar-dropdown-item {
   transition: background var(--transition-fast);
 
   &:hover {
-    background: var(--background-3);
+    background: var(--background-hover);
   }
 }

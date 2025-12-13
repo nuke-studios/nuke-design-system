@@ -5,7 +5,7 @@ nuke-app-shell-sidebar {
   grid-template-rows: 1fr;
   gap: var(--gap-shell);
   min-height: 100vh;
-  background: var(--background-1);
+  background: var(--background-body);
 
   /* Collapsed sidebar state */
   &[collapsed] {
@@ -23,5 +23,5 @@ nuke-app-shell-sidebar-content {
   display: grid;
   grid-template-rows: auto 1fr auto;
   overflow-y: auto;
-  background: var(--background-1);
+  background: var(--background-shell);
 }

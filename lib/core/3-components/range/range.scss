@@ -9,7 +9,7 @@ input[type="range"] {
   &::-webkit-slider-runnable-track {
     width: 100%;
     height: var(--unit);
-    background: var(--background-4);
+    background: var(--background-component);
     border: 1px solid var(--border-color-1);
     border-radius: var(--radius-component);
   }
@@ -17,7 +17,7 @@ input[type="range"] {
   &::-moz-range-track {
     width: 100%;
     height: var(--unit);
-    background: var(--background-4);
+    background: var(--background-component);
     border: 1px solid var(--border-color-1);
     border-radius: var(--radius-component);
   }

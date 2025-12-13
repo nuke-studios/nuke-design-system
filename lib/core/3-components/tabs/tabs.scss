@@ -11,11 +11,11 @@ nuke-tabs {
       border-radius: var(--radius-component);
 
       &:hover {
-        background: var(--background-3);
+        background: var(--background-hover);
       }
 
       &[aria-selected="true"] {
-        background: var(--background-3);
+        background: var(--background-hover);
         border-color: var(--color-text-1);
       }
     }
@@ -24,16 +24,16 @@ nuke-tabs {
   /* Style 2 - Filled tabs */
   @include style(2) {
     nuke-tab {
-      background: var(--background-4);
+      background: var(--background-component);
       border: 1px solid var(--border-color-1);
       border-radius: var(--radius-component);
 
       &:hover {
-        background: var(--background-3);
+        background: var(--background-hover);
       }
 
       &[aria-selected="true"] {
-        background: var(--background-3);
+        background: var(--background-hover);
         border-color: var(--color-text-1);
       }
     }
@@ -89,7 +89,7 @@ nuke-tab-panel {
   display: block;
   padding: var(--space-2);
   margin-top: var(--space-1);
-  background: var(--background-2);
+  background: var(--background-primitive);
   border: 1px solid var(--border-color-1);
   border-radius: var(--radius-component);
 

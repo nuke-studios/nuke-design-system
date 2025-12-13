@@ -201,6 +201,51 @@
       "description": "Replace Phosphor Icons with Radix Icons. Simple, flat, made for UI.",
       "created": "2025-12-13T23:53:29.789767+01:00",
       "updated": "2025-12-13T23:53:29.789767+01:00"
+    },
+    {
+      "id": "task-24",
+      "title": "Add design token for centered layouts (app-shell-stacked)",
+      "status": "new",
+      "priority": "low",
+      "description": "Create token for max-width centering in stacked layouts. Currently uses --content-width hardcoded.",
+      "created": "2025-12-14T00:02:51.203702+01:00",
+      "updated": "2025-12-14T00:02:51.203702+01:00"
+    },
+    {
+      "id": "task-25",
+      "title": "Evaluate background tokens through layers",
+      "status": "completed",
+      "priority": "high",
+      "description": "Review --background-1/2/3/4 tokens. Rename to --background-body (shows through gaps), --background-shell, --background-primitive, --background-component, --background-hover. Body background creates visual hairline in block mode.",
+      "created": "2025-12-14T00:09:07.149394+01:00",
+      "updated": "2025-12-14T00:20:10.363774+01:00"
+    },
+    {
+      "id": "task-26",
+      "title": "Audit 1/2/3 token naming vs shell/primitive/component",
+      "status": "completed",
+      "priority": "high",
+      "description": "Some tokens use 1/2/3 for scale (space, width, z-index), others for tree level (gap, radius). Evaluate where shell/primitive/component naming is more meaningful than numeric suffixes.",
+      "created": "2025-12-14T00:09:07.271865+01:00",
+      "updated": "2025-12-14T00:16:13.775897+01:00"
+    },
+    {
+      "id": "task-27",
+      "title": "Discuss padding token system",
+      "status": "new",
+      "priority": "medium",
+      "description": "Currently --space-1/2/3 used for padding. Could add --padding-shell, --padding-primitive, --padding-component for per-layer control. Discuss: should --unit and --ratio only apply to component sizing? How does padding relate to gap system?",
+      "created": "2025-12-14T00:09:07.386109+01:00",
+      "updated": "2025-12-14T00:09:07.386109+01:00"
+    },
+    {
+      "id": "task-28",
+      "title": "Discuss: Replace style attributes with layer tokens",
+      "status": "new",
+      "priority": "high",
+      "description": "Explore replacing nuke-style='1/2/3' with more cascading tokens. Example: --border token (1px solid var(--border-color) or none) could control component styles through the tree. Buttons/inputs could be: minimal (underline), bordered (no bg), filled (bg only), filled+bordered. Design tokens become the style system instead of attributes.",
+      "created": "2025-12-14T00:25:15.060961+01:00",
+      "updated": "2025-12-14T00:25:15.060961+01:00"
     }
   ]
 }

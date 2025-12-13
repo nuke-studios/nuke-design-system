@@ -4,7 +4,7 @@ nuke-nav-rail {
   grid-template-rows: auto 1fr auto;
   width: var(--width-1);
   height: 100%;
-  background: var(--background-2);
+  background: var(--background-primitive);
   border-right: 1px solid var(--border-color-1);
   transition: width var(--transition-medium);
   overflow: hidden;
@@ -54,12 +54,12 @@ nuke-nav-rail-item {
 
   &:hover {
     color: var(--color-text-1);
-    background: var(--background-3);
+    background: var(--background-hover);
   }
 
   &[active] {
     color: var(--color-text-1);
-    background: var(--background-4);
+    background: var(--background-component);
   }
 
   nuke-icon {

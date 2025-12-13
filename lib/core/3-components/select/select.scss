@@ -42,7 +42,7 @@ select {
 
   /* Style 2 - Filled */
   @include style(2) {
-    background-color: var(--background-4);
+    background-color: var(--background-component);
     color: var(--color-text-1);
     border: 1px solid var(--border-color-1);
 

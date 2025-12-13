@@ -41,7 +41,7 @@
 
   /* Style 2 - Filled */
   @include style(2) {
-    background: var(--background-4);
+    background: var(--background-component);
     border: 1px solid var(--border-color-1);
 
     &:focus {

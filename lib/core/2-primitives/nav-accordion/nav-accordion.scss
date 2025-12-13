@@ -13,17 +13,17 @@ nuke-nav-accordion-item {
   color: var(--color-text-1);
   font-size: var(--text-base);
   text-decoration: none;
-  background: var(--background-2);
+  background: var(--background-primitive);
   border-radius: var(--radius-primitive);
   cursor: pointer;
   transition: background var(--transition-fast);
 
   &:hover {
-    background: var(--background-3);
+    background: var(--background-hover);
   }
 
   &[active] {
-    background: var(--background-4);
+    background: var(--background-component);
     color: var(--color-text-1);
   }
 

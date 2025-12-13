@@ -76,11 +76,12 @@
   --warning-color: hsl(40, 90%, 60%); /* warnings, caution */
   --success-color: hsl(140, 60%, 55%);/* success, confirmation */
 
-  /* Backgrounds - dark scale */
-  --background-1: hsl(0, 0%, 8%);     /* page background */
-  --background-2: hsl(0, 0%, 14%);    /* cards, elevated surfaces */
-  --background-3: hsl(0, 0%, 20%);    /* hover, active states */
-  --background-4: hsl(0, 0%, 18%);    /* inputs, subtle fills */
+  /* BACKGROUND SYSTEM - cascades through component tree */
+  --background-body: hsl(0, 0%, 8%);       /* page base, shows through gaps */
+  --background-shell: hsl(0, 0%, 10%);     /* 1-app-shell regions */
+  --background-primitive: hsl(0, 0%, 14%); /* 2-primitives: cards, sections */
+  --background-component: hsl(0, 0%, 18%); /* 3-components: inputs, buttons */
+  --background-hover: hsl(0, 0%, 22%);     /* hover state */
 
   /* Misc */
   --border-color-1: hsl(0, 0%, 32%);      /* subtle borders */
@@ -88,7 +89,7 @@
   --box-shadow-1: 0 1px 3px rgba(0, 0, 0, 0.3);   /* subtle elevation */
   --box-shadow-2: 0 2px 8px rgba(0, 0, 0, 0.4);   /* cards, dropdowns */
   --box-shadow-3: 0 4px 16px rgba(0, 0, 0, 0.5);  /* modals, popovers */
-  --scrollbar-track: var(--background-1);
+  --scrollbar-track: var(--background-body);
   --scrollbar-thumb: var(--border-color-2);
 }
 
@@ -109,11 +110,12 @@
   --warning-color: hsl(40, 90%, 50%); /* warnings, caution */
   --success-color: hsl(140, 60%, 40%);/* success, confirmation */
 
-  /* Backgrounds - light scale */
-  --background-1: hsl(0, 0%, 94%);    /* page background */
-  --background-2: hsl(0, 0%, 100%);   /* cards, elevated surfaces */
-  --background-3: hsl(0, 0%, 90%);    /* hover, active states */
-  --background-4: hsl(0, 0%, 96%);    /* inputs, subtle fills */
+  /* BACKGROUND SYSTEM - cascades through component tree */
+  --background-body: hsl(0, 0%, 94%);       /* page base, shows through gaps */
+  --background-shell: hsl(0, 0%, 96%);      /* 1-app-shell regions */
+  --background-primitive: hsl(0, 0%, 100%); /* 2-primitives: cards, sections */
+  --background-component: hsl(0, 0%, 96%);  /* 3-components: inputs, buttons */
+  --background-hover: hsl(0, 0%, 90%);      /* hover state */
 
   /* Misc */
   --border-color-1: hsl(0, 0%, 75%);      /* subtle borders */
@@ -121,6 +123,6 @@
   --box-shadow-1: 0 1px 3px rgba(0, 0, 0, 0.08);   /* subtle elevation */
   --box-shadow-2: 0 2px 8px rgba(0, 0, 0, 0.12);   /* cards, dropdowns */
   --box-shadow-3: 0 4px 16px rgba(0, 0, 0, 0.16);  /* modals, popovers */
-  --scrollbar-track: var(--background-1);
+  --scrollbar-track: var(--background-body);
   --scrollbar-thumb: var(--border-color-2);
 }

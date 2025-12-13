@@ -3,11 +3,11 @@ table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
-  background: var(--background-2);
+  background: var(--background-primitive);
   border: 1px solid var(--border-color-1);
 
   thead {
-    background: var(--background-3);
+    background: var(--background-hover);
     border-bottom: 1px solid var(--border-color-1);
   }
 
@@ -44,7 +44,7 @@ table {
     }
 
     &:hover {
-      background: var(--background-3);
+      background: var(--background-hover);
     }
   }
 }

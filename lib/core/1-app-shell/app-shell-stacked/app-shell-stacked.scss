@@ -4,7 +4,7 @@ nuke-app-shell-stacked {
   grid-template-rows: auto 1fr auto;
   gap: var(--gap-shell);
   min-height: 100vh;
-  background: var(--background-1);
+  background: var(--background-body);
 
   /* Centered content variant */
   &[centered] {
