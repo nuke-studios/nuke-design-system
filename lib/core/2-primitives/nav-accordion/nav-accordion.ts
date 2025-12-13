@@ -2,33 +2,15 @@ import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 /**
- * Mobile Nav - Full-screen overlay navigation
- * Usage: <nuke-mobile-nav open>...</nuke-mobile-nav>
+ * Nav Accordion - Vertical navigation with expandable items
+ * Usage: <nuke-nav-accordion>...</nuke-nav-accordion>
  */
-@customElement('nuke-mobile-nav')
-export class NukeMobileNav extends LitElement {
+@customElement('nuke-nav-accordion')
+export class NukeNavAccordion extends LitElement {
   @property({ type: Boolean, reflect: true }) open = false;
 
   createRenderRoot() {
     return this;
-  }
-
-  show() {
-    this.open = true;
-    document.body.classList.add('no-scroll');
-  }
-
-  hide() {
-    this.open = false;
-    document.body.classList.remove('no-scroll');
-  }
-
-  toggle() {
-    if (this.open) {
-      this.hide();
-    } else {
-      this.show();
-    }
   }
 
   render() {
@@ -37,10 +19,10 @@ export class NukeMobileNav extends LitElement {
 }
 
 /**
- * Mobile Nav Item - Expandable nav item
+ * Nav Accordion Item - Expandable nav item
  */
-@customElement('nuke-mobile-nav-item')
-export class NukeMobileNavItem extends LitElement {
+@customElement('nuke-nav-accordion-item')
+export class NukeNavAccordionItem extends LitElement {
   @property({ type: Boolean, reflect: true }) expandable = false;
   @property({ type: Boolean, reflect: true }) expanded = false;
   @property({ type: Boolean, reflect: true }) active = false;

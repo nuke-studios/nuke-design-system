@@ -6,47 +6,44 @@
 /* Tokens */
 @use './tokens';
 
-/* Forms */
-@use './components/forms/button/button';
-@use './components/forms/checkbox/checkbox';
-@use './components/forms/input/input';
-@use './components/forms/label/label';
-@use './components/forms/radio/radio';
-@use './components/forms/range/range';
-@use './components/forms/select/select';
-@use './components/forms/textarea/textarea';
+/* 1. App Shell — page structure */
+@use './1-app-shell/app-shell-sidebar/app-shell-sidebar';
+@use './1-app-shell/app-shell-stacked/app-shell-stacked';
 
-/* Layout */
-@use './components/layout/app-shell/app-shell';
-@use './components/layout/area/area';
-@use './components/layout/footer/footer';
-@use './components/layout/grid/grid';
-@use './components/layout/header/header';
-@use './components/layout/section/section';
-@use './components/layout/sidebar/sidebar';
-@use './components/layout/toolbar/toolbar';
+/* 2. Primitives — layout regions, containers */
+@use './2-primitives/area/area';
+@use './2-primitives/footer/footer';
+@use './2-primitives/grid/grid';
+@use './2-primitives/header/header';
+@use './2-primitives/nav-accordion/nav-accordion';
+@use './2-primitives/nav-bar/nav-bar';
+@use './2-primitives/nav-rail/nav-rail';
+@use './2-primitives/section/section';
+@use './2-primitives/sidebar/sidebar';
+@use './2-primitives/toolbar/toolbar';
 
-/* Navigation */
-@use './components/navigation/header-nav/header-nav';
-@use './components/navigation/mobile-nav/mobile-nav';
-@use './components/navigation/nav/nav';
-@use './components/navigation/nav-rail/nav-rail';
-@use './components/navigation/tabs/tabs';
-
-/* Feedback */
-@use './components/feedback/badge/badge';
-@use './components/feedback/tag/tag';
-@use './components/feedback/toast/toast';
-
-/* Content */
-@use './components/content/a/a';
-@use './components/content/accordion/accordion';
-@use './components/content/code/code';
-@use './components/content/icon/icon';
-@use './components/content/img/img';
-@use './components/content/ol/ol';
-@use './components/content/table/table';
-@use './components/content/ul/ul';
+/* 3. Components — UI elements */
+@use './3-components/a/a';
+@use './3-components/accordion/accordion';
+@use './3-components/badge/badge';
+@use './3-components/button/button';
+@use './3-components/checkbox/checkbox';
+@use './3-components/code/code';
+@use './3-components/icon/icon';
+@use './3-components/img/img';
+@use './3-components/input/input';
+@use './3-components/label/label';
+@use './3-components/nav/nav';
+@use './3-components/ol/ol';
+@use './3-components/radio/radio';
+@use './3-components/range/range';
+@use './3-components/select/select';
+@use './3-components/table/table';
+@use './3-components/tabs/tabs';
+@use './3-components/tag/tag';
+@use './3-components/textarea/textarea';
+@use './3-components/toast/toast';
+@use './3-components/ul/ul';
 
 /* RESETS */
 *, *::before, *::after {

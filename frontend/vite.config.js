@@ -18,6 +18,10 @@ export default defineConfig({
     fs: {
       // Allow serving files from lib folder
       allow: ['..']
+    },
+    watch: {
+      // Watch lib/dist for HMR
+      ignored: ['!**/lib/dist/**']
     }
   }
 })

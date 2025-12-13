@@ -1,12 +1,13 @@
-/* App Shell - Main layout wrapper */
-nuke-app-shell {
+/* App Shell Sidebar - Layout with sidebar + content area */
+nuke-app-shell-sidebar {
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: 1fr;
+  gap: var(--shell-gap-1);
   min-height: 100vh;
   background: var(--background-1);
 
-  /* Collapsed rail state */
+  /* Collapsed sidebar state */
   &[collapsed] {
     nuke-nav-rail {
       width: var(--controls-height);
@@ -18,8 +19,9 @@ nuke-app-shell {
   }
 }
 
-nuke-app-shell-main {
-  display: block;
+nuke-app-shell-sidebar-content {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   overflow-y: auto;
   background: var(--background-1);
 }

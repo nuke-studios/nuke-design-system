@@ -1,41 +1,11 @@
-/* Mobile Nav - Full-screen overlay navigation */
-nuke-mobile-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: grid;
-  grid-template-rows: auto 1fr;
-  background: var(--background-1);
-  z-index: var(--z-index-3);
-  opacity: 0;
-  visibility: hidden;
-  transition: all var(--transition-medium);
-
-  &[open] {
-    opacity: 1;
-    visibility: visible;
-  }
-}
-
-nuke-mobile-nav-header {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  padding: var(--space-2);
-  border-bottom: 1px solid var(--border-color-1);
-}
-
-nuke-mobile-nav-content {
+/* Nav Accordion - Vertical navigation with expandable items */
+nuke-nav-accordion {
   display: grid;
   align-content: start;
   gap: var(--space-1);
-  padding: var(--space-2);
-  overflow-y: auto;
 }
 
-nuke-mobile-nav-item {
+nuke-nav-accordion-item {
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
@@ -74,11 +44,11 @@ nuke-mobile-nav-item {
 }
 
 /* Sub-items container */
-nuke-mobile-nav-subitems {
+nuke-nav-accordion-subitems {
   display: none;
   padding-left: var(--space-3);
 
-  nuke-mobile-nav-item[expanded] + & {
+  nuke-nav-accordion-item[expanded] + & {
     display: grid;
     gap: var(--space-1);
   }

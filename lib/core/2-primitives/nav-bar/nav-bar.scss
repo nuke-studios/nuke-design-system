@@ -1,12 +1,12 @@
-/* Header Nav - Horizontal navigation with dropdowns */
-nuke-header-nav {
+/* Nav Bar - Horizontal navigation with dropdowns */
+nuke-nav-bar {
   display: grid;
   grid-auto-flow: column;
   align-items: center;
   gap: var(--space-1);
 }
 
-nuke-header-nav-item {
+nuke-nav-bar-item {
   position: relative;
   display: inline-grid;
   grid-auto-flow: column;
@@ -41,7 +41,7 @@ nuke-header-nav-item {
 }
 
 /* Dropdown menu */
-nuke-header-nav-dropdown {
+nuke-nav-bar-dropdown {
   position: absolute;
   top: 100%;
   left: 0;
@@ -57,15 +57,15 @@ nuke-header-nav-dropdown {
   transition: all var(--transition-fast);
   z-index: var(--z-index-2);
 
-  nuke-header-nav-item:hover > &,
-  nuke-header-nav-item:focus-within > & {
+  nuke-nav-bar-item:hover > &,
+  nuke-nav-bar-item:focus-within > & {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
   }
 }
 
-nuke-header-nav-dropdown-item {
+nuke-nav-bar-dropdown-item {
   display: block;
   padding: var(--space-1) var(--space-2);
   color: var(--color-text-1);

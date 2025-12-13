@@ -2,11 +2,11 @@ import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 /**
- * Header Nav Item - Individual nav item with optional dropdown
- * Usage: <nuke-header-nav-item dropdown>Label<nuke-header-nav-dropdown>...</nuke-header-nav-dropdown></nuke-header-nav-item>
+ * Nav Bar Item - Individual nav item with optional dropdown
+ * Usage: <nuke-nav-bar-item dropdown>Label<nuke-nav-bar-dropdown>...</nuke-nav-bar-dropdown></nuke-nav-bar-item>
  */
-@customElement('nuke-header-nav-item')
-export class NukeHeaderNavItem extends LitElement {
+@customElement('nuke-nav-bar-item')
+export class NukeNavBarItem extends LitElement {
   @property({ type: Boolean, reflect: true }) dropdown = false;
   @property({ type: Boolean, reflect: true }) open = false;
   @property({ type: Boolean, reflect: true }) active = false;
@@ -46,7 +46,7 @@ export class NukeHeaderNavItem extends LitElement {
   private _handleClick = (e: Event) => {
     const target = e.target as HTMLElement;
     // If clicking on a dropdown link, close the dropdown
-    if (target.closest('nuke-header-nav-dropdown-item')) {
+    if (target.closest('nuke-nav-bar-dropdown-item')) {
       this.open = false;
     }
   };

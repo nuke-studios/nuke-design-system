@@ -2,11 +2,11 @@ import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 /**
- * App Shell - Main layout wrapper
- * Usage: <nuke-app-shell collapsed>...</nuke-app-shell>
+ * App Shell Sidebar - Layout with sidebar + content area
+ * Usage: <nuke-app-shell-sidebar collapsed>...</nuke-app-shell-sidebar>
  */
-@customElement('nuke-app-shell')
-export class NukeAppShell extends LitElement {
+@customElement('nuke-app-shell-sidebar')
+export class NukeAppShellSidebar extends LitElement {
   @property({ type: Boolean, reflect: true }) collapsed = false;
 
   createRenderRoot() {
@@ -19,17 +19,6 @@ export class NukeAppShell extends LitElement {
       detail: { collapsed: this.collapsed },
       bubbles: true
     }));
-  }
-
-  render() {
-    return html`<slot></slot>`;
-  }
-}
-
-@customElement('nuke-app-shell-main')
-export class NukeAppShellMain extends LitElement {
-  createRenderRoot() {
-    return this;
   }
 
   render() {

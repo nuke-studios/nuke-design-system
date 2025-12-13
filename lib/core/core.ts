@@ -5,21 +5,20 @@
  * import '@nuke.dev/design-system/dist/index.js';
  */
 
-// Feedback
-export { NukeBadge } from './components/feedback/badge/badge.js';
-export { NukeToast } from './components/feedback/toast/toast.js';
+// 1. App Shell
+export { NukeAppShellSidebar } from './1-app-shell/app-shell-sidebar/app-shell-sidebar.js';
+export { NukeAppShellStacked } from './1-app-shell/app-shell-stacked/app-shell-stacked.js';
 
-// Content
-export { NukeAccordion } from './components/content/accordion/accordion.js';
-export { NukeIcon } from './components/content/icon/icon.js';
+// 2. Primitives
+export { NukeNavAccordion, NukeNavAccordionItem } from './2-primitives/nav-accordion/nav-accordion.js';
+export { NukeNavBarItem } from './2-primitives/nav-bar/nav-bar.js';
+export { NukeNavRailItem } from './2-primitives/nav-rail/nav-rail.js';
+export { NukeSidebar } from './2-primitives/sidebar/sidebar.js';
+export { NukeToolbar } from './2-primitives/toolbar/toolbar.js';
 
-// Layout
-export { NukeAppShell } from './components/layout/app-shell/app-shell.js';
-export { NukeSidebar } from './components/layout/sidebar/sidebar.js';
-export { NukeToolbar } from './components/layout/toolbar/toolbar.js';
-
-// Navigation
-export { NukeHeaderNavItem } from './components/navigation/header-nav/header-nav.js';
-export { NukeMobileNav, NukeMobileNavItem } from './components/navigation/mobile-nav/mobile-nav.js';
-export { NukeNavRailItem } from './components/navigation/nav-rail/nav-rail.js';
-export { NukeTabs, NukeTab, NukeTabPanel } from './components/navigation/tabs/tabs.js';
+// 3. Components
+export { NukeAccordion } from './3-components/accordion/accordion.js';
+export { NukeBadge } from './3-components/badge/badge.js';
+export { NukeIcon } from './3-components/icon/icon.js';
+export { NukeTabs, NukeTab, NukeTabPanel } from './3-components/tabs/tabs.js';
+export { NukeToast } from './3-components/toast/toast.js';

@@ -1,6 +1,6 @@
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import '../../content/icon/icon.js';
+import '../icon/icon.js';
 
 /**
  * Nuke Toast Component
