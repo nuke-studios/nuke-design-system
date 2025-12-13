@@ -20,7 +20,7 @@ textarea {
   font-size: var(--text-base);
   line-height: 1.5;
   color: var(--color-text-1);
-  border-radius: var(--border-radius-1);
+  border-radius: var(--radius-component);
   transition:
     border-color var(--transition-fast),
     background-color var(--transition-fast),

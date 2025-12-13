@@ -8,7 +8,7 @@ nuke-tabs {
     nuke-tab {
       background: transparent;
       border: 1px solid var(--border-color-2);
-      border-radius: var(--border-radius-1);
+      border-radius: var(--radius-component);
 
       &:hover {
         background: var(--background-3);
@@ -26,7 +26,7 @@ nuke-tabs {
     nuke-tab {
       background: var(--background-4);
       border: 1px solid var(--border-color-1);
-      border-radius: var(--border-radius-1);
+      border-radius: var(--radius-component);
 
       &:hover {
         background: var(--background-3);
@@ -91,7 +91,7 @@ nuke-tab-panel {
   margin-top: var(--space-1);
   background: var(--background-2);
   border: 1px solid var(--border-color-1);
-  border-radius: var(--border-radius-1);
+  border-radius: var(--radius-component);
 
   &[aria-hidden="true"] {
     display: none;

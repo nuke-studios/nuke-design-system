@@ -2,10 +2,10 @@
 nuke-toolbar {
   display: flex;
   align-items: center;
-  gap: var(--space-1);
+  gap: var(--gap-component);
   padding: var(--space-1);
   background: var(--background-2);
   border: 1px solid var(--border-color-1);
-  border-radius: var(--border-radius-1);
+  border-radius: var(--radius-primitive);
   flex-wrap: wrap;
 }

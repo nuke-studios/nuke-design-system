@@ -2,16 +2,16 @@
 nav {
   padding: var(--space-2);
   display: flex;
-  gap: var(--space-2);
+  gap: var(--gap-component);
   background: var(--background-2);
   border: 1px solid var(--border-color-1);
-  border-radius: var(--border-radius-1);
+  border-radius: var(--radius-component);
 
   a {
     padding: var(--space-1) var(--space-2);
     color: var(--color-text-1);
     text-decoration: none;
-    border-radius: var(--border-radius-1);
+    border-radius: var(--radius-component);
     transition: color var(--transition-fast), background-color var(--transition-fast);
 
     &:hover {

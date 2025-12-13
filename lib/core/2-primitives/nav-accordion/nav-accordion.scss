@@ -2,7 +2,7 @@
 nuke-nav-accordion {
   display: grid;
   align-content: start;
-  gap: var(--space-1);
+  gap: var(--gap-component);
 }
 
 nuke-nav-accordion-item {
@@ -14,7 +14,7 @@ nuke-nav-accordion-item {
   font-size: var(--text-base);
   text-decoration: none;
   background: var(--background-2);
-  border-radius: var(--border-radius-1);
+  border-radius: var(--radius-primitive);
   cursor: pointer;
   transition: background var(--transition-fast);
 
@@ -50,6 +50,6 @@ nuke-nav-accordion-subitems {
 
   nuke-nav-accordion-item[expanded] + & {
     display: grid;
-    gap: var(--space-1);
+    gap: var(--gap-component);
   }
 }

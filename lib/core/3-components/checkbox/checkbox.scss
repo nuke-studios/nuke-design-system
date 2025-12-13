@@ -16,7 +16,7 @@ input[type="checkbox"] {
   min-height: var(--controls-height-small);
   background: var(--background-4);
   border: 1px solid var(--border-color-1);
-  border-radius: var(--border-radius-1);
+  border-radius: var(--radius-component);
   transition:
     background-color var(--transition-fast),
     border-color var(--transition-fast);

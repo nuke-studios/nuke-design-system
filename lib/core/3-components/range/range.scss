@@ -11,7 +11,7 @@ input[type="range"] {
     height: var(--unit);
     background: var(--background-4);
     border: 1px solid var(--border-color-1);
-    border-radius: var(--border-radius-1);
+    border-radius: var(--radius-component);
   }
 
   &::-moz-range-track {
@@ -19,7 +19,7 @@ input[type="range"] {
     height: var(--unit);
     background: var(--background-4);
     border: 1px solid var(--border-color-1);
-    border-radius: var(--border-radius-1);
+    border-radius: var(--radius-component);
   }
 
   &::-webkit-slider-thumb {

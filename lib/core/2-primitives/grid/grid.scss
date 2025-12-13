@@ -1,7 +1,7 @@
 /* Grid - Layout container */
 nuke-grid {
   display: grid;
-  gap: var(--shell-gap);
+  gap: var(--gap-primitive);
   background: var(--border-color-1);
 }
 

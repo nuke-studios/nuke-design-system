@@ -25,14 +25,14 @@ nuke-nav-rail-content {
   display: grid;
   align-content: start;
   padding: var(--space-1);
-  gap: var(--space-1);
+  gap: var(--gap-component);
   overflow-y: auto;
 }
 
 nuke-nav-rail-footer {
   display: grid;
   padding: var(--space-1);
-  gap: var(--space-1);
+  gap: var(--gap-component);
   border-top: 1px solid var(--border-color-1);
 }
 
@@ -45,7 +45,7 @@ nuke-nav-rail-item {
   padding: var(--space-1) var(--space-2);
   min-height: var(--controls-height);
   color: var(--color-text-2);
-  border-radius: var(--border-radius-1);
+  border-radius: var(--radius-primitive);
   cursor: pointer;
   transition: all var(--transition-fast);
   text-decoration: none;

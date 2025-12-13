@@ -20,7 +20,7 @@ nuke-toast {
   max-width: var(--width-2);
   padding: var(--space-2);
   font-size: var(--text-base);
-  border-radius: var(--border-radius-1);
+  border-radius: var(--radius-component);
   pointer-events: auto;
   opacity: 0;
   transform: translateX(100%);

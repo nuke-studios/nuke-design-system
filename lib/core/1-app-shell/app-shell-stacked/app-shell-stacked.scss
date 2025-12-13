@@ -2,7 +2,7 @@
 nuke-app-shell-stacked {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  gap: var(--shell-gap);
+  gap: var(--gap-shell);
   min-height: 100vh;
   background: var(--background-1);
 

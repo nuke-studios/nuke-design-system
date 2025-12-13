@@ -18,7 +18,7 @@
   padding: 0 calc(var(--controls-height) * (1 - var(--ratio)) / 2);
   font-size: var(--text-base);
   color: var(--color-text-1);
-  border-radius: var(--border-radius-1);
+  border-radius: var(--radius-component);
   transition:
     border-color var(--transition-fast),
     background-color var(--transition-fast),

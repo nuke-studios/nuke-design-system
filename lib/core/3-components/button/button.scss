@@ -31,7 +31,7 @@ input[type="reset"] {
   font-size: var(--text-base);
   font-weight: 500;
   white-space: nowrap;
-  border-radius: var(--border-radius-1);
+  border-radius: var(--radius-component);
   transition:
     background-color var(--transition-fast),
     color var(--transition-fast),

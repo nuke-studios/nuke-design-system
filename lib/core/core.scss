@@ -102,7 +102,7 @@ table {
 ::-webkit-scrollbar-thumb {
   background-color: var(--scrollbar-thumb);
   border: calc(var(--unit) * 0.5) solid var(--scrollbar-track);
-  border-radius: var(--border-radius-2);
+  border-radius: var(--radius-component);
 }
 
 ::-webkit-scrollbar-thumb:hover {

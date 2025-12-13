@@ -22,18 +22,22 @@
   --space-2: calc(var(--unit) * 2);                /* default: card padding, form gaps */
   --space-3: calc(var(--unit) * 4);                /* loose: section spacing */
 
-  /* SHELL GAP - for app-shell grid layouts */
-  --shell-gap: 1px;                                /* line between regions */
+  /* GAP SYSTEM - cascades through component tree */
+  --gap: 1px;                                      /* base: 1px=block, 5px+=island */
+  --gap-shell: var(--gap);                         /* 1-app-shell */
+  --gap-primitive: var(--gap);                     /* 2-primitives */
+  --gap-component: var(--gap);                     /* 3-components */
 
   /* WIDTHS */
   --width-1: calc(var(--unit) * 40);               /* sidebar, narrow panels */
   --width-2: calc(var(--unit) * 80);               /* content, modals */
   --width-3: calc(var(--unit) * 128);              /* max-width, containers */
 
-  /* BORDER RADIUS */
-  --border-radius-1: calc(var(--unit) * 0.5);      /* subtle: inputs, buttons */
-  --border-radius-2: var(--unit);                  /* default: cards, panels */
-  --border-radius-3: calc(var(--unit) * 2);        /* rounded: pills, tags */
+  /* RADIUS SYSTEM - cascades through component tree */
+  --radius: calc(var(--unit) * 0.5);               /* base: 0=block, unit*0.5=island */
+  --radius-shell: var(--radius);                   /* 1-app-shell */
+  --radius-primitive: var(--radius);               /* 2-primitives */
+  --radius-component: var(--radius);               /* 3-components */
 
   /* FONT FAMILIES */
   --family-1: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;  /* body, UI */
