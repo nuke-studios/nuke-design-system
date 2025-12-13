@@ -1,19 +1,4 @@
 // Nuke Design System - Shared Mixins
 
-// Element selectors
-$btn: 'button, input[type="button"], input[type="submit"], input[type="reset"]';
-$input: 'input:not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="checkbox"]):not([type="radio"]):not([type="range"])';
-$select: 'select';
-$textarea: 'textarea';
-$checkbox: 'input[type="checkbox"]';
-$radio: 'input[type="radio"]';
-$range: 'input[type="range"]';
-
-// Style variant mixin - enables cascade from any parent with nuke-style attribute
-// Usage: @include style(1) { background: red; }
-@mixin style($n) {
-  :is(body, *)[nuke-style="#{$n}"] &,
-  &[nuke-style="#{$n}"] {
-    @content;
-  }
-}
+// Currently empty - style variants now controlled via CSS tokens
+// (--border-component, --background-component, etc.)

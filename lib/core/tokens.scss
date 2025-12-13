@@ -39,6 +39,13 @@
   --radius-primitive: var(--radius);               /* 2-primitives */
   --radius-component: var(--radius);               /* 3-components */
 
+  /* BORDER SYSTEM - cascades through component tree */
+  --border: 1px solid var(--border-color-1);       /* base: full border or none */
+  --border-shell: var(--border);                   /* 1-app-shell */
+  --border-primitive: var(--border);               /* 2-primitives */
+  --border-component: var(--border);               /* 3-components */
+  --border-bottom-component: none;                 /* underline style for inputs */
+
   /* FONT FAMILIES */
   --family-1: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;  /* body, UI */
   --family-2: 'Raleway', 'Impact', 'Arial Black', 'Helvetica', sans-serif;  /* display, headings */

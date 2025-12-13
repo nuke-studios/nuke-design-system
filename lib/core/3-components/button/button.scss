@@ -1,13 +1,9 @@
-@use '../../_mixins' as *;
-
 /* Button - Reset */
 button,
 input[type="button"],
 input[type="submit"],
 input[type="reset"] {
   appearance: none;
-  background: none;
-  border: none;
   padding: 0;
   margin: 0;
   font: inherit;
@@ -17,7 +13,7 @@ input[type="reset"] {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Button - Base */
+/* Button - Base (styled by tokens) */
 button,
 input[type="button"],
 input[type="submit"],
@@ -31,52 +27,23 @@ input[type="reset"] {
   font-size: var(--text-base);
   font-weight: 500;
   white-space: nowrap;
-  border-radius: var(--radius-component);
-  transition:
-    background-color var(--transition-fast),
-    color var(--transition-fast),
-    border-color var(--transition-fast);
   text-align: center;
   text-decoration: none;
   line-height: 1;
+  color: var(--color-text-1);
+  background: var(--background-component);
+  border: var(--border-component);
+  border-bottom: var(--border-bottom-component);
+  border-radius: var(--radius-component);
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast);
 
-  /* Style 1 - Outlined */
-  @include style(1) {
-    background: transparent;
-    color: var(--color-text-1);
-    border: 1px solid var(--border-color-2);
-
-    &:hover,
-    &:focus {
-      background: var(--background-hover);
-    }
+  &:hover,
+  &:focus {
+    background: var(--background-hover);
   }
 
-  /* Style 2 - Filled */
-  @include style(2) {
-    background: var(--background-component);
-    color: var(--color-text-1);
-    border: 1px solid var(--border-color-1);
-
-    &:hover,
-    &:focus {
-      background: var(--background-hover);
-    }
-  }
-
-  /* Style 3 - Ghost */
-  @include style(3) {
-    background: transparent;
-    color: var(--color-text-1);
-    border: none;
-
-    &:hover,
-    &:focus {
-      background: var(--background-hover);
-    }
-  }
-
-  /* Focus & Disabled states */
   &:focus-visible {
     outline: 2px solid var(--color-1);
     outline-offset: 2px;

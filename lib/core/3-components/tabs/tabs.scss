@@ -1,61 +1,5 @@
-@use '../../_mixins' as *;
-
 nuke-tabs {
   display: block;
-
-  /* Style 1 - Outlined tabs */
-  @include style(1) {
-    nuke-tab {
-      background: transparent;
-      border: 1px solid var(--border-color-2);
-      border-radius: var(--radius-component);
-
-      &:hover {
-        background: var(--background-hover);
-      }
-
-      &[aria-selected="true"] {
-        background: var(--background-hover);
-        border-color: var(--color-text-1);
-      }
-    }
-  }
-
-  /* Style 2 - Filled tabs */
-  @include style(2) {
-    nuke-tab {
-      background: var(--background-component);
-      border: 1px solid var(--border-color-1);
-      border-radius: var(--radius-component);
-
-      &:hover {
-        background: var(--background-hover);
-      }
-
-      &[aria-selected="true"] {
-        background: var(--background-hover);
-        border-color: var(--color-text-1);
-      }
-    }
-  }
-
-  /* Style 3 - Ghost tabs */
-  @include style(3) {
-    nuke-tab {
-      background: transparent;
-      border: none;
-      border-bottom: 2px solid transparent;
-      border-radius: 0;
-
-      &:hover {
-        border-bottom-color: var(--border-color-2);
-      }
-
-      &[aria-selected="true"] {
-        border-bottom-color: var(--color-text-1);
-      }
-    }
-  }
 }
 
 nuke-tab {
@@ -65,8 +9,10 @@ nuke-tab {
   font-size: var(--text-base);
   font-weight: var(--font-weight-medium);
   color: var(--color-text-2);
-  background: transparent;
-  border: none;
+  background: var(--background-component);
+  border: var(--border-component);
+  border-bottom: var(--border-bottom-component);
+  border-radius: var(--radius-component);
   cursor: pointer;
   transition: all var(--transition-fast);
   user-select: none;
@@ -74,10 +20,13 @@ nuke-tab {
 
   &:hover {
     color: var(--color-text-1);
+    background: var(--background-hover);
   }
 
   &[aria-selected="true"] {
     color: var(--color-text-1);
+    background: var(--background-hover);
+    border-color: var(--color-text-1);
   }
 
   &:focus {
@@ -90,8 +39,8 @@ nuke-tab-panel {
   padding: var(--space-2);
   margin-top: var(--space-1);
   background: var(--background-primitive);
-  border: 1px solid var(--border-color-1);
-  border-radius: var(--radius-component);
+  border: var(--border-primitive);
+  border-radius: var(--radius-primitive);
 
   &[aria-hidden="true"] {
     display: none;

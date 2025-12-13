@@ -1,6 +1,13 @@
-@use '../../_mixins' as *;
-
-:is(#{$input}) {
+:is(input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"]) {
   /* Reset */
   appearance: none;
   background: none;
@@ -11,13 +18,16 @@
   color: inherit;
   width: 100%;
 
-  /* Base */
+  /* Base (styled by tokens) */
   display: block;
   width: 100%;
   height: var(--controls-height);
   padding: 0 calc(var(--controls-height) * (1 - var(--ratio)) / 2);
   font-size: var(--text-base);
   color: var(--color-text-1);
+  background: var(--background-component);
+  border: var(--border-component);
+  border-bottom: var(--border-bottom-component);
   border-radius: var(--radius-component);
   transition:
     border-color var(--transition-fast),
@@ -28,42 +38,11 @@
     color: var(--color-text-2);
   }
 
-  /* Style 1 - Outlined */
-  @include style(1) {
-    background: transparent;
-    border: 1px solid var(--border-color-2);
-
-    &:focus {
-      outline: none;
-      border-color: var(--color-text-1);
-    }
+  &:focus {
+    outline: none;
+    border-color: var(--color-text-1);
   }
 
-  /* Style 2 - Filled */
-  @include style(2) {
-    background: var(--background-component);
-    border: 1px solid var(--border-color-1);
-
-    &:focus {
-      outline: none;
-      border-color: var(--color-text-1);
-    }
-  }
-
-  /* Style 3 - Ghost (underline only) */
-  @include style(3) {
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid var(--border-color-2);
-    border-radius: 0;
-
-    &:focus {
-      outline: none;
-      border-bottom-color: var(--color-text-1);
-    }
-  }
-
-  /* Disabled */
   &:disabled {
     opacity: var(--opacity-disabled);
     cursor: not-allowed;
