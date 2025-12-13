@@ -27,7 +27,7 @@ nuke-toast {
   transition: all 0.3s ease;
   background: var(--background-component);
   color: var(--color-text-1);
-  border: 1px solid var(--border-color-1);
+  border: var(--border-component);
 
   &.show {
     opacity: 1;

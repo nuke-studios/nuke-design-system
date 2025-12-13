@@ -5,7 +5,7 @@ nuke-toolbar {
   gap: var(--gap-component);
   padding: var(--space-1);
   background: var(--background-primitive);
-  border: 1px solid var(--border-color-1);
+  border: var(--border-primitive);
   border-radius: var(--radius-primitive);
   flex-wrap: wrap;
 }

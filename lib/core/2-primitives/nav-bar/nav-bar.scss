@@ -48,7 +48,7 @@ nuke-nav-bar-dropdown {
   min-width: 200px;
   padding: var(--space-1);
   background: var(--background-primitive);
-  border: 1px solid var(--border-color-1);
+  border: var(--border-primitive);
   border-radius: var(--radius-primitive);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   opacity: 0;

@@ -4,7 +4,7 @@ nav {
   display: flex;
   gap: var(--gap-component);
   background: var(--background-primitive);
-  border: 1px solid var(--border-color-1);
+  border: var(--border-component);
   border-radius: var(--radius-component);
 
   a {

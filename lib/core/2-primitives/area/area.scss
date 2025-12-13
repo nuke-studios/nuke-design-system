@@ -3,6 +3,6 @@ nuke-area {
   display: block;
   padding: var(--space-3);
   background: var(--background-primitive);
-  border: 1px solid var(--border-color-1);
+  border: var(--border-primitive);
   border-radius: var(--radius-primitive);
 }

@@ -1,7 +1,9 @@
 /* Accordion - Collapsible sections */
 nuke-accordion {
   display: block;
-  border: 1px solid var(--border-color-1);
+  background: var(--background-component);
+  border: var(--border-component);
+  border-bottom: var(--border-bottom-component);
   border-radius: var(--radius-component);
   overflow: hidden;
 
@@ -22,7 +24,7 @@ nuke-accordion-header {
   grid-template-columns: 1fr auto;
   align-items: center;
   padding: var(--space-2);
-  background: var(--background-primitive);
+  background: transparent;
   color: var(--color-text-1);
   font-weight: var(--font-weight-medium);
   cursor: pointer;
@@ -52,8 +54,8 @@ nuke-accordion-header {
 nuke-accordion-content {
   display: none;
   padding: var(--space-2);
-  background: var(--background-body);
-  border-top: 1px solid var(--border-color-1);
+  background: var(--background-primitive);
+  border-top: var(--border-component);
 
   nuke-accordion[expanded] > & {
     display: block;

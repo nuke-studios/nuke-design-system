@@ -4,11 +4,11 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   background: var(--background-primitive);
-  border: 1px solid var(--border-color-1);
+  border: var(--border-component);
 
   thead {
     background: var(--background-hover);
-    border-bottom: 1px solid var(--border-color-1);
+    border-bottom: var(--border-component);
   }
 
   th {
@@ -17,7 +17,7 @@ table {
     font-weight: var(--font-weight-bold);
     color: var(--color-text-1);
     font-size: var(--text-base);
-    border-right: 1px solid var(--border-color-1);
+    border-right: var(--border-component);
 
     &:last-child {
       border-right: none;
@@ -28,7 +28,7 @@ table {
     padding: var(--space-2);
     color: var(--color-text-1);
     font-size: var(--text-base);
-    border-right: 1px solid var(--border-color-1);
+    border-right: var(--border-component);
 
     &:last-child {
       border-right: none;
@@ -36,7 +36,7 @@ table {
   }
 
   tbody tr {
-    border-bottom: 1px solid var(--border-color-1);
+    border-bottom: var(--border-component);
     transition: background-color var(--transition-fast);
 
     &:last-child {

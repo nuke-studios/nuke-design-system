@@ -241,11 +241,11 @@
     {
       "id": "task-28",
       "title": "Discuss: Replace style attributes with layer tokens",
-      "status": "new",
+      "status": "completed",
       "priority": "high",
       "description": "Explore replacing nuke-style='1/2/3' with more cascading tokens. Example: --border token (1px solid var(--border-color) or none) could control component styles through the tree. Buttons/inputs could be: minimal (underline), bordered (no bg), filled (bg only), filled+bordered. Design tokens become the style system instead of attributes.",
       "created": "2025-12-14T00:25:15.060961+01:00",
-      "updated": "2025-12-14T00:25:15.060961+01:00"
+      "updated": "2025-12-14T00:38:29.310612+01:00"
     }
   ]
 }

@@ -10,7 +10,7 @@ input[type="range"] {
     width: 100%;
     height: var(--unit);
     background: var(--background-component);
-    border: 1px solid var(--border-color-1);
+    border: var(--border-component);
     border-radius: var(--radius-component);
   }
 
@@ -18,7 +18,7 @@ input[type="range"] {
     width: 100%;
     height: var(--unit);
     background: var(--background-component);
-    border: 1px solid var(--border-color-1);
+    border: var(--border-component);
     border-radius: var(--radius-component);
   }
 
@@ -27,7 +27,7 @@ input[type="range"] {
     width: calc(var(--controls-height) * 0.6);
     height: calc(var(--controls-height) * 0.6);
     background: var(--color-text-1);
-    border: 1px solid var(--border-color-1);
+    border: var(--border-component);
     border-radius: 50%;
     cursor: pointer;
     margin-top: calc((var(--unit) - var(--controls-height) * 0.6) / 2);
@@ -39,7 +39,7 @@ input[type="range"] {
     width: calc(var(--controls-height) * 0.6);
     height: calc(var(--controls-height) * 0.6);
     background: var(--color-text-1);
-    border: 1px solid var(--border-color-1);
+    border: var(--border-component);
     border-radius: 50%;
     cursor: pointer;
     transition: background var(--transition-fast), transform var(--transition-fast);
