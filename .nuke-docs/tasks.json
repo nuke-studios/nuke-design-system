@@ -151,29 +151,29 @@
     {
       "id": "task-18",
       "title": "Nav rail component",
-      "status": "new",
+      "status": "completed",
       "priority": "medium",
       "description": "Vertical nav rail with icon + optional label. Collapsed/expanded states. Includes nav-rail-item.",
       "created": "2025-12-13T19:39:21.827025+01:00",
-      "updated": "2025-12-13T19:39:21.827025+01:00"
+      "updated": "2025-12-13T20:50:00.000000+01:00"
     },
     {
       "id": "task-19",
       "title": "Header dropdown nav",
-      "status": "new",
+      "status": "completed",
       "priority": "medium",
       "description": "Horizontal header navigation with dropdown menus.",
       "created": "2025-12-13T19:39:21.931433+01:00",
-      "updated": "2025-12-13T19:39:21.931433+01:00"
+      "updated": "2025-12-13T20:50:00.000000+01:00"
     },
     {
       "id": "task-20",
       "title": "Mobile nav",
-      "status": "new",
+      "status": "completed",
       "priority": "medium",
       "description": "Mobile navigation pattern - hamburger menu, slide-out drawer or similar.",
       "created": "2025-12-13T19:39:22.025897+01:00",
-      "updated": "2025-12-13T19:39:22.025897+01:00"
+      "updated": "2025-12-13T20:50:00.000000+01:00"
     },
     {
       "id": "task-21",
