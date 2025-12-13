@@ -1,8 +1,8 @@
 /* Header - Horizontal header bar */
 nuke-header {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: space-between;
   height: var(--controls-height);
   padding: 0 var(--space-2);
   background: var(--background-2);
@@ -10,7 +10,8 @@ nuke-header {
 }
 
 nuke-header-logo {
-  display: flex;
+  display: grid;
+  grid-auto-flow: column;
   align-items: center;
   gap: var(--space-2);
   font-weight: var(--font-weight-bold);
@@ -19,13 +20,17 @@ nuke-header-logo {
 }
 
 nuke-header-nav {
-  display: flex;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
   align-items: center;
   gap: var(--space-1);
 }
 
 nuke-header-actions {
-  display: flex;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: end;
   align-items: center;
   gap: var(--space-1);
 }

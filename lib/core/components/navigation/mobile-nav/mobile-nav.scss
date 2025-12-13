@@ -5,8 +5,8 @@ nuke-mobile-nav {
   left: 0;
   right: 0;
   bottom: 0;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto 1fr;
   background: var(--background-1);
   z-index: var(--z-index-3);
   opacity: 0;
@@ -20,32 +20,31 @@ nuke-mobile-nav {
 }
 
 nuke-mobile-nav-header {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto;
   align-items: center;
-  justify-content: space-between;
   padding: var(--space-2);
   border-bottom: 1px solid var(--border-color-1);
 }
 
 nuke-mobile-nav-content {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+  display: grid;
+  align-content: start;
+  gap: var(--space-1);
   padding: var(--space-2);
   overflow-y: auto;
 }
 
 nuke-mobile-nav-item {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto;
   align-items: center;
-  justify-content: space-between;
   padding: var(--space-2);
   color: var(--color-text-1);
   font-size: var(--text-base);
   text-decoration: none;
   background: var(--background-2);
   border-radius: var(--border-radius-1);
-  margin-bottom: var(--space-1);
   cursor: pointer;
   transition: background var(--transition-fast);
 
@@ -77,11 +76,10 @@ nuke-mobile-nav-item {
 /* Sub-items container */
 nuke-mobile-nav-subitems {
   display: none;
-  flex-direction: column;
   padding-left: var(--space-3);
-  margin-bottom: var(--space-1);
 
   nuke-mobile-nav-item[expanded] + & {
-    display: flex;
+    display: grid;
+    gap: var(--space-1);
   }
 }

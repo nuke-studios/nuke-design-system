@@ -1,13 +1,15 @@
 /* Header Nav - Horizontal navigation with dropdowns */
 nuke-header-nav {
-  display: flex;
+  display: grid;
+  grid-auto-flow: column;
   align-items: center;
   gap: var(--space-1);
 }
 
 nuke-header-nav-item {
   position: relative;
-  display: inline-flex;
+  display: inline-grid;
+  grid-auto-flow: column;
   align-items: center;
   gap: var(--space-1);
   padding: var(--space-1) var(--space-2);
@@ -35,7 +37,6 @@ nuke-header-nav-item {
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
     border-top: 4px solid currentColor;
-    margin-left: var(--space-1);
   }
 }
 

@@ -1,7 +1,7 @@
 /* Nav Rail - Vertical icon navigation */
 nuke-nav-rail {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   width: var(--width-1);
   height: 100%;
   background: var(--background-2);
@@ -11,7 +11,9 @@ nuke-nav-rail {
 }
 
 nuke-nav-rail-header {
-  display: flex;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: start;
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-2);
@@ -20,17 +22,15 @@ nuke-nav-rail-header {
 }
 
 nuke-nav-rail-content {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+  display: grid;
+  align-content: start;
   padding: var(--space-1);
   gap: var(--space-1);
   overflow-y: auto;
 }
 
 nuke-nav-rail-footer {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   padding: var(--space-1);
   gap: var(--space-1);
   border-top: 1px solid var(--border-color-1);
@@ -38,7 +38,8 @@ nuke-nav-rail-footer {
 
 /* Nav Rail Item */
 nuke-nav-rail-item {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-1) var(--space-2);
@@ -62,12 +63,10 @@ nuke-nav-rail-item {
   }
 
   nuke-icon {
-    flex-shrink: 0;
     font-size: calc(var(--text-base) * 1.25);
   }
 
   span {
-    flex: 1;
     font-size: var(--text-base);
     transition: opacity var(--transition-fast);
   }
