@@ -41,7 +41,7 @@
     {
       "id": "instruction-1",
       "title": "Component Structure",
-      "description": "Each component has a single [name].css file with: reset styles, base styles, and style variants (nuke-style='1/2/3'). Use design tokens directly from style.css - no component-specific variables."
+      "description": "Each component has a single [name].scss file with: reset styles, base styles, and style variants using @include style(1/2/3). Use design tokens directly from tokens.scss - no component-specific variables."
     },
     {
       "id": "instruction-2",
@@ -87,6 +87,13 @@
       "description": "Frontend can override lib tokens in style.css. Create aliases for compatibility (--on-background → --color-text-1) and override colors for app-specific theming. Both dark-theme and light-theme classes supported.",
       "created": "2025-12-13T01:42:52.787266+01:00",
       "updated": "2025-12-13T01:42:52.787266+01:00"
+    },
+    {
+      "id": "instruction-9",
+      "title": "SCSS Component Pattern",
+      "description": "Components use SCSS: @use '../mixins' as *; then use element variables ($btn, $input) and @include style(1/2/3) { } for variants. This replaces verbose CSS selectors with readable mixin calls.",
+      "created": "2025-12-13T19:30:17.728741+01:00",
+      "updated": "2025-12-13T19:30:17.728741+01:00"
     }
   ]
 }

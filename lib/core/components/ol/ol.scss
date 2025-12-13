@@ -1,51 +1,9 @@
-@use '../../mixins' as *;
-
+/* Ordered List - Reset */
 ol {
-  // Style 1 - Outlined
-  @include style(1) {
-    list-style: none;
-    padding-left: 0;
-    counter-reset: ol-counter-1;
+  list-style: decimal;
+  padding-left: var(--space-3);
 
-    li {
-      background: transparent;
-      border: 1px solid var(--border-color-1);
-      padding: var(--space-1) var(--space-2);
-      padding-left: var(--space-3);
-      margin-bottom: var(--space-1);
-      border-radius: var(--border-radius-1);
-      position: relative;
-      counter-increment: ol-counter-1;
-
-      &::before {
-        content: counter(ol-counter-1) ".";
-        position: absolute;
-        left: var(--space-2);
-      }
-    }
-  }
-
-  // Style 2 - Filled
-  @include style(2) {
-    list-style: none;
-    padding-left: 0;
-    counter-reset: ol-counter-2;
-
-    li {
-      background: var(--background-4);
-      border: 1px solid var(--border-color-1);
-      padding: var(--space-1) var(--space-2);
-      padding-left: var(--space-3);
-      margin-bottom: var(--space-1);
-      border-radius: var(--border-radius-1);
-      position: relative;
-      counter-increment: ol-counter-2;
-
-      &::before {
-        content: counter(ol-counter-2) ".";
-        position: absolute;
-        left: var(--space-2);
-      }
-    }
+  li {
+    line-height: 1.5;
   }
 }

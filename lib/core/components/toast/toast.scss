@@ -1,5 +1,4 @@
-@use '../../mixins' as *;
-
+/* Toast */
 .nuke-toast-container {
   position: fixed;
   top: auto;
@@ -26,6 +25,9 @@ nuke-toast {
   opacity: 0;
   transform: translateX(100%);
   transition: all 0.3s ease;
+  background: var(--background-4);
+  color: var(--color-text-1);
+  border: 1px solid var(--border-color-1);
 
   &.show {
     opacity: 1;
@@ -35,22 +37,6 @@ nuke-toast {
   &.hide {
     opacity: 0;
     transform: translateX(100%);
-  }
-
-  // Style 1 - Outlined
-  @include style(1) {
-    background: var(--background-2);
-    color: var(--color-text-1);
-    border: 1px solid var(--border-color-2);
-    box-shadow: none;
-  }
-
-  // Style 2 - Filled
-  @include style(2) {
-    background: var(--background-4);
-    color: var(--color-text-1);
-    border: 1px solid var(--border-color-1);
-    box-shadow: none;
   }
 }
 

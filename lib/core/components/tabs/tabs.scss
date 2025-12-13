@@ -3,12 +3,28 @@
 nuke-tabs {
   display: block;
 
-  // Style 1 - Outlined
+  /* Style 1 - Outlined tabs */
   @include style(1) {
-    border: none;
-
     nuke-tab {
       background: transparent;
+      border: 1px solid var(--border-color-2);
+      border-radius: var(--border-radius-1);
+
+      &:hover {
+        background: var(--background-3);
+      }
+
+      &[aria-selected="true"] {
+        background: var(--background-3);
+        border-color: var(--color-text-1);
+      }
+    }
+  }
+
+  /* Style 2 - Filled tabs */
+  @include style(2) {
+    nuke-tab {
+      background: var(--background-4);
       border: 1px solid var(--border-color-1);
       border-radius: var(--border-radius-1);
 
@@ -23,22 +39,20 @@ nuke-tabs {
     }
   }
 
-  // Style 2 - Filled
-  @include style(2) {
-    border: none;
-
+  /* Style 3 - Ghost tabs */
+  @include style(3) {
     nuke-tab {
-      background: var(--background-4);
-      border: 1px solid var(--border-color-1);
-      border-radius: var(--border-radius-1);
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      border-radius: 0;
 
       &:hover {
-        background: var(--background-3);
+        border-bottom-color: var(--border-color-2);
       }
 
       &[aria-selected="true"] {
-        background: var(--background-3);
-        border-color: var(--color-text-1);
+        border-bottom-color: var(--color-text-1);
       }
     }
   }

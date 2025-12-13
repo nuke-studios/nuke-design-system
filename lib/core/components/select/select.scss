@@ -1,7 +1,7 @@
 @use '../../mixins' as *;
 
 select {
-  // Reset
+  /* Reset */
   appearance: none;
   background: none;
   border: none;
@@ -12,15 +12,13 @@ select {
   width: 100%;
   cursor: pointer;
 
-  // Base
+  /* Base */
   display: block;
   width: 100%;
   height: var(--controls-height);
   padding: 0 calc(var(--controls-height) * (1 - var(--ratio))) 0 calc(var(--controls-height) * (1 - var(--ratio)) / 2);
   font-size: var(--text-base);
   color: var(--color-text-1);
-  background: var(--background-4);
-  border: 1px solid var(--border-color-1);
   border-radius: var(--border-radius-1);
   transition:
     border-color var(--transition-fast),
@@ -30,43 +28,45 @@ select {
   background-repeat: no-repeat;
   background-position: right calc(var(--controls-height) * (1 - var(--ratio)) / 2) center;
 
-  &:focus {
-    outline: none;
-    border-color: var(--color-text-1);
-    box-shadow: 0 0 0 3px hsla(210, 100%, 50%, 0.1);
-  }
-
-  // Style 1 - Outlined
+  /* Style 1 - Outlined */
   @include style(1) {
     background-color: transparent;
     color: var(--color-text-1);
     border: 1px solid var(--border-color-2);
-    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right var(--space-2) center;
 
     &:focus {
-      background-color: var(--background-2);
+      outline: none;
       border-color: var(--color-text-1);
     }
   }
 
-  // Style 2 - Filled
+  /* Style 2 - Filled */
   @include style(2) {
     background-color: var(--background-4);
     color: var(--color-text-1);
     border: 1px solid var(--border-color-1);
-    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right var(--space-2) center;
 
     &:focus {
-      background-color: var(--background-3);
+      outline: none;
       border-color: var(--color-text-1);
     }
   }
 
-  // Disabled
+  /* Style 3 - Ghost (underline only) */
+  @include style(3) {
+    background-color: transparent;
+    color: var(--color-text-1);
+    border: none;
+    border-bottom: 1px solid var(--border-color-2);
+    border-radius: 0;
+
+    &:focus {
+      outline: none;
+      border-bottom-color: var(--color-text-1);
+    }
+  }
+
+  /* Disabled */
   &:disabled {
     opacity: var(--opacity-disabled);
     cursor: not-allowed;

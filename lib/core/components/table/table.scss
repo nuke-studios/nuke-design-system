@@ -1,103 +1,50 @@
-@use '../../mixins' as *;
-
+/* Table */
 table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
   background: var(--background-2);
+  border: 1px solid var(--border-color-1);
 
-  // Style 1 - Outlined
-  @include style(1) {
-    background: transparent;
-    border: 1px solid var(--border-color-1);
-
-    thead {
-      border-bottom: 1px solid var(--border-color-1);
-    }
-
-    th {
-      border-right: 1px solid var(--border-color-1);
-
-      &:last-child {
-        border-right: none;
-      }
-    }
-
-    td {
-      border-right: 1px solid var(--border-color-1);
-
-      &:last-child {
-        border-right: none;
-      }
-    }
-
-    tbody tr {
-      border-bottom: 1px solid var(--border-color-1);
-
-      &:last-child {
-        border-bottom: none;
-      }
-    }
-  }
-
-  // Style 2 - Filled
-  @include style(2) {
-    background: var(--background-4);
-    border: 1px solid var(--border-color-1);
-
-    thead {
-      background: var(--background-3);
-      border-bottom: 1px solid var(--border-color-1);
-    }
-
-    th {
-      border-right: 1px solid var(--border-color-1);
-
-      &:last-child {
-        border-right: none;
-      }
-    }
-
-    td {
-      border-right: 1px solid var(--border-color-1);
-
-      &:last-child {
-        border-right: none;
-      }
-    }
-
-    tbody tr {
-      border-bottom: 1px solid var(--border-color-1);
-
-      &:last-child {
-        border-bottom: none;
-      }
-
-      &:hover {
-        background: var(--background-3);
-      }
-    }
-  }
-}
-
-th {
-  padding: var(--space-2);
-  text-align: left;
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text-1);
-  font-size: var(--text-base);
-}
-
-td {
-  padding: var(--space-2);
-  color: var(--color-text-1);
-  font-size: var(--text-base);
-}
-
-tbody tr {
-  transition: background-color var(--transition-fast);
-
-  &:hover {
+  thead {
     background: var(--background-3);
+    border-bottom: 1px solid var(--border-color-1);
+  }
+
+  th {
+    padding: var(--space-2);
+    text-align: left;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-1);
+    font-size: var(--text-base);
+    border-right: 1px solid var(--border-color-1);
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+  td {
+    padding: var(--space-2);
+    color: var(--color-text-1);
+    font-size: var(--text-base);
+    border-right: 1px solid var(--border-color-1);
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+  tbody tr {
+    border-bottom: 1px solid var(--border-color-1);
+    transition: background-color var(--transition-fast);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background: var(--background-3);
+    }
   }
 }

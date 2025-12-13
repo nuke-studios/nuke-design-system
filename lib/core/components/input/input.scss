@@ -1,7 +1,7 @@
 @use '../../mixins' as *;
 
 :is(#{$input}) {
-  // Reset
+  /* Reset */
   appearance: none;
   background: none;
   border: none;
@@ -11,7 +11,7 @@
   color: inherit;
   width: 100%;
 
-  // Base
+  /* Base */
   display: block;
   width: 100%;
   height: var(--controls-height);
@@ -28,19 +28,18 @@
     color: var(--color-text-2);
   }
 
-  // Style 1 - Outlined
+  /* Style 1 - Outlined */
   @include style(1) {
     background: transparent;
-    border: 1px solid var(--border-color-1);
+    border: 1px solid var(--border-color-2);
 
     &:focus {
       outline: none;
       border-color: var(--color-text-1);
-      box-shadow: none;
     }
   }
 
-  // Style 2 - Filled
+  /* Style 2 - Filled */
   @include style(2) {
     background: var(--background-4);
     border: 1px solid var(--border-color-1);
@@ -48,11 +47,23 @@
     &:focus {
       outline: none;
       border-color: var(--color-text-1);
-      box-shadow: none;
     }
   }
 
-  // Disabled
+  /* Style 3 - Ghost (underline only) */
+  @include style(3) {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border-color-2);
+    border-radius: 0;
+
+    &:focus {
+      outline: none;
+      border-bottom-color: var(--color-text-1);
+    }
+  }
+
+  /* Disabled */
   &:disabled {
     opacity: var(--opacity-disabled);
     cursor: not-allowed;

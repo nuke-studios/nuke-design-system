@@ -7,7 +7,6 @@
 
 // Export all web components
 export { NukeBadge } from './components/badge/badge.js';
-export { NukeCard, NukeCardHeader, NukeCardContent, NukeCardActions } from './components/card/card.js';
 export { NukeIcon } from './components/icon/icon.js';
 export { NukeSidebar } from './components/sidebar/sidebar.js';
 export { NukeTabs, NukeTab, NukeTabPanel } from './components/tabs/tabs.js';

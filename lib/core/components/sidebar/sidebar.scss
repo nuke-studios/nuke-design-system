@@ -1,5 +1,4 @@
-@use '../../mixins' as *;
-
+/* Sidebar - Fold into nav discussion */
 nuke-sidebar {
   position: fixed;
   top: 0;
@@ -11,10 +10,13 @@ nuke-sidebar {
   overflow-y: auto;
   transition: transform var(--transition-medium);
   z-index: var(--z-index-2);
+  border-right: 1px solid var(--border-color-1);
 
   &[position="left"] {
     left: 0;
     transform: translateX(-100%);
+    border-right: 1px solid var(--border-color-1);
+    border-left: none;
   }
 
   &[position="left"][open] {
@@ -24,42 +26,12 @@ nuke-sidebar {
   &[position="right"] {
     right: 0;
     transform: translateX(100%);
+    border-left: 1px solid var(--border-color-1);
+    border-right: none;
   }
 
   &[position="right"][open] {
     transform: translateX(0);
-  }
-
-  // Style 1 - Border, no shadow
-  @include style(1) {
-    background: var(--background-1);
-    box-shadow: none;
-
-    &[position="left"] {
-      border-left: none;
-      border-right: 1px solid var(--border-color-1);
-    }
-
-    &[position="right"] {
-      border-right: none;
-      border-left: 1px solid var(--border-color-1);
-    }
-  }
-
-  // Style 2 - Filled
-  @include style(2) {
-    background: var(--background-4);
-    box-shadow: none;
-
-    &[position="left"] {
-      border-left: none;
-      border-right: 1px solid var(--border-color-1);
-    }
-
-    &[position="right"] {
-      border-right: none;
-      border-left: 1px solid var(--border-color-1);
-    }
   }
 }
 

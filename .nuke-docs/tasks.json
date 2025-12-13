@@ -91,12 +91,6 @@
       "updated": "2025-12-13T01:42:44.598182+01:00"
     },
     {
-      "id": "task-5",
-      "title": "Publish to npm",
-      "status": "new",
-      "description": "Publish @nuke.dev/design-system to npm registry"
-    },
-    {
       "id": "task-6",
       "title": "Import Phosphor Icons",
       "status": "completed",
@@ -105,32 +99,11 @@
       "updated": "2025-12-12T23:43:27.564225+01:00"
     },
     {
-      "id": "task-8",
-      "title": "Review badge and small items - reconsider checkbox/radio colors, maybe drop style-2",
-      "status": "new",
-      "created": "2025-12-12T17:54:00.124912+01:00",
-      "updated": "2025-12-12T17:54:00.124912+01:00"
-    },
-    {
       "id": "task-9",
       "title": "Rethink style-1/style-2 approach - could be a token like --filled: true/false",
       "status": "completed",
       "created": "2025-12-12T17:54:00.237808+01:00",
       "updated": "2025-12-12T23:17:18.628009+01:00"
-    },
-    {
-      "id": "task-10",
-      "title": "Check other projects for missing pieces (nuke-docs, hiro.fh, heer.dev, nuke-cms)",
-      "status": "new",
-      "created": "2025-12-12T17:54:00.341733+01:00",
-      "updated": "2025-12-12T17:54:00.341733+01:00"
-    },
-    {
-      "id": "task-12",
-      "title": "Overall missing components audit from projects and playground testing",
-      "status": "new",
-      "created": "2025-12-12T17:54:00.536707+01:00",
-      "updated": "2025-12-12T17:54:00.536707+01:00"
     },
     {
       "id": "task-13",
@@ -150,20 +123,75 @@
     },
     {
       "id": "task-15",
-      "title": "Design icon button pattern",
+      "title": "Audit: which components need style variants",
       "status": "new",
-      "description": "Create icon button variant - square buttons for icons. Need to decide: attribute modifier (button[icon]) vs separate pattern, sizing tied to controls-height tokens, style-1/2/3 support.",
-      "created": "2025-12-13T00:21:02.726414+01:00",
-      "updated": "2025-12-13T00:21:02.726414+01:00"
+      "priority": "high",
+      "description": "Go through each component and decide: needs style-1/2/3, or just one default style. Document the pattern.",
+      "created": "2025-12-13T19:39:21.519444+01:00",
+      "updated": "2025-12-13T19:39:21.519444+01:00"
     },
     {
       "id": "task-16",
-      "title": "Rail nav component",
+      "title": "Define composite component architecture",
+      "status": "new",
+      "priority": "high",
+      "description": "Decide folder structure for related components (nav-rail + nav-rail-item, etc). Flat vs grouped.",
+      "created": "2025-12-13T19:39:21.627557+01:00",
+      "updated": "2025-12-13T19:39:21.627557+01:00"
+    },
+    {
+      "id": "task-17",
+      "title": "Layout components audit",
+      "status": "new",
+      "priority": "high",
+      "description": "Identify layout components needed to build nuke-docs-style apps. Grid, sidebar, rail, header, main content area, etc.",
+      "created": "2025-12-13T19:39:21.727763+01:00",
+      "updated": "2025-12-13T19:39:21.727763+01:00"
+    },
+    {
+      "id": "task-18",
+      "title": "Nav rail component",
       "status": "new",
       "priority": "medium",
-      "description": "Create lib/core/components/rail/rail.css - vertical navigation rail with icon + optional label, collapsed/expanded states",
-      "created": "2025-12-13T01:42:58.591869+01:00",
-      "updated": "2025-12-13T01:42:58.591869+01:00"
+      "description": "Vertical nav rail with icon + optional label. Collapsed/expanded states. Includes nav-rail-item.",
+      "created": "2025-12-13T19:39:21.827025+01:00",
+      "updated": "2025-12-13T19:39:21.827025+01:00"
+    },
+    {
+      "id": "task-19",
+      "title": "Header dropdown nav",
+      "status": "new",
+      "priority": "medium",
+      "description": "Horizontal header navigation with dropdown menus.",
+      "created": "2025-12-13T19:39:21.931433+01:00",
+      "updated": "2025-12-13T19:39:21.931433+01:00"
+    },
+    {
+      "id": "task-20",
+      "title": "Mobile nav",
+      "status": "new",
+      "priority": "medium",
+      "description": "Mobile navigation pattern - hamburger menu, slide-out drawer or similar.",
+      "created": "2025-12-13T19:39:22.025897+01:00",
+      "updated": "2025-12-13T19:39:22.025897+01:00"
+    },
+    {
+      "id": "task-21",
+      "title": "HMR setup: lib to frontend",
+      "status": "new",
+      "priority": "low",
+      "description": "Watch lib changes and auto-rebuild so Vite picks up updates in frontend dev.",
+      "created": "2025-12-13T19:39:22.129432+01:00",
+      "updated": "2025-12-13T19:39:22.129432+01:00"
+    },
+    {
+      "id": "task-22",
+      "title": "Frontend as capability showcase",
+      "status": "new",
+      "priority": "low",
+      "description": "Make frontend prove the lib is complete - should rebuild nuke-docs-style app without custom component styles.",
+      "created": "2025-12-13T19:39:22.226336+01:00",
+      "updated": "2025-12-13T19:39:22.226336+01:00"
     }
   ]
 }

@@ -1,5 +1,4 @@
-@use '../../mixins' as *;
-
+/* Range */
 input[type="range"] {
   appearance: none;
   width: 100%;
@@ -10,14 +9,16 @@ input[type="range"] {
   &::-webkit-slider-runnable-track {
     width: 100%;
     height: var(--unit);
-    background: var(--border-color-1);
+    background: var(--background-4);
+    border: 1px solid var(--border-color-1);
     border-radius: var(--border-radius-1);
   }
 
   &::-moz-range-track {
     width: 100%;
     height: var(--unit);
-    background: var(--border-color-1);
+    background: var(--background-4);
+    border: 1px solid var(--border-color-1);
     border-radius: var(--border-radius-1);
   }
 
@@ -26,7 +27,7 @@ input[type="range"] {
     width: calc(var(--controls-height) * 0.6);
     height: calc(var(--controls-height) * 0.6);
     background: var(--color-text-1);
-    border: 2px solid var(--color-text-1);
+    border: 1px solid var(--border-color-1);
     border-radius: 50%;
     cursor: pointer;
     margin-top: calc((var(--unit) - var(--controls-height) * 0.6) / 2);
@@ -38,7 +39,7 @@ input[type="range"] {
     width: calc(var(--controls-height) * 0.6);
     height: calc(var(--controls-height) * 0.6);
     background: var(--color-text-1);
-    border: 2px solid var(--color-text-1);
+    border: 1px solid var(--border-color-1);
     border-radius: 50%;
     cursor: pointer;
     transition: background var(--transition-fast), transform var(--transition-fast);
@@ -62,63 +63,5 @@ input[type="range"] {
 
   &:focus::-moz-range-thumb {
     box-shadow: 0 0 0 3px hsla(210, 100%, 50%, 0.2);
-  }
-
-  // Style 1 - Outlined thin track
-  @include style(1) {
-    &::-webkit-slider-runnable-track {
-      height: 2px;
-      background: var(--border-color-2);
-    }
-
-    &::-moz-range-track {
-      height: 2px;
-      background: var(--border-color-2);
-    }
-
-    &::-webkit-slider-thumb {
-      width: calc(var(--controls-height) * 0.6);
-      height: calc(var(--controls-height) * 0.6);
-      background: var(--color-text-1);
-      border: 1px solid var(--color-text-1);
-      margin-top: calc((2px - var(--controls-height) * 0.6) / 2);
-    }
-
-    &::-moz-range-thumb {
-      width: calc(var(--controls-height) * 0.6);
-      height: calc(var(--controls-height) * 0.6);
-      background: var(--color-text-1);
-      border: 1px solid var(--color-text-1);
-    }
-  }
-
-  // Style 2 - Filled with border
-  @include style(2) {
-    &::-webkit-slider-runnable-track {
-      height: var(--unit);
-      background: var(--background-4);
-      border: 1px solid var(--border-color-1);
-    }
-
-    &::-moz-range-track {
-      height: var(--unit);
-      background: var(--background-4);
-      border: 1px solid var(--border-color-1);
-    }
-
-    &::-webkit-slider-thumb {
-      width: calc(var(--controls-height) * 0.6);
-      height: calc(var(--controls-height) * 0.6);
-      background: var(--color-text-1);
-      border: 1px solid var(--border-color-1);
-      margin-top: calc((var(--unit) - var(--controls-height) * 0.6) / 2);
-    }
-
-    &::-moz-range-thumb {
-      width: calc(var(--controls-height) * 0.6);
-      height: calc(var(--controls-height) * 0.6);
-      background: var(--color-text-1);
-      border: 1px solid var(--border-color-1);
-    }
   }
 }

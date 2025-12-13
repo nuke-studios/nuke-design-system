@@ -1,20 +1,6 @@
-@use '../../mixins' as *;
-
+/* Image - Reset only */
 img {
+  display: block;
   max-width: 100%;
   height: auto;
-  display: block;
-
-  // Style 1 - Bordered
-  @include style(1) {
-    border: 1px solid var(--border-color-1);
-    border-radius: var(--border-radius-1);
-  }
-
-  // Style 2 - Bordered with shadow
-  @include style(2) {
-    border: 1px solid var(--border-color-1);
-    box-shadow: var(--box-shadow-1);
-    border-radius: var(--border-radius-1);
-  }
 }

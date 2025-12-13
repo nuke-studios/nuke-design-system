@@ -1,7 +1,6 @@
-@use '../../mixins' as *;
-
+/* Checkbox */
 input[type="checkbox"] {
-  // Reset
+  /* Reset */
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -9,7 +8,7 @@ input[type="checkbox"] {
   padding: 0;
   cursor: pointer;
 
-  // Base
+  /* Base */
   display: inline-block;
   width: var(--controls-height-small);
   height: var(--controls-height-small);
@@ -48,60 +47,15 @@ input[type="checkbox"] {
     -webkit-mask-position: center;
   }
 
+  &:hover:not(:disabled) {
+    border-color: var(--color-text-1);
+  }
+
   &:focus {
     outline: none;
     box-shadow: 0 0 0 2px var(--background-1), 0 0 0 4px var(--border-color-2);
   }
 
-  // Style 1 - Outlined
-  @include style(1) {
-    background: transparent;
-    border: 1px solid var(--border-color-2);
-
-    &:checked {
-      background: transparent;
-      border-color: var(--color-text-1);
-    }
-
-    &:checked::before {
-      background: var(--color-text-1);
-    }
-
-    &:hover:not(:disabled) {
-      border-color: var(--color-text-1);
-    }
-
-    &:focus {
-      outline: none;
-      box-shadow: 0 0 0 3px hsla(210, 60%, 50%, 0.08);
-    }
-  }
-
-  // Style 2 - Filled
-  @include style(2) {
-    background: var(--background-4);
-    border: 1px solid var(--border-color-1);
-
-    &:checked {
-      background: var(--color-text-1);
-      border-color: var(--color-text-1);
-    }
-
-    &:checked::before {
-      background: var(--background-1);
-    }
-
-    &:hover:not(:disabled) {
-      border-color: var(--color-text-1);
-    }
-
-    &:focus {
-      outline: none;
-      box-shadow: 0 0 0 3px hsla(210, 60%, 50%, 0.08);
-    }
-  }
-
-  // Disabled
   &:disabled {
     opacity: var(--opacity-disabled);
     cursor: not-allowed;

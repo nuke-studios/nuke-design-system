@@ -44,10 +44,10 @@
       "id": "concept-1",
       "title": "Flat Architecture",
       "details": {
-        "concept": "Single-layer design: tokens defined once in style.css, used directly in component CSS",
+        "concept": "Single-layer design: tokens defined once in tokens.scss, used directly in component SCSS",
         "no_abstraction": "No component-specific CSS variables (e.g., --button-bg). Components use design tokens directly (e.g., var(--background-4))",
-        "single_file_per_component": "Each component has one .css file containing reset, base styles, and style variants",
-        "style_variants": "Three global style variants via nuke-style='1/2/3' attribute selector pattern"
+        "single_file_per_component": "Each component has one .scss file containing reset, base styles, and style variants using @include style(n)",
+        "style_variants": "Three global style variants via nuke-style='1/2/3' attribute - use @include style(1/2/3) mixin"
       }
     },
     {
@@ -83,19 +83,19 @@
       "title": "Build System",
       "details": {
         "build_output": {
-          "dist/core.css": "Bundled CSS (tokens + all component styles)",
+          "dist/core.css": "Bundled CSS (compiled from SCSS)",
           "dist/core.js": "Bundled web components"
         },
         "build_scripts": {
-          "build:css": ".scripts/bundle-core-css.js - Bundles all CSS into dist/core.css",
-          "build:ts": "tsc + bun build - Compiles TypeScript web components"
+          "build": "npm run build - Compiles SCSS to CSS and bundles TypeScript"
         },
         "source_structure": {
-          "core/components/[name]/[name].css": "Component styles (single file)",
+          "core/_mixins.scss": "Shared mixins (style() mixin, element selectors)",
+          "core/components/[name]/[name].scss": "Component styles (single file)",
           "core/components/[name]/[name].ts": "Web component (if interactive)",
-          "core/core.css": "CSS entry point (imports style.css + all component CSS)",
+          "core/core.scss": "SCSS entry point (imports tokens + all components)",
           "core/core.ts": "Web component exports",
-          "core/style.css": "Design tokens"
+          "core/tokens.scss": "Design tokens"
         }
       }
     },
@@ -143,6 +143,13 @@
       "description": "Any element with nuke-style becomes a 'style boundary'. All children inherit until a new boundary overrides. Works on div, nav, section, form, body - any element. Enables scoped styling without classes on every child.",
       "created": "2025-12-13T18:57:20.065436+01:00",
       "updated": "2025-12-13T18:57:20.065436+01:00"
+    },
+    {
+      "id": "concept-10",
+      "title": "SCSS Architecture",
+      "description": "Components use SCSS with shared mixins from _mixins.scss. Element selector variables ($btn, $input, $select, etc.) and style() mixin enable DRY code. The style($n) mixin expands to the full cascade pattern: ':is(body, *)[nuke-style=\"n\"] \u0026, \u0026[nuke-style=\"n\"]'. Files: tokens.scss (design tokens), _mixins.scss (shared mixins), core.scss (entry point), components/*.scss.",
+      "created": "2025-12-13T19:30:08.244907+01:00",
+      "updated": "2025-12-13T19:30:08.244907+01:00"
     }
   ]
 }

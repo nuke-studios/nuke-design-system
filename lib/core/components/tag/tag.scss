@@ -1,6 +1,4 @@
-/* Tag - Status indicator with semantic colors */
-
-/* Base tag styles - use as <span nuke-tag> or <span nuke-tag="success"> */
+/* Tag - Needs discussion for styles + modifiers */
 [nuke-tag] {
   display: inline-grid;
   align-items: center;
@@ -16,19 +14,17 @@
   line-height: 1;
 }
 
-/* Success variant */
+/* Semantic variants */
 [nuke-tag="success"] {
   background: color-mix(in srgb, var(--success-color) 15%, transparent);
   color: var(--success-color);
 }
 
-/* Warning variant */
 [nuke-tag="warning"] {
   background: color-mix(in srgb, var(--warning-color) 15%, transparent);
   color: var(--warning-color);
 }
 
-/* Error variant */
 [nuke-tag="error"] {
   background: color-mix(in srgb, var(--error-color) 15%, transparent);
   color: var(--error-color);

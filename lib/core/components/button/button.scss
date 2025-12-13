@@ -1,3 +1,5 @@
+@use '../../mixins' as *;
+
 /* Button - Reset */
 button,
 input[type="button"],
@@ -37,52 +39,53 @@ input[type="reset"] {
   text-align: center;
   text-decoration: none;
   line-height: 1;
-}
 
-/* Style 1 - Ghost/outlined */
-:is(body, *)[nuke-style="1"] :is(button, input[type="button"], input[type="submit"], input[type="reset"]),
-:is(button, input[type="button"], input[type="submit"], input[type="reset"])[nuke-style="1"] {
-  background: transparent;
-  color: var(--color-text-1);
-  border: 1px solid var(--border-color-2);
-}
-:is(body, *)[nuke-style="1"] :is(button, input[type="button"], input[type="submit"], input[type="reset"]):hover,
-:is(body, *)[nuke-style="1"] :is(button, input[type="button"], input[type="submit"], input[type="reset"]):focus,
-:is(button, input[type="button"], input[type="submit"], input[type="reset"])[nuke-style="1"]:hover,
-:is(button, input[type="button"], input[type="submit"], input[type="reset"])[nuke-style="1"]:focus {
-  background: var(--background-3);
-  color: var(--color-text-1);
-}
+  /* Style 1 - Outlined */
+  @include style(1) {
+    background: transparent;
+    color: var(--color-text-1);
+    border: 1px solid var(--border-color-2);
 
-/* Style 2 - Filled with border */
-:is(body, *)[nuke-style="2"] :is(button, input[type="button"], input[type="submit"], input[type="reset"]),
-:is(button, input[type="button"], input[type="submit"], input[type="reset"])[nuke-style="2"] {
-  background: var(--background-4);
-  color: var(--color-text-1);
-  border: 1px solid var(--border-color-1);
-}
-:is(body, *)[nuke-style="2"] :is(button, input[type="button"], input[type="submit"], input[type="reset"]):hover,
-:is(body, *)[nuke-style="2"] :is(button, input[type="button"], input[type="submit"], input[type="reset"]):focus,
-:is(button, input[type="button"], input[type="submit"], input[type="reset"])[nuke-style="2"]:hover,
-:is(button, input[type="button"], input[type="submit"], input[type="reset"])[nuke-style="2"]:focus {
-  background: var(--background-3);
-  color: var(--color-text-1);
-}
+    &:hover,
+    &:focus {
+      background: var(--background-3);
+    }
+  }
 
-/* Focus & Disabled states */
-button:focus-visible,
-input[type="button"]:focus-visible,
-input[type="submit"]:focus-visible,
-input[type="reset"]:focus-visible {
-  outline: 2px solid var(--color-1);
-  outline-offset: 2px;
-}
-button:disabled,
-button[disabled],
-input[type="button"]:disabled,
-input[type="submit"]:disabled,
-input[type="reset"]:disabled {
-  opacity: var(--opacity-disabled);
-  cursor: not-allowed;
-  pointer-events: none;
+  /* Style 2 - Filled */
+  @include style(2) {
+    background: var(--background-4);
+    color: var(--color-text-1);
+    border: 1px solid var(--border-color-1);
+
+    &:hover,
+    &:focus {
+      background: var(--background-3);
+    }
+  }
+
+  /* Style 3 - Ghost */
+  @include style(3) {
+    background: transparent;
+    color: var(--color-text-1);
+    border: none;
+
+    &:hover,
+    &:focus {
+      background: var(--background-3);
+    }
+  }
+
+  /* Focus & Disabled states */
+  &:focus-visible {
+    outline: 2px solid var(--color-1);
+    outline-offset: 2px;
+  }
+
+  &:disabled,
+  &[disabled] {
+    opacity: var(--opacity-disabled);
+    cursor: not-allowed;
+    pointer-events: none;
+  }
 }

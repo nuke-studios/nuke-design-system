@@ -1,7 +1,6 @@
-@use '../../mixins' as *;
-
+/* Radio */
 input[type="radio"] {
-  // Reset
+  /* Reset */
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -9,14 +8,14 @@ input[type="radio"] {
   padding: 0;
   cursor: pointer;
 
-  // Base
+  /* Base */
   display: inline-block;
   width: var(--controls-height-small);
   height: var(--controls-height-small);
   min-width: var(--controls-height-small);
   min-height: var(--controls-height-small);
   background: var(--background-4);
-  border: 2px solid var(--border-color-1);
+  border: 1px solid var(--border-color-1);
   border-radius: 50%;
   transition:
     background-color var(--transition-fast),
@@ -41,54 +40,15 @@ input[type="radio"] {
     border-radius: 50%;
   }
 
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px hsla(210, 100%, 50%, 0.1);
-  }
-
   &:hover:not(:disabled) {
     border-color: var(--color-text-1);
   }
 
-  // Style 1 - Outlined
-  @include style(1) {
-    background: transparent;
-    border: 1px solid var(--border-color-2);
-
-    &:checked {
-      background-color: transparent;
-      border-color: var(--color-text-1);
-    }
-
-    &:checked::before {
-      background: var(--color-text-1);
-      width: calc(var(--controls-height-small) * var(--ratio));
-      height: calc(var(--controls-height-small) * var(--ratio));
-    }
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--background-1), 0 0 0 4px var(--border-color-2);
   }
 
-  // Style 2 - Filled
-  @include style(2) {
-    background: var(--background-4);
-    border: 1px solid var(--border-color-1);
-
-    &:checked {
-      background-color: var(--background-4);
-      border-color: var(--color-text-1);
-    }
-
-    &:checked::before {
-      background: var(--color-text-1);
-      width: calc(var(--controls-height-small) * var(--ratio));
-      height: calc(var(--controls-height-small) * var(--ratio));
-    }
-
-    &:hover:not(:disabled) {
-      border-color: var(--color-text-1);
-    }
-  }
-
-  // Disabled
   &:disabled {
     opacity: var(--opacity-disabled);
     cursor: not-allowed;
