@@ -22,10 +22,8 @@
   --space-2: calc(var(--unit) * 2);                /* default: card padding, form gaps */
   --space-3: calc(var(--unit) * 4);                /* loose: section spacing */
 
-  /* SHELL GAPS - for app-shell grid layouts */
-  --shell-gap-1: 1px;                              /* thin line between regions */
-  --shell-gap-2: 2px;                              /* visible separator */
-  --shell-gap-3: calc(var(--unit) * 0.5);          /* subtle spacing */
+  /* SHELL GAP - for app-shell grid layouts */
+  --shell-gap: 1px;                                /* line between regions */
 
   /* WIDTHS */
   --width-1: calc(var(--unit) * 40);               /* sidebar, narrow panels */

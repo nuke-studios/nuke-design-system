@@ -1,0 +1,72 @@
+{
+  "_purpose": "Architecture patterns and key concepts",
+  "_schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+      "_purpose": {
+        "description": "Purpose of this file",
+        "type": "string"
+      },
+      "items": {
+        "items": {
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "details": {
+              "type": "object"
+            },
+            "id": {
+              "pattern": "^concept-[0-9]+$",
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "title"
+          ],
+          "type": "object"
+        },
+        "type": "array"
+      }
+    },
+    "required": [
+      "_purpose",
+      "items"
+    ],
+    "type": "object"
+  },
+  "items": [
+    {
+      "id": "concept-1",
+      "title": "Component Architecture",
+      "description": "Three-layer hierarchy: 1-app-shell (page frame), 2-primitives (layout regions/containers), 3-components (UI elements). Folder structure documents the architecture - numbered folders show usage order.",
+      "created": "2025-12-13T23:09:39.640511+01:00",
+      "updated": "2025-12-13T23:09:39.640511+01:00"
+    },
+    {
+      "id": "concept-2",
+      "title": "App Shell Types",
+      "description": "Two shell layouts: app-shell-stacked (vertical header/main/footer for sites, blogs, landing pages) and app-shell-sidebar (horizontal sidebar + content for docs, admin, dashboard). Both use CSS Grid with --shell-gap token.",
+      "created": "2025-12-13T23:09:39.745883+01:00",
+      "updated": "2025-12-13T23:09:39.745883+01:00"
+    },
+    {
+      "id": "concept-3",
+      "title": "Nav Patterns",
+      "description": "Four nav components named by visual pattern: nav-bar (horizontal + dropdowns), nav-accordion (vertical + expand), nav-rail (vertical + icons), nav-tree (explorer-style, to be built). All use slots for native \u003ca\u003e tags (SEO-friendly).",
+      "created": "2025-12-13T23:09:39.848404+01:00",
+      "updated": "2025-12-13T23:09:39.848404+01:00"
+    },
+    {
+      "id": "concept-4",
+      "title": "Web Component Slots",
+      "description": "Components use \u003cslot\u003e for content projection (like Angular ng-content). Component controls behavior/structure, user controls content. Enables native \u003ca\u003e tags inside nav items for SEO. Pattern: component wraps behavior, user slots in their HTML.",
+      "created": "2025-12-13T23:09:39.940243+01:00",
+      "updated": "2025-12-13T23:09:39.940243+01:00"
+    }
+  ]
+}

@@ -3,7 +3,7 @@ nuke-app-shell-sidebar {
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: 1fr;
-  gap: var(--shell-gap-1);
+  gap: var(--shell-gap);
   min-height: 100vh;
   background: var(--background-1);
 
