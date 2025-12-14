@@ -22,6 +22,34 @@ nuke-app-shell-sidebar {
 nuke-app-shell-sidebar-content {
   display: grid;
   grid-template-rows: auto 1fr auto;
+  gap: var(--shell-gap);
   overflow-y: auto;
-  background: var(--shell-background);
+  background: var(--body-background);
+
+  > header,
+  > main,
+  > footer {
+    background: var(--shell-background);
+    border-radius: var(--shell-radius);
+  }
+
+  > header {
+    display: flex;
+    align-items: center;
+    padding: 0 var(--layout-padding);
+    min-height: var(--bar-height-2);
+  }
+
+  > main {
+    padding: var(--layout-padding);
+    overflow-y: auto;
+  }
+
+  > footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--layout-padding);
+    min-height: var(--bar-height-1);
+  }
 }

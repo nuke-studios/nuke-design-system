@@ -185,15 +185,6 @@
       "updated": "2025-12-13T21:29:43.211845+01:00"
     },
     {
-      "id": "task-22",
-      "title": "Frontend as capability showcase",
-      "status": "new",
-      "priority": "low",
-      "description": "Make frontend prove the lib is complete - should rebuild nuke-docs-style app without custom component styles.",
-      "created": "2025-12-13T19:39:22.226336+01:00",
-      "updated": "2025-12-13T19:39:22.226336+01:00"
-    },
-    {
       "id": "task-23",
       "title": "Switch to Radix Icons",
       "status": "completed",
@@ -230,15 +221,6 @@
       "updated": "2025-12-14T00:16:13.775897+01:00"
     },
     {
-      "id": "task-27",
-      "title": "Discuss padding token system",
-      "status": "new",
-      "priority": "medium",
-      "description": "Currently --space-1/2/3 used for padding. Could add --padding-shell, --padding-primitive, --padding-component for per-layer control. Discuss: should --unit and --ratio only apply to component sizing? How does padding relate to gap system?",
-      "created": "2025-12-14T00:09:07.386109+01:00",
-      "updated": "2025-12-14T00:09:07.386109+01:00"
-    },
-    {
       "id": "task-28",
       "title": "Discuss: Replace style attributes with layer tokens",
       "status": "completed",
@@ -249,13 +231,10 @@
     },
     {
       "id": "task-29",
-      "title": "Audit unit and ratio token usage",
+      "title": "Step-by-step Shell/Layout Demo Build - continue layering: layout-gap, component layer, forms layer. Shell layer done with native header/main/footer.",
       "status": "new",
-      "priority": "medium",
-      "type": "refactor",
-      "description": "Review where --unit and --ratio are used across the system. --ratio should only be used for forms (padding calculation from height). Check if --text-base should depend on --ratio or be pure unit-based. Ensure layout tokens only use --unit, not --ratio.",
-      "created": "2025-12-14T01:50:38.508886+01:00",
-      "updated": "2025-12-14T01:50:38.508886+01:00"
+      "created": "2025-12-15T00:47:45.762966+01:00",
+      "updated": "2025-12-15T00:47:45.762966+01:00"
     }
   ]
 }

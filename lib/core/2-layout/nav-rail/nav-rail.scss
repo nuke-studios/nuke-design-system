@@ -4,8 +4,8 @@ nuke-nav-rail {
   grid-template-rows: auto 1fr auto;
   width: var(--width-1);
   height: 100%;
-  background: var(--layout-background);
-  border-right: 1px solid var(--border-color-1);
+  background: var(--shell-background);
+  border-radius: var(--shell-radius);
   transition: width var(--transition-medium);
   overflow: hidden;
 }
@@ -18,7 +18,6 @@ nuke-nav-rail-header {
   gap: var(--layout-padding);
   padding: var(--layout-padding);
   height: var(--forms-height);
-  border-bottom: 1px solid var(--border-color-1);
 }
 
 nuke-nav-rail-content {
@@ -33,7 +32,6 @@ nuke-nav-rail-footer {
   display: grid;
   padding: var(--space-2);
   gap: var(--layout-gap);
-  border-top: 1px solid var(--border-color-1);
 }
 
 /* Nav Rail Item */

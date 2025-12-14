@@ -3,10 +3,10 @@ nuke-header {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  height: var(--forms-height);
+  height: var(--bar-height-2);
   padding: 0 var(--layout-padding);
-  background: var(--layout-background);
-  border-bottom: 1px solid var(--border-color-1);
+  background: var(--shell-background);
+  border-radius: var(--shell-radius);
 }
 
 nuke-header-logo {

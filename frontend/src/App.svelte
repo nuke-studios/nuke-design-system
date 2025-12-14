@@ -1,64 +1,69 @@
 <script>
   import { onMount } from 'svelte';
-  import Nav from './layout/Nav.svelte';
-  import Welcome from './views/welcome/pages/Welcome.svelte';
-  import Components from './views/components/pages/Components.svelte';
 
-  let currentPage = $state('welcome');
+  // Shell tokens
+  let shellGap = $state(1);
+  let shellRadius = $state(0);
+  let bodyBg = $state(8);
+  let shellBg = $state(10);
 
-  onMount(() => {
-    document.body.classList.add('dark-theme');
-  });
+  // Layout tokens
+  let layoutRadius = $state(0);
+  let layoutBg = $state(14);
+
+  let tokenStyle = $derived(`
+    --shell-gap: ${shellGap}px;
+    --shell-radius: ${shellRadius}px;
+    --body-background: hsl(0, 0%, ${bodyBg}%);
+    --shell-background: hsl(0, 0%, ${shellBg}%);
+    --layout-radius: ${layoutRadius}px;
+    --layout-background: hsl(0, 0%, ${layoutBg}%);
+  `);
+
+  onMount(() => document.body.classList.add('dark-theme'));
 </script>
 
-<div class="app-layout">
-  <Nav bind:currentPage />
+<nuke-app-shell-sidebar style={tokenStyle}>
 
-  <main>
-    {#if currentPage === 'welcome'}
-      <Welcome />
-    {:else if currentPage === 'components'}
-      <Components />
-    {/if}
-  </main>
+  <nuke-nav-rail>
+    <nuke-nav-rail-header>
+      <nuke-icon name="cube"></nuke-icon>
+      <span>Unit</span>
+    </nuke-nav-rail-header>
+    <nuke-nav-rail-content>
+      <nuke-nav-rail-item active>
+        <nuke-icon name="home"></nuke-icon>
+        <span>Shell Demo</span>
+      </nuke-nav-rail-item>
+    </nuke-nav-rail-content>
+  </nuke-nav-rail>
 
-  <footer>NUKE Design System</footer>
-</div>
+  <nuke-app-shell-sidebar-content>
 
-<style>
-  .app-layout {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: 1fr auto;
-    gap: var(--area-gap);
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    background: var(--background-1);
-  }
+    <header>
+      <strong>Shell Layer Demo</strong>
+    </header>
 
-  .app-layout > :global(:first-child) {
-    grid-row: 1 / -1;
-  }
+    <main>
+      <nuke-area>
+        <section>
+          <h3>Shell</h3>
+          <label>Gap: {shellGap}px <input type="range" min="0" max="16" bind:value={shellGap}></label>
+          <label>Radius: {shellRadius}px <input type="range" min="0" max="16" bind:value={shellRadius}></label>
+          <label>Body BG: {bodyBg}% <input type="range" min="0" max="20" bind:value={bodyBg}></label>
+          <label>Shell BG: {shellBg}% <input type="range" min="5" max="25" bind:value={shellBg}></label>
 
-  main {
-    display: grid;
-    grid-template-columns: 1fr;
-    align-content: start;
-    gap: var(--area-gap);
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding: var(--space-2);
-  }
+          <h3>Layout</h3>
+          <label>Radius: {layoutRadius}px <input type="range" min="0" max="16" bind:value={layoutRadius}></label>
+          <label>Layout BG: {layoutBg}% <input type="range" min="10" max="25" bind:value={layoutBg}></label>
+        </section>
+      </nuke-area>
+    </main>
 
-  footer {
-    display: grid;
-    align-items: center;
-    justify-content: flex-end;
-    height: var(--height-2);
-    padding: 0 var(--space-3);
-    font-size: var(--font-size-1);
-    color: var(--on-background-light);
-    background: var(--background-2);
-  }
-</style>
+    <footer>
+      Shell layer: body-background shows through shell-gap
+    </footer>
+
+  </nuke-app-shell-sidebar-content>
+
+</nuke-app-shell-sidebar>
