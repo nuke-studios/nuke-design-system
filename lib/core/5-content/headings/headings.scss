@@ -1,0 +1,13 @@
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  color: var(--color-text-1);
+}
+
+h1 { font-size: calc(var(--text-base) * 2); }
+h2 { font-size: calc(var(--text-base) * 1.5); }
+h3 { font-size: calc(var(--text-base) * 1.25); }
+h4 { font-size: var(--text-base); }
+h5 { font-size: calc(var(--text-base) * 0.9); }
+h6 { font-size: calc(var(--text-base) * 0.8); }

@@ -1,0 +1,16 @@
+/* Lists */
+ul, ol {
+  padding-left: calc(var(--unit) * 4);
+}
+
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
+
+li {
+  line-height: 1.5;
+}

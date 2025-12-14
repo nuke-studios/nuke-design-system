@@ -1,5 +1,5 @@
 /* ============================================
-   UNIT DESIGN SYSTEM
+   NUKE DESIGN SYSTEM
    One unit. One ratio. Pure math.
 ============================================ */
 
@@ -41,6 +41,13 @@
 @use './4-forms/select/select';
 @use './4-forms/tabs/tabs';
 @use './4-forms/textarea/textarea';
+
+/* 5. Content — typography */
+@use './5-content/headings/headings';
+@use './5-content/lists/lists';
+@use './5-content/paragraph/paragraph';
+@use './5-content/links/links';
+@use './5-content/code/code';
 
 /* RESETS */
 *, *::before, *::after {
@@ -103,91 +110,7 @@ table {
   background-color: var(--color-text-1-light);
 }
 
-/* TYPOGRAPHY */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: var(--font-weight-bold);
-  line-height: 1.2;
-  color: var(--color-text-1);
-}
-
-h1 { font-size: calc(var(--text-base) * 2); }
-h2 { font-size: calc(var(--text-base) * 1.5); }
-h3 { font-size: calc(var(--text-base) * 1.25); }
-h4 { font-size: var(--text-base); }
-h5 { font-size: calc(var(--text-base) * 0.9); }
-h6 { font-size: calc(var(--text-base) * 0.8); }
-
-p {
-  line-height: 1.5;
-  color: var(--color-text-1);
-}
-
-ul, ol {
-  padding-left: calc(var(--unit) * 4);
-}
-
-ul {
-  list-style: disc;
-}
-
-ol {
-  list-style: decimal;
-}
-
-li {
-  line-height: 1.5;
-}
-
-strong, b {
-  font-weight: var(--font-weight-bold);
-}
-
-em, i {
-  font-style: italic;
-}
-
-small {
-  font-size: calc(var(--text-base) * 0.8);
-}
-
-a {
-  color: var(--color-text-1);
-  text-decoration: none;
-  cursor: pointer;
-  transition: color var(--transition-fast);
-}
-
-a:hover {
-  color: var(--color-1);
-  text-decoration: underline;
-}
-
-a:focus-visible {
-  outline: 2px solid var(--color-1);
-  outline-offset: 2px;
-  border-radius: var(--forms-radius);
-}
-
-code, kbd, samp {
-  padding: calc(var(--unit) / 3) var(--unit);
-  background: var(--component-background);
-  font-family: var(--family-mono), monospace;
-  font-size: calc(var(--text-base) * 0.9);
-  border-radius: var(--forms-radius);
-}
-
-blockquote {
-  padding-left: var(--layout-padding);
-  border-left: 3px solid var(--border-color-2);
-  color: var(--color-text-1-light);
-  font-style: italic;
-}
-
-hr {
-  border: none;
-  border-top: 1px solid var(--border-color-1);
-}
-
+/* GLOBAL STATES */
 ::selection {
   background: var(--color-1);
   color: var(--color-text-inverse);

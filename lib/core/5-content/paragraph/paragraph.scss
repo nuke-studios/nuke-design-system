@@ -1,0 +1,29 @@
+/* Paragraph & Block Text */
+p {
+  line-height: 1.5;
+  color: var(--color-text-1);
+}
+
+blockquote {
+  padding-left: var(--layout-padding);
+  border-left: 3px solid var(--border-color-2);
+  color: var(--color-text-1-light);
+  font-style: italic;
+}
+
+strong, b {
+  font-weight: var(--font-weight-bold);
+}
+
+em, i {
+  font-style: italic;
+}
+
+small {
+  font-size: calc(var(--text-base) * 0.8);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border-color-1);
+}
