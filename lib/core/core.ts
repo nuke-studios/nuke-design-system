@@ -2,7 +2,11 @@
  * Nuke Design System - Web Components
  *
  * Import this file to register all web components:
- * import '@nuke.dev/design-system/dist/index.js';
+ * import '@nuke.dev/design-system';
+ *
+ * Icons (Phosphor) - import individually:
+ * import '@phosphor-icons/webcomponents/PhHouse';
+ * Then use: <ph-house></ph-house>
  */
 
 // 1. Shell

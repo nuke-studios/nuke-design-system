@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@nuke.dev/design-system": "*",
     "@phosphor-icons/webcomponents": "^2.1.5"
   },
   "devDependencies": {

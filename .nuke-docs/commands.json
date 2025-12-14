@@ -52,6 +52,30 @@
       "title": "Dev Watch",
       "run": "npm run dev",
       "why": "Watch mode - auto-rebuild on CSS/TS changes"
+    },
+    {
+      "id": "cmd-3",
+      "title": "Install All",
+      "run": "npm install",
+      "why": "Install all workspace dependencies from root",
+      "created": "2025-12-14T22:21:50.51498+01:00",
+      "updated": "2025-12-14T22:21:50.51498+01:00"
+    },
+    {
+      "id": "cmd-4",
+      "title": "Dev Frontend",
+      "run": "npm run dev:frontend",
+      "why": "Run frontend dev server (Vite + Svelte)",
+      "created": "2025-12-14T22:21:50.631895+01:00",
+      "updated": "2025-12-14T22:21:50.631895+01:00"
+    },
+    {
+      "id": "cmd-5",
+      "title": "Dev All",
+      "run": "npm run dev:all",
+      "why": "Watch lib + run frontend dev server together",
+      "created": "2025-12-14T22:21:50.728856+01:00",
+      "updated": "2025-12-14T22:21:50.728856+01:00"
     }
   ]
 }

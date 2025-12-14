@@ -27,8 +27,8 @@
   "module": "dist/core.js",
   "type": "module",
   "scripts": {
-    "build": "tsc && sass core/core.scss dist/core.css && sass core/core.scss dist/core.min.css --style=compressed && esbuild core/core.ts --bundle --outdir=dist --format=esm",
-    "dev": "sass core/core.scss dist/core.css --watch & esbuild core/core.ts --bundle --outdir=dist --format=esm --watch"
+    "build": "tsc && sass core/core.scss dist/core.css && sass core/core.scss dist/core.min.css --style=compressed && esbuild core/core.ts --bundle --outdir=dist --format=esm --external:@phosphor-icons/webcomponents --external:lit",
+    "dev": "sass core/core.scss dist/core.css --watch & esbuild core/core.ts --bundle --outdir=dist --format=esm --external:@phosphor-icons/webcomponents --external:lit --watch"
   },
   "dependencies": {
     "@phosphor-icons/webcomponents": "^2.1.5",

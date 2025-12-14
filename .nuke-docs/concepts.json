@@ -104,29 +104,29 @@
       "description": "Import core.css and core.js. Override CSS tokens on any container to change styles for all children. Works with any framework.",
       "details": {
         "customize_tokens": "Override CSS tokens on :root, body, or any container to cascade style changes to children",
-        "import_css": "<link rel='stylesheet' href='dist/core.css'>",
-        "import_js": "<script type='module' src='dist/core.js'></script>",
+        "import_css": "\u003clink rel='stylesheet' href='dist/core.css'\u003e",
+        "import_js": "\u003cscript type='module' src='dist/core.js'\u003e\u003c/script\u003e",
         "style_modes": "Set layer tokens (--shell-*, --layout-*, --component-*, --forms-*) on any element to control all children"
       }
     },
     {
       "id": "concept-5",
       "title": "Frontend App",
-      "description": "Svelte 5 documentation app in frontend/ folder. Two pages: Welcome (landing) and Components (showcase). Uses Nav.svelte for navigation, imports lib web components (<nuke-icon>, <nuke-tabs>, etc). Serves as dogfooding environment to test lib components."
+      "description": "Svelte 5 documentation app in frontend/ folder. Two pages: Welcome (landing) and Components (showcase). Uses Nav.svelte for navigation, imports lib web components (\u003cnuke-icon\u003e, \u003cnuke-tabs\u003e, etc). Serves as dogfooding environment to test lib components."
     },
     {
       "id": "concept-6",
       "title": "5-Layer Architecture",
       "description": "Five layers matching folder structure: 1-shell (app frame), 2-layout (page regions), 3-component (UI containers), 4-forms (form elements), 5-content (typography). Each layer has independent tokens. core.scss contains resets, scrollbar, animations, utilities.",
       "details": {
+        "core_scss": "Resets, scrollbar styling, global states, animations, utilities",
         "layers": {
           "1-shell": "App frame - overall page structure (app-shell-sidebar, app-shell-stacked)",
           "2-layout": "Page regions - areas, sections, navigation containers",
           "3-component": "UI containers - accordions, toasts, tables, badges, tags",
           "4-forms": "Form elements - buttons, inputs, selects, checkboxes, radios",
           "5-content": "Typography - headings, lists, paragraphs, links, code"
-        },
-        "core_scss": "Resets, scrollbar styling, global states, animations, utilities"
+        }
       }
     },
     {
@@ -134,10 +134,10 @@
       "title": "Layer-First Token Naming",
       "description": "Tokens use layer-first naming: --shell-gap, --layout-padding, --component-border, --forms-height. Each layer has: padding, gap, radius, border, background. No cascade between layers - each is independent.",
       "details": {
-        "shell_tokens": "--shell-padding, --shell-gap, --shell-radius, --shell-border, --shell-background",
-        "layout_tokens": "--layout-padding, --layout-gap, --layout-radius, --layout-border, --layout-background",
         "component_tokens": "--component-padding, --component-gap, --component-radius, --component-border, --component-background",
-        "forms_tokens": "--forms-height, --forms-height-small, --forms-gap, --forms-radius, --forms-border, --forms-border-bottom, --forms-background"
+        "forms_tokens": "--forms-height, --forms-height-small, --forms-gap, --forms-radius, --forms-border, --forms-border-bottom, --forms-background",
+        "layout_tokens": "--layout-padding, --layout-gap, --layout-radius, --layout-border, --layout-background",
+        "shell_tokens": "--shell-padding, --shell-gap, --shell-radius, --shell-border, --shell-background"
       }
     },
     {
@@ -155,22 +155,48 @@
       "title": "Web Components vs Pure CSS",
       "description": "Most styling is pure CSS on native HTML elements. Web components (nuke-*) only add interactivity. Pure CSS: button, input, select, textarea, checkbox, radio, table, section, header, footer, all 5-content elements. Web components: nuke-app-shell-sidebar, nuke-accordion, nuke-tabs, nuke-icon, nuke-toast, nuke-nav-*, nuke-sidebar, nuke-toolbar.",
       "details": {
-        "pure_css": "Native HTML styled by CSS: <button>, <input>, <select>, <textarea>, <table>, <section>, <header>, <footer>, <h1>-<h6>, <p>, <a>, <ul>, <ol>, <code>",
-        "web_components": "Custom elements with JS: <nuke-app-shell-sidebar>, <nuke-accordion>, <nuke-tabs>, <nuke-tab>, <nuke-tab-panel>, <nuke-icon>, <nuke-toast>, <nuke-nav-accordion>, <nuke-nav-rail>, <nuke-sidebar>, <nuke-toolbar>"
+        "pure_css": "Native HTML styled by CSS: \u003cbutton\u003e, \u003cinput\u003e, \u003cselect\u003e, \u003ctextarea\u003e, \u003ctable\u003e, \u003csection\u003e, \u003cheader\u003e, \u003cfooter\u003e, \u003ch1\u003e-\u003ch6\u003e, \u003cp\u003e, \u003ca\u003e, \u003cul\u003e, \u003col\u003e, \u003ccode\u003e",
+        "web_components": "Custom elements with JS: \u003cnuke-app-shell-sidebar\u003e, \u003cnuke-accordion\u003e, \u003cnuke-tabs\u003e, \u003cnuke-tab\u003e, \u003cnuke-tab-panel\u003e, \u003cnuke-icon\u003e, \u003cnuke-toast\u003e, \u003cnuke-nav-accordion\u003e, \u003cnuke-nav-rail\u003e, \u003cnuke-sidebar\u003e, \u003cnuke-toolbar\u003e"
       }
     },
     {
       "id": "concept-11",
       "title": "Component Usage Patterns",
-      "description": "Web components use slots for content. Shell: <nuke-app-shell-sidebar collapsed><aside>nav</aside><main>content</main></nuke-app-shell-sidebar>. Accordion: <nuke-accordion expanded><nuke-accordion-header>Title</nuke-accordion-header><nuke-accordion-content>Body</nuke-accordion-content></nuke-accordion>. Tabs: <nuke-tabs><nuke-tab>Tab 1</nuke-tab><nuke-tab>Tab 2</nuke-tab><nuke-tab-panel>Content 1</nuke-tab-panel><nuke-tab-panel>Content 2</nuke-tab-panel></nuke-tabs>. Icon: <nuke-icon name=\"house\"></nuke-icon>. Props reflect as attributes (collapsed, expanded, name).",
+      "description": "Web components use slots for content. Shell: \u003cnuke-app-shell-sidebar collapsed\u003e\u003caside\u003enav\u003c/aside\u003e\u003cmain\u003econtent\u003c/main\u003e\u003c/nuke-app-shell-sidebar\u003e. Accordion: \u003cnuke-accordion expanded\u003e\u003cnuke-accordion-header\u003eTitle\u003c/nuke-accordion-header\u003e\u003cnuke-accordion-content\u003eBody\u003c/nuke-accordion-content\u003e\u003c/nuke-accordion\u003e. Tabs: \u003cnuke-tabs\u003e\u003cnuke-tab\u003eTab 1\u003c/nuke-tab\u003e\u003cnuke-tab\u003eTab 2\u003c/nuke-tab\u003e\u003cnuke-tab-panel\u003eContent 1\u003c/nuke-tab-panel\u003e\u003cnuke-tab-panel\u003eContent 2\u003c/nuke-tab-panel\u003e\u003c/nuke-tabs\u003e. Icon: \u003cnuke-icon name=\"house\"\u003e\u003c/nuke-icon\u003e. Props reflect as attributes (collapsed, expanded, name).",
       "details": {
-        "app_shell": "<nuke-app-shell-sidebar collapsed><aside>sidebar</aside><main>content</main></nuke-app-shell-sidebar>",
-        "accordion": "<nuke-accordion expanded><nuke-accordion-header>Title</nuke-accordion-header><nuke-accordion-content>Content</nuke-accordion-content></nuke-accordion>",
-        "tabs": "<nuke-tabs><nuke-tab>Tab 1</nuke-tab><nuke-tab>Tab 2</nuke-tab><nuke-tab-panel>Panel 1</nuke-tab-panel><nuke-tab-panel>Panel 2</nuke-tab-panel></nuke-tabs>",
-        "icon": "<nuke-icon name=\"house\"></nuke-icon> - loads SVG from /icons/{name}.svg",
-        "toast": "<nuke-toast type=\"success|warning|error\">Message</nuke-toast>",
-        "common_props": "collapsed (shell), expanded (accordion), name (icon), type (toast, tag)"
+        "accordion": "\u003cnuke-accordion expanded\u003e\u003cnuke-accordion-header\u003eTitle\u003c/nuke-accordion-header\u003e\u003cnuke-accordion-content\u003eContent\u003c/nuke-accordion-content\u003e\u003c/nuke-accordion\u003e",
+        "app_shell": "\u003cnuke-app-shell-sidebar collapsed\u003e\u003caside\u003esidebar\u003c/aside\u003e\u003cmain\u003econtent\u003c/main\u003e\u003c/nuke-app-shell-sidebar\u003e",
+        "common_props": "collapsed (shell), expanded (accordion), name (icon), type (toast, tag)",
+        "icon": "\u003cnuke-icon name=\"house\"\u003e\u003c/nuke-icon\u003e - loads SVG from /icons/{name}.svg",
+        "tabs": "\u003cnuke-tabs\u003e\u003cnuke-tab\u003eTab 1\u003c/nuke-tab\u003e\u003cnuke-tab\u003eTab 2\u003c/nuke-tab\u003e\u003cnuke-tab-panel\u003ePanel 1\u003c/nuke-tab-panel\u003e\u003cnuke-tab-panel\u003ePanel 2\u003c/nuke-tab-panel\u003e\u003c/nuke-tabs\u003e",
+        "toast": "\u003cnuke-toast type=\"success|warning|error\"\u003eMessage\u003c/nuke-toast\u003e"
       }
+    },
+    {
+      "id": "concept-12",
+      "title": "Workspace Structure",
+      "description": "npm workspaces monorepo. Root package.json defines workspaces: ['lib', 'frontend']. Single npm install from root. Frontend depends on @nuke.dev/design-system (symlinked to lib/).",
+      "details": {
+        "structure": {
+          "root": "package.json with workspaces config",
+          "lib/": "@nuke.dev/design-system - CSS tokens, SCSS, web components",
+          "frontend/": "Svelte 5 docs app - imports lib as dependency"
+        },
+        "commands": {
+          "npm install": "Install all workspace dependencies from root",
+          "npm run build": "Build lib (CSS + JS to lib/dist/)",
+          "npm run dev": "Watch lib for changes",
+          "npm run dev:frontend": "Run frontend dev server (Vite)",
+          "npm run dev:all": "Watch lib + run frontend together"
+        },
+        "importing": {
+          "js": "import '@nuke.dev/design-system'",
+          "css": "@import '@nuke.dev/design-system/dist/core.css'"
+        },
+        "how_it_works": "npm symlinks @nuke.dev/design-system to lib/ folder. Shared deps like @phosphor-icons/webcomponents installed once. Changes to lib available to frontend after rebuild."
+      },
+      "created": "2025-12-14T22:19:49.183208+01:00",
+      "updated": "2025-12-14T22:19:49.183208+01:00"
     }
   ]
 }
