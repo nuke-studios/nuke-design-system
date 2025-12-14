@@ -46,7 +46,7 @@
       "description": "Single-layer design: tokens defined once in tokens.scss, used directly in components. No component-specific variables. Each component has one .scss file with reset and base styles. All styling controlled via layer-first CSS tokens.",
       "details": {
         "concept": "Single-layer design: tokens defined once in tokens.scss, used directly in component SCSS",
-        "no_abstraction": "No component-specific CSS variables (e.g., --button-bg). Components use design tokens directly (e.g., var(--control-background))",
+        "no_abstraction": "No component-specific CSS variables (e.g., --button-bg). Components use design tokens directly (e.g., var(--forms-background))",
         "single_file_per_component": "Each component has one .scss file containing reset and base styles",
         "token_styling": "All visual styles controlled via token overrides - no style attributes needed"
       }
@@ -54,10 +54,10 @@
     {
       "id": "concept-2",
       "title": "Unit-Based Tokens",
-      "description": "All dimensions derive from --unit (6px default) and --ratio (0.4 default). Change --unit to scale entire UI: 4px=compact, 6px=standard, 8px=spacious. Derived tokens: --control-height, layer-specific padding/gap/radius/border/background.",
+      "description": "All dimensions derive from --unit (6px default) and --ratio (0.4 default). Change --unit to scale entire UI: 4px=compact, 6px=standard, 8px=spacious. Derived tokens: --forms-height, layer-specific padding/gap/radius/border/background.",
       "details": {
         "base_values": {
-          "--ratio": "0.4 (content fill - 0.4=airy, 0.5=balanced, 0.7=tight)",
+          "--ratio": "0.4 (content fill for forms - 0.4=airy, 0.5=balanced, 0.7=tight)",
           "--unit": "6px (base size - 4px=compact, 6px=standard, 8px=spacious)"
         },
         "core_principle": "All dimensions derive from --unit. Change --unit to scale entire UI proportionally.",
@@ -68,8 +68,8 @@
           "standard": "--unit: 6px"
         },
         "derived_tokens": {
-          "--control-height": "calc(var(--unit) * 6) - buttons, inputs",
-          "--text-base": "calc(var(--control-height) * var(--ratio))",
+          "--forms-height": "calc(var(--unit) * 6) - buttons, inputs",
+          "--text-base": "calc(var(--forms-height) * var(--ratio))",
           "--width-1/2/3": "unit × 40/80/128 - sidebar/content/max-width"
         }
       }
@@ -77,7 +77,7 @@
     {
       "id": "concept-3",
       "title": "Build System",
-      "description": "npm run build compiles SCSS to CSS and bundles TypeScript. Output: dist/core.css + dist/core.js. Source organized in four numbered folders: 1-shell, 2-layout, 3-component, 4-control.",
+      "description": "npm run build compiles SCSS to CSS and bundles TypeScript. Output: dist/core.css + dist/core.js. Source organized in five numbered folders: 1-shell, 2-layout, 3-component, 4-forms, 5-content.",
       "details": {
         "build_output": {
           "dist/core.css": "Bundled CSS (compiled from SCSS)",
@@ -89,12 +89,12 @@
         "source_structure": {
           "core/1-shell/": "App frame (app-shell-sidebar, app-shell-stacked)",
           "core/2-layout/": "Page regions (area, section, toolbar, sidebar, header, footer, nav-*, grid)",
-          "core/3-component/": "UI containers (accordion, toast, table, badge, tag, nav, a, code, img, ol, ul)",
-          "core/4-control/": "Form elements (button, input, select, textarea, checkbox, radio, range, tabs, label)",
-          "core/_mixins.scss": "Shared mixins (currently empty)",
-          "core/core.scss": "SCSS entry point (imports tokens + all components)",
+          "core/3-component/": "UI containers (accordion, toast, table, badge, tag, nav, icon)",
+          "core/4-forms/": "Form elements (button, input, select, textarea, checkbox, radio, range, tabs, label)",
+          "core/5-content/": "Typography (headings, lists, paragraph, links, code)",
+          "core/core.scss": "SCSS entry point (imports tokens + all layers + resets/animations/utilities)",
           "core/core.ts": "Web component exports",
-          "core/tokens.scss": "Design tokens (--unit, layer tokens: --shell-*, --layout-*, --component-*, --control-*)"
+          "core/tokens.scss": "Design tokens (--unit, layer tokens: --shell-*, --layout-*, --component-*, --forms-*)"
         }
       }
     },
@@ -106,7 +106,7 @@
         "customize_tokens": "Override CSS tokens on :root, body, or any container to cascade style changes to children",
         "import_css": "<link rel='stylesheet' href='dist/core.css'>",
         "import_js": "<script type='module' src='dist/core.js'></script>",
-        "style_modes": "Set layer tokens (--shell-*, --layout-*, --component-*, --control-*) on any element to control all children"
+        "style_modes": "Set layer tokens (--shell-*, --layout-*, --component-*, --forms-*) on any element to control all children"
       }
     },
     {
@@ -116,26 +116,28 @@
     },
     {
       "id": "concept-6",
-      "title": "4-Layer Architecture",
-      "description": "Four layers matching folder structure: 1-shell (app frame - sidebar/stacked layouts), 2-layout (page regions - area, section, toolbar, nav-*), 3-component (UI containers - accordion, toast, table), 4-control (form elements - button, input, tabs). Each layer has independent tokens.",
+      "title": "5-Layer Architecture",
+      "description": "Five layers matching folder structure: 1-shell (app frame), 2-layout (page regions), 3-component (UI containers), 4-forms (form elements), 5-content (typography). Each layer has independent tokens. core.scss contains resets, scrollbar, animations, utilities.",
       "details": {
         "layers": {
-          "1-shell": "App frame - overall page structure",
-          "2-layout": "Page regions - areas, sections, navigation",
-          "3-component": "UI containers - accordions, toasts, tables",
-          "4-control": "Form elements - buttons, inputs, selects"
-        }
+          "1-shell": "App frame - overall page structure (app-shell-sidebar, app-shell-stacked)",
+          "2-layout": "Page regions - areas, sections, navigation containers",
+          "3-component": "UI containers - accordions, toasts, tables, badges, tags",
+          "4-forms": "Form elements - buttons, inputs, selects, checkboxes, radios",
+          "5-content": "Typography - headings, lists, paragraphs, links, code"
+        },
+        "core_scss": "Resets, scrollbar styling, global states, animations, utilities"
       }
     },
     {
       "id": "concept-7",
       "title": "Layer-First Token Naming",
-      "description": "Tokens use layer-first naming: --shell-gap, --layout-padding, --component-border, --control-height. Each layer has: padding, gap, radius, border, background. No cascade between layers - each is independent.",
+      "description": "Tokens use layer-first naming: --shell-gap, --layout-padding, --component-border, --forms-height. Each layer has: padding, gap, radius, border, background. No cascade between layers - each is independent.",
       "details": {
         "shell_tokens": "--shell-padding, --shell-gap, --shell-radius, --shell-border, --shell-background",
         "layout_tokens": "--layout-padding, --layout-gap, --layout-radius, --layout-border, --layout-background",
         "component_tokens": "--component-padding, --component-gap, --component-radius, --component-border, --component-background",
-        "control_tokens": "--control-height, --control-height-small, --control-gap, --control-radius, --control-border, --control-border-bottom, --control-background"
+        "forms_tokens": "--forms-height, --forms-height-small, --forms-gap, --forms-radius, --forms-border, --forms-border-bottom, --forms-background"
       }
     },
     {
@@ -145,8 +147,8 @@
     },
     {
       "id": "concept-9",
-      "title": "Control Padding Calculation",
-      "description": "Controls (buttons, inputs, etc.) don't use padding tokens. Instead, padding is calculated from height and ratio: padding = control-height × (1 - ratio). This ensures consistent proportions across all control heights."
+      "title": "Forms Padding Calculation",
+      "description": "Form elements (buttons, inputs, etc.) don't use padding tokens. Instead, padding is calculated from height and ratio: padding = forms-height × (1 - ratio). This ensures consistent proportions across all form element heights."
     }
   ]
 }

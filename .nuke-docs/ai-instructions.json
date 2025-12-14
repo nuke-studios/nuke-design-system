@@ -41,7 +41,7 @@
     {
       "id": "instruction-1",
       "title": "Component Structure",
-      "description": "Each component has a single [name].scss file with: reset styles and base styles using design tokens directly. Use layer-first tokens from tokens.scss - no component-specific variables. All styling controlled via token references (--control-border, --layout-background, etc.)."
+      "description": "Each component has a single [name].scss file with: reset styles and base styles using design tokens directly. Use layer-first tokens from tokens.scss - no component-specific variables. All styling controlled via token references (--forms-border, --layout-background, etc.)."
     },
     {
       "id": "instruction-2",
@@ -51,7 +51,7 @@
     {
       "id": "instruction-3",
       "title": "Layer-First Token Naming",
-      "description": "Use layer-first naming for all tokens: --shell-gap, --layout-padding, --component-border, --control-height. Each layer (shell, layout, component, control) has its own independent set of tokens. Never use property-first names like --gap-shell or semantic names like --button-bg."
+      "description": "Use layer-first naming for all tokens: --shell-gap, --layout-padding, --component-border, --forms-height. Each layer (shell, layout, component, forms) has its own independent set of tokens. Never use property-first names like --gap-shell or semantic names like --button-bg."
     },
     {
       "id": "instruction-4",
@@ -81,17 +81,17 @@
     {
       "id": "instruction-9",
       "title": "Token Usage by Layer",
-      "description": "Use tokens matching folder level: 1-shell uses --shell-* tokens, 2-layout uses --layout-* tokens, 3-component uses --component-* tokens, 4-control uses --control-* tokens. Each layer is independent - no cascade between layers."
+      "description": "Use tokens matching folder level: 1-shell uses --shell-* tokens, 2-layout uses --layout-* tokens, 3-component uses --component-* tokens, 4-forms uses --forms-* tokens. 5-content uses base tokens. Each layer is independent - no cascade between layers."
     },
     {
       "id": "instruction-10",
       "title": "No Hardcoded Borders",
-      "description": "Never use 'border: 1px solid var(--border-color-1)' directly. Always use layer token references: --layout-border for 2-layout, --component-border for 3-component, --control-border for 4-control. This enables style mode switching via token overrides."
+      "description": "Never use 'border: 1px solid var(--border-color-1)' directly. Always use layer token references: --layout-border for 2-layout, --component-border for 3-component, --forms-border for 4-forms. This enables style mode switching via token overrides."
     },
     {
       "id": "instruction-11",
-      "title": "Control Padding",
-      "description": "Controls don't use padding tokens. Calculate padding from height: calc(var(--control-height) * (1 - var(--ratio))). This maintains consistent proportions. Inputs use half this value for horizontal padding."
+      "title": "Forms Padding",
+      "description": "Form elements don't use padding tokens. Calculate padding from height: calc(var(--forms-height) * (1 - var(--ratio))). This maintains consistent proportions. Inputs use half this value for horizontal padding."
     }
   ]
 }

@@ -246,6 +246,16 @@
       "description": "Explore replacing nuke-style='1/2/3' with more cascading tokens. Example: --border token (1px solid var(--border-color) or none) could control component styles through the tree. Buttons/inputs could be: minimal (underline), bordered (no bg), filled (bg only), filled+bordered. Design tokens become the style system instead of attributes.",
       "created": "2025-12-14T00:25:15.060961+01:00",
       "updated": "2025-12-14T00:38:29.310612+01:00"
+    },
+    {
+      "id": "task-29",
+      "title": "Audit unit and ratio token usage",
+      "status": "new",
+      "priority": "medium",
+      "type": "refactor",
+      "description": "Review where --unit and --ratio are used across the system. --ratio should only be used for forms (padding calculation from height). Check if --text-base should depend on --ratio or be pure unit-based. Ensure layout tokens only use --unit, not --ratio.",
+      "created": "2025-12-14T01:50:38.508886+01:00",
+      "updated": "2025-12-14T01:50:38.508886+01:00"
     }
   ]
 }
