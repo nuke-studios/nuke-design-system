@@ -31,16 +31,16 @@
 @use './3-component/tag/tag';
 @use './3-component/toast/toast';
 
-/* 4. Control — form elements */
-@use './4-control/button/button';
-@use './4-control/checkbox/checkbox';
-@use './4-control/input/input';
-@use './4-control/label/label';
-@use './4-control/radio/radio';
-@use './4-control/range/range';
-@use './4-control/select/select';
-@use './4-control/tabs/tabs';
-@use './4-control/textarea/textarea';
+/* 4. Forms — form elements */
+@use './4-forms/button/button';
+@use './4-forms/checkbox/checkbox';
+@use './4-forms/input/input';
+@use './4-forms/label/label';
+@use './4-forms/radio/radio';
+@use './4-forms/range/range';
+@use './4-forms/select/select';
+@use './4-forms/tabs/tabs';
+@use './4-forms/textarea/textarea';
 
 /* RESETS */
 *, *::before, *::after {
@@ -96,7 +96,7 @@ table {
 ::-webkit-scrollbar-thumb {
   background-color: var(--scrollbar-thumb);
   border: calc(var(--unit) * 0.5) solid var(--scrollbar-track);
-  border-radius: var(--control-radius);
+  border-radius: var(--forms-radius);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -165,7 +165,7 @@ a:hover {
 a:focus-visible {
   outline: 2px solid var(--color-1);
   outline-offset: 2px;
-  border-radius: var(--control-radius);
+  border-radius: var(--forms-radius);
 }
 
 code, kbd, samp {
@@ -173,7 +173,7 @@ code, kbd, samp {
   background: var(--component-background);
   font-family: var(--family-mono), monospace;
   font-size: calc(var(--text-base) * 0.9);
-  border-radius: var(--control-radius);
+  border-radius: var(--forms-radius);
 }
 
 blockquote {

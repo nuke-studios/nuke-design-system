@@ -4,19 +4,19 @@ nuke-tabs {
 
 nuke-tab {
   display: inline-block;
-  height: var(--control-height);
-  padding: 0 calc(var(--control-height) * (1 - var(--ratio)));
+  height: var(--forms-height);
+  padding: 0 calc(var(--forms-height) * (1 - var(--ratio)));
   font-size: var(--text-base);
   font-weight: var(--font-weight-medium);
   color: var(--color-text-2);
-  background: var(--control-background);
-  border: var(--control-border);
-  border-bottom: var(--control-border-bottom);
-  border-radius: var(--control-radius);
+  background: var(--forms-background);
+  border: var(--forms-border);
+  border-bottom: var(--forms-border-bottom);
+  border-radius: var(--forms-radius);
   cursor: pointer;
   transition: all var(--transition-fast);
   user-select: none;
-  line-height: var(--control-height);
+  line-height: var(--forms-height);
 
   &:hover {
     color: var(--color-text-1);

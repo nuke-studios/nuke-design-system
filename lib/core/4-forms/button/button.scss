@@ -22,8 +22,8 @@ input[type="reset"] {
   align-items: center;
   justify-content: center;
   gap: var(--unit);
-  padding: 0 calc(var(--control-height) * (1 - var(--ratio)));
-  height: var(--control-height);
+  padding: 0 calc(var(--forms-height) * (1 - var(--ratio)));
+  height: var(--forms-height);
   font-size: var(--text-base);
   font-weight: 500;
   white-space: nowrap;
@@ -31,10 +31,10 @@ input[type="reset"] {
   text-decoration: none;
   line-height: 1;
   color: var(--color-text-1);
-  background: var(--control-background);
-  border: var(--control-border);
-  border-bottom: var(--control-border-bottom);
-  border-radius: var(--control-radius);
+  background: var(--forms-background);
+  border: var(--forms-border);
+  border-bottom: var(--forms-border-bottom);
+  border-radius: var(--forms-radius);
   transition:
     background-color var(--transition-fast),
     border-color var(--transition-fast);

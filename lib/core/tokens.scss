@@ -1,6 +1,6 @@
 /* ============================================
    NUKE DESIGN SYSTEM - TOKENS
-   4-Layer Architecture: shell → layout → component → control
+   4-Layer Architecture: shell → layout → component → forms
 ============================================ */
 
 :root {
@@ -26,13 +26,13 @@
   --component-radius: 3px;
   --component-border: 1px solid var(--border-color-1);
 
-  /* CONTROL - form elements (button, input, select, checkbox) */
-  --control-height: calc(var(--unit) * 6);
-  --control-height-small: calc(var(--unit) * 4);
-  --control-gap: 1px;
-  --control-radius: 3px;
-  --control-border: 1px solid var(--border-color-1);
-  --control-border-bottom: none;
+  /* FORMS - form elements (button, input, select, checkbox) */
+  --forms-height: calc(var(--unit) * 6);
+  --forms-height-small: calc(var(--unit) * 4);
+  --forms-gap: 1px;
+  --forms-radius: 3px;
+  --forms-border: 1px solid var(--border-color-1);
+  --forms-border-bottom: none;
 
   /* WIDTHS - derived from unit */
   --width-1: calc(var(--unit) * 40);   /* sidebar, narrow panels */
@@ -44,8 +44,8 @@
   --bar-height-2: calc(var(--unit) * 8);   /* toolbar, nav bar */
   --bar-height-3: calc(var(--unit) * 10);  /* header, hero sections */
 
-  /* TEXT - derived from control height */
-  --text-base: calc(var(--control-height) * var(--ratio));
+  /* TEXT - derived from forms height */
+  --text-base: calc(var(--forms-height) * var(--ratio));
 
   /* FONT FAMILIES */
   --family-1: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
@@ -89,7 +89,7 @@
   --shell-background: hsl(0, 0%, 10%);
   --layout-background: hsl(0, 0%, 14%);
   --component-background: hsl(0, 0%, 18%);
-  --control-background: hsl(0, 0%, 18%);
+  --forms-background: hsl(0, 0%, 18%);
   --hover-background: hsl(0, 0%, 22%);
 
   /* Border colors */
@@ -128,7 +128,7 @@
   --shell-background: hsl(0, 0%, 96%);
   --layout-background: hsl(0, 0%, 100%);
   --component-background: hsl(0, 0%, 96%);
-  --control-background: hsl(0, 0%, 96%);
+  --forms-background: hsl(0, 0%, 96%);
   --hover-background: hsl(0, 0%, 90%);
 
   /* Border colors */

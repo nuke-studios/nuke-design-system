@@ -10,7 +10,7 @@ nuke-app-shell-sidebar {
   /* Collapsed sidebar state */
   &[collapsed] {
     nuke-nav-rail {
-      width: var(--control-height);
+      width: var(--forms-height);
     }
 
     nuke-nav-rail-item span {

@@ -1,4 +1,13 @@
-textarea {
+:is(input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"]) {
   /* Reset */
   appearance: none;
   background: none;
@@ -8,20 +17,18 @@ textarea {
   font: inherit;
   color: inherit;
   width: 100%;
-  resize: vertical;
 
   /* Base (styled by tokens) */
   display: block;
   width: 100%;
-  min-height: calc(var(--control-height) * 4);
-  padding: calc(var(--control-height) * (1 - var(--ratio)) / 2);
+  height: var(--forms-height);
+  padding: 0 calc(var(--forms-height) * (1 - var(--ratio)) / 2);
   font-size: var(--text-base);
-  line-height: 1.5;
   color: var(--color-text-1);
-  background: var(--control-background);
-  border: var(--control-border);
-  border-bottom: var(--control-border-bottom);
-  border-radius: var(--control-radius);
+  background: var(--forms-background);
+  border: var(--forms-border);
+  border-bottom: var(--forms-border-bottom);
+  border-radius: var(--forms-radius);
   transition:
     border-color var(--transition-fast),
     background-color var(--transition-fast),
@@ -39,6 +46,5 @@ textarea {
   &:disabled {
     opacity: var(--opacity-disabled);
     cursor: not-allowed;
-    resize: none;
   }
 }

@@ -17,7 +17,7 @@ nuke-nav-rail-header {
   align-items: center;
   gap: var(--layout-padding);
   padding: var(--layout-padding);
-  height: var(--control-height);
+  height: var(--forms-height);
   border-bottom: 1px solid var(--border-color-1);
 }
 
@@ -43,7 +43,7 @@ nuke-nav-rail-item {
   align-items: center;
   gap: var(--layout-padding);
   padding: var(--unit) var(--layout-padding);
-  min-height: var(--control-height);
+  min-height: var(--forms-height);
   color: var(--color-text-2);
   border-radius: var(--layout-radius);
   cursor: pointer;
@@ -74,7 +74,7 @@ nuke-nav-rail-item {
 
 /* Collapsed state - handled by app-shell[collapsed] */
 nuke-app-shell[collapsed] nuke-nav-rail {
-  width: calc(var(--control-height) + var(--layout-padding) * 2);
+  width: calc(var(--forms-height) + var(--layout-padding) * 2);
 }
 
 nuke-app-shell[collapsed] nuke-nav-rail-item span {

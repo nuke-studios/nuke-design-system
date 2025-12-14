@@ -21,6 +21,6 @@ export { NukeAccordion } from './3-component/accordion/accordion.js';
 export { NukeBadge } from './3-component/badge/badge.js';
 export { NukeIcon } from './3-component/icon/icon.js';
 
-// 4. Control
-export { NukeTabs, NukeTab, NukeTabPanel } from './4-control/tabs/tabs.js';
+// 4. Forms
+export { NukeTabs, NukeTab, NukeTabPanel } from './4-forms/tabs/tabs.js';
 export { NukeToast } from './3-component/toast/toast.js';
