@@ -149,6 +149,28 @@
       "id": "concept-9",
       "title": "Forms Padding Calculation",
       "description": "Form elements (buttons, inputs, etc.) don't use padding tokens. Instead, padding is calculated from height and ratio: padding = forms-height × (1 - ratio). This ensures consistent proportions across all form element heights."
+    },
+    {
+      "id": "concept-10",
+      "title": "Web Components vs Pure CSS",
+      "description": "Most styling is pure CSS on native HTML elements. Web components (nuke-*) only add interactivity. Pure CSS: button, input, select, textarea, checkbox, radio, table, section, header, footer, all 5-content elements. Web components: nuke-app-shell-sidebar, nuke-accordion, nuke-tabs, nuke-icon, nuke-toast, nuke-nav-*, nuke-sidebar, nuke-toolbar.",
+      "details": {
+        "pure_css": "Native HTML styled by CSS: <button>, <input>, <select>, <textarea>, <table>, <section>, <header>, <footer>, <h1>-<h6>, <p>, <a>, <ul>, <ol>, <code>",
+        "web_components": "Custom elements with JS: <nuke-app-shell-sidebar>, <nuke-accordion>, <nuke-tabs>, <nuke-tab>, <nuke-tab-panel>, <nuke-icon>, <nuke-toast>, <nuke-nav-accordion>, <nuke-nav-rail>, <nuke-sidebar>, <nuke-toolbar>"
+      }
+    },
+    {
+      "id": "concept-11",
+      "title": "Component Usage Patterns",
+      "description": "Web components use slots for content. Shell: <nuke-app-shell-sidebar collapsed><aside>nav</aside><main>content</main></nuke-app-shell-sidebar>. Accordion: <nuke-accordion expanded><nuke-accordion-header>Title</nuke-accordion-header><nuke-accordion-content>Body</nuke-accordion-content></nuke-accordion>. Tabs: <nuke-tabs><nuke-tab>Tab 1</nuke-tab><nuke-tab>Tab 2</nuke-tab><nuke-tab-panel>Content 1</nuke-tab-panel><nuke-tab-panel>Content 2</nuke-tab-panel></nuke-tabs>. Icon: <nuke-icon name=\"house\"></nuke-icon>. Props reflect as attributes (collapsed, expanded, name).",
+      "details": {
+        "app_shell": "<nuke-app-shell-sidebar collapsed><aside>sidebar</aside><main>content</main></nuke-app-shell-sidebar>",
+        "accordion": "<nuke-accordion expanded><nuke-accordion-header>Title</nuke-accordion-header><nuke-accordion-content>Content</nuke-accordion-content></nuke-accordion>",
+        "tabs": "<nuke-tabs><nuke-tab>Tab 1</nuke-tab><nuke-tab>Tab 2</nuke-tab><nuke-tab-panel>Panel 1</nuke-tab-panel><nuke-tab-panel>Panel 2</nuke-tab-panel></nuke-tabs>",
+        "icon": "<nuke-icon name=\"house\"></nuke-icon> - loads SVG from /icons/{name}.svg",
+        "toast": "<nuke-toast type=\"success|warning|error\">Message</nuke-toast>",
+        "common_props": "collapsed (shell), expanded (accordion), name (icon), type (toast, tag)"
+      }
     }
   ]
 }
