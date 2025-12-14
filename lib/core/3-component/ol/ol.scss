@@ -1,0 +1,9 @@
+/* Ordered List - Reset */
+ol {
+  list-style: decimal;
+  padding-left: calc(var(--unit) * 4);
+
+  li {
+    line-height: 1.5;
+  }
+}

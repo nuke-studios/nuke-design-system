@@ -1,0 +1,8 @@
+/* Section - Generic container */
+section {
+  display: block;
+  padding: var(--layout-padding);
+  background: var(--layout-background);
+  border: var(--layout-border);
+  border-radius: var(--layout-radius);
+}

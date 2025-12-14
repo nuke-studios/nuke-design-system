@@ -1,135 +1,146 @@
 /* ============================================
    NUKE DESIGN SYSTEM - TOKENS
-   Two variables control everything.
+   4-Layer Architecture: shell → layout → component → control
 ============================================ */
 
 :root {
-  --unit: 6px;   /* base size: 4px=compact, 6px=standard, 8px=spacious */
-  --ratio: 0.4;  /* content fill: 0.4=airy, 0.5=balanced, 0.7=tight */
+  /* BASE - shared sizing values */
+  --unit: 6px;   /* 4px=compact, 6px=standard, 8px=spacious */
+  --ratio: 0.4;  /* 0.4=airy, 0.5=balanced, 0.7=tight */
 
-  /* TEXT BASE - derived from controls-height × ratio */
-  --text-base: calc(var(--controls-height) * var(--ratio));
+  /* SHELL - app frame (header, sidebar, footer layouts) */
+  --shell-padding: 0;
+  --shell-gap: 1px;
+  --shell-radius: 0;
+  --shell-border: none;
 
-  /* HEIGHTS */
-  --controls-height: calc(var(--unit) * 6);        /* buttons, inputs, select */
-  --controls-height-small: calc(var(--unit) * 4);  /* checkbox, radio, badge */
-  --bar-height-1: calc(var(--unit) * 5);           /* breadcrumb, status bar */
-  --bar-height-2: calc(var(--unit) * 8);           /* toolbar, nav bar */
-  --bar-height-3: calc(var(--unit) * 10);          /* header, hero sections */
+  /* LAYOUT - page regions (area, section, toolbar, nav-bar) */
+  --layout-padding: calc(var(--unit) * 2);
+  --layout-gap: 1px;
+  --layout-radius: 0;
+  --layout-border: none;
 
-  /* SPACING */
-  --space-1: var(--unit);                          /* tight: gaps, icon padding */
-  --space-2: calc(var(--unit) * 2);                /* default: card padding, form gaps */
-  --space-3: calc(var(--unit) * 4);                /* loose: section spacing */
+  /* COMPONENT - UI containers (accordion, toast, table, badge) */
+  --component-padding: var(--unit);
+  --component-gap: 1px;
+  --component-radius: 3px;
+  --component-border: 1px solid var(--border-color-1);
 
-  /* GAP SYSTEM - cascades through component tree */
-  --gap: 1px;                                      /* base: 1px=block, 5px+=island */
-  --gap-shell: var(--gap);                         /* 1-app-shell */
-  --gap-primitive: var(--gap);                     /* 2-primitives */
-  --gap-component: var(--gap);                     /* 3-components */
+  /* CONTROL - form elements (button, input, select, checkbox) */
+  --control-height: calc(var(--unit) * 6);
+  --control-height-small: calc(var(--unit) * 4);
+  --control-gap: 1px;
+  --control-radius: 3px;
+  --control-border: 1px solid var(--border-color-1);
+  --control-border-bottom: none;
 
-  /* WIDTHS */
-  --width-1: calc(var(--unit) * 40);               /* sidebar, narrow panels */
-  --width-2: calc(var(--unit) * 80);               /* content, modals */
-  --width-3: calc(var(--unit) * 128);              /* max-width, containers */
+  /* WIDTHS - derived from unit */
+  --width-1: calc(var(--unit) * 40);   /* sidebar, narrow panels */
+  --width-2: calc(var(--unit) * 80);   /* content, modals */
+  --width-3: calc(var(--unit) * 128);  /* max-width, containers */
 
-  /* RADIUS SYSTEM - cascades through component tree */
-  --radius: calc(var(--unit) * 0.5);               /* base: 0=block, unit*0.5=island */
-  --radius-shell: var(--radius);                   /* 1-app-shell */
-  --radius-primitive: var(--radius);               /* 2-primitives */
-  --radius-component: var(--radius);               /* 3-components */
+  /* BAR HEIGHTS - derived from unit */
+  --bar-height-1: calc(var(--unit) * 5);   /* breadcrumb, status bar */
+  --bar-height-2: calc(var(--unit) * 8);   /* toolbar, nav bar */
+  --bar-height-3: calc(var(--unit) * 10);  /* header, hero sections */
 
-  /* BORDER SYSTEM - cascades through component tree */
-  --border: 1px solid var(--border-color-1);       /* base: full border or none */
-  --border-shell: var(--border);                   /* 1-app-shell */
-  --border-primitive: var(--border);               /* 2-primitives */
-  --border-component: var(--border);               /* 3-components */
-  --border-bottom-component: none;                 /* underline style for inputs */
+  /* TEXT - derived from control height */
+  --text-base: calc(var(--control-height) * var(--ratio));
 
   /* FONT FAMILIES */
-  --family-1: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;  /* body, UI */
-  --family-2: 'Raleway', 'Impact', 'Arial Black', 'Helvetica', sans-serif;  /* display, headings */
-  --family-mono: 'Monaco', 'Courier New', monospace;  /* code, pre */
+  --family-1: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  --family-2: 'Impact', 'Arial Black', 'Helvetica', sans-serif;
+  --family-mono: 'Monaco', 'Courier New', monospace;
 
   /* FONT WEIGHTS */
-  --font-weight-normal: 400;   /* body text */
-  --font-weight-medium: 500;   /* labels, emphasis */
-  --font-weight-bold: 700;     /* headings, strong */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
 
   /* NON-UNIT VALUES */
-  --opacity-disabled: 0.5;          /* disabled states */
-  --z-index-1: 100;                 /* dropdowns, tooltips */
-  --z-index-2: 500;                 /* modals, dialogs */
-  --z-index-3: 1000;                /* toasts, notifications */
-  --transition-fast: 0.15s ease-out;    /* hover, focus */
-  --transition-medium: 0.25s ease-out;  /* expand, collapse */
-  --transition-slow: 0.4s ease-out;     /* page transitions */
+  --opacity-disabled: 0.5;
+  --z-index-1: 100;
+  --z-index-2: 500;
+  --z-index-3: 1000;
+  --transition-fast: 0.15s ease-out;
+  --transition-medium: 0.25s ease-out;
+  --transition-slow: 0.4s ease-out;
 }
 
 /* DARK THEME (default) */
 :root, .dark-theme {
-  /* Accent colors - brighter for dark backgrounds */
-  --color-1: hsl(25, 90%, 60%);       /* primary: buttons, links, focus */
-  --color-2: hsl(280, 60%, 70%);      /* secondary: accents, highlights */
-  --color-3: hsl(160, 60%, 55%);      /* tertiary: badges, tags */
+  /* Accent colors */
+  --color-1: hsl(25, 90%, 60%);
+  --color-2: hsl(280, 60%, 70%);
+  --color-3: hsl(160, 60%, 55%);
 
   /* Text colors */
-  --color-text-1: hsl(0, 0%, 92%);        /* primary text */
-  --color-text-2: hsl(0, 0%, 60%);        /* muted, placeholders */
-  --color-text-inverse: hsl(0, 0%, 100%); /* text on accent backgrounds */
+  --color-text-1: hsl(0, 0%, 92%);
+  --color-text-2: hsl(0, 0%, 60%);
+  --color-text-inverse: hsl(0, 0%, 100%);
 
   /* Semantic colors */
-  --error-color: hsl(0, 70%, 60%);    /* errors, destructive actions */
-  --warning-color: hsl(40, 90%, 60%); /* warnings, caution */
-  --success-color: hsl(140, 60%, 55%);/* success, confirmation */
+  --error-color: hsl(0, 70%, 60%);
+  --warning-color: hsl(40, 90%, 60%);
+  --success-color: hsl(140, 60%, 55%);
 
-  /* BACKGROUND SYSTEM - cascades through component tree */
-  --background-body: hsl(0, 0%, 8%);       /* page base, shows through gaps */
-  --background-shell: hsl(0, 0%, 10%);     /* 1-app-shell regions */
-  --background-primitive: hsl(0, 0%, 14%); /* 2-primitives: cards, sections */
-  --background-component: hsl(0, 0%, 18%); /* 3-components: inputs, buttons */
-  --background-hover: hsl(0, 0%, 22%);     /* hover state */
+  /* BACKGROUNDS - per layer */
+  --body-background: hsl(0, 0%, 8%);
+  --shell-background: hsl(0, 0%, 10%);
+  --layout-background: hsl(0, 0%, 14%);
+  --component-background: hsl(0, 0%, 18%);
+  --control-background: hsl(0, 0%, 18%);
+  --hover-background: hsl(0, 0%, 22%);
 
-  /* Misc */
-  --border-color-1: hsl(0, 0%, 32%);      /* subtle borders */
-  --border-color-2: hsl(0, 0%, 50%);      /* visible borders */
-  --box-shadow-1: 0 1px 3px rgba(0, 0, 0, 0.3);   /* subtle elevation */
-  --box-shadow-2: 0 2px 8px rgba(0, 0, 0, 0.4);   /* cards, dropdowns */
-  --box-shadow-3: 0 4px 16px rgba(0, 0, 0, 0.5);  /* modals, popovers */
-  --scrollbar-track: var(--background-body);
+  /* Border colors */
+  --border-color-1: hsl(0, 0%, 32%);
+  --border-color-2: hsl(0, 0%, 50%);
+
+  /* Shadows */
+  --box-shadow-1: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --box-shadow-2: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --box-shadow-3: 0 4px 16px rgba(0, 0, 0, 0.5);
+
+  /* Scrollbar */
+  --scrollbar-track: var(--body-background);
   --scrollbar-thumb: var(--border-color-2);
 }
 
 /* LIGHT THEME */
 :root.light-theme {
   /* Accent colors */
-  --color-1: hsl(25, 85%, 50%);       /* primary: buttons, links, focus */
-  --color-2: hsl(280, 50%, 55%);      /* secondary: accents, highlights */
-  --color-3: hsl(160, 50%, 45%);      /* tertiary: badges, tags */
+  --color-1: hsl(25, 85%, 50%);
+  --color-2: hsl(280, 50%, 55%);
+  --color-3: hsl(160, 50%, 45%);
 
   /* Text colors */
-  --color-text-1: hsl(0, 0%, 15%);        /* primary text */
-  --color-text-2: hsl(0, 0%, 45%);        /* muted, placeholders */
-  --color-text-inverse: hsl(0, 0%, 100%); /* text on accent backgrounds */
+  --color-text-1: hsl(0, 0%, 15%);
+  --color-text-2: hsl(0, 0%, 45%);
+  --color-text-inverse: hsl(0, 0%, 100%);
 
   /* Semantic colors */
-  --error-color: hsl(0, 70%, 50%);    /* errors, destructive actions */
-  --warning-color: hsl(40, 90%, 50%); /* warnings, caution */
-  --success-color: hsl(140, 60%, 40%);/* success, confirmation */
+  --error-color: hsl(0, 70%, 50%);
+  --warning-color: hsl(40, 90%, 50%);
+  --success-color: hsl(140, 60%, 40%);
 
-  /* BACKGROUND SYSTEM - cascades through component tree */
-  --background-body: hsl(0, 0%, 94%);       /* page base, shows through gaps */
-  --background-shell: hsl(0, 0%, 96%);      /* 1-app-shell regions */
-  --background-primitive: hsl(0, 0%, 100%); /* 2-primitives: cards, sections */
-  --background-component: hsl(0, 0%, 96%);  /* 3-components: inputs, buttons */
-  --background-hover: hsl(0, 0%, 90%);      /* hover state */
+  /* BACKGROUNDS - per layer */
+  --body-background: hsl(0, 0%, 94%);
+  --shell-background: hsl(0, 0%, 96%);
+  --layout-background: hsl(0, 0%, 100%);
+  --component-background: hsl(0, 0%, 96%);
+  --control-background: hsl(0, 0%, 96%);
+  --hover-background: hsl(0, 0%, 90%);
 
-  /* Misc */
-  --border-color-1: hsl(0, 0%, 75%);      /* subtle borders */
-  --border-color-2: hsl(0, 0%, 60%);      /* visible borders */
-  --box-shadow-1: 0 1px 3px rgba(0, 0, 0, 0.08);   /* subtle elevation */
-  --box-shadow-2: 0 2px 8px rgba(0, 0, 0, 0.12);   /* cards, dropdowns */
-  --box-shadow-3: 0 4px 16px rgba(0, 0, 0, 0.16);  /* modals, popovers */
-  --scrollbar-track: var(--background-body);
+  /* Border colors */
+  --border-color-1: hsl(0, 0%, 75%);
+  --border-color-2: hsl(0, 0%, 60%);
+
+  /* Shadows */
+  --box-shadow-1: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --box-shadow-2: 0 2px 8px rgba(0, 0, 0, 0.12);
+  --box-shadow-3: 0 4px 16px rgba(0, 0, 0, 0.16);
+
+  /* Scrollbar */
+  --scrollbar-track: var(--body-background);
   --scrollbar-thumb: var(--border-color-2);
 }

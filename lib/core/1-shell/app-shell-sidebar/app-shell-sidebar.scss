@@ -1,0 +1,27 @@
+/* App Shell Sidebar - Layout with sidebar + content area */
+nuke-app-shell-sidebar {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr;
+  gap: var(--shell-gap);
+  min-height: 100vh;
+  background: var(--body-background);
+
+  /* Collapsed sidebar state */
+  &[collapsed] {
+    nuke-nav-rail {
+      width: var(--control-height);
+    }
+
+    nuke-nav-rail-item span {
+      display: none;
+    }
+  }
+}
+
+nuke-app-shell-sidebar-content {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  overflow-y: auto;
+  background: var(--shell-background);
+}

@@ -1,0 +1,22 @@
+/* Nav */
+nav {
+  padding: var(--component-padding);
+  display: flex;
+  gap: var(--component-gap);
+  background: var(--layout-background);
+  border: var(--component-border);
+  border-radius: var(--component-radius);
+
+  a {
+    padding: var(--unit) var(--component-padding);
+    color: var(--color-text-1);
+    text-decoration: none;
+    border-radius: var(--component-radius);
+    transition: color var(--transition-fast), background-color var(--transition-fast);
+
+    &:hover {
+      color: var(--color-1);
+      background: var(--hover-background);
+    }
+  }
+}

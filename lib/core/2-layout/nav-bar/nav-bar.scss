@@ -1,0 +1,81 @@
+/* Nav Bar - Horizontal navigation with dropdowns */
+nuke-nav-bar {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  gap: var(--layout-gap);
+}
+
+nuke-nav-bar-item {
+  position: relative;
+  display: inline-grid;
+  grid-auto-flow: column;
+  align-items: center;
+  gap: var(--unit);
+  padding: var(--unit) var(--layout-padding);
+  height: var(--control-height);
+  color: var(--color-text-1);
+  font-size: var(--text-base);
+  text-decoration: none;
+  border-radius: var(--layout-radius);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+
+  &:hover {
+    background: var(--hover-background);
+  }
+
+  &[active] {
+    background: var(--component-background);
+  }
+
+  /* Dropdown indicator */
+  &[has-dropdown]::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid currentColor;
+  }
+}
+
+/* Dropdown menu */
+nuke-nav-bar-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  padding: var(--unit);
+  background: var(--layout-background);
+  border: var(--layout-border);
+  border-radius: var(--layout-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all var(--transition-fast);
+  z-index: var(--z-index-2);
+
+  nuke-nav-bar-item:hover > &,
+  nuke-nav-bar-item:focus-within > & {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+nuke-nav-bar-dropdown-item {
+  display: block;
+  padding: var(--unit) var(--layout-padding);
+  color: var(--color-text-1);
+  font-size: var(--text-base);
+  text-decoration: none;
+  border-radius: var(--layout-radius);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+
+  &:hover {
+    background: var(--hover-background);
+  }
+}

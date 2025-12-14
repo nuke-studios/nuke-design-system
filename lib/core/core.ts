@@ -5,20 +5,22 @@
  * import '@nuke.dev/design-system/dist/index.js';
  */
 
-// 1. App Shell
-export { NukeAppShellSidebar } from './1-app-shell/app-shell-sidebar/app-shell-sidebar.js';
-export { NukeAppShellStacked } from './1-app-shell/app-shell-stacked/app-shell-stacked.js';
+// 1. Shell
+export { NukeAppShellSidebar } from './1-shell/app-shell-sidebar/app-shell-sidebar.js';
+export { NukeAppShellStacked } from './1-shell/app-shell-stacked/app-shell-stacked.js';
 
-// 2. Primitives
-export { NukeNavAccordion, NukeNavAccordionItem } from './2-primitives/nav-accordion/nav-accordion.js';
-export { NukeNavBarItem } from './2-primitives/nav-bar/nav-bar.js';
-export { NukeNavRailItem } from './2-primitives/nav-rail/nav-rail.js';
-export { NukeSidebar } from './2-primitives/sidebar/sidebar.js';
-export { NukeToolbar } from './2-primitives/toolbar/toolbar.js';
+// 2. Layout
+export { NukeNavAccordion, NukeNavAccordionItem } from './2-layout/nav-accordion/nav-accordion.js';
+export { NukeNavBarItem } from './2-layout/nav-bar/nav-bar.js';
+export { NukeNavRailItem } from './2-layout/nav-rail/nav-rail.js';
+export { NukeSidebar } from './2-layout/sidebar/sidebar.js';
+export { NukeToolbar } from './2-layout/toolbar/toolbar.js';
 
-// 3. Components
-export { NukeAccordion } from './3-components/accordion/accordion.js';
-export { NukeBadge } from './3-components/badge/badge.js';
-export { NukeIcon } from './3-components/icon/icon.js';
-export { NukeTabs, NukeTab, NukeTabPanel } from './3-components/tabs/tabs.js';
-export { NukeToast } from './3-components/toast/toast.js';
+// 3. Component
+export { NukeAccordion } from './3-component/accordion/accordion.js';
+export { NukeBadge } from './3-component/badge/badge.js';
+export { NukeIcon } from './3-component/icon/icon.js';
+
+// 4. Control
+export { NukeTabs, NukeTab, NukeTabPanel } from './4-control/tabs/tabs.js';
+export { NukeToast } from './3-component/toast/toast.js';

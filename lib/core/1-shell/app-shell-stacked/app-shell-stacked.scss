@@ -1,0 +1,17 @@
+/* App Shell Stacked - Vertical header/main/footer layout */
+nuke-app-shell-stacked {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: var(--shell-gap);
+  min-height: 100vh;
+  background: var(--body-background);
+
+  /* Centered content variant */
+  &[centered] {
+    > * {
+      max-width: var(--content-width, 1200px);
+      margin-inline: auto;
+      width: 100%;
+    }
+  }
+}

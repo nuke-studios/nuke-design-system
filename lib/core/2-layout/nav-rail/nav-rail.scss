@@ -1,0 +1,88 @@
+/* Nav Rail - Vertical icon navigation */
+nuke-nav-rail {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  width: var(--width-1);
+  height: 100%;
+  background: var(--layout-background);
+  border-right: 1px solid var(--border-color-1);
+  transition: width var(--transition-medium);
+  overflow: hidden;
+}
+
+nuke-nav-rail-header {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: start;
+  align-items: center;
+  gap: var(--layout-padding);
+  padding: var(--layout-padding);
+  height: var(--control-height);
+  border-bottom: 1px solid var(--border-color-1);
+}
+
+nuke-nav-rail-content {
+  display: grid;
+  align-content: start;
+  padding: var(--unit);
+  gap: var(--layout-gap);
+  overflow-y: auto;
+}
+
+nuke-nav-rail-footer {
+  display: grid;
+  padding: var(--unit);
+  gap: var(--layout-gap);
+  border-top: 1px solid var(--border-color-1);
+}
+
+/* Nav Rail Item */
+nuke-nav-rail-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: var(--layout-padding);
+  padding: var(--unit) var(--layout-padding);
+  min-height: var(--control-height);
+  color: var(--color-text-2);
+  border-radius: var(--layout-radius);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+
+  &:hover {
+    color: var(--color-text-1);
+    background: var(--hover-background);
+  }
+
+  &[active] {
+    color: var(--color-text-1);
+    background: var(--component-background);
+  }
+
+  nuke-icon {
+    font-size: calc(var(--text-base) * 1.25);
+  }
+
+  span {
+    font-size: var(--text-base);
+    transition: opacity var(--transition-fast);
+  }
+}
+
+/* Collapsed state - handled by app-shell[collapsed] */
+nuke-app-shell[collapsed] nuke-nav-rail {
+  width: calc(var(--control-height) + var(--layout-padding) * 2);
+}
+
+nuke-app-shell[collapsed] nuke-nav-rail-item span {
+  opacity: 0;
+  width: 0;
+}
+
+nuke-app-shell[collapsed] nuke-nav-rail-header span {
+  opacity: 0;
+  width: 0;
+}

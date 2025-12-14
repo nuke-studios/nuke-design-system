@@ -1,0 +1,36 @@
+/* Header - Horizontal header bar */
+nuke-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  height: var(--control-height);
+  padding: 0 var(--layout-padding);
+  background: var(--layout-background);
+  border-bottom: 1px solid var(--border-color-1);
+}
+
+nuke-header-logo {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  gap: var(--layout-padding);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-1);
+  text-decoration: none;
+}
+
+nuke-header-nav {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--unit);
+}
+
+nuke-header-actions {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: end;
+  align-items: center;
+  gap: var(--unit);
+}

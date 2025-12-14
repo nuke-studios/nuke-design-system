@@ -1,0 +1,65 @@
+/* Toast */
+.nuke-toast-container {
+  position: fixed;
+  top: auto;
+  right: calc(var(--unit) * 4);
+  left: auto;
+  bottom: calc(var(--unit) * 4);
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--component-padding);
+  z-index: var(--z-index-3);
+  pointer-events: none;
+}
+
+nuke-toast {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: calc(var(--unit) * 50);
+  max-width: var(--width-2);
+  padding: var(--component-padding);
+  font-size: var(--text-base);
+  border-radius: var(--component-radius);
+  pointer-events: auto;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.3s ease;
+  background: var(--component-background);
+  color: var(--color-text-1);
+  border: var(--component-border);
+
+  &.show {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  &.hide {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+.toast-message {
+  flex: 1;
+}
+
+.toast-close {
+  width: var(--text-base);
+  height: var(--text-base);
+  padding: 0;
+  margin-left: var(--unit);
+  background: transparent;
+  border: none;
+  color: currentColor;
+  font-size: var(--text-base);
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.7;
+  flex-shrink: 0;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}

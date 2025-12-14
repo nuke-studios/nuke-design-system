@@ -1,0 +1,48 @@
+nuke-tabs {
+  display: block;
+}
+
+nuke-tab {
+  display: inline-block;
+  height: var(--control-height);
+  padding: 0 calc(var(--control-height) * (1 - var(--ratio)));
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-2);
+  background: var(--control-background);
+  border: var(--control-border);
+  border-bottom: var(--control-border-bottom);
+  border-radius: var(--control-radius);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+  line-height: var(--control-height);
+
+  &:hover {
+    color: var(--color-text-1);
+    background: var(--hover-background);
+  }
+
+  &[aria-selected="true"] {
+    color: var(--color-text-1);
+    background: var(--hover-background);
+    border-color: var(--color-text-1);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+nuke-tab-panel {
+  display: block;
+  padding: var(--layout-padding);
+  margin-top: var(--unit);
+  background: var(--layout-background);
+  border: var(--layout-border);
+  border-radius: var(--layout-radius);
+
+  &[aria-hidden="true"] {
+    display: none;
+  }
+}

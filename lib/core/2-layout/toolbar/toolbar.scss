@@ -1,0 +1,11 @@
+/* Toolbar */
+nuke-toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--layout-gap);
+  padding: var(--unit);
+  background: var(--layout-background);
+  border: var(--layout-border);
+  border-radius: var(--layout-radius);
+  flex-wrap: wrap;
+}

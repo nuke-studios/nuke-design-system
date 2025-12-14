@@ -1,0 +1,55 @@
+/* Nav Accordion - Vertical navigation with expandable items */
+nuke-nav-accordion {
+  display: grid;
+  align-content: start;
+  gap: var(--layout-gap);
+}
+
+nuke-nav-accordion-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: var(--layout-padding);
+  color: var(--color-text-1);
+  font-size: var(--text-base);
+  text-decoration: none;
+  background: var(--layout-background);
+  border-radius: var(--layout-radius);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+
+  &:hover {
+    background: var(--hover-background);
+  }
+
+  &[active] {
+    background: var(--component-background);
+    color: var(--color-text-1);
+  }
+
+  /* Expandable indicator */
+  &[expandable]::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid currentColor;
+    transition: transform var(--transition-fast);
+  }
+
+  &[expanded]::after {
+    transform: rotate(180deg);
+  }
+}
+
+/* Sub-items container */
+nuke-nav-accordion-subitems {
+  display: none;
+  padding-left: calc(var(--unit) * 4);
+
+  nuke-nav-accordion-item[expanded] + & {
+    display: grid;
+    gap: var(--layout-gap);
+  }
+}

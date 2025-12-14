@@ -43,10 +43,10 @@
     {
       "id": "concept-1",
       "title": "Flat Architecture",
-      "description": "Single-layer design: tokens defined once in tokens.scss, used directly in components. No component-specific variables. Each component has one .scss file with reset and base styles. All styling controlled via cascading CSS tokens.",
+      "description": "Single-layer design: tokens defined once in tokens.scss, used directly in components. No component-specific variables. Each component has one .scss file with reset and base styles. All styling controlled via layer-first CSS tokens.",
       "details": {
         "concept": "Single-layer design: tokens defined once in tokens.scss, used directly in component SCSS",
-        "no_abstraction": "No component-specific CSS variables (e.g., --button-bg). Components use design tokens directly (e.g., var(--background-component))",
+        "no_abstraction": "No component-specific CSS variables (e.g., --button-bg). Components use design tokens directly (e.g., var(--control-background))",
         "single_file_per_component": "Each component has one .scss file containing reset and base styles",
         "token_styling": "All visual styles controlled via token overrides - no style attributes needed"
       }
@@ -54,7 +54,7 @@
     {
       "id": "concept-2",
       "title": "Unit-Based Tokens",
-      "description": "All dimensions derive from --unit (6px default) and --ratio (0.4 default). Change --unit to scale entire UI: 4px=compact, 6px=standard, 8px=spacious. Derived tokens: --controls-height, --space-1/2/3, --width-1/2/3.",
+      "description": "All dimensions derive from --unit (6px default) and --ratio (0.4 default). Change --unit to scale entire UI: 4px=compact, 6px=standard, 8px=spacious. Derived tokens: --control-height, layer-specific padding/gap/radius/border/background.",
       "details": {
         "base_values": {
           "--ratio": "0.4 (content fill - 0.4=airy, 0.5=balanced, 0.7=tight)",
@@ -68,9 +68,8 @@
           "standard": "--unit: 6px"
         },
         "derived_tokens": {
-          "--controls-height": "calc(var(--unit) * 6) - buttons, inputs",
-          "--space-1/2/3": "unit × 1/2/4 - tight/default/loose spacing",
-          "--text-base": "calc(var(--controls-height) * var(--ratio))",
+          "--control-height": "calc(var(--unit) * 6) - buttons, inputs",
+          "--text-base": "calc(var(--control-height) * var(--ratio))",
           "--width-1/2/3": "unit × 40/80/128 - sidebar/content/max-width"
         }
       }
@@ -78,7 +77,7 @@
     {
       "id": "concept-3",
       "title": "Build System",
-      "description": "npm run build compiles SCSS to CSS and bundles TypeScript. Output: dist/core.css + dist/core.js. Source organized in three numbered folders: 1-app-shell, 2-primitives, 3-components.",
+      "description": "npm run build compiles SCSS to CSS and bundles TypeScript. Output: dist/core.css + dist/core.js. Source organized in four numbered folders: 1-shell, 2-layout, 3-component, 4-control.",
       "details": {
         "build_output": {
           "dist/core.css": "Bundled CSS (compiled from SCSS)",
@@ -88,13 +87,14 @@
           "build": "npm run build - Compiles SCSS to CSS and bundles TypeScript"
         },
         "source_structure": {
-          "core/1-app-shell/": "Page-level layouts (app-shell-sidebar, app-shell-stacked)",
-          "core/2-primitives/": "Layout containers (area, grid, header, nav-*, sidebar, toolbar)",
-          "core/3-components/": "UI elements (button, input, tabs, badge, etc.)",
-          "core/_mixins.scss": "Shared mixins (currently empty - style variants via tokens)",
+          "core/1-shell/": "App frame (app-shell-sidebar, app-shell-stacked)",
+          "core/2-layout/": "Page regions (area, section, toolbar, sidebar, header, footer, nav-*, grid)",
+          "core/3-component/": "UI containers (accordion, toast, table, badge, tag, nav, a, code, img, ol, ul)",
+          "core/4-control/": "Form elements (button, input, select, textarea, checkbox, radio, range, tabs, label)",
+          "core/_mixins.scss": "Shared mixins (currently empty)",
           "core/core.scss": "SCSS entry point (imports tokens + all components)",
           "core/core.ts": "Web component exports",
-          "core/tokens.scss": "Design tokens (--unit, --gap-*, --radius-*, --border-*, --background-*, colors)"
+          "core/tokens.scss": "Design tokens (--unit, layer tokens: --shell-*, --layout-*, --component-*, --control-*)"
         }
       }
     },
@@ -106,7 +106,7 @@
         "customize_tokens": "Override CSS tokens on :root, body, or any container to cascade style changes to children",
         "import_css": "<link rel='stylesheet' href='dist/core.css'>",
         "import_js": "<script type='module' src='dist/core.js'></script>",
-        "style_modes": "Set --border-component, --background-component, --radius-component etc. on any element to control all children"
+        "style_modes": "Set layer tokens (--shell-*, --layout-*, --component-*, --control-*) on any element to control all children"
       }
     },
     {
@@ -116,33 +116,37 @@
     },
     {
       "id": "concept-6",
-      "title": "Component Hierarchy",
-      "description": "Three-layer architecture matching folder structure: 1-app-shell (page frame - sidebar/stacked layouts), 2-primitives (layout regions - area, grid, nav-*, toolbar), 3-components (UI elements - button, input, tabs). Numbered folders show usage order and token cascade direction."
+      "title": "4-Layer Architecture",
+      "description": "Four layers matching folder structure: 1-shell (app frame - sidebar/stacked layouts), 2-layout (page regions - area, section, toolbar, nav-*), 3-component (UI containers - accordion, toast, table), 4-control (form elements - button, input, tabs). Each layer has independent tokens.",
+      "details": {
+        "layers": {
+          "1-shell": "App frame - overall page structure",
+          "2-layout": "Page regions - areas, sections, navigation",
+          "3-component": "UI containers - accordions, toasts, tables",
+          "4-control": "Form elements - buttons, inputs, selects"
+        }
+      }
     },
     {
       "id": "concept-7",
-      "title": "Gap & Radius Token System",
-      "description": "Tokens cascade through component tree matching folder structure. Gap: --gap (base), --gap-shell (1-app-shell), --gap-primitive (2-primitives), --gap-component (3-components). Radius: --radius (base), --radius-shell, --radius-primitive, --radius-component. Set base values, override per-level as needed."
+      "title": "Layer-First Token Naming",
+      "description": "Tokens use layer-first naming: --shell-gap, --layout-padding, --component-border, --control-height. Each layer has: padding, gap, radius, border, background. No cascade between layers - each is independent.",
+      "details": {
+        "shell_tokens": "--shell-padding, --shell-gap, --shell-radius, --shell-border, --shell-background",
+        "layout_tokens": "--layout-padding, --layout-gap, --layout-radius, --layout-border, --layout-background",
+        "component_tokens": "--component-padding, --component-gap, --component-radius, --component-border, --component-background",
+        "control_tokens": "--control-height, --control-height-small, --control-gap, --control-radius, --control-border, --control-border-bottom, --control-background"
+      }
     },
     {
       "id": "concept-8",
-      "title": "Border Token System",
-      "description": "Tokens cascade through component tree. Border: --border (base), --border-shell, --border-primitive, --border-component. Plus --border-bottom-component for underline-only styles. Set --border to 'none' for borderless, or override per-level."
+      "title": "Block vs Island Mode",
+      "description": "Two aesthetic modes controlled by layer tokens. Block mode (--*-gap: 1px, --*-radius: 0, --*-border: none): Japanese hairline aesthetic - body color shows through 1px gaps creating visual borders. Island mode (--*-gap: 5px+, --*-radius: 3px+, --*-border: 1px solid): floating card aesthetic - visible separation, rounded corners, explicit borders."
     },
     {
       "id": "concept-9",
-      "title": "Background Token System",
-      "description": "Semantic backgrounds matching tree hierarchy. --background-body (page base, shows through gaps), --background-shell (1-app-shell), --background-primitive (2-primitives), --background-component (3-components), --background-hover (hover states). In block mode, --background-body creates visual borders through 1px gaps."
-    },
-    {
-      "id": "concept-10",
-      "title": "Block vs Island Mode",
-      "description": "Two aesthetic modes controlled by tokens. Block mode (--gap: 1px, --radius: 0, --border: none): Japanese hairline aesthetic - body color shows through 1px gaps creating visual borders. Island mode (--gap: 5px+, --radius: 3px+, --border: 1px solid): floating card aesthetic - visible separation, rounded corners, explicit borders."
-    },
-    {
-      "id": "concept-11",
-      "title": "Token Cascade Styling",
-      "description": "All visual styling via CSS token overrides. Set tokens on any container to style all children. Example: set --border-component: none; --border-bottom-component: 1px solid var(--border-color-2); on a form for underline-only inputs. No classes or attributes needed."
+      "title": "Control Padding Calculation",
+      "description": "Controls (buttons, inputs, etc.) don't use padding tokens. Instead, padding is calculated from height and ratio: padding = control-height × (1 - ratio). This ensures consistent proportions across all control heights."
     }
   ]
 }

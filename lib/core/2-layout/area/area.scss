@@ -1,0 +1,8 @@
+/* Area - Generic container */
+nuke-area {
+  display: block;
+  padding: calc(var(--unit) * 4);
+  background: var(--layout-background);
+  border: var(--layout-border);
+  border-radius: var(--layout-radius);
+}

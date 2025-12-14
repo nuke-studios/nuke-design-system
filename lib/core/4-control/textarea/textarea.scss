@@ -1,0 +1,44 @@
+textarea {
+  /* Reset */
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  width: 100%;
+  resize: vertical;
+
+  /* Base (styled by tokens) */
+  display: block;
+  width: 100%;
+  min-height: calc(var(--control-height) * 4);
+  padding: calc(var(--control-height) * (1 - var(--ratio)) / 2);
+  font-size: var(--text-base);
+  line-height: 1.5;
+  color: var(--color-text-1);
+  background: var(--control-background);
+  border: var(--control-border);
+  border-bottom: var(--control-border-bottom);
+  border-radius: var(--control-radius);
+  transition:
+    border-color var(--transition-fast),
+    background-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+
+  &::placeholder {
+    color: var(--color-text-2);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-text-1);
+  }
+
+  &:disabled {
+    opacity: var(--opacity-disabled);
+    cursor: not-allowed;
+    resize: none;
+  }
+}

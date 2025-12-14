@@ -1,0 +1,10 @@
+/* Grid - Layout container */
+nuke-grid {
+  display: grid;
+  gap: var(--layout-gap);
+  background: var(--border-color-1);
+}
+
+nuke-grid > * {
+  background: var(--layout-background);
+}

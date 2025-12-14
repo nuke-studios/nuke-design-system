@@ -1,0 +1,9 @@
+/* Unordered List - Reset */
+ul {
+  list-style: disc;
+  padding-left: calc(var(--unit) * 4);
+
+  li {
+    line-height: 1.5;
+  }
+}

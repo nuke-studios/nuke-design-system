@@ -1,0 +1,56 @@
+/* Radio */
+input[type="radio"] {
+  /* Reset */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+
+  /* Base */
+  display: inline-block;
+  width: var(--control-height-small);
+  height: var(--control-height-small);
+  min-width: var(--control-height-small);
+  min-height: var(--control-height-small);
+  background: var(--control-background);
+  border: var(--control-border);
+  border-radius: 50%;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast);
+  position: relative;
+  vertical-align: middle;
+
+  &:checked {
+    background-color: var(--control-background);
+    border-color: var(--color-text-1);
+  }
+
+  &:checked::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(var(--control-height-small) * var(--ratio));
+    height: calc(var(--control-height-small) * var(--ratio));
+    background: var(--color-text-1);
+    border-radius: 50%;
+  }
+
+  &:hover:not(:disabled) {
+    border-color: var(--color-text-1);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--body-background), 0 0 0 4px var(--border-color-2);
+  }
+
+  &:disabled {
+    opacity: var(--opacity-disabled);
+    cursor: not-allowed;
+  }
+}

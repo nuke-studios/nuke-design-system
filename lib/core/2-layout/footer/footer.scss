@@ -1,0 +1,55 @@
+/* Footer - Multi-column footer layout */
+nuke-footer {
+  display: grid;
+  gap: calc(var(--unit) * 4);
+  padding: calc(var(--unit) * 4);
+  background: var(--layout-background);
+  border-top: 1px solid var(--border-color-1);
+}
+
+nuke-footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: calc(var(--unit) * 4);
+  max-width: var(--width-3);
+  justify-self: center;
+  width: 100%;
+}
+
+nuke-footer-section {
+  display: grid;
+  gap: var(--unit);
+  align-content: start;
+}
+
+nuke-footer-title {
+  display: block;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-1);
+}
+
+nuke-footer-link {
+  display: block;
+  color: var(--color-text-2);
+  text-decoration: none;
+  font-size: var(--text-base);
+  transition: color var(--transition-fast);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--color-text-1);
+  }
+}
+
+nuke-footer-bottom {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--layout-padding);
+  padding-top: calc(var(--unit) * 4);
+  border-top: 1px solid var(--border-color-1);
+  color: var(--color-text-2);
+  font-size: calc(var(--text-base) * 0.9);
+  text-align: center;
+}
