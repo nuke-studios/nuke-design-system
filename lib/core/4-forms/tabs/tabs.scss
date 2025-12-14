@@ -5,7 +5,7 @@ nuke-tabs {
 nuke-tab {
   display: inline-block;
   height: var(--forms-height);
-  padding: 0 calc(var(--forms-height) * (1 - var(--ratio)));
+  padding: 0 calc(var(--forms-height) * (1 - var(--forms-ratio)));
   font-size: var(--text-base);
   font-weight: var(--font-weight-medium);
   color: var(--color-text-2);
@@ -37,7 +37,7 @@ nuke-tab {
 nuke-tab-panel {
   display: block;
   padding: var(--layout-padding);
-  margin-top: var(--unit);
+  margin-top: var(--space-2);
   background: var(--layout-background);
   border: var(--layout-border);
   border-radius: var(--layout-radius);

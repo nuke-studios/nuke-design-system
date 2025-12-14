@@ -24,14 +24,14 @@ nuke-nav-rail-header {
 nuke-nav-rail-content {
   display: grid;
   align-content: start;
-  padding: var(--unit);
+  padding: var(--space-2);
   gap: var(--layout-gap);
   overflow-y: auto;
 }
 
 nuke-nav-rail-footer {
   display: grid;
-  padding: var(--unit);
+  padding: var(--space-2);
   gap: var(--layout-gap);
   border-top: 1px solid var(--border-color-1);
 }
@@ -42,7 +42,7 @@ nuke-nav-rail-item {
   grid-template-columns: auto 1fr;
   align-items: center;
   gap: var(--layout-padding);
-  padding: var(--unit) var(--layout-padding);
+  padding: var(--space-2) var(--layout-padding);
   min-height: var(--forms-height);
   color: var(--color-text-2);
   border-radius: var(--layout-radius);

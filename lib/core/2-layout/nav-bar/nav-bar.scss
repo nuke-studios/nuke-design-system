@@ -11,8 +11,8 @@ nuke-nav-bar-item {
   display: inline-grid;
   grid-auto-flow: column;
   align-items: center;
-  gap: var(--unit);
-  padding: var(--unit) var(--layout-padding);
+  gap: var(--space-2);
+  padding: var(--space-2) var(--layout-padding);
   height: var(--forms-height);
   color: var(--color-text-1);
   font-size: var(--text-base);
@@ -46,7 +46,7 @@ nuke-nav-bar-dropdown {
   top: 100%;
   left: 0;
   min-width: 200px;
-  padding: var(--unit);
+  padding: var(--space-2);
   background: var(--layout-background);
   border: var(--layout-border);
   border-radius: var(--layout-radius);
@@ -67,7 +67,7 @@ nuke-nav-bar-dropdown {
 
 nuke-nav-bar-dropdown-item {
   display: block;
-  padding: var(--unit) var(--layout-padding);
+  padding: var(--space-2) var(--layout-padding);
   color: var(--color-text-1);
   font-size: var(--text-base);
   text-decoration: none;

@@ -21,8 +21,8 @@ input[type="reset"] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--unit);
-  padding: 0 calc(var(--forms-height) * (1 - var(--ratio)));
+  gap: var(--space-2);
+  padding: 0 calc(var(--forms-height) * (1 - var(--forms-ratio)));
   height: var(--forms-height);
   font-size: var(--text-base);
   font-weight: 500;

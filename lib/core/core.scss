@@ -101,7 +101,7 @@ table {
 
 ::-webkit-scrollbar-thumb {
   background-color: var(--scrollbar-thumb);
-  border: calc(var(--unit) * 0.5) solid var(--scrollbar-track);
+  border: var(--space-1) solid var(--scrollbar-track);
   border-radius: var(--forms-radius);
 }
 

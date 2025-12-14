@@ -3,7 +3,7 @@
   display: inline-grid;
   align-items: center;
   justify-content: center;
-  padding: var(--unit);
+  padding: var(--space-2);
   background: color-mix(in srgb, var(--color-2) 15%, transparent);
   border-radius: var(--component-radius);
   font-size: calc(var(--text-base) * 0.75);

@@ -4,9 +4,18 @@
 ============================================ */
 
 :root {
-  /* BASE - shared sizing values */
-  --unit: 6px;   /* 4px=compact, 6px=standard, 8px=spacious */
-  --ratio: 0.4;  /* 0.4=airy, 0.5=balanced, 0.7=tight */
+  /* HEIGHT BASE - scales form elements and bars together */
+  --height-base: 6px;   /* 4px=compact, 6px=standard, 8px=touch */
+
+  /* FORMS RATIO - controls padding inside form elements */
+  --forms-ratio: 0.4;   /* 0.4=airy, 0.5=balanced, 0.7=tight */
+
+  /* SPACING - fixed pixel scale for padding and gaps */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
 
   /* SHELL - app frame (header, sidebar, footer layouts) */
   --shell-padding: 0;
@@ -15,37 +24,37 @@
   --shell-border: none;
 
   /* LAYOUT - page regions (area, section, toolbar, nav-bar) */
-  --layout-padding: calc(var(--unit) * 2);
+  --layout-padding: var(--space-3);
   --layout-gap: 1px;
   --layout-radius: 0;
   --layout-border: none;
 
   /* COMPONENT - UI containers (accordion, toast, table, badge) */
-  --component-padding: var(--unit);
+  --component-padding: var(--space-2);
   --component-gap: 1px;
   --component-radius: 3px;
   --component-border: 1px solid var(--border-color-1);
 
   /* FORMS - form elements (button, input, select, checkbox) */
-  --forms-height: calc(var(--unit) * 6);
-  --forms-height-small: calc(var(--unit) * 4);
+  --forms-height: calc(var(--height-base) * 6);
+  --forms-height-small: calc(var(--height-base) * 4);
   --forms-gap: 1px;
   --forms-radius: 3px;
   --forms-border: 1px solid var(--border-color-1);
   --forms-border-bottom: none;
 
-  /* WIDTHS - derived from unit */
-  --width-1: calc(var(--unit) * 40);   /* sidebar, narrow panels */
-  --width-2: calc(var(--unit) * 80);   /* content, modals */
-  --width-3: calc(var(--unit) * 128);  /* max-width, containers */
+  /* WIDTHS - fixed values */
+  --width-1: 240px;    /* sidebar, narrow panels */
+  --width-2: 480px;    /* content, modals */
+  --width-3: 768px;    /* max-width, containers */
 
-  /* BAR HEIGHTS - derived from unit */
-  --bar-height-1: calc(var(--unit) * 5);   /* breadcrumb, status bar */
-  --bar-height-2: calc(var(--unit) * 8);   /* toolbar, nav bar */
-  --bar-height-3: calc(var(--unit) * 10);  /* header, hero sections */
+  /* BAR HEIGHTS - scale with height-base */
+  --bar-height-1: calc(var(--height-base) * 5);   /* breadcrumb, status bar */
+  --bar-height-2: calc(var(--height-base) * 8);   /* toolbar, nav bar */
+  --bar-height-3: calc(var(--height-base) * 10);  /* header, hero sections */
 
-  /* TEXT - derived from forms height */
-  --text-base: calc(var(--forms-height) * var(--ratio));
+  /* TEXT - derived from forms height and ratio */
+  --text-base: calc(var(--forms-height) * var(--forms-ratio));
 
   /* FONT FAMILIES */
   --family-1: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;

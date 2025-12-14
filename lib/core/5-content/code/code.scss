@@ -1,6 +1,6 @@
 /* Code */
 code, kbd, samp {
-  padding: calc(var(--unit) / 3) var(--unit);
+  padding: var(--space-1) var(--space-2);
   background: var(--component-background);
   font-family: var(--family-mono), monospace;
   font-size: calc(var(--text-base) * 0.9);

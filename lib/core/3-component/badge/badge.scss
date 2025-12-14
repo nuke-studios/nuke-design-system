@@ -3,21 +3,21 @@ nuke-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: calc(var(--unit) * 3);
-  height: calc(var(--unit) * 3);
-  padding: 0 var(--unit);
+  min-width: calc(var(--height-base) * 3);
+  height: calc(var(--height-base) * 3);
+  padding: 0 var(--space-2);
   font-size: calc(var(--text-base) * 0.7);
   font-weight: var(--font-weight-bold);
   line-height: 1;
-  border-radius: calc(var(--unit) * 1.5);
+  border-radius: calc(var(--height-base) * 1.5);
   background: var(--error-color);
   color: var(--color-text-inverse);
 
   /* Empty badge (dot) */
   &:empty {
-    min-width: calc(var(--unit) * 1.5);
-    width: calc(var(--unit) * 1.5);
-    height: calc(var(--unit) * 1.5);
+    min-width: calc(var(--height-base) * 1.5);
+    width: calc(var(--height-base) * 1.5);
+    height: calc(var(--height-base) * 1.5);
     padding: 0;
   }
 

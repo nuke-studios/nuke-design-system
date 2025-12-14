@@ -24,7 +24,7 @@ nuke-header-nav {
   grid-auto-flow: column;
   justify-content: center;
   align-items: center;
-  gap: var(--unit);
+  gap: var(--space-2);
 }
 
 nuke-header-actions {
@@ -32,5 +32,5 @@ nuke-header-actions {
   grid-auto-flow: column;
   justify-content: end;
   align-items: center;
-  gap: var(--unit);
+  gap: var(--space-2);
 }

@@ -34,8 +34,8 @@ input[type="radio"] {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: calc(var(--forms-height-small) * var(--ratio));
-    height: calc(var(--forms-height-small) * var(--ratio));
+    width: calc(var(--forms-height-small) * var(--forms-ratio));
+    height: calc(var(--forms-height-small) * var(--forms-ratio));
     background: var(--color-text-1);
     border-radius: 50%;
   }

@@ -1,6 +1,6 @@
 /* Lists */
 ul, ol {
-  padding-left: calc(var(--unit) * 4);
+  padding-left: var(--space-5);
 }
 
 ul {

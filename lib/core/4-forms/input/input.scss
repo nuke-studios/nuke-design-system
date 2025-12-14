@@ -22,7 +22,7 @@ input[type="datetime-local"]) {
   display: block;
   width: 100%;
   height: var(--forms-height);
-  padding: 0 calc(var(--forms-height) * (1 - var(--ratio)) / 2);
+  padding: 0 calc(var(--forms-height) * (1 - var(--forms-ratio)) / 2);
   font-size: var(--text-base);
   color: var(--color-text-1);
   background: var(--forms-background);

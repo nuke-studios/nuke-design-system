@@ -46,7 +46,7 @@ nuke-nav-accordion-item {
 /* Sub-items container */
 nuke-nav-accordion-subitems {
   display: none;
-  padding-left: calc(var(--unit) * 4);
+  padding-left: var(--space-5);
 
   nuke-nav-accordion-item[expanded] + & {
     display: grid;
