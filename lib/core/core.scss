@@ -23,18 +23,13 @@
 @use './2-layout/toolbar/toolbar';
 
 /* 3. Component — UI containers */
-@use './3-component/a/a';
 @use './3-component/accordion/accordion';
 @use './3-component/badge/badge';
-@use './3-component/code/code';
 @use './3-component/icon/icon';
-@use './3-component/img/img';
 @use './3-component/nav/nav';
-@use './3-component/ol/ol';
 @use './3-component/table/table';
 @use './3-component/tag/tag';
 @use './3-component/toast/toast';
-@use './3-component/ul/ul';
 
 /* 4. Control — form elements */
 @use './4-control/button/button';
@@ -76,14 +71,11 @@ body {
 img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 input, button, textarea, select {
   font: inherit;
-}
-
-ul, ol {
-  list-style: none;
 }
 
 table {
@@ -134,6 +126,14 @@ ul, ol {
   padding-left: calc(var(--unit) * 4);
 }
 
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
+
 li {
   line-height: 1.5;
 }
@@ -153,16 +153,27 @@ small {
 a {
   color: var(--color-text-1);
   text-decoration: none;
+  cursor: pointer;
   transition: color var(--transition-fast);
 }
 
 a:hover {
   color: var(--color-1);
+  text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-1);
+  outline-offset: 2px;
+  border-radius: var(--control-radius);
 }
 
 code, kbd, samp {
+  padding: calc(var(--unit) / 3) var(--unit);
+  background: var(--component-background);
   font-family: var(--family-mono), monospace;
   font-size: calc(var(--text-base) * 0.9);
+  border-radius: var(--control-radius);
 }
 
 blockquote {

@@ -1,9 +1,0 @@
-/* Code - Inline code */
-code {
-  padding: calc(var(--unit) / 3) var(--unit);
-  background: var(--component-background);
-  color: var(--color-text-1);
-  font-family: var(--family-mono);
-  font-size: calc(var(--text-base) * 0.9);
-  border-radius: var(--component-radius);
-}
