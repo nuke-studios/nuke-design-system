@@ -1,6 +1,12 @@
 <script>
   import { onMount } from 'svelte';
   import Logo from './Logo.svelte';
+  import '@phosphor-icons/webcomponents/PhHouse';
+  import '@phosphor-icons/webcomponents/PhCode';
+  import '@phosphor-icons/webcomponents/PhSun';
+  import '@phosphor-icons/webcomponents/PhMoon';
+  import '@phosphor-icons/webcomponents/PhCaretLeft';
+  import '@phosphor-icons/webcomponents/PhCaretRight';
 
   let { currentPage = $bindable() } = $props();
   let expanded = $state(false);
@@ -28,40 +34,24 @@
   </button>
 
   <button class="nav-item" class:active={currentPage === 'welcome'} onclick={() => (currentPage = 'welcome')} title="Welcome" type="button">
-    <div class="nav-icon-container">
-      <nuke-icon name="house"></nuke-icon>
-    </div>
+    <ph-house></ph-house>
     {#if expanded}<span class="nav-label">Welcome</span>{/if}
   </button>
 
   <button class="nav-item" class:active={currentPage === 'components'} onclick={() => (currentPage = 'components')} title="Components" type="button">
-    <div class="nav-icon-container">
-      <nuke-icon name="code"></nuke-icon>
-    </div>
+    <ph-code></ph-code>
     {#if expanded}<span class="nav-label">Components</span>{/if}
   </button>
 
   <div class="nav-spacer"></div>
 
   <button class="nav-item" onclick={toggleTheme} title={darkMode ? 'Light mode' : 'Dark mode'} type="button">
-    <div class="nav-icon-container">
-      {#if darkMode}
-        <nuke-icon name="sun"></nuke-icon>
-      {:else}
-        <nuke-icon name="moon"></nuke-icon>
-      {/if}
-    </div>
-    {#if expanded}<span class="nav-label">{darkMode ? 'Light mode' : 'Dark mode'}</span>{/if}
+    {#if darkMode}<ph-sun></ph-sun>{:else}<ph-moon></ph-moon>{/if}
+    {#if expanded}<span class="nav-label">{darkMode ? 'Light' : 'Dark'}</span>{/if}
   </button>
 
   <button class="nav-item" onclick={() => (expanded = !expanded)} title={expanded ? 'Collapse' : 'Expand'} type="button">
-    <div class="nav-icon-container">
-      {#if expanded}
-        <nuke-icon name="caret-left"></nuke-icon>
-      {:else}
-        <nuke-icon name="caret-right"></nuke-icon>
-      {/if}
-    </div>
+    {#if expanded}<ph-caret-left></ph-caret-left>{:else}<ph-caret-right></ph-caret-right>{/if}
     {#if expanded}<span class="nav-label">Collapse</span>{/if}
   </button>
 </div>
@@ -82,7 +72,7 @@
 
   .nav-item {
     display: grid;
-    grid-template-columns: var(--bar-height-2) 1fr;
+    grid-template-columns: var(--bar-height-2) auto;
     align-items: center;
     gap: 0;
     height: var(--bar-height-2);
@@ -90,7 +80,7 @@
     border: none;
     color: var(--on-background);
     padding: 0;
-    font-size: calc(var(--text-base) * 1.25);
+    font-size: var(--text-base);
     cursor: pointer;
 
     &:hover {
@@ -110,14 +100,13 @@
         opacity: 0.7;
       }
     }
-  }
 
-  .nav-icon-container {
-    width: var(--bar-height-2);
-    height: var(--bar-height-2);
-    display: grid;
-    place-items: center;
-    pointer-events: none;
+    ph-house, ph-code, ph-sun, ph-moon, ph-caret-left, ph-caret-right {
+      display: grid;
+      place-items: center;
+      width: var(--bar-height-2);
+      height: var(--bar-height-2);
+    }
   }
 
   .nav-label {

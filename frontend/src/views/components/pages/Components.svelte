@@ -19,9 +19,7 @@
     sidebar.innerHTML = `
       <h3>Sidebar (style-${variant})</h3>
       <p style="margin: var(--space-2) 0;">Sidebar content goes here.</p>
-      <button nuke-style="${variant}" onclick="this.closest('nuke-sidebar').close()">
-        <nuke-icon name="x"></nuke-icon> Close
-      </button>
+      <button nuke-style="${variant}" onclick="this.closest('nuke-sidebar').close()">Close</button>
     `;
     document.body.appendChild(sidebar);
     setTimeout(() => sidebar.show(), 0);
@@ -29,7 +27,7 @@
 </script>
 
 <nuke-area>
-  <h1><nuke-icon name="code"></nuke-icon> Components</h1>
+  <h1>Components</h1>
   <p>All components with style-1 and style-2 variants.</p>
 </nuke-area>
 
@@ -41,16 +39,16 @@
       <small>style-1</small>
       <nuke-toolbar nuke-style="1" style="margin-top: var(--space-1);">
         <button nuke-style="1">Button</button>
-        <button nuke-style="1"><nuke-icon name="plus"></nuke-icon> Add</button>
-        <button nuke-style="1" aria-label="Settings"><nuke-icon name="gear"></nuke-icon></button>
+        <button nuke-style="1">+ Add</button>
+        <button nuke-style="1" aria-label="Settings">⚙</button>
       </nuke-toolbar>
     </nuke-area>
     <nuke-area>
       <small>style-2</small>
       <nuke-toolbar nuke-style="1" style="margin-top: var(--space-1);">
         <button nuke-style="2">Button</button>
-        <button nuke-style="2"><nuke-icon name="pencil"></nuke-icon> Edit</button>
-        <button nuke-style="2" aria-label="Delete"><nuke-icon name="trash"></nuke-icon></button>
+        <button nuke-style="2">✎ Edit</button>
+        <button nuke-style="2" aria-label="Delete">🗑</button>
       </nuke-toolbar>
     </nuke-area>
   </nuke-grid>
@@ -199,26 +197,6 @@
         <button nuke-style="2" onclick={() => showSidebar('2')}>Sidebar (2)</button>
       </nuke-toolbar>
     </nuke-area>
-  </nuke-grid>
-</nuke-area>
-
-<!-- Icons -->
-<nuke-area>
-  <h3><code nuke-style="1">&lt;nuke-icon&gt;</code></h3>
-  <p>37 icons from Phosphor Icons</p>
-  <nuke-grid style="grid-template-columns: repeat(12, 1fr); gap: var(--space-2);">
-    <nuke-area style="text-align: center;"><nuke-icon name="house"></nuke-icon><br><small>house</small></nuke-area>
-    <nuke-area style="text-align: center;"><nuke-icon name="x"></nuke-icon><br><small>x</small></nuke-area>
-    <nuke-area style="text-align: center;"><nuke-icon name="plus"></nuke-icon><br><small>plus</small></nuke-area>
-    <nuke-area style="text-align: center;"><nuke-icon name="minus"></nuke-icon><br><small>minus</small></nuke-area>
-    <nuke-area style="text-align: center;"><nuke-icon name="check"></nuke-icon><br><small>check</small></nuke-area>
-    <nuke-area style="text-align: center;"><nuke-icon name="trash"></nuke-icon><br><small>trash</small></nuke-area>
-    <nuke-area style="text-align: center;"><nuke-icon name="pencil"></nuke-icon><br><small>pencil</small></nuke-area>
-    <nuke-area style="text-align: center;"><nuke-icon name="gear"></nuke-icon><br><small>gear</small></nuke-area>
-    <nuke-area style="text-align: center;"><nuke-icon name="user"></nuke-icon><br><small>user</small></nuke-area>
-    <nuke-area style="text-align: center;"><nuke-icon name="bell"></nuke-icon><br><small>bell</small></nuke-area>
-    <nuke-area style="text-align: center;"><nuke-icon name="sun"></nuke-icon><br><small>sun</small></nuke-area>
-    <nuke-area style="text-align: center;"><nuke-icon name="moon"></nuke-icon><br><small>moon</small></nuke-area>
   </nuke-grid>
 </nuke-area>
 

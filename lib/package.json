@@ -27,14 +27,14 @@
   "module": "dist/core.js",
   "type": "module",
   "scripts": {
-    "build": "mkdir -p dist/icons && cp core/icons/*.svg dist/icons/ && tsc && sass core/core.scss dist/core.css && sass core/core.scss dist/core.min.css --style=compressed && esbuild core/core.ts --bundle --outdir=dist --format=esm",
-    "dev": "mkdir -p dist/icons && cp core/icons/*.svg dist/icons/ && sass core/core.scss dist/core.css --watch & esbuild core/core.ts --bundle --outdir=dist --format=esm --watch"
+    "build": "tsc && sass core/core.scss dist/core.css && sass core/core.scss dist/core.min.css --style=compressed && esbuild core/core.ts --bundle --outdir=dist --format=esm",
+    "dev": "sass core/core.scss dist/core.css --watch & esbuild core/core.ts --bundle --outdir=dist --format=esm --watch"
   },
   "dependencies": {
+    "@phosphor-icons/webcomponents": "^2.1.5",
     "lit": "^3.0.0"
   },
   "devDependencies": {
-    "@phosphor-icons/core": "^2.1.1",
     "esbuild": "^0.24.0",
     "sass": "^1.96.0",
     "typescript": "^5.0.0"

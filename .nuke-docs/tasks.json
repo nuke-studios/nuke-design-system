@@ -196,11 +196,11 @@
     {
       "id": "task-23",
       "title": "Switch to Radix Icons",
-      "status": "new",
+      "status": "completed",
       "priority": "medium",
       "description": "Replace Phosphor Icons with Radix Icons. Simple, flat, made for UI.",
       "created": "2025-12-13T23:53:29.789767+01:00",
-      "updated": "2025-12-13T23:53:29.789767+01:00"
+      "updated": "2025-12-14T21:17:33.429026+01:00"
     },
     {
       "id": "task-24",
