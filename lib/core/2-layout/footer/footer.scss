@@ -1,8 +1,7 @@
 /* Footer - Layout element */
 footer {
-  display: flex;
+  display: grid;
   align-items: center;
-  justify-content: center;
   min-height: var(--bar-height-1);
   padding: var(--layout-padding);
   background: var(--layout-background);
