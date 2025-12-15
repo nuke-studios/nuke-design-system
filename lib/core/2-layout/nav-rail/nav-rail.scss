@@ -4,8 +4,9 @@ nuke-nav-rail {
   grid-template-rows: auto 1fr auto;
   width: var(--width-1);
   height: 100%;
-  background: var(--shell-background);
-  border-radius: var(--shell-radius);
+  background: var(--layout-background);
+  border: var(--layout-border-width) solid var(--border-color-1);
+  border-radius: var(--layout-radius);
   transition: width var(--transition-medium);
   overflow: hidden;
 }
@@ -23,14 +24,14 @@ nuke-nav-rail-header {
 nuke-nav-rail-content {
   display: grid;
   align-content: start;
-  padding: var(--space-2);
+  padding: var(--layout-padding);
   gap: var(--layout-gap);
   overflow-y: auto;
 }
 
 nuke-nav-rail-footer {
   display: grid;
-  padding: var(--space-2);
+  padding: var(--layout-padding);
   gap: var(--layout-gap);
 }
 
@@ -39,10 +40,11 @@ nuke-nav-rail-item {
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
-  gap: var(--layout-padding);
-  padding: var(--space-2) var(--layout-padding);
+  gap: var(--layout-gap);
+  padding: var(--layout-padding);
   min-height: var(--forms-height);
   color: var(--color-text-2);
+  border: var(--layout-border-width) solid var(--border-color-1);
   border-radius: var(--layout-radius);
   cursor: pointer;
   transition: all var(--transition-fast);

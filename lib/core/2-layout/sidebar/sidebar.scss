@@ -6,17 +6,16 @@ nuke-sidebar {
   height: 100vh;
   padding: var(--layout-padding);
   background: var(--layout-background);
+  border-radius: var(--layout-radius);
   color: var(--color-text-1);
   overflow-y: auto;
   transition: transform var(--transition-medium);
   z-index: var(--z-index-2);
-  border-right: 1px solid var(--border-color-1);
 
   &[position="left"] {
     left: 0;
     transform: translateX(-100%);
-    border-right: 1px solid var(--border-color-1);
-    border-left: none;
+    border-right: var(--layout-border-width) solid var(--border-color-1);
   }
 
   &[position="left"][open] {
@@ -26,8 +25,7 @@ nuke-sidebar {
   &[position="right"] {
     right: 0;
     transform: translateX(100%);
-    border-left: 1px solid var(--border-color-1);
-    border-right: none;
+    border-left: var(--layout-border-width) solid var(--border-color-1);
   }
 
   &[position="right"][open] {

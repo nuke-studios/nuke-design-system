@@ -1,54 +1,11 @@
-/* Footer - Multi-column footer layout */
-nuke-footer {
-  display: grid;
-  gap: var(--space-5);
-  padding: var(--space-5);
-  background: var(--shell-background);
-  border-radius: var(--shell-radius);
-}
-
-nuke-footer-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--space-5);
-  max-width: var(--width-3);
-  justify-self: center;
-  width: 100%;
-}
-
-nuke-footer-section {
-  display: grid;
-  gap: var(--space-2);
-  align-content: start;
-}
-
-nuke-footer-title {
-  display: block;
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text-1);
-}
-
-nuke-footer-link {
-  display: block;
-  color: var(--color-text-2);
-  text-decoration: none;
-  font-size: var(--text-base);
-  transition: color var(--transition-fast);
-  cursor: pointer;
-
-  &:hover {
-    color: var(--color-text-1);
-  }
-}
-
-nuke-footer-bottom {
-  display: grid;
-  grid-auto-flow: column;
-  justify-content: center;
+/* Footer - Layout element */
+footer {
+  display: flex;
   align-items: center;
-  gap: var(--layout-padding);
-  padding-top: var(--space-5);
-  color: var(--color-text-2);
-  font-size: calc(var(--text-base) * 0.9);
-  text-align: center;
+  justify-content: center;
+  min-height: var(--bar-height-1);
+  padding: var(--layout-padding);
+  background: var(--layout-background);
+  border: var(--layout-border-width) solid var(--border-color-1);
+  border-radius: var(--layout-radius);
 }

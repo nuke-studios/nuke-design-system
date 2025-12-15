@@ -4,6 +4,10 @@ nuke-nav-bar {
   grid-auto-flow: column;
   align-items: center;
   gap: var(--layout-gap);
+  padding: var(--layout-padding);
+  background: var(--layout-background);
+  border: var(--layout-border-width) solid var(--border-color-1);
+  border-radius: var(--layout-radius);
 }
 
 nuke-nav-bar-item {
@@ -11,12 +15,13 @@ nuke-nav-bar-item {
   display: inline-grid;
   grid-auto-flow: column;
   align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2) var(--layout-padding);
+  gap: var(--layout-gap);
+  padding: var(--layout-padding);
   height: var(--forms-height);
   color: var(--color-text-1);
   font-size: var(--text-base);
   text-decoration: none;
+  border: var(--layout-border-width) solid var(--border-color-1);
   border-radius: var(--layout-radius);
   cursor: pointer;
   transition: all var(--transition-fast);
@@ -46,11 +51,11 @@ nuke-nav-bar-dropdown {
   top: 100%;
   left: 0;
   min-width: 200px;
-  padding: var(--space-2);
+  padding: var(--layout-padding);
   background: var(--layout-background);
-  border: var(--layout-border);
+  border: var(--layout-border-width) solid var(--border-color-1);
   border-radius: var(--layout-radius);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--box-shadow-2);
   opacity: 0;
   visibility: hidden;
   transform: translateY(-8px);
@@ -67,10 +72,11 @@ nuke-nav-bar-dropdown {
 
 nuke-nav-bar-dropdown-item {
   display: block;
-  padding: var(--space-2) var(--layout-padding);
+  padding: var(--layout-padding);
   color: var(--color-text-1);
   font-size: var(--text-base);
   text-decoration: none;
+  border: var(--layout-border-width) solid var(--border-color-1);
   border-radius: var(--layout-radius);
   cursor: pointer;
   transition: background var(--transition-fast);

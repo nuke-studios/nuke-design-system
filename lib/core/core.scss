@@ -15,6 +15,7 @@
 @use './2-layout/footer/footer';
 @use './2-layout/grid/grid';
 @use './2-layout/header/header';
+@use './2-layout/main/main';
 @use './2-layout/nav-accordion/nav-accordion';
 @use './2-layout/nav-bar/nav-bar';
 @use './2-layout/nav-rail/nav-rail';
@@ -71,7 +72,7 @@ body {
   font-size: var(--text-base);
   line-height: 1.5;
   color: var(--color-text-1);
-  background: var(--body-background);
+  background: var(--shell-background);
 }
 
 img, picture, video, canvas, svg {

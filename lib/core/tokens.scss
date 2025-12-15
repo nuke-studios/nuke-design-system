@@ -20,20 +20,19 @@
   /* SHELL - app frame (header, sidebar, footer layouts) */
   --shell-padding: 0;
   --shell-gap: 1px;
-  --shell-radius: 0;
-  --shell-border: none;
 
   /* LAYOUT - page regions (area, section, toolbar, nav-bar) */
   --layout-padding: var(--space-3);
   --layout-gap: 1px;
   --layout-radius: 0;
-  --layout-border: none;
+  --layout-border-width: 0;
+
 
   /* COMPONENT - UI containers (accordion, toast, table, badge) */
   --component-padding: var(--space-2);
   --component-gap: 1px;
   --component-radius: 3px;
-  --component-border: 1px solid var(--border-color-1);
+  --component-border-width: 1px;
 
   /* FORMS - form elements (button, input, select, checkbox) */
   --forms-height: calc(var(--height-base) * 6);
@@ -93,16 +92,15 @@
   --warning-color: hsl(40, 90%, 60%);
   --success-color: hsl(140, 60%, 55%);
 
-  /* BACKGROUNDS - per layer */
-  --body-background: hsl(0, 0%, 8%);
-  --shell-background: hsl(0, 0%, 10%);
-  --layout-background: hsl(0, 0%, 14%);
-  --component-background: hsl(0, 0%, 18%);
-  --forms-background: hsl(0, 0%, 18%);
-  --hover-background: hsl(0, 0%, 22%);
+  /* BACKGROUNDS - per layer (debug colors) */
+  --shell-background: red;
+  --layout-background: green;
+  --component-background: blue;
+  --forms-background: yellow;
+  --hover-background: orange;
 
   /* Border colors */
-  --border-color-1: hsl(0, 0%, 32%);
+  --border-color-1: pink;
   --border-color-2: hsl(0, 0%, 50%);
 
   /* Shadows */
@@ -111,7 +109,7 @@
   --box-shadow-3: 0 4px 16px rgba(0, 0, 0, 0.5);
 
   /* Scrollbar */
-  --scrollbar-track: var(--body-background);
+  --scrollbar-track: var(--shell-background);
   --scrollbar-thumb: var(--border-color-2);
 }
 
@@ -133,8 +131,7 @@
   --success-color: hsl(140, 60%, 40%);
 
   /* BACKGROUNDS - per layer */
-  --body-background: hsl(0, 0%, 94%);
-  --shell-background: hsl(0, 0%, 96%);
+  --shell-background: hsl(0, 0%, 94%);
   --layout-background: hsl(0, 0%, 100%);
   --component-background: hsl(0, 0%, 96%);
   --forms-background: hsl(0, 0%, 96%);
@@ -150,6 +147,6 @@
   --box-shadow-3: 0 4px 16px rgba(0, 0, 0, 0.16);
 
   /* Scrollbar */
-  --scrollbar-track: var(--body-background);
+  --scrollbar-track: var(--shell-background);
   --scrollbar-thumb: var(--border-color-2);
 }
