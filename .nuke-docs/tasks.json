@@ -231,8 +231,9 @@
     },
     {
       "id": "task-29",
-      "title": "Step-by-step Shell/Layout Demo Build - continue layering: layout-gap, component layer, forms layer. Shell layer done with native header/main/footer.",
-      "status": "new",
+      "title": "Step-by-step Layer Demo Build",
+      "status": "in_progress",
+      "description": "Interactive demo to test design tokens per layer. Layers: 1-shell (done), 2-layout (done), 3-component, 4-forms, 5-content. Frontend demo has sliders to adjust tokens live.",
       "created": "2025-12-15T00:47:45.762966+01:00",
       "updated": "2025-12-15T00:47:45.762966+01:00"
     }
