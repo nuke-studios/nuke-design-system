@@ -1,13 +1,12 @@
-/* Accordion - Collapsible sections */
+/* Accordion */
 nuke-accordion {
   display: block;
-  background: var(--component-background);
-  border: var(--component-border);
-  border-radius: var(--component-radius);
+  border: 1px solid var(--border-color-1);
+  border-radius: var(--radius-2);
   overflow: hidden;
 
   & + nuke-accordion {
-    border-top: none;
+    margin-top: -1px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
@@ -19,30 +18,40 @@ nuke-accordion {
 }
 
 nuke-accordion-header {
-  display: grid;
-  grid-template-columns: 1fr auto;
+  display: flex;
   align-items: center;
-  padding: var(--component-padding);
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--space-4);
   background: transparent;
   color: var(--color-text-1);
+  font-size: var(--text-base);
   font-weight: var(--font-weight-medium);
   cursor: pointer;
-  transition: background var(--transition-fast);
+  transition: background-color var(--transition-fast);
   user-select: none;
 
   &:hover {
     background: var(--hover-background);
   }
 
-  /* Expand indicator */
+  &:focus-visible {
+    outline: 2px solid var(--color-1);
+    outline-offset: -2px;
+  }
+
+  /* Chevron */
   &::after {
     content: '';
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid currentColor;
+    width: 16px;
+    height: 16px;
+    background: currentColor;
+    mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9l6 6 6-6' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9l6 6 6-6' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    mask-size: contain;
+    -webkit-mask-size: contain;
     transition: transform var(--transition-fast);
+    flex-shrink: 0;
   }
 
   nuke-accordion[expanded] > &::after {
@@ -51,12 +60,21 @@ nuke-accordion-header {
 }
 
 nuke-accordion-content {
-  display: none;
-  padding: var(--component-padding);
-  background: var(--layout-background);
-  border-top: var(--component-border);
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--transition-fast);
+
+  > div {
+    overflow: hidden;
+  }
 
   nuke-accordion[expanded] > & {
-    display: block;
+    grid-template-rows: 1fr;
   }
+}
+
+nuke-accordion-content > div {
+  padding: 0 var(--space-4) var(--space-4);
+  color: var(--color-text-2);
+  font-size: var(--text-base);
 }

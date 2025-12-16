@@ -1,22 +1,61 @@
-/* Nav */
+/* Nav - Simple navigation */
 nav {
-  padding: var(--component-padding);
   display: flex;
-  gap: var(--component-gap);
-  background: var(--layout-background);
-  border: var(--component-border);
-  border-radius: var(--component-radius);
+  align-items: center;
+  gap: var(--space-1);
 
   a {
-    padding: var(--space-2) var(--component-padding);
-    color: var(--color-text-1);
+    display: inline-flex;
+    align-items: center;
+    height: var(--height-2);
+    padding: 0 var(--space-3);
+    color: var(--color-text-2);
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
     text-decoration: none;
-    border-radius: var(--component-radius);
-    transition: color var(--transition-fast), background-color var(--transition-fast);
+    border-radius: var(--radius-2);
+    transition:
+      color var(--transition-fast),
+      background-color var(--transition-fast);
 
     &:hover {
-      color: var(--color-1);
+      color: var(--color-text-1);
       background: var(--hover-background);
+    }
+
+    &[aria-current="page"],
+    &.active {
+      color: var(--color-text-1);
+      background: var(--hover-background);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-1);
+      outline-offset: 2px;
+    }
+  }
+
+  /* ==========================================
+     VARIANTS
+  ========================================== */
+  &[data-variant="pills"] a {
+    border-radius: var(--radius-full);
+  }
+
+  &[data-variant="underline"] {
+    gap: 0;
+    border-bottom: 1px solid var(--border-color-1);
+
+    a {
+      border-radius: 0;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+
+      &[aria-current="page"],
+      &.active {
+        background: transparent;
+        border-bottom-color: var(--color-1);
+      }
     }
   }
 }

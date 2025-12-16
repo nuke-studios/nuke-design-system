@@ -1,48 +1,98 @@
+/* Tabs */
 nuke-tabs {
   display: block;
 }
 
+/* Tab List */
+nuke-tabs > [role="tablist"] {
+  display: inline-flex;
+  gap: var(--space-1);
+  padding: var(--space-1);
+  background: var(--hover-background);
+  border-radius: var(--radius-2);
+}
+
+/* Tab */
 nuke-tab {
-  display: inline-block;
-  height: var(--forms-height);
-  padding: 0 calc(var(--forms-height) * (1 - var(--forms-ratio)));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--height-2);
+  padding: 0 var(--space-3);
   font-size: var(--text-base);
   font-weight: var(--font-weight-medium);
   color: var(--color-text-2);
-  background: var(--forms-background);
-  border: var(--forms-border);
-  border-bottom: var(--forms-border-bottom);
-  border-radius: var(--forms-radius);
+  background: transparent;
+  border-radius: var(--radius-2);
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast);
   user-select: none;
-  line-height: var(--forms-height);
+  white-space: nowrap;
 
   &:hover {
     color: var(--color-text-1);
-    background: var(--hover-background);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-1);
+    outline-offset: 2px;
   }
 
   &[aria-selected="true"] {
     color: var(--color-text-1);
-    background: var(--hover-background);
-    border-color: var(--color-text-1);
-  }
-
-  &:focus {
-    outline: none;
+    background: var(--forms-background);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   }
 }
 
+/* Tab Panel */
 nuke-tab-panel {
   display: block;
-  padding: var(--layout-padding);
-  margin-top: var(--space-2);
-  background: var(--layout-background);
-  border: var(--layout-border);
-  border-radius: var(--layout-radius);
+  padding: var(--space-4) 0;
 
   &[aria-hidden="true"] {
     display: none;
   }
+}
+
+/* ==========================================
+   VARIANTS
+========================================== */
+
+/* Underline variant */
+nuke-tabs[data-variant="underline"] > [role="tablist"] {
+  gap: 0;
+  padding: 0;
+  background: transparent;
+  border-bottom: 1px solid var(--border-color-1);
+  border-radius: 0;
+}
+
+nuke-tabs[data-variant="underline"] nuke-tab {
+  border-radius: 0;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+
+  &[aria-selected="true"] {
+    background: transparent;
+    box-shadow: none;
+    border-bottom-color: var(--color-1);
+  }
+}
+
+/* ==========================================
+   SIZES
+========================================== */
+nuke-tabs[data-size="small"] nuke-tab {
+  height: var(--height-1);
+  padding: 0 var(--space-2);
+  font-size: var(--text-1);
+}
+
+nuke-tabs[data-size="large"] nuke-tab {
+  height: var(--height-3);
+  padding: 0 var(--space-4);
+  font-size: var(--text-3);
 }

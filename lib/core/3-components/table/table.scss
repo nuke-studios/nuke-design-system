@@ -1,42 +1,41 @@
 /* Table */
 table {
   width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-  background: var(--layout-background);
-  border: var(--component-border);
+  font-size: var(--text-base);
+  text-align: left;
+  caption-side: bottom;
+}
 
-  thead {
-    background: var(--hover-background);
-    border-bottom: var(--component-border);
-  }
+caption {
+  padding: var(--space-4) 0;
+  color: var(--color-text-2);
+  font-size: var(--text-1);
+}
+
+thead {
+  border-bottom: 1px solid var(--border-color-1);
 
   th {
-    padding: var(--component-padding);
-    text-align: left;
-    font-weight: var(--font-weight-bold);
-    color: var(--color-text-1);
-    font-size: var(--text-base);
-    border-right: var(--component-border);
+    height: var(--height-2);
+    padding: 0 var(--space-3);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-2);
+    vertical-align: middle;
+    white-space: nowrap;
 
-    &:last-child {
-      border-right: none;
+    &[align="right"] {
+      text-align: right;
+    }
+
+    &[align="center"] {
+      text-align: center;
     }
   }
+}
 
-  td {
-    padding: var(--component-padding);
-    color: var(--color-text-1);
-    font-size: var(--text-base);
-    border-right: var(--component-border);
-
-    &:last-child {
-      border-right: none;
-    }
-  }
-
-  tbody tr {
-    border-bottom: var(--component-border);
+tbody {
+  tr {
+    border-bottom: 1px solid var(--border-color-1);
     transition: background-color var(--transition-fast);
 
     &:last-child {
@@ -46,5 +45,76 @@ table {
     &:hover {
       background: var(--hover-background);
     }
+
+    &[data-selected] {
+      background: var(--hover-background);
+    }
+  }
+
+  td {
+    padding: var(--space-3);
+    vertical-align: middle;
+
+    &[align="right"] {
+      text-align: right;
+    }
+
+    &[align="center"] {
+      text-align: center;
+    }
+  }
+}
+
+tfoot {
+  border-top: 1px solid var(--border-color-1);
+  background: var(--hover-background);
+
+  td {
+    padding: var(--space-3);
+    font-weight: var(--font-weight-medium);
+  }
+}
+
+/* ==========================================
+   VARIANTS
+========================================== */
+table[data-variant="striped"] tbody tr:nth-child(even) {
+  background: var(--hover-background);
+}
+
+table[data-variant="bordered"] {
+  border: 1px solid var(--border-color-1);
+
+  th, td {
+    border: 1px solid var(--border-color-1);
+  }
+}
+
+/* ==========================================
+   SIZES
+========================================== */
+table[data-size="small"] {
+  font-size: var(--text-1);
+
+  thead th {
+    height: var(--height-1);
+    padding: 0 var(--space-2);
+  }
+
+  tbody td {
+    padding: var(--space-2);
+  }
+}
+
+table[data-size="large"] {
+  font-size: var(--text-3);
+
+  thead th {
+    height: var(--height-3);
+    padding: 0 var(--space-4);
+  }
+
+  tbody td {
+    padding: var(--space-4);
   }
 }

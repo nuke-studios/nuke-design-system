@@ -1,31 +1,59 @@
-/* Tag */
-[nuke-tag] {
-  display: inline-grid;
+/* Tag / Chip */
+[data-tag],
+.tag {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  padding: var(--space-2);
-  background: color-mix(in srgb, var(--color-2) 15%, transparent);
-  border-radius: var(--component-radius);
-  font-size: calc(var(--text-base) * 0.75);
+  gap: var(--space-1);
+  height: var(--height-1);
+  padding: 0 var(--space-2);
+  background: var(--hover-background);
+  border-radius: var(--radius-2);
+  font-size: var(--text-1);
   font-weight: var(--font-weight-medium);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: var(--color-2);
+  color: var(--color-text-1);
   line-height: 1;
-}
+  white-space: nowrap;
 
-/* Semantic variants */
-[nuke-tag="success"] {
-  background: color-mix(in srgb, var(--success-color) 15%, transparent);
-  color: var(--success-color);
-}
+  /* ==========================================
+     VARIANTS
+  ========================================== */
+  &[data-variant="primary"] {
+    background: color-mix(in srgb, var(--color-1) 15%, transparent);
+    color: var(--color-1);
+  }
 
-[nuke-tag="warning"] {
-  background: color-mix(in srgb, var(--warning-color) 15%, transparent);
-  color: var(--warning-color);
-}
+  &[data-variant="success"] {
+    background: color-mix(in srgb, var(--success-color) 15%, transparent);
+    color: var(--success-color);
+  }
 
-[nuke-tag="error"] {
-  background: color-mix(in srgb, var(--error-color) 15%, transparent);
-  color: var(--error-color);
+  &[data-variant="warning"] {
+    background: color-mix(in srgb, var(--warning-color) 15%, transparent);
+    color: var(--warning-color);
+  }
+
+  &[data-variant="error"] {
+    background: color-mix(in srgb, var(--error-color) 15%, transparent);
+    color: var(--error-color);
+  }
+
+  &[data-variant="outline"] {
+    background: transparent;
+    border: 1px solid var(--border-color-1);
+  }
+
+  /* ==========================================
+     SIZES
+  ========================================== */
+  &[data-size="small"] {
+    height: calc(var(--height-1) * 0.75);
+    padding: 0 var(--space-1);
+    font-size: calc(var(--text-1) * 0.9);
+  }
+
+  &[data-size="large"] {
+    height: var(--height-2);
+    padding: 0 var(--space-3);
+    font-size: var(--text-2);
+  }
 }

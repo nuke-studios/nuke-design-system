@@ -1,11 +1,73 @@
 /* Toolbar */
-nuke-toolbar {
+nuke-toolbar,
+[data-toolbar] {
   display: flex;
   align-items: center;
-  gap: var(--layout-gap);
-  padding: var(--layout-padding);
-  background: var(--layout-background);
-  border: var(--layout-border-width) solid var(--border-color-1);
-  border-radius: var(--layout-radius);
-  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  background: var(--forms-background);
+  border: 1px solid var(--border-color-1);
+  border-radius: var(--radius-2);
+
+  /* Separator */
+  [data-separator] {
+    width: 1px;
+    height: var(--height-1);
+    background: var(--border-color-1);
+    margin: 0 var(--space-1);
+  }
+
+  /* Group */
+  [data-group] {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+  }
+
+  /* Buttons in toolbar */
+  button {
+    height: var(--height-2);
+    padding: 0 var(--space-2);
+  }
+
+  /* ==========================================
+     VARIANTS
+  ========================================== */
+  &[data-variant="ghost"] {
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  /* ==========================================
+     SIZES
+  ========================================== */
+  &[data-size="small"] {
+    gap: var(--space-1);
+    padding: var(--space-1);
+
+    button {
+      height: var(--height-1);
+      padding: 0 var(--space-1);
+      font-size: var(--text-1);
+    }
+
+    [data-separator] {
+      height: calc(var(--height-1) * 0.75);
+    }
+  }
+
+  &[data-size="large"] {
+    gap: var(--space-3);
+    padding: var(--space-3);
+
+    button {
+      height: var(--height-3);
+      padding: 0 var(--space-3);
+    }
+
+    [data-separator] {
+      height: var(--height-2);
+    }
+  }
 }

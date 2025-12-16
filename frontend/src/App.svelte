@@ -1,8 +1,8 @@
 <script>
   import { onMount } from 'svelte';
 
-  let scaling = 1;
-  let radiusFactor = 1;
+  let scaling = $state(1);
+  let radiusFactor = $state(1);
 
   function setVar(name, value) {
     document.documentElement.style.setProperty(name, value);
@@ -238,10 +238,10 @@
           <section>
             <h2>Links</h2>
             <p>
-              <a href="#">Default link</a> with animated underline.
+              <a href="/">Default link</a> with animated underline.
             </p>
             <p>
-              <a href="#" data-variant="subtle">Subtle link</a> blends with text.
+              <a href="/" data-variant="subtle">Subtle link</a> blends with text.
             </p>
             <p>
               <a href="https://example.com" target="_blank">External link</a> with indicator.
@@ -289,6 +289,113 @@ function hello() {'{'}
               <dt>Another</dt>
               <dd>Another definition</dd>
             </dl>
+          </section>
+
+          <section>
+            <h2>Badge</h2>
+            <h4>Variants</h4>
+            <div class="form-row">
+              <span data-badge>Default</span>
+              <span data-badge data-variant="secondary">Secondary</span>
+              <span data-badge data-variant="destructive">Destructive</span>
+              <span data-badge data-variant="outline">Outline</span>
+              <span data-badge data-variant="success">Success</span>
+              <span data-badge data-variant="warning">Warning</span>
+            </div>
+            <h4>Dot (empty)</h4>
+            <div class="form-row">
+              <span style="position: relative; padding: 8px;">
+                Icon <span data-badge data-position="top-right"></span>
+              </span>
+            </div>
+          </section>
+
+          <section>
+            <h2>Tag</h2>
+            <h4>Variants</h4>
+            <div class="form-row">
+              <span data-tag>Default</span>
+              <span data-tag data-variant="primary">Primary</span>
+              <span data-tag data-variant="success">Success</span>
+              <span data-tag data-variant="warning">Warning</span>
+              <span data-tag data-variant="error">Error</span>
+              <span data-tag data-variant="outline">Outline</span>
+            </div>
+            <h4>Sizes</h4>
+            <div class="form-row">
+              <span data-tag data-size="small">Small</span>
+              <span data-tag>Default</span>
+              <span data-tag data-size="large">Large</span>
+            </div>
+          </section>
+
+          <section>
+            <h2>Table</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Status</th>
+                  <th align="right">Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Alice</td>
+                  <td><span data-tag data-variant="success">Active</span></td>
+                  <td align="right">$250.00</td>
+                </tr>
+                <tr>
+                  <td>Bob</td>
+                  <td><span data-tag data-variant="warning">Pending</span></td>
+                  <td align="right">$150.00</td>
+                </tr>
+                <tr>
+                  <td>Charlie</td>
+                  <td><span data-tag data-variant="error">Failed</span></td>
+                  <td align="right">$350.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section>
+            <h2>Toolbar</h2>
+            <div data-toolbar>
+              <button data-variant="ghost">Cut</button>
+              <button data-variant="ghost">Copy</button>
+              <button data-variant="ghost">Paste</button>
+              <span data-separator></span>
+              <button data-variant="ghost">Undo</button>
+              <button data-variant="ghost">Redo</button>
+            </div>
+            <h4>Ghost variant</h4>
+            <div data-toolbar data-variant="ghost">
+              <button data-variant="outline">Edit</button>
+              <button data-variant="outline">Delete</button>
+            </div>
+          </section>
+
+          <section>
+            <h2>Nav</h2>
+            <h4>Default</h4>
+            <nav>
+              <a href="/" class="active">Home</a>
+              <a href="/about">About</a>
+              <a href="/contact">Contact</a>
+            </nav>
+            <h4>Pills</h4>
+            <nav data-variant="pills">
+              <a href="/" class="active">Dashboard</a>
+              <a href="/settings">Settings</a>
+              <a href="/profile">Profile</a>
+            </nav>
+            <h4>Underline</h4>
+            <nav data-variant="underline">
+              <a href="/" class="active">Overview</a>
+              <a href="/analytics">Analytics</a>
+              <a href="/reports">Reports</a>
+            </nav>
           </section>
         </nuke-area>
       </nuke-layout>

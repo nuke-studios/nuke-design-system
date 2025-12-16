@@ -1,33 +1,37 @@
-/* Toast */
+/* Toast Container */
 .nuke-toast-container {
   position: fixed;
-  top: auto;
-  right: var(--space-5);
-  left: auto;
   bottom: var(--space-5);
+  right: var(--space-5);
   display: flex;
   flex-direction: column-reverse;
-  gap: var(--component-padding);
-  z-index: var(--z-index-3);
+  gap: var(--space-3);
+  z-index: 9999;
   pointer-events: none;
 }
 
+/* Toast */
 nuke-toast {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: var(--space-3);
   min-width: 300px;
-  max-width: var(--width-2);
-  padding: var(--component-padding);
+  max-width: 420px;
+  padding: var(--space-4);
   font-size: var(--text-base);
-  border-radius: var(--component-radius);
+  border-radius: var(--radius-3);
   pointer-events: auto;
+  background: var(--forms-background);
+  color: var(--color-text-1);
+  border: 1px solid var(--border-color-1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  /* Animation */
   opacity: 0;
   transform: translateX(100%);
-  transition: all 0.3s ease;
-  background: var(--component-background);
-  color: var(--color-text-1);
-  border: var(--component-border);
+  transition:
+    opacity var(--transition-fast),
+    transform var(--transition-fast);
 
   &.show {
     opacity: 1;
@@ -38,28 +42,66 @@ nuke-toast {
     opacity: 0;
     transform: translateX(100%);
   }
+
+  /* ==========================================
+     VARIANTS
+  ========================================== */
+  &[data-variant="success"] {
+    border-left: 4px solid var(--success-color);
+  }
+
+  &[data-variant="warning"] {
+    border-left: 4px solid var(--warning-color);
+  }
+
+  &[data-variant="error"] {
+    border-left: 4px solid var(--error-color);
+  }
+
+  &[data-variant="info"] {
+    border-left: 4px solid var(--color-1);
+  }
 }
 
+/* Toast content */
 .toast-message {
   flex: 1;
+  line-height: 1.4;
 }
 
+.toast-title {
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-1);
+}
+
+.toast-description {
+  color: var(--color-text-2);
+  font-size: var(--text-2);
+}
+
+/* Close button */
 .toast-close {
-  width: var(--text-base);
-  height: var(--text-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--height-1);
+  height: var(--height-1);
   padding: 0;
-  margin-left: var(--space-2);
   background: transparent;
   border: none;
-  color: currentColor;
-  font-size: var(--text-base);
-  line-height: 1;
+  border-radius: var(--radius-2);
+  color: var(--color-text-2);
   cursor: pointer;
-  opacity: 0.7;
   flex-shrink: 0;
-  transition: opacity 0.2s ease;
+  transition: background-color var(--transition-fast);
 
   &:hover {
-    opacity: 1;
+    background: var(--hover-background);
+    color: var(--color-text-1);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-1);
+    outline-offset: 2px;
   }
 }

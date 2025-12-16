@@ -1,38 +1,69 @@
-/* Badge - Notification indicator */
-nuke-badge {
+/* Badge */
+nuke-badge,
+[data-badge] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: calc(var(--height-base) * 3);
-  height: calc(var(--height-base) * 3);
+  height: var(--height-1);
+  min-width: var(--height-1);
   padding: 0 var(--space-2);
-  font-size: calc(var(--text-base) * 0.7);
-  font-weight: var(--font-weight-bold);
+  font-size: var(--text-1);
+  font-weight: var(--font-weight-medium);
   line-height: 1;
-  border-radius: calc(var(--height-base) * 1.5);
-  background: var(--error-color);
+  border-radius: var(--radius-full);
+  background: var(--color-1);
   color: var(--color-text-inverse);
+  white-space: nowrap;
 
   /* Empty badge (dot) */
   &:empty {
-    min-width: calc(var(--height-base) * 1.5);
-    width: calc(var(--height-base) * 1.5);
-    height: calc(var(--height-base) * 1.5);
+    width: var(--space-2);
+    height: var(--space-2);
+    min-width: var(--space-2);
     padding: 0;
   }
 
-  /* For positioning on parent */
-  &[position] {
+  /* ==========================================
+     VARIANTS
+  ========================================== */
+  &[data-variant="secondary"] {
+    background: var(--hover-background);
+    color: var(--color-text-1);
+  }
+
+  &[data-variant="destructive"] {
+    background: var(--error-color);
+  }
+
+  &[data-variant="outline"] {
+    background: transparent;
+    border: 1px solid var(--border-color-1);
+    color: var(--color-text-1);
+  }
+
+  &[data-variant="success"] {
+    background: var(--success-color);
+  }
+
+  &[data-variant="warning"] {
+    background: var(--warning-color);
+    color: var(--color-text-1);
+  }
+
+  /* ==========================================
+     POSITIONING
+  ========================================== */
+  &[data-position] {
     position: absolute;
   }
 
-  &[position="top-right"] {
+  &[data-position="top-right"] {
     top: 0;
     right: 0;
     transform: translate(50%, -50%);
   }
 
-  &[position="top-left"] {
+  &[data-position="top-left"] {
     top: 0;
     left: 0;
     transform: translate(-50%, -50%);
