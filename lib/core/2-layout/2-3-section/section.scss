@@ -1,6 +1,7 @@
 /* Section - Generic container */
 section {
-  display: block;
+  display: grid;
+  gap: var(--section-gap);
   padding: var(--section-padding);
   background: var(--section-background);
   border: var(--section-border-width) solid var(--border-color-1);
