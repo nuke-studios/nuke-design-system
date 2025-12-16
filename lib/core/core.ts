@@ -12,18 +12,24 @@
 // 1. Shell
 export { NukeAppShellSidebar } from './1-shell/app-shell-sidebar/app-shell-sidebar.js';
 export { NukeAppShellStacked } from './1-shell/app-shell-stacked/app-shell-stacked.js';
+export { NukeSidebar } from './1-shell/sidebar/sidebar.js';
 
 // 2. Layout
-export { NukeNavAccordion, NukeNavAccordionItem } from './2-layout/nav-accordion/nav-accordion.js';
-export { NukeNavBarItem } from './2-layout/nav-bar/nav-bar.js';
-export { NukeNavRailItem } from './2-layout/nav-rail/nav-rail.js';
-export { NukeSidebar } from './2-layout/sidebar/sidebar.js';
-export { NukeToolbar } from './2-layout/toolbar/toolbar.js';
+// (pure CSS: nuke-layout, nuke-area, section)
 
-// 3. Component
-export { NukeAccordion } from './3-component/accordion/accordion.js';
-export { NukeBadge } from './3-component/badge/badge.js';
+// 3. Primitives
 
-// 4. Forms
-export { NukeTabs, NukeTab, NukeTabPanel } from './4-forms/tabs/tabs.js';
-export { NukeToast } from './3-component/toast/toast.js';
+// 3.1 UI
+export { NukeAccordion } from './3-primitives/ui/accordion/accordion.js';
+export { NukeBadge } from './3-primitives/ui/badge/badge.js';
+export { NukeNavAccordion, NukeNavAccordionItem } from './3-primitives/ui/nav-accordion/nav-accordion.js';
+export { NukeNavBarItem } from './3-primitives/ui/nav-bar/nav-bar.js';
+export { NukeNavRailItem } from './3-primitives/ui/nav-rail/nav-rail.js';
+export { NukeToolbar } from './3-primitives/ui/toolbar/toolbar.js';
+export { NukeToast } from './3-primitives/ui/toast/toast.js';
+
+// 3.2 Forms
+export { NukeTabs, NukeTab, NukeTabPanel } from './3-primitives/forms/tabs/tabs.js';
+
+// 3.3 Content
+// (pure CSS: headings, paragraph, links, lists, code)

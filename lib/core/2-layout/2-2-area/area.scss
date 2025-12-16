@@ -1,0 +1,8 @@
+/* Area - Layout region/grid item */
+nuke-area {
+  display: grid;
+  gap: var(--area-gap);
+  padding: var(--area-padding);
+  background: var(--area-background);
+  border-radius: var(--area-radius);
+}

@@ -6,48 +6,50 @@
 /* Tokens */
 @use './tokens';
 
-/* 1. Shell — app frame */
+/* 1. Shell — app frame + structure */
 @use './1-shell/app-shell-sidebar/app-shell-sidebar';
 @use './1-shell/app-shell-stacked/app-shell-stacked';
+@use './1-shell/header/header';
+@use './1-shell/main/main';
+@use './1-shell/footer/footer';
+@use './1-shell/sidebar/sidebar';
 
-/* 2. Layout — page regions, containers */
-@use './2-layout/area/area';
-@use './2-layout/footer/footer';
-@use './2-layout/grid/grid';
-@use './2-layout/header/header';
-@use './2-layout/main/main';
-@use './2-layout/nav-accordion/nav-accordion';
-@use './2-layout/nav-bar/nav-bar';
-@use './2-layout/nav-rail/nav-rail';
-@use './2-layout/section/section';
-@use './2-layout/sidebar/sidebar';
-@use './2-layout/toolbar/toolbar';
+/* 2. Layout — page layouts */
+@use './2-layout/2-1-layout/layout';
+@use './2-layout/2-2-area/area';
+@use './2-layout/2-3-section/section';
 
-/* 3. Component — UI containers */
-@use './3-component/accordion/accordion';
-@use './3-component/badge/badge';
-@use './3-component/nav/nav';
-@use './3-component/table/table';
-@use './3-component/tag/tag';
-@use './3-component/toast/toast';
+/* 3. Primitives — building blocks */
 
-/* 4. Forms — form elements */
-@use './4-forms/button/button';
-@use './4-forms/checkbox/checkbox';
-@use './4-forms/input/input';
-@use './4-forms/label/label';
-@use './4-forms/radio/radio';
-@use './4-forms/range/range';
-@use './4-forms/select/select';
-@use './4-forms/tabs/tabs';
-@use './4-forms/textarea/textarea';
+/* 3.1 UI */
+@use './3-primitives/ui/accordion/accordion';
+@use './3-primitives/ui/badge/badge';
+@use './3-primitives/ui/nav/nav';
+@use './3-primitives/ui/nav-rail/nav-rail';
+@use './3-primitives/ui/nav-bar/nav-bar';
+@use './3-primitives/ui/nav-accordion/nav-accordion';
+@use './3-primitives/ui/table/table';
+@use './3-primitives/ui/tag/tag';
+@use './3-primitives/ui/toast/toast';
+@use './3-primitives/ui/toolbar/toolbar';
 
-/* 5. Content — typography */
-@use './5-content/headings/headings';
-@use './5-content/lists/lists';
-@use './5-content/paragraph/paragraph';
-@use './5-content/links/links';
-@use './5-content/code/code';
+/* 3.2 Forms */
+@use './3-primitives/forms/button/button';
+@use './3-primitives/forms/checkbox/checkbox';
+@use './3-primitives/forms/input/input';
+@use './3-primitives/forms/label/label';
+@use './3-primitives/forms/radio/radio';
+@use './3-primitives/forms/range/range';
+@use './3-primitives/forms/select/select';
+@use './3-primitives/forms/tabs/tabs';
+@use './3-primitives/forms/textarea/textarea';
+
+/* 3.3 Content */
+@use './3-primitives/content/headings/headings';
+@use './3-primitives/content/lists/lists';
+@use './3-primitives/content/paragraph/paragraph';
+@use './3-primitives/content/links/links';
+@use './3-primitives/content/code/code';
 
 /* RESETS */
 *, *::before, *::after {

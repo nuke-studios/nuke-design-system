@@ -21,11 +21,22 @@
   --shell-padding: 0;
   --shell-gap: 1px;
 
-  /* LAYOUT - page regions (area, section, toolbar, nav-bar) */
-  --layout-padding: var(--space-3);
+  /* LAYOUT - nuke-layout container */
+  --layout-padding: 0;
   --layout-gap: 1px;
   --layout-radius: 0;
   --layout-border-width: 0;
+
+  /* AREA - nuke-area regions */
+  --area-padding: var(--space-3);
+  --area-gap: 1px;
+  --area-radius: 0;
+  --area-border-width: 0;
+
+  /* SECTION - section blocks */
+  --section-padding: var(--space-3);
+  --section-radius: 0;
+  --section-border-width: 0;
 
 
   /* COMPONENT - UI containers (accordion, toast, table, badge) */
@@ -78,73 +89,77 @@
 /* DARK THEME (default) */
 :root, .dark-theme {
   /* Accent colors */
-  --color-1: hsl(25, 90%, 60%);
-  --color-2: hsl(280, 60%, 70%);
-  --color-3: hsl(160, 60%, 55%);
+  --color-1: hsl(214, 89%, 72%);
+  --color-2: hsl(212, 17%, 48%);
+  --color-3: hsla(190, 80%, 65%, 1);
 
   /* Text colors */
-  --color-text-1: hsl(0, 0%, 92%);
-  --color-text-2: hsl(0, 0%, 60%);
-  --color-text-inverse: hsl(0, 0%, 100%);
+  --color-text-1: hsla(0, 0%, 100%, 1);
+  --color-text-2: hsla(0, 0%, 65%, 1);
+  --color-text-inverse: hsla(220, 15%, 10%, 1);
 
   /* Semantic colors */
-  --error-color: hsl(0, 70%, 60%);
-  --warning-color: hsl(40, 90%, 60%);
-  --success-color: hsl(140, 60%, 55%);
+  --error-color: hsla(0, 72%, 65%, 1);
+  --warning-color: hsla(45, 90%, 55%, 1);
+  --success-color: hsla(170, 70%, 60%, 1);
 
-  /* BACKGROUNDS - per layer (debug colors) */
-  --shell-background: red;
-  --layout-background: green;
-  --component-background: blue;
-  --forms-background: yellow;
-  --hover-background: orange;
+  /* BACKGROUNDS - per layer */
+  --shell-background: hsla(240, 9%, 11%, 1);
+  --layout-background: hsla(240, 5%, 14%, 1);
+  --area-background: transparent;
+  --section-background: hsla(240, 5%, 18%, 1);
+  --component-background: hsla(240, 5%, 18%, 1);
+  --forms-background: hsla(240, 5%, 7%, 1);
+  --hover-background: hsla(240, 5%, 24%, 1);
 
   /* Border colors */
-  --border-color-1: pink;
-  --border-color-2: hsl(0, 0%, 50%);
+  --border-color-1: hsla(0, 0%, 30%, 1);
+  --border-color-2: hsla(0, 0%, 45%, 1);
 
   /* Shadows */
-  --box-shadow-1: 0 1px 3px rgba(0, 0, 0, 0.3);
-  --box-shadow-2: 0 2px 8px rgba(0, 0, 0, 0.4);
-  --box-shadow-3: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --box-shadow-1: 0 1px 2px hsla(0, 0%, 0%, 0.2);
+  --box-shadow-2: 0 2px 8px hsla(0, 0%, 0%, 0.3);
+  --box-shadow-3: 0 4px 16px hsla(0, 0%, 0%, 0.4);
 
   /* Scrollbar */
   --scrollbar-track: var(--shell-background);
-  --scrollbar-thumb: var(--border-color-2);
+  --scrollbar-thumb: var(--border-color-1);
 }
 
 /* LIGHT THEME */
-:root.light-theme {
+.light-theme {
   /* Accent colors */
-  --color-1: hsl(25, 85%, 50%);
-  --color-2: hsl(280, 50%, 55%);
-  --color-3: hsl(160, 50%, 45%);
+  --color-1: hsla(221, 55%, 45%, 1);
+  --color-2: hsla(270, 65%, 45%, 1);
+  --color-3: hsla(190, 75%, 38%, 1);
 
   /* Text colors */
-  --color-text-1: hsl(0, 0%, 15%);
-  --color-text-2: hsl(0, 0%, 45%);
-  --color-text-inverse: hsl(0, 0%, 100%);
+  --color-text-1: hsla(220, 15%, 5%, 1);
+  --color-text-2: hsla(220, 10%, 25%, 1);
+  --color-text-inverse: hsla(0, 0%, 100%, 1);
 
   /* Semantic colors */
-  --error-color: hsl(0, 70%, 50%);
-  --warning-color: hsl(40, 90%, 50%);
-  --success-color: hsl(140, 60%, 40%);
+  --error-color: hsla(0, 70%, 50%, 1);
+  --warning-color: hsla(20, 80%, 50%, 1);
+  --success-color: hsla(170, 65%, 45%, 1);
 
   /* BACKGROUNDS - per layer */
-  --shell-background: hsl(0, 0%, 94%);
-  --layout-background: hsl(0, 0%, 100%);
-  --component-background: hsl(0, 0%, 96%);
-  --forms-background: hsl(0, 0%, 96%);
-  --hover-background: hsl(0, 0%, 90%);
+  --shell-background: hsla(240, 5%, 72%, 1);
+  --layout-background: hsla(240, 5%, 69%, 1);
+  --area-background: transparent;
+  --section-background: hsla(240, 5%, 66%, 1);
+  --component-background: hsla(240, 5%, 66%, 1);
+  --forms-background: hsla(240, 5%, 75%, 1);
+  --hover-background: hsla(240, 5%, 60%, 1);
 
   /* Border colors */
-  --border-color-1: hsl(0, 0%, 75%);
-  --border-color-2: hsl(0, 0%, 60%);
+  --border-color-1: hsla(0, 0%, 80%, 1);
+  --border-color-2: hsla(0, 0%, 65%, 1);
 
   /* Shadows */
-  --box-shadow-1: 0 1px 3px rgba(0, 0, 0, 0.08);
-  --box-shadow-2: 0 2px 8px rgba(0, 0, 0, 0.12);
-  --box-shadow-3: 0 4px 16px rgba(0, 0, 0, 0.16);
+  --box-shadow-1: 0 1px 2px hsla(0, 0%, 0%, 0.04);
+  --box-shadow-2: 0 2px 8px hsla(0, 0%, 0%, 0.06);
+  --box-shadow-3: 0 4px 16px hsla(0, 0%, 0%, 0.08);
 
   /* Scrollbar */
   --scrollbar-track: var(--shell-background);

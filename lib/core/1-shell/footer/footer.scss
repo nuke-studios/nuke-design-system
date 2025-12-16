@@ -3,7 +3,7 @@ footer {
   display: grid;
   align-items: center;
   min-height: var(--bar-height-1);
-  padding: var(--layout-padding);
+  padding: 0 var(--layout-padding);
   background: var(--layout-background);
   border: var(--layout-border-width) solid var(--border-color-1);
   border-radius: var(--layout-radius);
