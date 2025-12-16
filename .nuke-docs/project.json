@@ -50,7 +50,7 @@
     "type": "object"
   },
   "data": {
-    "title": "Unit Design System",
+    "title": "Nuke Design System",
     "tagline": "One unit. One ratio. Everything scales.",
     "type": "lib",
     "problem": "Design systems have arbitrary token values that don't relate to each other. Scaling UI density requires changing dozens of variables.",
