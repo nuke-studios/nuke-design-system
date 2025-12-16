@@ -1,5 +1,5 @@
+/* Textarea - Reset */
 textarea {
-  /* Reset */
   appearance: none;
   background: none;
   border: none;
@@ -7,38 +7,56 @@ textarea {
   margin: 0;
   font: inherit;
   color: inherit;
-  width: 100%;
   resize: vertical;
+}
 
-  /* Base (styled by tokens) */
+/* Textarea - Base */
+textarea {
   display: block;
   width: 100%;
-  min-height: calc(var(--forms-height) * 4);
+  min-height: calc(var(--forms-height) * 3);
   padding: calc(var(--forms-height) * (1 - var(--forms-ratio)) / 2);
   font-size: var(--text-base);
   line-height: 1.5;
   color: var(--color-text-1);
   background: var(--forms-background);
   border: var(--forms-border);
-  border-bottom: var(--forms-border-bottom);
   border-radius: var(--forms-radius);
   transition:
     border-color var(--transition-fast),
-    background-color var(--transition-fast),
-    box-shadow var(--transition-fast);
+    background-color var(--transition-fast);
 
   &::placeholder {
     color: var(--color-text-2);
   }
 
-  &:focus {
-    outline: none;
-    border-color: var(--color-text-1);
+  &:hover:not(:disabled) {
+    border-color: var(--color-1);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-1);
+    outline-offset: 2px;
   }
 
   &:disabled {
     opacity: var(--opacity-disabled);
     cursor: not-allowed;
     resize: none;
+  }
+
+  /* ==========================================
+     SIZES
+  ========================================== */
+  &[data-size="small"] {
+    min-height: calc(var(--height-1) * 3);
+    padding: calc(var(--height-1) * (1 - var(--forms-ratio)) / 2);
+    font-size: var(--text-1);
+  }
+
+  &[data-size="large"] {
+    min-height: calc(var(--height-4) * 3);
+    padding: calc(var(--height-4) * (1 - var(--forms-ratio)) / 2);
+    font-size: var(--text-4);
   }
 }

@@ -1,70 +1,128 @@
 /* ============================================
    NUKE DESIGN SYSTEM - TOKENS
-   4-Layer Architecture: shell → layout → component → forms
+   3-Layer Architecture: shell → layout → primitives
+   Hybrid scaling: global --scaling + layer-specific control
 ============================================ */
 
 :root {
-  /* HEIGHT BASE - scales form elements and bars together */
-  --height-base: 6px;   /* 4px=compact, 6px=standard, 8px=touch */
+  /* ==========================================
+     GLOBAL SCALING
+     Set --scaling to uniformly scale the UI
+     0.9 = compact, 1 = standard, 1.1 = spacious
+  ========================================== */
+  --scaling: 1;
 
-  /* FORMS RATIO - controls padding inside form elements */
-  --forms-ratio: 0.4;   /* 0.4=airy, 0.5=balanced, 0.7=tight */
+  /* ==========================================
+     RADIUS FACTOR
+     Multiplier for all radius values
+     0 = none, 0.75 = small, 1 = medium, 1.5 = large
+  ========================================== */
+  --radius-factor: 1;
 
-  /* SPACING - fixed pixel scale for padding and gaps */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 24px;
+  /* ==========================================
+     SPACING SCALE
+     All spacing multiplied by --scaling
+  ========================================== */
+  --space-1: calc(4px * var(--scaling));
+  --space-2: calc(8px * var(--scaling));
+  --space-3: calc(12px * var(--scaling));
+  --space-4: calc(16px * var(--scaling));
+  --space-5: calc(24px * var(--scaling));
+  --space-6: calc(32px * var(--scaling));
+  --space-7: calc(40px * var(--scaling));
+  --space-8: calc(48px * var(--scaling));
+  --space-9: calc(64px * var(--scaling));
 
-  /* SHELL - app frame (header, sidebar, footer layouts) */
+  /* ==========================================
+     RADIUS SCALE
+     All radius multiplied by --scaling and --radius-factor
+  ========================================== */
+  --radius-1: calc(2px * var(--scaling) * var(--radius-factor));
+  --radius-2: calc(4px * var(--scaling) * var(--radius-factor));
+  --radius-3: calc(6px * var(--scaling) * var(--radius-factor));
+  --radius-4: calc(8px * var(--scaling) * var(--radius-factor));
+  --radius-5: calc(12px * var(--scaling) * var(--radius-factor));
+  --radius-6: calc(16px * var(--scaling) * var(--radius-factor));
+
+  /* ==========================================
+     HEIGHT SCALE
+     For form elements and bars, multiplied by --scaling
+  ========================================== */
+  --height-base: calc(6px * var(--scaling)); /* micro unit for calculations */
+  --height-1: calc(24px * var(--scaling));   /* small buttons, tags */
+  --height-2: calc(32px * var(--scaling));   /* breadcrumb, status bar */
+  --height-3: calc(36px * var(--scaling));   /* standard buttons, inputs */
+  --height-4: calc(48px * var(--scaling));   /* toolbar, nav bar */
+  --height-5: calc(60px * var(--scaling));   /* header, hero sections */
+
+  /* Legacy aliases for bar heights */
+  --bar-height-1: var(--height-2);  /* breadcrumb, status bar */
+  --bar-height-2: var(--height-4);  /* toolbar, nav bar */
+  --bar-height-3: var(--height-5);  /* header, hero sections */
+
+  /* ==========================================
+     1. SHELL - app frame
+  ========================================== */
   --shell-padding: 0;
   --shell-gap: 1px;
 
-  /* LAYOUT - nuke-layout container */
+  /* ==========================================
+     2. LAYOUT HIERARCHY
+  ========================================== */
+  /* 2-1 Layout container */
   --layout-padding: 0;
   --layout-gap: 1px;
   --layout-radius: 0;
   --layout-border-width: 0;
 
-  /* AREA - nuke-area regions */
+  /* 2-2 Area regions */
   --area-padding: var(--space-3);
   --area-gap: 1px;
   --area-radius: 0;
   --area-border-width: 0;
 
-  /* SECTION - section blocks */
+  /* 2-3 Section blocks */
   --section-padding: var(--space-3);
   --section-radius: 0;
   --section-border-width: 0;
 
-
-  /* COMPONENT - UI containers (accordion, toast, table, badge) */
+  /* ==========================================
+     3. PRIMITIVES
+  ========================================== */
+  /* 3.1 UI Components */
   --component-padding: var(--space-2);
   --component-gap: 1px;
-  --component-radius: 3px;
+  --component-radius: var(--radius-2);
   --component-border-width: 1px;
 
-  /* FORMS - form elements (button, input, select, checkbox) */
-  --forms-height: calc(var(--height-base) * 6);
-  --forms-height-small: calc(var(--height-base) * 4);
+  /* 3.2 Forms */
+  --forms-height: var(--height-3);
+  --forms-height-small: var(--height-1);
+  --forms-ratio: 0.4;   /* 0.4=airy, 0.5=balanced, 0.7=tight */
   --forms-gap: 1px;
-  --forms-radius: 3px;
+  --forms-radius: var(--radius-2);
   --forms-border: 1px solid var(--border-color-1);
   --forms-border-bottom: none;
 
-  /* WIDTHS - fixed values */
+  /* ==========================================
+     WIDTHS - fixed values (not scaled)
+  ========================================== */
   --width-1: 240px;    /* sidebar, narrow panels */
   --width-2: 480px;    /* content, modals */
   --width-3: 768px;    /* max-width, containers */
 
-  /* BAR HEIGHTS - scale with height-base */
-  --bar-height-1: calc(var(--height-base) * 5);   /* breadcrumb, status bar */
-  --bar-height-2: calc(var(--height-base) * 8);   /* toolbar, nav bar */
-  --bar-height-3: calc(var(--height-base) * 10);  /* header, hero sections */
+  /* ==========================================
+     TYPOGRAPHY - scales with --scaling
+  ========================================== */
+  --text-1: calc(12px * var(--scaling));
+  --text-2: calc(14px * var(--scaling));
+  --text-3: calc(16px * var(--scaling));
+  --text-4: calc(18px * var(--scaling));
+  --text-5: calc(24px * var(--scaling));
+  --text-6: calc(32px * var(--scaling));
 
-  /* TEXT - derived from forms height and ratio */
-  --text-base: calc(var(--forms-height) * var(--forms-ratio));
+  /* Base text for body */
+  --text-base: var(--text-3);
 
   /* FONT FAMILIES */
   --family-1: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
@@ -76,7 +134,9 @@
   --font-weight-medium: 500;
   --font-weight-bold: 700;
 
-  /* NON-UNIT VALUES */
+  /* ==========================================
+     NON-SCALED VALUES
+  ========================================== */
   --opacity-disabled: 0.5;
   --z-index-1: 100;
   --z-index-2: 500;

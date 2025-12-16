@@ -25,7 +25,7 @@ input[type="reset"] {
   padding: 0 calc(var(--forms-height) * (1 - var(--forms-ratio)));
   height: var(--forms-height);
   font-size: var(--text-base);
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   white-space: nowrap;
   text-align: center;
   text-decoration: none;
@@ -33,14 +33,13 @@ input[type="reset"] {
   color: var(--color-text-1);
   background: var(--forms-background);
   border: var(--forms-border);
-  border-bottom: var(--forms-border-bottom);
   border-radius: var(--forms-radius);
   transition:
     background-color var(--transition-fast),
-    border-color var(--transition-fast);
+    border-color var(--transition-fast),
+    opacity var(--transition-fast);
 
-  &:hover,
-  &:focus {
+  &:hover {
     background: var(--hover-background);
   }
 
@@ -54,5 +53,82 @@ input[type="reset"] {
     opacity: var(--opacity-disabled);
     cursor: not-allowed;
     pointer-events: none;
+  }
+
+  /* ==========================================
+     SIZES
+  ========================================== */
+  &[data-size="small"] {
+    height: var(--height-1);
+    padding: 0 calc(var(--height-1) * (1 - var(--forms-ratio)));
+    font-size: var(--text-1);
+  }
+
+  &[data-size="large"] {
+    height: var(--height-4);
+    padding: 0 calc(var(--height-4) * (1 - var(--forms-ratio)));
+    font-size: var(--text-4);
+  }
+
+  /* ==========================================
+     VARIANTS
+  ========================================== */
+
+  /* Primary - filled accent color */
+  &[data-variant="primary"] {
+    background: var(--color-1);
+    color: var(--color-text-inverse);
+    border-color: var(--color-1);
+
+    &:hover {
+      opacity: 0.9;
+      background: var(--color-1);
+    }
+  }
+
+  /* Destructive - filled error color */
+  &[data-variant="destructive"] {
+    background: var(--error-color);
+    color: var(--color-text-inverse);
+    border-color: var(--error-color);
+
+    &:hover {
+      opacity: 0.9;
+      background: var(--error-color);
+    }
+  }
+
+  /* Outline - border only, transparent bg */
+  &[data-variant="outline"] {
+    background: transparent;
+    border: 1px solid var(--border-color-1);
+
+    &:hover {
+      background: var(--hover-background);
+    }
+  }
+
+  /* Ghost - no border, no bg */
+  &[data-variant="ghost"] {
+    background: transparent;
+    border-color: transparent;
+
+    &:hover {
+      background: var(--hover-background);
+    }
+  }
+
+  /* Link - looks like a link */
+  &[data-variant="link"] {
+    background: transparent;
+    border-color: transparent;
+    color: var(--color-1);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+
+    &:hover {
+      text-decoration-thickness: 2px;
+      background: transparent;
+    }
   }
 }

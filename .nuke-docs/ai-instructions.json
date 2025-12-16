@@ -51,7 +51,7 @@
     {
       "id": "instruction-3",
       "title": "Layer-First Token Naming",
-      "description": "Use layer-first naming for all tokens: --shell-gap, --layout-padding, --component-border, --forms-height. Each layer (shell, layout, component, forms) has its own independent set of tokens. Never use property-first names like --gap-shell or semantic names like --button-bg."
+      "description": "Use layer-first naming for all tokens: --shell-gap, --layout-padding, --area-gap, --section-padding, --component-border, --forms-height. Each layer (shell, layout, area, section, component, forms) has its own independent set of tokens. Never use property-first names like --gap-shell or semantic names like --button-bg."
     },
     {
       "id": "instruction-4",
@@ -81,17 +81,24 @@
     {
       "id": "instruction-9",
       "title": "Token Usage by Layer",
-      "description": "Use tokens matching folder level: 1-shell uses --shell-* tokens, 2-layout uses --layout-* tokens, 3-component uses --component-* tokens, 4-forms uses --forms-* tokens. 5-content uses base tokens. Each layer is independent - no cascade between layers."
+      "description": "Use tokens matching folder level: 1-shell uses --shell-* tokens, 2-layout hierarchy uses --layout-*/--area-*/--section-* tokens respectively, 3-primitives/ui uses --component-* tokens, 3-primitives/forms uses --forms-* tokens, 3-primitives/content uses base tokens. Each layer is independent - no cascade between layers."
     },
     {
       "id": "instruction-10",
       "title": "No Hardcoded Borders",
-      "description": "Never use 'border: 1px solid var(--border-color-1)' directly. Always use layer token references: --layout-border for 2-layout, --component-border for 3-component, --forms-border for 4-forms. This enables style mode switching via token overrides."
+      "description": "Never use 'border: 1px solid var(--border-color-1)' directly. Always use layer token references: --layout-border-width for layout, --area-border-width for areas, --section-border-width for sections, --component-border-width for components, --forms-border for forms. This enables style mode switching via token overrides."
     },
     {
       "id": "instruction-11",
       "title": "Forms Padding",
-      "description": "Form elements don't use padding tokens. Calculate padding from height: calc(var(--forms-height) * (1 - var(--ratio))). This maintains consistent proportions. Inputs use half this value for horizontal padding."
+      "description": "Form elements don't use padding tokens. Calculate padding from height: calc(var(--forms-height) * (1 - var(--forms-ratio))). This maintains consistent proportions. Inputs use half this value for horizontal padding."
+    },
+    {
+      "id": "instruction-12",
+      "title": "Adding New Primitives",
+      "description": "When adding a new primitive: 1) BEHAVIOR: Check shoelace.style/components/[name] for web component structure, props, events, ARIA. 2) ACCESSIBILITY: Check radix-ui.com/primitives/docs/components/[name] for keyboard handling, focus management. 3) STYLES: Check ui.shadcn.com/docs/components/[name] for clean CSS patterns. 4) CREATE: Add [name].scss + [name].ts in lib/core/3-primitives/[ui|forms|content]/[name]/. 5) TOKENS: Use only Nuke tokens - var(--height-3) not 36px, var(--radius-2) not 4px, var(--space-3) not 12px. 6) EXPORT: Add to core.ts and core.scss imports.",
+      "created": "2025-12-16T13:44:10.369551+01:00",
+      "updated": "2025-12-16T13:44:10.369551+01:00"
     }
   ]
 }

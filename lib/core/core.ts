@@ -29,7 +29,10 @@ export { NukeToolbar } from './3-primitives/ui/toolbar/toolbar.js';
 export { NukeToast } from './3-primitives/ui/toast/toast.js';
 
 // 3.2 Forms
-export { NukeTabs, NukeTab, NukeTabPanel } from './3-primitives/forms/tabs/tabs.js';
+// (pure CSS: button, checkbox, input, label, radio, range, select, textarea)
+
+// Tabs (moved to UI)
+export { NukeTabs, NukeTab, NukeTabPanel } from './3-primitives/ui/tabs/tabs.js';
 
 // 3.3 Content
 // (pure CSS: headings, paragraph, links, lists, code)

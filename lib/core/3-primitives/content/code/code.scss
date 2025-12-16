@@ -1,8 +1,37 @@
-/* Code */
+/* Inline code */
 code, kbd, samp {
   padding: var(--space-1) var(--space-2);
   background: var(--component-background);
   font-family: var(--family-mono), monospace;
-  font-size: calc(var(--text-base) * 0.9);
-  border-radius: var(--forms-radius);
+  font-size: 0.875em;
+  border-radius: var(--radius-2);
+}
+
+/* Keyboard key */
+kbd {
+  background: var(--forms-background);
+  border: var(--forms-border);
+  box-shadow: 0 2px 0 var(--border-color-1);
+}
+
+/* Code block */
+pre {
+  display: block;
+  padding: var(--space-4);
+  background: var(--component-background);
+  font-family: var(--family-mono), monospace;
+  font-size: var(--text-1);
+  line-height: 1.6;
+  border-radius: var(--radius-3);
+  overflow-x: auto;
+  white-space: pre;
+  tab-size: 2;
+
+  /* Reset nested code */
+  code {
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    font-size: inherit;
+  }
 }

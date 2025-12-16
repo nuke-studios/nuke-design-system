@@ -6,32 +6,6 @@
 /* Import the design system from lib */
 @import '@nuke.dev/design-system/dist/core.css';
 
-/* Token aliases for frontend compatibility */
-:root {
-  /* Font size aliases (lib uses --text-base with multipliers) */
-  --font-size-1: calc(var(--text-base) * 0.75);
-  --font-size-2: calc(var(--text-base) * 0.85);
-  --font-size-3: var(--text-base);
-  --font-size-4: calc(var(--text-base) * 1.5);
-
-  /* Color aliases */
-  --on-background: var(--color-text-1);
-  --on-background-light: var(--color-text-2);
-  --on-color: var(--color-text-inverse);
-
-  /* Border aliases */
-  --border-1: var(--border-color-1);
-  --border-2: var(--border-color-2);
-
-  /* Height aliases */
-  --height-1: var(--controls-height-small);
-  --height-2: var(--controls-height);
-  --height-3: var(--bar-height-2);
-
-  /* Gap alias */
-  --area-gap: var(--area-gap-1);
-}
-
 /* Color overrides - nuke-docs blue/cyan theme */
 :root, .dark-theme {
   /* Accent colors */
@@ -128,18 +102,66 @@
   margin-top: 4px;
 }
 
-/* Dashboard grid layout */
-nuke-grid.dashboard {
-  grid-template-columns: repeat(4, 1fr);
+/* Global controls styling */
+.global-controls {
+  background: var(--color-1);
+  color: var(--color-text-inverse);
+  padding: var(--space-3);
+  margin: calc(-1 * var(--space-3));
+  margin-bottom: var(--space-3);
 }
 
-nuke-grid.dashboard section {
-  min-height: 120px;
-  display: grid;
-  place-content: center;
+.global-controls h4 {
+  color: var(--color-text-inverse);
+  opacity: 0.8;
+}
+
+.global-controls label {
+  color: var(--color-text-inverse);
+}
+
+/* Form demo rows */
+.form-row {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.form-row input[type="text"],
+.form-row select,
+.form-row textarea {
+  flex: 1;
+  min-width: 150px;
+}
+
+.form-row textarea {
+  min-height: 60px;
+}
+
+/* Typography demo */
+.text-1 { font-size: var(--text-1); }
+.text-2 { font-size: var(--text-2); }
+.text-3 { font-size: var(--text-3); }
+.text-4 { font-size: var(--text-4); }
+.text-5 { font-size: var(--text-5); }
+
+/* Spacing demo */
+.spacing-demo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.spacing-demo > div {
+  font-size: var(--text-1);
+}
+
+/* Current values */
+.values {
+  font-family: var(--family-mono);
+  font-size: var(--text-1);
+  line-height: 1.8;
   color: var(--color-text-2);
-}
-
-nuke-grid.dashboard .wide {
-  grid-column: span 4;
 }

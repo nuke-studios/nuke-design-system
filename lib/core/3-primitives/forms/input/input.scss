@@ -1,3 +1,4 @@
+/* Input - Reset */
 :is(input[type="text"],
 input[type="email"],
 input[type="password"],
@@ -8,7 +9,6 @@ input[type="search"],
 input[type="date"],
 input[type="time"],
 input[type="datetime-local"]) {
-  /* Reset */
   appearance: none;
   background: none;
   border: none;
@@ -16,9 +16,19 @@ input[type="datetime-local"]) {
   margin: 0;
   font: inherit;
   color: inherit;
-  width: 100%;
+}
 
-  /* Base (styled by tokens) */
+/* Input - Base */
+:is(input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"]) {
   display: block;
   width: 100%;
   height: var(--forms-height);
@@ -27,24 +37,41 @@ input[type="datetime-local"]) {
   color: var(--color-text-1);
   background: var(--forms-background);
   border: var(--forms-border);
-  border-bottom: var(--forms-border-bottom);
   border-radius: var(--forms-radius);
   transition:
     border-color var(--transition-fast),
-    background-color var(--transition-fast),
-    box-shadow var(--transition-fast);
+    background-color var(--transition-fast);
 
   &::placeholder {
     color: var(--color-text-2);
   }
 
-  &:focus {
-    outline: none;
-    border-color: var(--color-text-1);
+  &:hover:not(:disabled) {
+    border-color: var(--color-1);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-1);
+    outline-offset: 2px;
   }
 
   &:disabled {
     opacity: var(--opacity-disabled);
     cursor: not-allowed;
+  }
+
+  /* ==========================================
+     SIZES
+  ========================================== */
+  &[data-size="small"] {
+    height: var(--height-1);
+    padding: 0 calc(var(--height-1) * (1 - var(--forms-ratio)) / 2);
+    font-size: var(--text-1);
+  }
+
+  &[data-size="large"] {
+    height: var(--height-4);
+    padding: 0 calc(var(--height-4) * (1 - var(--forms-ratio)) / 2);
+    font-size: var(--text-4);
   }
 }

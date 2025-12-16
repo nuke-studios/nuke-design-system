@@ -53,31 +53,40 @@
     },
     {
       "id": "concept-2",
-      "title": "Unit-Based Tokens",
-      "description": "All dimensions derive from --unit (6px default) and --ratio (0.4 default). Change --unit to scale entire UI: 4px=compact, 6px=standard, 8px=spacious. Derived tokens: --forms-height, layer-specific padding/gap/radius/border/background.",
+      "title": "Global Scaling System",
+      "description": "Radix-inspired scaling: --scaling (0.9-1.1) uniformly scales spacing, heights, typography, and radius. --radius-factor (0-1.5) additionally controls roundness. Layer tokens still allow per-layer overrides.",
       "details": {
-        "base_values": {
-          "--ratio": "0.4 (content fill for forms - 0.4=airy, 0.5=balanced, 0.7=tight)",
-          "--unit": "6px (base size - 4px=compact, 6px=standard, 8px=spacious)"
+        "global_controls": {
+          "--radius-factor": "0=none, 0.75=small, 1=medium, 1.5=large - multiplies all radius",
+          "--scaling": "0.9=compact, 1=standard, 1.1=spacious - multiplies all dimensions"
         },
-        "core_principle": "All dimensions derive from --unit. Change --unit to scale entire UI proportionally.",
-        "density_modes": {
-          "compact": "--unit: 4px",
-          "fluid": "--unit: clamp(4px, 0.5vw + 3px, 8px)",
-          "spacious": "--unit: 8px",
-          "standard": "--unit: 6px"
+        "height_scale": {
+          "--height-1": "calc(24px * var(--scaling)) - small buttons, tags",
+          "--height-2": "calc(32px * var(--scaling)) - breadcrumb, status bar",
+          "--height-3": "calc(36px * var(--scaling)) - standard buttons, inputs",
+          "--height-4": "calc(48px * var(--scaling)) - toolbar, nav bar",
+          "--height-5": "calc(60px * var(--scaling)) - header, hero"
         },
-        "derived_tokens": {
-          "--forms-height": "calc(var(--unit) * 6) - buttons, inputs",
-          "--text-base": "calc(var(--forms-height) * var(--ratio))",
-          "--width-1/2/3": "unit × 40/80/128 - sidebar/content/max-width"
+        "radius_scale": {
+          "--radius-1/2/3/4/5/6": "2/4/6/8/12/16px × scaling × radius-factor"
+        },
+        "spacing_scale": {
+          "--space-1": "calc(4px * var(--scaling))",
+          "--space-2": "calc(8px * var(--scaling))",
+          "--space-3": "calc(12px * var(--scaling))",
+          "--space-4": "calc(16px * var(--scaling))",
+          "--space-5": "calc(24px * var(--scaling))",
+          "--space-6/7/8/9": "32/40/48/64px × scaling"
+        },
+        "typography_scale": {
+          "--text-1/2/3/4/5/6": "12/14/16/18/24/32px × scaling"
         }
       }
     },
     {
       "id": "concept-3",
       "title": "Build System",
-      "description": "npm run build compiles SCSS to CSS and bundles TypeScript. Output: dist/core.css + dist/core.js. Source organized in five numbered folders: 1-shell, 2-layout, 3-component, 4-forms, 5-content.",
+      "description": "npm run build compiles SCSS to CSS and bundles TypeScript. Output: dist/core.css + dist/core.js. Source organized in three layers: 1-shell, 2-layout, 3-primitives (with ui/forms/content subfolders).",
       "details": {
         "build_output": {
           "dist/core.css": "Bundled CSS (compiled from SCSS)",
@@ -87,14 +96,14 @@
           "build": "npm run build - Compiles SCSS to CSS and bundles TypeScript"
         },
         "source_structure": {
-          "core/1-shell/": "App frame (app-shell-sidebar, app-shell-stacked)",
-          "core/2-layout/": "Page regions (area, section, toolbar, sidebar, header, footer, nav-*, grid)",
-          "core/3-component/": "UI containers (accordion, toast, table, badge, tag, nav, icon)",
-          "core/4-forms/": "Form elements (button, input, select, textarea, checkbox, radio, range, tabs, label)",
-          "core/5-content/": "Typography (headings, lists, paragraph, links, code)",
+          "core/1-shell/": "App frame + structure (app-shell-sidebar, app-shell-stacked, header, main, footer, sidebar)",
+          "core/2-layout/": "Page structure hierarchy (2-1-layout, 2-2-area, 2-3-section)",
+          "core/3-primitives/content/": "Typography (headings, lists, paragraph, links, code)",
+          "core/3-primitives/forms/": "Form elements (button, checkbox, input, label, radio, range, select, tabs, textarea)",
+          "core/3-primitives/ui/": "UI components (accordion, badge, nav-*, table, tag, toast, toolbar)",
           "core/core.scss": "SCSS entry point (imports tokens + all layers + resets/animations/utilities)",
           "core/core.ts": "Web component exports",
-          "core/tokens.scss": "Design tokens (--unit, layer tokens: --shell-*, --layout-*, --component-*, --forms-*)"
+          "core/tokens.scss": "Design tokens (--height-base, layer tokens: --shell-*, --layout-*, --area-*, --section-*, --component-*, --forms-*)"
         }
       }
     },
@@ -106,38 +115,44 @@
         "customize_tokens": "Override CSS tokens on :root, body, or any container to cascade style changes to children",
         "import_css": "\u003clink rel='stylesheet' href='dist/core.css'\u003e",
         "import_js": "\u003cscript type='module' src='dist/core.js'\u003e\u003c/script\u003e",
-        "style_modes": "Set layer tokens (--shell-*, --layout-*, --component-*, --forms-*) on any element to control all children"
+        "style_modes": "Set layer tokens (--shell-*, --layout-*, --area-*, --section-*, --component-*, --forms-*) on any element to control all children"
       }
     },
     {
       "id": "concept-5",
       "title": "Frontend App",
-      "description": "Svelte 5 documentation app in frontend/ folder. Two pages: Welcome (landing) and Components (showcase). Uses Nav.svelte for navigation, imports lib web components (\u003cnuke-icon\u003e, \u003cnuke-tabs\u003e, etc). Serves as dogfooding environment to test lib components."
+      "description": "Svelte 5 documentation app in frontend/ folder. Imports lib web components (\u003cnuke-tabs\u003e, \u003cnuke-accordion\u003e, etc) and Phosphor Icons (\u003cph-house\u003e, etc). Serves as dogfooding environment to test lib components."
     },
     {
       "id": "concept-6",
-      "title": "5-Layer Architecture",
-      "description": "Five layers matching folder structure: 1-shell (app frame), 2-layout (page regions), 3-component (UI containers), 4-forms (form elements), 5-content (typography). Each layer has independent tokens. core.scss contains resets, scrollbar, animations, utilities.",
+      "title": "3-Layer Architecture",
+      "description": "Three layers: 1-shell (app frame + structure), 2-layout (hierarchical page structure), 3-primitives (all building blocks). Layout has explicit hierarchy: layout \u003e area \u003e section. Primitives consolidate ui/forms/content.",
       "details": {
         "core_scss": "Resets, scrollbar styling, global states, animations, utilities",
         "layers": {
-          "1-shell": "App frame - overall page structure (app-shell-sidebar, app-shell-stacked)",
-          "2-layout": "Page regions - areas, sections, navigation containers",
-          "3-component": "UI containers - accordions, toasts, tables, badges, tags",
-          "4-forms": "Form elements - buttons, inputs, selects, checkboxes, radios",
-          "5-content": "Typography - headings, lists, paragraphs, links, code"
+          "1-shell": "App frame + structure: app-shell-sidebar, app-shell-stacked, header, main, footer, sidebar",
+          "2-layout": "Page structure hierarchy: 2-1-layout (page container), 2-2-area (regions), 2-3-section (blocks)",
+          "3-primitives": "All building blocks organized by type: ui/ (accordion, nav-*, table, toast), forms/ (button, input, tabs), content/ (headings, paragraph, code)"
+        },
+        "layout_hierarchy": {
+          "2-1-layout": "Top-level page container, uses --layout-* tokens",
+          "2-2-area": "Major regions within layout, uses --area-* tokens",
+          "2-3-section": "Content blocks within areas, uses --section-* tokens"
         }
       }
     },
     {
       "id": "concept-7",
       "title": "Layer-First Token Naming",
-      "description": "Tokens use layer-first naming: --shell-gap, --layout-padding, --component-border, --forms-height. Each layer has: padding, gap, radius, border, background. No cascade between layers - each is independent.",
+      "description": "Tokens use layer-first naming: --shell-gap, --layout-padding, --component-radius, --forms-height. Layer tokens reference global scales (--space-*, --radius-*, --height-*) but can be overridden per-layer.",
       "details": {
-        "component_tokens": "--component-padding, --component-gap, --component-radius, --component-border, --component-background",
-        "forms_tokens": "--forms-height, --forms-height-small, --forms-gap, --forms-radius, --forms-border, --forms-border-bottom, --forms-background",
-        "layout_tokens": "--layout-padding, --layout-gap, --layout-radius, --layout-border, --layout-background",
-        "shell_tokens": "--shell-padding, --shell-gap, --shell-radius, --shell-border, --shell-background"
+        "area_tokens": "--area-padding, --area-gap, --area-radius, --area-border-width, --area-background",
+        "component_tokens": "--component-padding: var(--space-2), --component-radius: var(--radius-2), --component-gap, --component-border-width, --component-background",
+        "forms_tokens": "--forms-height: var(--height-3), --forms-height-small: var(--height-1), --forms-radius: var(--radius-2), --forms-gap, --forms-border, --forms-background",
+        "how_it_works": "Layer tokens reference global scales by default, so --scaling affects everything. Override layer tokens to break from global scaling.",
+        "layout_tokens": "--layout-padding, --layout-gap, --layout-radius, --layout-border-width, --layout-background",
+        "section_tokens": "--section-padding, --section-radius, --section-border-width, --section-background",
+        "shell_tokens": "--shell-padding, --shell-gap, --shell-background"
       }
     },
     {
@@ -148,26 +163,27 @@
     {
       "id": "concept-9",
       "title": "Forms Padding Calculation",
-      "description": "Form elements (buttons, inputs, etc.) don't use padding tokens. Instead, padding is calculated from height and ratio: padding = forms-height × (1 - ratio). This ensures consistent proportions across all form element heights."
+      "description": "Form elements (buttons, inputs, etc.) don't use padding tokens. Instead, padding is calculated from height and ratio: padding = forms-height × (1 - forms-ratio). --forms-ratio (0.4=airy, 0.5=balanced, 0.7=tight) controls content density within form elements."
     },
     {
       "id": "concept-10",
       "title": "Web Components vs Pure CSS",
-      "description": "Most styling is pure CSS on native HTML elements. Web components (nuke-*) only add interactivity. Pure CSS: button, input, select, textarea, checkbox, radio, table, section, header, footer, all 5-content elements. Web components: nuke-app-shell-sidebar, nuke-accordion, nuke-tabs, nuke-icon, nuke-toast, nuke-nav-*, nuke-sidebar, nuke-toolbar.",
+      "description": "Most styling is pure CSS on native HTML elements. Web components (nuke-*) only add interactivity. Icons use Phosphor Icons (@phosphor-icons/webcomponents) as \u003cph-*\u003e elements.",
       "details": {
-        "pure_css": "Native HTML styled by CSS: \u003cbutton\u003e, \u003cinput\u003e, \u003cselect\u003e, \u003ctextarea\u003e, \u003ctable\u003e, \u003csection\u003e, \u003cheader\u003e, \u003cfooter\u003e, \u003ch1\u003e-\u003ch6\u003e, \u003cp\u003e, \u003ca\u003e, \u003cul\u003e, \u003col\u003e, \u003ccode\u003e",
-        "web_components": "Custom elements with JS: \u003cnuke-app-shell-sidebar\u003e, \u003cnuke-accordion\u003e, \u003cnuke-tabs\u003e, \u003cnuke-tab\u003e, \u003cnuke-tab-panel\u003e, \u003cnuke-icon\u003e, \u003cnuke-toast\u003e, \u003cnuke-nav-accordion\u003e, \u003cnuke-nav-rail\u003e, \u003cnuke-sidebar\u003e, \u003cnuke-toolbar\u003e"
+        "icons": "Use Phosphor Icons: import '@phosphor-icons/webcomponents/PhHouse' then \u003cph-house\u003e\u003c/ph-house\u003e",
+        "pure_css": "Native HTML styled by CSS: \u003cbutton\u003e, \u003cinput\u003e, \u003cselect\u003e, \u003ctextarea\u003e, \u003ctable\u003e, \u003csection\u003e, \u003cheader\u003e, \u003cfooter\u003e, \u003cmain\u003e, \u003ch1\u003e-\u003ch6\u003e, \u003cp\u003e, \u003ca\u003e, \u003cul\u003e, \u003col\u003e, \u003ccode\u003e, nuke-layout, nuke-area",
+        "web_components": "Custom elements with JS: \u003cnuke-app-shell-sidebar\u003e, \u003cnuke-app-shell-stacked\u003e, \u003cnuke-sidebar\u003e, \u003cnuke-accordion\u003e, \u003cnuke-tabs\u003e, \u003cnuke-tab\u003e, \u003cnuke-tab-panel\u003e, \u003cnuke-badge\u003e, \u003cnuke-toast\u003e, \u003cnuke-toolbar\u003e, \u003cnuke-nav-accordion\u003e, \u003cnuke-nav-accordion-item\u003e, \u003cnuke-nav-bar-item\u003e, \u003cnuke-nav-rail-item\u003e"
       }
     },
     {
       "id": "concept-11",
       "title": "Component Usage Patterns",
-      "description": "Web components use slots for content. Shell: \u003cnuke-app-shell-sidebar collapsed\u003e\u003caside\u003enav\u003c/aside\u003e\u003cmain\u003econtent\u003c/main\u003e\u003c/nuke-app-shell-sidebar\u003e. Accordion: \u003cnuke-accordion expanded\u003e\u003cnuke-accordion-header\u003eTitle\u003c/nuke-accordion-header\u003e\u003cnuke-accordion-content\u003eBody\u003c/nuke-accordion-content\u003e\u003c/nuke-accordion\u003e. Tabs: \u003cnuke-tabs\u003e\u003cnuke-tab\u003eTab 1\u003c/nuke-tab\u003e\u003cnuke-tab\u003eTab 2\u003c/nuke-tab\u003e\u003cnuke-tab-panel\u003eContent 1\u003c/nuke-tab-panel\u003e\u003cnuke-tab-panel\u003eContent 2\u003c/nuke-tab-panel\u003e\u003c/nuke-tabs\u003e. Icon: \u003cnuke-icon name=\"house\"\u003e\u003c/nuke-icon\u003e. Props reflect as attributes (collapsed, expanded, name).",
+      "description": "Web components use slots for content. Shell: \u003cnuke-app-shell-sidebar collapsed\u003e\u003caside\u003enav\u003c/aside\u003e\u003cmain\u003econtent\u003c/main\u003e\u003c/nuke-app-shell-sidebar\u003e. Accordion: \u003cnuke-accordion expanded\u003e\u003cnuke-accordion-header\u003eTitle\u003c/nuke-accordion-header\u003e\u003cnuke-accordion-content\u003eBody\u003c/nuke-accordion-content\u003e\u003c/nuke-accordion\u003e. Tabs: \u003cnuke-tabs\u003e\u003cnuke-tab\u003eTab 1\u003c/nuke-tab\u003e\u003cnuke-tab\u003eTab 2\u003c/nuke-tab\u003e\u003cnuke-tab-panel\u003eContent 1\u003c/nuke-tab-panel\u003e\u003cnuke-tab-panel\u003eContent 2\u003c/nuke-tab-panel\u003e\u003c/nuke-tabs\u003e. Props reflect as attributes (collapsed, expanded).",
       "details": {
         "accordion": "\u003cnuke-accordion expanded\u003e\u003cnuke-accordion-header\u003eTitle\u003c/nuke-accordion-header\u003e\u003cnuke-accordion-content\u003eContent\u003c/nuke-accordion-content\u003e\u003c/nuke-accordion\u003e",
         "app_shell": "\u003cnuke-app-shell-sidebar collapsed\u003e\u003caside\u003esidebar\u003c/aside\u003e\u003cmain\u003econtent\u003c/main\u003e\u003c/nuke-app-shell-sidebar\u003e",
-        "common_props": "collapsed (shell), expanded (accordion), name (icon), type (toast, tag)",
-        "icon": "\u003cnuke-icon name=\"house\"\u003e\u003c/nuke-icon\u003e - loads SVG from /icons/{name}.svg",
+        "common_props": "collapsed (shell), expanded (accordion), type (toast)",
+        "icons": "Use Phosphor Icons: import '@phosphor-icons/webcomponents/PhHouse' then \u003cph-house\u003e\u003c/ph-house\u003e",
         "tabs": "\u003cnuke-tabs\u003e\u003cnuke-tab\u003eTab 1\u003c/nuke-tab\u003e\u003cnuke-tab\u003eTab 2\u003c/nuke-tab\u003e\u003cnuke-tab-panel\u003ePanel 1\u003c/nuke-tab-panel\u003e\u003cnuke-tab-panel\u003ePanel 2\u003c/nuke-tab-panel\u003e\u003c/nuke-tabs\u003e",
         "toast": "\u003cnuke-toast type=\"success|warning|error\"\u003eMessage\u003c/nuke-toast\u003e"
       }
@@ -177,26 +193,33 @@
       "title": "Workspace Structure",
       "description": "npm workspaces monorepo. Root package.json defines workspaces: ['lib', 'frontend']. Single npm install from root. Frontend depends on @nuke.dev/design-system (symlinked to lib/).",
       "details": {
-        "structure": {
-          "root": "package.json with workspaces config",
-          "lib/": "@nuke.dev/design-system - CSS tokens, SCSS, web components",
-          "frontend/": "Svelte 5 docs app - imports lib as dependency"
-        },
         "commands": {
           "npm install": "Install all workspace dependencies from root",
           "npm run build": "Build lib (CSS + JS to lib/dist/)",
           "npm run dev": "Watch lib for changes",
-          "npm run dev:frontend": "Run frontend dev server (Vite)",
-          "npm run dev:all": "Watch lib + run frontend together"
+          "npm run dev:all": "Watch lib + run frontend together",
+          "npm run dev:frontend": "Run frontend dev server (Vite)"
         },
+        "how_it_works": "npm symlinks @nuke.dev/design-system to lib/ folder. Shared deps like @phosphor-icons/webcomponents installed once. Changes to lib available to frontend after rebuild.",
         "importing": {
-          "js": "import '@nuke.dev/design-system'",
-          "css": "@import '@nuke.dev/design-system/dist/core.css'"
+          "css": "@import '@nuke.dev/design-system/dist/core.css'",
+          "js": "import '@nuke.dev/design-system'"
         },
-        "how_it_works": "npm symlinks @nuke.dev/design-system to lib/ folder. Shared deps like @phosphor-icons/webcomponents installed once. Changes to lib available to frontend after rebuild."
+        "structure": {
+          "frontend/": "Svelte 5 docs app - imports lib as dependency",
+          "lib/": "@nuke.dev/design-system - CSS tokens, SCSS, web components",
+          "root": "package.json with workspaces config"
+        }
       },
       "created": "2025-12-14T22:19:49.183208+01:00",
       "updated": "2025-12-14T22:19:49.183208+01:00"
+    },
+    {
+      "id": "concept-13",
+      "title": "Primitive Stealing Protocol",
+      "description": "Process for adding new primitives: 1) STEAL behavior from Shoelace (shoelace.style) for web component structure, ARIA, keyboard handling. 2) STEAL CSS patterns from shadcn (ui.shadcn.com) for clean minimal styles. 3) STEAL accessibility from Radix docs (radix-ui.com). 4) BUILD as Lit web component in 3-primitives/. 5) STYLE using Nuke tokens only (--scaling, --radius-*, --space-*, --height-*, layer tokens). Never copy CSS values directly - always map to Nuke tokens.",
+      "created": "2025-12-16T13:43:56.713396+01:00",
+      "updated": "2025-12-16T13:43:56.713396+01:00"
     }
   ]
 }

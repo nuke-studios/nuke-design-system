@@ -1,56 +1,71 @@
-/* Radio */
+/* Radio - Reset */
 input[type="radio"] {
-  /* Reset */
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   margin: 0;
   padding: 0;
   cursor: pointer;
+}
 
-  /* Base */
-  display: inline-block;
-  width: var(--forms-height-small);
-  height: var(--forms-height-small);
-  min-width: var(--forms-height-small);
-  min-height: var(--forms-height-small);
+/* Radio - Base */
+input[type="radio"] {
+  --radio-size: var(--height-1);
+
+  display: inline-grid;
+  place-content: center;
+  width: var(--radio-size);
+  height: var(--radio-size);
   background: var(--forms-background);
   border: var(--forms-border);
   border-radius: 50%;
   transition:
     background-color var(--transition-fast),
     border-color var(--transition-fast);
-  position: relative;
   vertical-align: middle;
 
-  &:checked {
-    background-color: var(--forms-background);
-    border-color: var(--color-text-1);
+  /* Inner dot */
+  &::before {
+    content: '';
+    width: calc(var(--radio-size) * 0.4);
+    height: calc(var(--radio-size) * 0.4);
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform var(--transition-fast);
+    background: var(--color-text-inverse);
   }
 
-  &:checked::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: calc(var(--forms-height-small) * var(--forms-ratio));
-    height: calc(var(--forms-height-small) * var(--forms-ratio));
-    background: var(--color-text-1);
-    border-radius: 50%;
+  &:checked {
+    background: var(--color-1);
+    border-color: var(--color-1);
+
+    &::before {
+      transform: scale(1);
+    }
   }
 
   &:hover:not(:disabled) {
-    border-color: var(--color-text-1);
+    border-color: var(--color-1);
   }
 
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px var(--body-background), 0 0 0 4px var(--border-color-2);
+  &:focus-visible {
+    outline: 2px solid var(--color-1);
+    outline-offset: 2px;
   }
 
   &:disabled {
     opacity: var(--opacity-disabled);
     cursor: not-allowed;
+  }
+
+  /* ==========================================
+     SIZES
+  ========================================== */
+  &[data-size="small"] {
+    --radio-size: calc(var(--height-1) * 0.66);
+  }
+
+  &[data-size="large"] {
+    --radio-size: calc(var(--height-1) * 1.33);
   }
 }

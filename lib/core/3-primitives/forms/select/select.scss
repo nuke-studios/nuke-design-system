@@ -1,5 +1,5 @@
+/* Select - Reset */
 select {
-  /* Reset */
   appearance: none;
   background: none;
   border: none;
@@ -7,10 +7,11 @@ select {
   margin: 0;
   font: inherit;
   color: inherit;
-  width: 100%;
   cursor: pointer;
+}
 
-  /* Base (styled by tokens) */
+/* Select - Base */
+select {
   display: block;
   width: 100%;
   height: var(--forms-height);
@@ -18,24 +19,46 @@ select {
   font-size: var(--text-base);
   color: var(--color-text-1);
   background-color: var(--forms-background);
-  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right calc(var(--forms-height) * (1 - var(--forms-ratio)) / 2) center;
+  background-size: 12px;
   border: var(--forms-border);
-  border-bottom: var(--forms-border-bottom);
   border-radius: var(--forms-radius);
   transition:
     border-color var(--transition-fast),
-    background-color var(--transition-fast),
-    box-shadow var(--transition-fast);
+    background-color var(--transition-fast);
 
-  &:focus {
-    outline: none;
-    border-color: var(--color-text-1);
+  &:hover:not(:disabled) {
+    border-color: var(--color-1);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-1);
+    outline-offset: 2px;
   }
 
   &:disabled {
     opacity: var(--opacity-disabled);
     cursor: not-allowed;
+  }
+
+  /* ==========================================
+     SIZES
+  ========================================== */
+  &[data-size="small"] {
+    height: var(--height-1);
+    padding: 0 calc(var(--height-1) * (1 - var(--forms-ratio))) 0 calc(var(--height-1) * (1 - var(--forms-ratio)) / 2);
+    font-size: var(--text-1);
+    background-position: right calc(var(--height-1) * (1 - var(--forms-ratio)) / 2) center;
+    background-size: 10px;
+  }
+
+  &[data-size="large"] {
+    height: var(--height-4);
+    padding: 0 calc(var(--height-4) * (1 - var(--forms-ratio))) 0 calc(var(--height-4) * (1 - var(--forms-ratio)) / 2);
+    font-size: var(--text-4);
+    background-position: right calc(var(--height-4) * (1 - var(--forms-ratio)) / 2) center;
+    background-size: 14px;
   }
 }
