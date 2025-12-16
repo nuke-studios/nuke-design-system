@@ -19,37 +19,31 @@
 @use './2-layout/2-2-area/area';
 @use './2-layout/2-3-section/section';
 
-/* 3. Primitives — building blocks */
-
-/* 3.1 UI */
-@use './3-primitives/ui/accordion/accordion';
-@use './3-primitives/ui/badge/badge';
-@use './3-primitives/ui/nav/nav';
-@use './3-primitives/ui/nav-rail/nav-rail';
-@use './3-primitives/ui/nav-bar/nav-bar';
-@use './3-primitives/ui/nav-accordion/nav-accordion';
-@use './3-primitives/ui/table/table';
-@use './3-primitives/ui/tag/tag';
-@use './3-primitives/ui/toast/toast';
-@use './3-primitives/ui/toolbar/toolbar';
-
-/* 3.2 Forms */
-@use './3-primitives/forms/button/button';
-@use './3-primitives/forms/checkbox/checkbox';
-@use './3-primitives/forms/input/input';
-@use './3-primitives/forms/label/label';
-@use './3-primitives/forms/radio/radio';
-@use './3-primitives/forms/range/range';
-@use './3-primitives/forms/select/select';
-@use './3-primitives/ui/tabs/tabs';
-@use './3-primitives/forms/textarea/textarea';
-
-/* 3.3 Content */
-@use './3-primitives/content/headings/headings';
-@use './3-primitives/content/lists/lists';
-@use './3-primitives/content/paragraph/paragraph';
-@use './3-primitives/content/links/links';
-@use './3-primitives/content/code/code';
+/* 3. Components — all building blocks */
+@use './3-components/accordion/accordion';
+@use './3-components/badge/badge';
+@use './3-components/button/button';
+@use './3-components/checkbox/checkbox';
+@use './3-components/code/code';
+@use './3-components/headings/headings';
+@use './3-components/input/input';
+@use './3-components/label/label';
+@use './3-components/links/links';
+@use './3-components/lists/lists';
+@use './3-components/nav/nav';
+@use './3-components/nav-accordion/nav-accordion';
+@use './3-components/nav-bar/nav-bar';
+@use './3-components/nav-rail/nav-rail';
+@use './3-components/paragraph/paragraph';
+@use './3-components/radio/radio';
+@use './3-components/range/range';
+@use './3-components/select/select';
+@use './3-components/table/table';
+@use './3-components/tabs/tabs';
+@use './3-components/tag/tag';
+@use './3-components/textarea/textarea';
+@use './3-components/toast/toast';
+@use './3-components/toolbar/toolbar';
 
 /* RESETS */
 *, *::before, *::after {
