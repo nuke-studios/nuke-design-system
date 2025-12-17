@@ -310,7 +310,7 @@
   <nuke-nav-rail>
     <nuke-nav-rail-header>
       <Logo size="small" />
-      <span><strong>Nuke</strong></span>
+      <span><strong>Nuke Design System</strong></span>
     </nuke-nav-rail-header>
   </nuke-nav-rail>
 
@@ -485,7 +485,7 @@
     </main>
 
     <footer>
-      <p data-muted>Nuke Design System — One unit. One ratio. Everything scales.</p>
+      <p data-muted>&copy; 2025</p>
     </footer>
   </nuke-app-shell-sidebar-content>
 </nuke-app-shell-sidebar>
