@@ -72,34 +72,30 @@
   /* 2-1 Layout container */
   --layout-padding: 0;
   --layout-gap: 1px;
-  --layout-radius: 0;
+  --layout-radius: var(--radius-2);
   --layout-border-width: 0;
 
   /* 2-2 Area regions */
-  --area-padding: var(--space-3);
+  --area-padding: 0;
   --area-gap: 1px;
-  --area-radius: 0;
+  --area-radius: var(--radius-2);
   --area-border-width: 0;
 
   /* 2-3 Section blocks */
-  --section-padding: var(--space-3);
-  --section-gap: var(--space-3);
-  --section-radius: 0;
+  --section-padding: 0;
+  --section-gap: 1px;
+  --section-radius: var(--radius-2);
   --section-border-width: 0;
 
   /* ==========================================
      3. PRIMITIVES
   ========================================== */
   /* 3.1 UI Components */
-  --component-padding: var(--space-2);
-  --component-gap: 1px;
-  --component-radius: var(--radius-2);
   --component-border-width: 1px;
 
   /* 3.2 Forms */
   --forms-height: var(--height-3);
   --forms-height-small: var(--height-1);
-  --forms-ratio: 0.4;   /* 0.4=airy, 0.5=balanced, 0.7=tight */
   --forms-gap: 1px;
   --forms-radius: var(--radius-2);
   --forms-border: 1px solid var(--border-color-1);
@@ -150,32 +146,32 @@
 /* DARK THEME (default) */
 :root, .dark-theme {
   /* Accent colors */
-  --color-1: hsl(214, 89%, 72%);
-  --color-2: hsl(212, 17%, 48%);
-  --color-3: hsla(190, 80%, 65%, 1);
+  --color-1: hsl(215, 90%, 65%);
+  --color-2: hsl(215, 20%, 50%);
+  --color-3: hsl(190, 80%, 60%);
 
   /* Text colors */
-  --color-text-1: hsla(0, 0%, 100%, 1);
-  --color-text-2: hsla(0, 0%, 65%, 1);
-  --color-text-inverse: hsla(220, 15%, 10%, 1);
+  --color-text-1: hsl(220, 15%, 95%);
+  --color-text-2: hsl(220, 10%, 55%);
+  --color-text-inverse: hsl(220, 15%, 10%);
 
   /* Semantic colors */
-  --error-color: hsla(0, 72%, 65%, 1);
-  --warning-color: hsla(45, 90%, 55%, 1);
-  --success-color: hsla(170, 70%, 60%, 1);
+  --error-color: hsl(0, 70%, 60%);
+  --warning-color: hsl(40, 90%, 55%);
+  --success-color: hsl(150, 70%, 50%);
 
-  /* BACKGROUNDS - per layer */
-  --shell-background: hsla(240, 9%, 11%, 1);
-  --layout-background: hsla(240, 5%, 14%, 1);
+  /* BACKGROUNDS - per layer (blue-tinted) */
+  --shell-background: hsl(220, 15%, 10%);
+  --layout-background: hsl(220, 13%, 14%);
   --area-background: transparent;
-  --section-background: hsla(240, 5%, 18%, 1);
-  --component-background: hsla(240, 5%, 18%, 1);
-  --forms-background: hsla(240, 5%, 7%, 1);
-  --hover-background: hsla(240, 5%, 24%, 1);
+  --section-background: hsl(220, 12%, 18%);
+  --component-background: hsl(220, 12%, 18%);
+  --forms-background: hsl(220, 12%, 22%);
+  --hover-background: hsl(220, 12%, 28%);
 
   /* Border colors */
-  --border-color-1: hsla(0, 0%, 30%, 1);
-  --border-color-2: hsla(0, 0%, 45%, 1);
+  --border-color-1: hsl(220, 10%, 30%);
+  --border-color-2: hsl(220, 10%, 45%);
 
   /* Shadows */
   --box-shadow-1: 0 1px 2px hsla(0, 0%, 0%, 0.2);

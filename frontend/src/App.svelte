@@ -2,11 +2,60 @@
   import { onMount } from 'svelte';
   import Logo from './layout/Logo.svelte';
 
+  // Global
   let scaling = $state(1);
   let radiusFactor = $state(1);
 
+  // Layers
+  let shellGap = $state(1);
+  let shellPadding = $state(0);
+  let layoutGap = $state(1);
+  let layoutPadding = $state(0);
+  let layoutBorderWidth = $state(0);
+  let areaGap = $state(1);
+  let areaPadding = $state(0);
+  let areaBorderWidth = $state(0);
+  let sectionGap = $state(1);
+  let sectionPadding = $state(0);
+  let sectionBorderWidth = $state(0);
+  let componentBorderWidth = $state(1);
+
   function setVar(name, value) {
     document.documentElement.style.setProperty(name, value);
+  }
+
+  function setBlockStyle() {
+    // Block: 1px gaps, 0 padding, 0 radius
+    radiusFactor = 0; setVar('--radius-factor', 0);
+    shellGap = 1; setVar('--shell-gap', '1px');
+    shellPadding = 0; setVar('--shell-padding', '0px');
+    layoutGap = 1; setVar('--layout-gap', '1px');
+    layoutPadding = 0; setVar('--layout-padding', '0px');
+    layoutBorderWidth = 0; setVar('--layout-border-width', '0px');
+    areaGap = 1; setVar('--area-gap', '1px');
+    areaPadding = 0; setVar('--area-padding', '0px');
+    areaBorderWidth = 0; setVar('--area-border-width', '0px');
+    sectionGap = 1; setVar('--section-gap', '1px');
+    sectionPadding = 0; setVar('--section-padding', '0px');
+    sectionBorderWidth = 0; setVar('--section-border-width', '0px');
+    componentBorderWidth = 0; setVar('--component-border-width', '0px');
+  }
+
+  function setIslandStyle() {
+    // Island: larger gaps, padding, radius, borders
+    radiusFactor = 1; setVar('--radius-factor', 1);
+    shellGap = 8; setVar('--shell-gap', '8px');
+    shellPadding = 8; setVar('--shell-padding', '8px');
+    layoutGap = 8; setVar('--layout-gap', '8px');
+    layoutPadding = 0; setVar('--layout-padding', '0px');
+    layoutBorderWidth = 0; setVar('--layout-border-width', '0px');
+    areaGap = 8; setVar('--area-gap', '8px');
+    areaPadding = 12; setVar('--area-padding', '12px');
+    areaBorderWidth = 1; setVar('--area-border-width', '1px');
+    sectionGap = 12; setVar('--section-gap', '12px');
+    sectionPadding = 16; setVar('--section-padding', '16px');
+    sectionBorderWidth = 1; setVar('--section-border-width', '1px');
+    componentBorderWidth = 1; setVar('--component-border-width', '1px');
   }
 
   function toggleTheme() {
@@ -22,47 +71,180 @@
   });
 </script>
 
+<style>
+  .floating-controls {
+    position: fixed;
+    top: var(--space-3);
+    right: var(--space-3);
+    z-index: 1000;
+    background: var(--section-background);
+    border: 1px solid var(--border-color-1);
+    border-radius: var(--radius-3);
+    padding: var(--space-3);
+    display: grid;
+    gap: var(--space-3);
+    font-size: var(--text-1);
+    max-height: calc(100vh - var(--space-6));
+    overflow-y: auto;
+  }
+
+  .control-group {
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .control-group-title {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-2);
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  .control-row {
+    display: grid;
+    grid-template-columns: 70px 60px 1fr;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .control-row input[type="range"] {
+    width: 100%;
+    min-width: 60px;
+  }
+
+  .control-value {
+    text-align: right;
+    font-family: var(--family-mono);
+    color: var(--color-text-2);
+  }
+</style>
+
+<div class="floating-controls">
+  <div class="control-group">
+    <span class="control-group-title">Presets</span>
+    <div style="display: flex; gap: var(--space-2);">
+      <button onclick={setBlockStyle} data-variant="outline" data-size="small">Block</button>
+      <button onclick={setIslandStyle} data-variant="outline" data-size="small">Island</button>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <span class="control-group-title">Global</span>
+    <button onclick={toggleTheme} data-variant="outline" data-size="small">Toggle Theme</button>
+    <div class="control-row">
+      <span>Scale</span>
+      <span class="control-value">{scaling}</span>
+      <input type="range" min="0.8" max="1.2" step="0.05" value={scaling}
+             oninput={(e) => { scaling = +e.target.value; setVar('--scaling', scaling); }}>
+    </div>
+    <div class="control-row">
+      <span>Radius</span>
+      <span class="control-value">{radiusFactor}</span>
+      <input type="range" min="0" max="2" step="0.25" value={radiusFactor}
+             oninput={(e) => { radiusFactor = +e.target.value; setVar('--radius-factor', radiusFactor); }}>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <span class="control-group-title">Shell</span>
+    <div class="control-row">
+      <span>Gap</span>
+      <span class="control-value">{shellGap}px</span>
+      <input type="range" min="0" max="16" value={shellGap}
+             oninput={(e) => { shellGap = +e.target.value; setVar('--shell-gap', shellGap + 'px'); }}>
+    </div>
+    <div class="control-row">
+      <span>Padding</span>
+      <span class="control-value">{shellPadding}px</span>
+      <input type="range" min="0" max="32" value={shellPadding}
+             oninput={(e) => { shellPadding = +e.target.value; setVar('--shell-padding', shellPadding + 'px'); }}>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <span class="control-group-title">Layout</span>
+    <div class="control-row">
+      <span>Gap</span>
+      <span class="control-value">{layoutGap}px</span>
+      <input type="range" min="0" max="16" value={layoutGap}
+             oninput={(e) => { layoutGap = +e.target.value; setVar('--layout-gap', layoutGap + 'px'); }}>
+    </div>
+    <div class="control-row">
+      <span>Padding</span>
+      <span class="control-value">{layoutPadding}px</span>
+      <input type="range" min="0" max="32" value={layoutPadding}
+             oninput={(e) => { layoutPadding = +e.target.value; setVar('--layout-padding', layoutPadding + 'px'); }}>
+    </div>
+    <div class="control-row">
+      <span>Border</span>
+      <span class="control-value">{layoutBorderWidth}px</span>
+      <input type="range" min="0" max="3" value={layoutBorderWidth}
+             oninput={(e) => { layoutBorderWidth = +e.target.value; setVar('--layout-border-width', layoutBorderWidth + 'px'); }}>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <span class="control-group-title">Area</span>
+    <div class="control-row">
+      <span>Gap</span>
+      <span class="control-value">{areaGap}px</span>
+      <input type="range" min="0" max="16" value={areaGap}
+             oninput={(e) => { areaGap = +e.target.value; setVar('--area-gap', areaGap + 'px'); }}>
+    </div>
+    <div class="control-row">
+      <span>Padding</span>
+      <span class="control-value">{areaPadding}px</span>
+      <input type="range" min="0" max="32" value={areaPadding}
+             oninput={(e) => { areaPadding = +e.target.value; setVar('--area-padding', areaPadding + 'px'); }}>
+    </div>
+    <div class="control-row">
+      <span>Border</span>
+      <span class="control-value">{areaBorderWidth}px</span>
+      <input type="range" min="0" max="3" value={areaBorderWidth}
+             oninput={(e) => { areaBorderWidth = +e.target.value; setVar('--area-border-width', areaBorderWidth + 'px'); }}>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <span class="control-group-title">Section</span>
+    <div class="control-row">
+      <span>Gap</span>
+      <span class="control-value">{sectionGap}px</span>
+      <input type="range" min="0" max="32" value={sectionGap}
+             oninput={(e) => { sectionGap = +e.target.value; setVar('--section-gap', sectionGap + 'px'); }}>
+    </div>
+    <div class="control-row">
+      <span>Padding</span>
+      <span class="control-value">{sectionPadding}px</span>
+      <input type="range" min="0" max="32" value={sectionPadding}
+             oninput={(e) => { sectionPadding = +e.target.value; setVar('--section-padding', sectionPadding + 'px'); }}>
+    </div>
+    <div class="control-row">
+      <span>Border</span>
+      <span class="control-value">{sectionBorderWidth}px</span>
+      <input type="range" min="0" max="3" value={sectionBorderWidth}
+             oninput={(e) => { sectionBorderWidth = +e.target.value; setVar('--section-border-width', sectionBorderWidth + 'px'); }}>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <span class="control-group-title">Component</span>
+    <div class="control-row">
+      <span>Border</span>
+      <span class="control-value">{componentBorderWidth}px</span>
+      <input type="range" min="0" max="3" value={componentBorderWidth}
+             oninput={(e) => { componentBorderWidth = +e.target.value; setVar('--component-border-width', componentBorderWidth + 'px'); }}>
+    </div>
+  </div>
+</div>
+
 <nuke-app-shell-sidebar>
   <nuke-nav-rail>
     <nuke-nav-rail-header>
       <Logo size="small" />
       <span><strong>Nuke</strong></span>
     </nuke-nav-rail-header>
-
-    <nuke-nav-rail-content>
-      <div>
-        <small data-muted><strong>THEME</strong></small>
-        <button onclick={toggleTheme} data-variant="outline" data-size="small">
-          Toggle Dark/Light
-        </button>
-      </div>
-
-      <div>
-        <small data-muted><strong>SCALING</strong></small>
-        <label>
-          {scaling}
-          <input type="range" min="0.8" max="1.2" step="0.05" value={scaling}
-                 oninput={(e) => { scaling = +e.target.value; setVar('--scaling', scaling); }}>
-        </label>
-      </div>
-
-      <div>
-        <small data-muted><strong>RADIUS</strong></small>
-        <label>
-          {radiusFactor}
-          <input type="range" min="0" max="2" step="0.25" value={radiusFactor}
-                 oninput={(e) => { radiusFactor = +e.target.value; setVar('--radius-factor', radiusFactor); }}>
-        </label>
-      </div>
-
-      <div>
-        <small data-muted><strong>GAPS</strong></small>
-        <label>Shell <input type="range" min="0" max="8" value="1" oninput={(e) => setVar('--shell-gap', e.target.value + 'px')}></label>
-        <label>Layout <input type="range" min="0" max="8" value="1" oninput={(e) => setVar('--layout-gap', e.target.value + 'px')}></label>
-        <label>Area <input type="range" min="0" max="8" value="1" oninput={(e) => setVar('--area-gap', e.target.value + 'px')}></label>
-        <label>Section <input type="range" min="0" max="24" value="12" oninput={(e) => setVar('--section-gap', e.target.value + 'px')}></label>
-      </div>
-    </nuke-nav-rail-content>
   </nuke-nav-rail>
 
   <nuke-app-shell-sidebar-content>
@@ -94,32 +276,34 @@
 
           <section>
             <h2>Input</h2>
-            <input type="text" placeholder="Default input">
             <input type="text" data-size="small" placeholder="Small">
+            <input type="text" placeholder="Default input">
             <input type="text" data-size="large" placeholder="Large">
             <input type="text" disabled placeholder="Disabled">
           </section>
 
           <section>
             <h2>Select</h2>
-            <select><option>Default select</option></select>
             <select data-size="small"><option>Small</option></select>
+            <select><option>Default select</option></select>
             <select data-size="large"><option>Large</option></select>
           </section>
 
           <section>
             <h2>Checkbox</h2>
-            <label><input type="checkbox"> Unchecked</label>
-            <label><input type="checkbox" checked> Checked</label>
+            <label><input type="checkbox" data-size="small"> Small</label>
+            <label><input type="checkbox" checked> Default</label>
+            <label><input type="checkbox" data-size="large"> Large</label>
             <label><input type="checkbox" id="indeterminate"> Indeterminate</label>
             <label><input type="checkbox" disabled> Disabled</label>
           </section>
 
           <section>
             <h2>Radio</h2>
-            <label><input type="radio" name="r1"> Option A</label>
-            <label><input type="radio" name="r1" checked> Option B</label>
-            <label><input type="radio" name="r1" disabled> Disabled</label>
+            <label><input type="radio" name="r1" data-size="small"> Small</label>
+            <label><input type="radio" name="r1" checked> Default</label>
+            <label><input type="radio" name="r1" data-size="large"> Large</label>
+            <label><input type="radio" name="r2" disabled> Disabled</label>
           </section>
 
           <section>
@@ -129,20 +313,9 @@
 
           <section>
             <h2>Range</h2>
-            <input type="range">
             <input type="range" data-size="small">
+            <input type="range">
             <input type="range" data-size="large">
-          </section>
-
-          <section>
-            <h2>Badge</h2>
-            <p>
-              <span data-badge>Default</span>
-              <span data-badge data-variant="secondary">Secondary</span>
-              <span data-badge data-variant="destructive">Destructive</span>
-              <span data-badge data-variant="success">Success</span>
-              <span data-badge data-variant="warning">Warning</span>
-            </p>
           </section>
 
           <section>
@@ -167,13 +340,6 @@
             <p data-size="large">Large lead paragraph.</p>
             <p>Default paragraph with <strong>bold</strong>, <em>italic</em>, and <a href="https://example.com">link</a>.</p>
             <p data-size="small" data-muted>Small muted text.</p>
-          </section>
-
-          <section>
-            <h2>Code</h2>
-            <p>Inline <code>code</code> and <kbd>Ctrl</kbd>+<kbd>C</kbd></p>
-            <pre><code>const nuke = 'One unit. One ratio.';
-console.log(nuke);</code></pre>
           </section>
 
           <section>
@@ -233,7 +399,7 @@ console.log(nuke);</code></pre>
               <nuke-tab>Install</nuke-tab>
               <nuke-tab-panel><p>This is the overview panel.</p></nuke-tab-panel>
               <nuke-tab-panel><p>Modular scale, CSS variables, web components.</p></nuke-tab-panel>
-              <nuke-tab-panel><pre><code>npm install @nuke.dev/design-system</code></pre></nuke-tab-panel>
+              <nuke-tab-panel><p>npm install @nuke.dev/design-system</p></nuke-tab-panel>
             </nuke-tabs>
           </section>
 

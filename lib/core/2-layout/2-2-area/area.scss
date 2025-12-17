@@ -4,5 +4,6 @@ nuke-area {
   gap: var(--area-gap);
   padding: var(--area-padding);
   background: var(--area-background);
+  border: var(--area-border-width) solid var(--border-color-1);
   border-radius: var(--area-radius);
 }

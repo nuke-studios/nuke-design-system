@@ -1,7 +1,7 @@
 /* Accordion */
 nuke-accordion {
   display: block;
-  border: 1px solid var(--border-color-1);
+  border: var(--component-border-width) solid var(--border-color-1);
   border-radius: var(--radius-2);
   overflow: hidden;
 

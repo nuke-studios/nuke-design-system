@@ -19,7 +19,6 @@ export { NukeSidebar } from './1-shell/sidebar/sidebar.js';
 
 // 3. Components
 export { NukeAccordion } from './3-components/accordion/accordion.js';
-export { NukeBadge } from './3-components/badge/badge.js';
 export { NukeNavAccordion, NukeNavAccordionItem } from './3-components/nav-accordion/nav-accordion.js';
 export { NukeNavBarItem } from './3-components/nav-bar/nav-bar.js';
 export { NukeNavRailItem } from './3-components/nav-rail/nav-rail.js';

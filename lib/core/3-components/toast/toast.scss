@@ -19,11 +19,11 @@ nuke-toast {
   max-width: 420px;
   padding: var(--space-4);
   font-size: var(--text-base);
-  border-radius: var(--radius-3);
+  border-radius: var(--radius-2);
   pointer-events: auto;
   background: var(--forms-background);
   color: var(--color-text-1);
-  border: 1px solid var(--border-color-1);
+  border: var(--component-border-width) solid var(--border-color-1);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
   /* Animation */
