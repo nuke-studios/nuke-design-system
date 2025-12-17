@@ -4,11 +4,12 @@
 
   // Global
   let scaling = $state(1);
-  let radiusFactor = $state(1);
+  let radiusFactor = $state(0);
 
   // Layers
   let shellGap = $state(1);
   let shellPadding = $state(0);
+  let shellBorderWidth = $state(0);
   let layoutGap = $state(1);
   let layoutPadding = $state(0);
   let layoutBorderWidth = $state(0);
@@ -25,20 +26,21 @@
   }
 
   function setBlockStyle() {
-    // Block: 1px gaps, 0 padding, 0 radius
+    // Block: 1px hairline gaps, balanced padding, no radius
     radiusFactor = 0; setVar('--radius-factor', 0);
     shellGap = 1; setVar('--shell-gap', '1px');
-    shellPadding = 0; setVar('--shell-padding', '0px');
+    shellPadding = 8; setVar('--shell-padding', '8px');
+    shellBorderWidth = 0; setVar('--shell-border-width', '0px');
     layoutGap = 1; setVar('--layout-gap', '1px');
     layoutPadding = 0; setVar('--layout-padding', '0px');
     layoutBorderWidth = 0; setVar('--layout-border-width', '0px');
     areaGap = 1; setVar('--area-gap', '1px');
     areaPadding = 0; setVar('--area-padding', '0px');
     areaBorderWidth = 0; setVar('--area-border-width', '0px');
-    sectionGap = 1; setVar('--section-gap', '1px');
-    sectionPadding = 0; setVar('--section-padding', '0px');
+    sectionGap = 8; setVar('--section-gap', '8px');
+    sectionPadding = 16; setVar('--section-padding', '16px');
     sectionBorderWidth = 0; setVar('--section-border-width', '0px');
-    componentBorderWidth = 0; setVar('--component-border-width', '0px');
+    componentBorderWidth = 1; setVar('--component-border-width', '1px');
   }
 
   function setIslandStyle() {
@@ -46,6 +48,7 @@
     radiusFactor = 1; setVar('--radius-factor', 1);
     shellGap = 8; setVar('--shell-gap', '8px');
     shellPadding = 8; setVar('--shell-padding', '8px');
+    shellBorderWidth = 1; setVar('--shell-border-width', '1px');
     layoutGap = 8; setVar('--layout-gap', '8px');
     layoutPadding = 0; setVar('--layout-padding', '0px');
     layoutBorderWidth = 0; setVar('--layout-border-width', '0px');
@@ -58,24 +61,70 @@
     componentBorderWidth = 1; setVar('--component-border-width', '1px');
   }
 
+  function resetToDefault() {
+    // Reset to token defaults
+    scaling = 1; setVar('--scaling', 1);
+    radiusFactor = 0; setVar('--radius-factor', 0);
+    shellGap = 1; setVar('--shell-gap', '1px');
+    shellPadding = 0; setVar('--shell-padding', '0px');
+    shellBorderWidth = 0; setVar('--shell-border-width', '0px');
+    layoutGap = 1; setVar('--layout-gap', '1px');
+    layoutPadding = 0; setVar('--layout-padding', '0px');
+    layoutBorderWidth = 0; setVar('--layout-border-width', '0px');
+    areaGap = 1; setVar('--area-gap', '1px');
+    areaPadding = 0; setVar('--area-padding', '0px');
+    areaBorderWidth = 0; setVar('--area-border-width', '0px');
+    sectionGap = 1; setVar('--section-gap', '1px');
+    sectionPadding = 0; setVar('--section-padding', '0px');
+    sectionBorderWidth = 0; setVar('--section-border-width', '0px');
+    componentBorderWidth = 1; setVar('--component-border-width', '1px');
+  }
+
   function toggleTheme() {
     const isDark = document.body.classList.contains('dark-theme');
     document.body.classList.toggle('dark-theme', !isDark);
     document.body.classList.toggle('light-theme', isDark);
   }
 
+  // Draggable controls
+  let controlsX = $state(window.innerWidth - 320);
+  let controlsY = $state(12);
+  let isDragging = $state(false);
+  let dragOffset = { x: 0, y: 0 };
+
+  function startDrag(e) {
+    if (e.target.closest('input, button')) return;
+    isDragging = true;
+    dragOffset = { x: e.clientX - controlsX, y: e.clientY - controlsY };
+  }
+
+  function onDrag(e) {
+    if (!isDragging) return;
+    controlsX = e.clientX - dragOffset.x;
+    controlsY = e.clientY - dragOffset.y;
+  }
+
+  function stopDrag() {
+    isDragging = false;
+  }
+
   onMount(() => {
     document.body.classList.add('dark-theme');
     const el = document.getElementById('indeterminate');
     if (el) el.indeterminate = true;
+
+    window.addEventListener('mousemove', onDrag);
+    window.addEventListener('mouseup', stopDrag);
+    return () => {
+      window.removeEventListener('mousemove', onDrag);
+      window.removeEventListener('mouseup', stopDrag);
+    };
   });
 </script>
 
 <style>
   .floating-controls {
     position: fixed;
-    top: var(--space-3);
-    right: var(--space-3);
     z-index: 1000;
     background: var(--section-background);
     border: 1px solid var(--border-color-1);
@@ -86,6 +135,12 @@
     font-size: var(--text-1);
     max-height: calc(100vh - var(--space-6));
     overflow-y: auto;
+    cursor: grab;
+    user-select: none;
+  }
+
+  .floating-controls:active {
+    cursor: grabbing;
   }
 
   .control-group {
@@ -118,12 +173,18 @@
     font-family: var(--family-mono);
     color: var(--color-text-2);
   }
+
+  /* Limit page width for testing */
+  :global(nuke-app-shell-sidebar) {
+    max-width: 70vw;
+  }
 </style>
 
-<div class="floating-controls">
+<div class="floating-controls" style="left: {controlsX}px; top: {controlsY}px;" onmousedown={startDrag}>
   <div class="control-group">
     <span class="control-group-title">Presets</span>
     <div style="display: flex; gap: var(--space-2);">
+      <button onclick={resetToDefault} data-variant="ghost" data-size="small">Reset</button>
       <button onclick={setBlockStyle} data-variant="outline" data-size="small">Block</button>
       <button onclick={setIslandStyle} data-variant="outline" data-size="small">Island</button>
     </div>
@@ -159,6 +220,12 @@
       <span class="control-value">{shellPadding}px</span>
       <input type="range" min="0" max="32" value={shellPadding}
              oninput={(e) => { shellPadding = +e.target.value; setVar('--shell-padding', shellPadding + 'px'); }}>
+    </div>
+    <div class="control-row">
+      <span>Border</span>
+      <span class="control-value">{shellBorderWidth}px</span>
+      <input type="range" min="0" max="3" value={shellBorderWidth}
+             oninput={(e) => { shellBorderWidth = +e.target.value; setVar('--shell-border-width', shellBorderWidth + 'px'); }}>
     </div>
   </div>
 
@@ -368,7 +435,7 @@
 
           <section>
             <h2>Nav</h2>
-            <nav data-variant="pills">
+            <nav>
               <a href="https://example.com" class="active">Home</a>
               <a href="https://example.com">About</a>
               <a href="https://example.com">Contact</a>
@@ -380,13 +447,13 @@
             <nuke-accordion expanded>
               <nuke-accordion-header>What is Nuke?</nuke-accordion-header>
               <nuke-accordion-content>
-                <p>A design system where everything scales from two variables.</p>
+                A design system where everything scales from two variables.
               </nuke-accordion-content>
             </nuke-accordion>
             <nuke-accordion>
               <nuke-accordion-header>How does it work?</nuke-accordion-header>
               <nuke-accordion-content>
-                <p>Change --scaling and --radius-factor to transform the entire UI.</p>
+                Change --scaling and --radius-factor to transform the entire UI.
               </nuke-accordion-content>
             </nuke-accordion>
           </section>

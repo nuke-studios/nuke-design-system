@@ -23,9 +23,16 @@
   "bugs": {
     "url": "https://github.com/nuke-studios/nuke-design-system/issues"
   },
-  "main": "dist/core.css",
+  "main": "dist/core.js",
   "module": "dist/core.js",
   "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/core.js",
+      "default": "./dist/core.js"
+    },
+    "./dist/core.css": "./dist/core.css"
+  },
   "scripts": {
     "build": "tsc && sass core/core.scss dist/core.css && sass core/core.scss dist/core.min.css --style=compressed && esbuild core/core.ts --bundle --outdir=dist --format=esm --external:@phosphor-icons/webcomponents --external:lit",
     "dev": "sass core/core.scss dist/core.css --watch & esbuild core/core.ts --bundle --outdir=dist --format=esm --external:@phosphor-icons/webcomponents --external:lit --watch=forever"

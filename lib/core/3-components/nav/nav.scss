@@ -13,7 +13,7 @@ nav {
     font-size: var(--text-base);
     font-weight: var(--font-weight-medium);
     text-decoration: none;
-    border-radius: var(--radius-2);
+    border-radius: var(--forms-radius);
     transition:
       color var(--transition-fast),
       background-color var(--transition-fast);
@@ -38,10 +38,6 @@ nav {
   /* ==========================================
      VARIANTS
   ========================================== */
-  &[data-variant="pills"] a {
-    border-radius: var(--radius-full);
-  }
-
   &[data-variant="underline"] {
     gap: 0;
     border-bottom: 1px solid var(--border-color-1);

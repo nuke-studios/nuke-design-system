@@ -17,7 +17,7 @@
      Multiplier for all radius values
      0 = none, 0.75 = small, 1 = medium, 1.5 = large
   ========================================== */
-  --radius-factor: 1;
+  --radius-factor: 0;
 
   /* ==========================================
      SPACING SCALE
@@ -65,6 +65,8 @@
   ========================================== */
   --shell-padding: 0;
   --shell-gap: 1px;
+  --shell-radius: var(--radius-2);
+  --shell-border-width: 0;
 
   /* ==========================================
      2. LAYOUT HIERARCHY
@@ -161,7 +163,7 @@
   --success-color: hsl(150, 70%, 50%);
 
   /* BACKGROUNDS - per layer (blue-tinted) */
-  --shell-background: hsl(220, 15%, 10%);
+  --shell-background: hsl(0, 0%, 69%);
   --layout-background: hsl(220, 13%, 14%);
   --area-background: transparent;
   --section-background: hsl(220, 12%, 18%);

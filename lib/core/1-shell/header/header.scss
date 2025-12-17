@@ -1,10 +1,10 @@
-/* Header - Layout element */
+/* Header - Shell element */
 header {
   display: flex;
   align-items: center;
   min-height: var(--bar-height-2);
-  padding: 0 var(--layout-padding);
+  padding: var(--shell-padding);
   background: var(--layout-background);
-  border: var(--layout-border-width) solid var(--border-color-1);
-  border-radius: var(--layout-radius);
+  border: var(--shell-border-width) solid var(--border-color-1);
+  border-radius: var(--shell-radius);
 }

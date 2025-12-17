@@ -1,12 +1,8 @@
 /* Lists - Reset handled in core.scss (margin/padding: 0) */
 
 ul, ol {
-  padding-left: 1.5em;
+  list-style-position: inside;
   line-height: 1.6;
-}
-
-li {
-  padding-left: 0.25em;
 }
 
 li + li {
@@ -17,6 +13,7 @@ li + li {
 li > ul,
 li > ol {
   margin-top: var(--space-2);
+  padding-left: var(--space-4);
 }
 
 /* List styles */
